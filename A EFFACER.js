@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "starter kit for gulp",
   "main": "/dist/index.html",
-  "author": "Jean Andreani",
+  "author": "SimplonTeam",
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.0.0",
