@@ -1,0 +1,16 @@
+.searchPage{
+  display: flex;
+  justify-content: space-between;
+  .searchBar{
+    margin: 30px;
+    width: 15%;
+    height: 700px;
+    background-color: rgb(136, 179, 57);
+  }
+  .cards{
+    margin: 30px;
+    width: 78%;
+    height: 700px;
+    background-color: rgb(86, 112, 36);
+  }
+}
