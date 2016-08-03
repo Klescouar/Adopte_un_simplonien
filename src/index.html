@@ -2,25 +2,20 @@
 <html lang="fr">
 
 <head>
-
 	<meta charset="UTF-8">
 	<title>Adopte un Simplonien</title>
 	<link rel="stylesheet" href="lib/css/normalize.css">
-	<!-- <link rel="stylesheet" href="lib/css/jquery-ui.min.css"> -->
-	<!-- <link rel="stylesheet" href="lib/css/animate.css"> -->
-	<!-- <link rel="stylesheet" href="lib/css/bootstrap.min.css"> -->
-	<link rel="stylesheet" type="text/css" href="lib/fonts/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/css/style.css">
-	<script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript" src="../node_modules/angular/angular.min.js"></script>
-	<script type="text/javascript" src="../node_modules/angular-route/angular-route.min.js"></script>
-	<script src="assets/js/min/app.min.js"></script>
 	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<script src="lib/js/angular.min.js"></script>
+	<script type="text/javascript" src="lib/js/angular-route.js"></script>
+	<script src="assets/js/min/app.min.js"></script>
 </head>
 
-<body ng-app="myApp">
-	<div class="nav">LOL</div>
+<body ng-app="AdopteUnSimplonien" ng-controller="app">
+	<div class="nav">{{lol}}</div>
 	<div ng-view></div>
+	<div class="footer">FOOTER</div>
 </body>
 
 </html>

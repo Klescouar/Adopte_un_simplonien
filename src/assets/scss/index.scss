@@ -1,0 +1,17 @@
+body{
+  box-sizing: border-box;
+  .nav{
+    background-color: green;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer{
+    background-color: green;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

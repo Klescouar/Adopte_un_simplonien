@@ -36,8 +36,8 @@ var inject       = require('gulp-inject');
 
 
 gulp.task('sass', function() {
-  gulp.src('src/assets/scss/*.scss')
-  .pipe(inject(gulp.src(['**/*.scss'], {read: false, cwd: 'src/assets/css'}), {
+  gulp.src('src/assets/scss/style.scss')
+  .pipe(inject(gulp.src(['**/*.scss'], {read: false, cwd: 'src/assets/scss'}), {
     starttag: '/* IMPORTS */',
     endtag: '/* Fin des IMPORTS */',
     transform: function (filepath) {
@@ -60,7 +60,7 @@ gulp.task('sass', function() {
 *
 **/
 gulp.task('browser-sync', function() {
-  browserSync.init(['dist/**/css/*.css', 'dist/**/*.js', 'src/**/*.html'], {
+  browserSync.init(['dist/**/css/*.css', 'dist/**/*.js', 'src/**.html'], {
     server: {
       baseDir: './dist'
     }
@@ -122,8 +122,10 @@ gulp.task('images', function () {
 **/
 
 gulp.task('copy', function() {
-    gulp.src('src/**/*.html')
+    gulp.src('src/index.html')
     .pipe(gulp.dest('dist'));
+    gulp.src('src/views/*.html')
+    .pipe(gulp.dest('dist/views'));
     gulp.src('src/lib/**/*')
     .pipe(gulp.dest('dist/lib'));
 });
@@ -137,10 +139,10 @@ gulp.task('copy', function() {
 *
 **/
 gulp.task('default', ['sass', 'scripts', 'images', 'copy', 'browser-sync'], function () {
-  gulp.watch('src/assets/css/**/*.scss', ['sass']);
+  gulp.watch('src/assets/scss/**/*.scss', ['sass']);
   gulp.watch('src/**/*.js', ['scripts']);
   gulp.watch('src/assets/images/*', ['images']);
-  gulp.watch('src/**/*.html', ['copy']);
+  gulp.watch('src/index.html', ['copy']);
 });
 
 
