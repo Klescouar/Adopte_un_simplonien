@@ -1,8 +1,14 @@
-<div class="searchPage">
-  <div class="searchBar">
-
-  </div>
-  <div class="cards">
-
-  </div>
+<div class="searchPage" ng-controller='searchCtrl'>
+    <div class="searchBar">
+        <form class="uk-form">
+            <input ng-model="searchStudent" placeholder="Chercher un étudiant">
+        </form>
+    </div>
+    <div class="cardPage">
+        <div class="card" ng-repeat="student in data | filter: {nom: searchStudent} track by $index">
+            <p>{{student.nom}} {{student.prenom}}</p>
+            <p> <strong>Promo:</strong> {{student.ville}}</p>
+            <p><strong>Spécialités:</strong> {{student.specialite}}</p>
+        </div>
+    </div>
 </div>
