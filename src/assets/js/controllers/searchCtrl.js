@@ -2,9 +2,10 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
     $http.get(serviceApi.api)
         .then(
             function(response) {
-              $scope.data = response.data;
+              $scope.data = [];
+                $scope.data.push(response.data);
 
-                console.log($scope.data);
+                console.log($scope.data[0]);
             },
             function(err) {
                 console.log("C'est la merde!");

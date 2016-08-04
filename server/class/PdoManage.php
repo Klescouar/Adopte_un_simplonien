@@ -27,6 +27,7 @@ class PdoManage {
                 "id" => $donnees['id'],
                 "nom" => $donnees['nom'],
                 "prenom" => $donnees['prenom'],
+                "nomPrenom" => $donnees['nom'].' '.$donnees['prenom'],
                 "ville" => $donnees['ville'],
                 "photo" => $donnees['photo'],
                 "specialite" => $donnees['specialite']
