@@ -24,6 +24,7 @@ class PdoManage {
 
         while ($donnees = $card->fetch()) {
             $data[$donnees['id']] = [
+                "id" => $donnees['id'],
                 "nom" => $donnees['nom'],
                 "prenom" => $donnees['prenom'],
                 "ville" => $donnees['ville'],
