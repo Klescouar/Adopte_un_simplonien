@@ -5,8 +5,8 @@
         </form>
     </div>
     <div class="cardPage">
-        <div class="cards" ng-repeat="student in data | filter:searchStudent track by $index">
-            <p>{{student.nom}} {{student.prenom}}</p>
+        <div class="card" ng-repeat="student in data | filterBy:searchStudent track by $index">
+            <p>{{student.nomPrenom}}</p>
             <p> <strong>Promo:</strong> {{student.ville}}</p>
             <p><strong>Spécialités:</strong> {{student.specialite}}</p>
         </div>

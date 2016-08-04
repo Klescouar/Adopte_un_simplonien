@@ -1,14 +1,19 @@
-app.filter('searchFilter', function () {
-  return function(objects, criteria){
-      var filterResult = new Array();
-      if(!criteria)
-          return objects;
+app.filter('filterBy', function() {
+    return function(array, query) {
 
-      for(index in objects) {
-          if(objects[index].boy.name.indexOf(criteria) != -1)
-              filterResult.push(objects[index]);
-      }
-      console.log(filterResult);
-      return filterResult;
-  }
+        var parts = query && query.trim().split(/\s+/),
+            keys = Object.keys(array[0]);
+
+        if (!parts || !parts.length){
+          return array;
+        }
+
+        return array.filter(function(obj) {
+            return parts.every(function(part) {
+                return keys.some(function(key) {
+                    return String(obj[key]).toLowerCase().indexOf(part.toLowerCase()) > -1;
+                });
+            });
+        });
+    };
 });
