@@ -1,17 +1,64 @@
 body{
   box-sizing: border-box;
-  .nav{
-    background-color: green;
-    height: 100px;
+
+  .nav-container{
+    padding: 0 100px;
+    background-color: #333333;
+    height: 70px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+
+    a{
+      color: white;
+      text-decoration: none;
+      margin: 20px;
+    }
+
+    .page-container-left{
+
+    }
+    .sign-container-rigth{
+      .sign-up{
+        padding: 10px 20px;
+        border: solid 1px white;
+      }
+    }
   }
-  .footer{
-    background-color: green;
-    height: 100px;
+
+  .footer-container{
+    background-color: #F7F7F7;
+    height: 70px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+
+    .logo{
+      background: url(../images/logoSimplon.png) no-repeat center;
+      background-size: cover;
+      height: 50px;
+      width: 60px;
+    }
+    .facebook-icon{
+      background: url(../images/facebook-logo-button.png) no-repeat center;
+      background-size: cover;
+      height: 50px;
+      width: 50px;
+
+    }
+    .twiter-icon{
+      background: url(../images/twitter.png) no-repeat center;
+      background-size: cover;
+      height: 50px;
+      width: 50px;
+      
+    }
+    .google-icon{
+      background: url(../images/google-plus.png) no-repeat center;
+      background-size: cover;
+      height: 50px;
+      width: 50px;
+      
+    }
   }
 }
