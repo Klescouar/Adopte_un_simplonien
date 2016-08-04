@@ -1,12 +1,13 @@
 <div class="searchPage" ng-controller='searchCtrl'>
     <div class="searchBar">
-        <form class="uk-form">
-            <input ng-model="searchStudent" placeholder="Chercher un étudiant">
+        <form class="inputForm">
+            <input ng-model="searchStudent" placeholder="Nom, langage, ville...">
+                <div class="searchImage"></div>
         </form>
     </div>
     <div class="cardPage">
-        <div class="card" ng-repeat="student in data | filter: {nom: searchStudent} track by $index">
-            <p>{{student.nom}} {{student.prenom}}</p>
+        <div ng-class="{'card': ($index % 2 === 0), 'cardBis': $index % 2 !== 0}" ng-repeat="student in data | filterBy:searchStudent track by $index">
+            <p>{{student.nomPrenom}}</p>
             <p> <strong>Promo:</strong> {{student.ville}}</p>
             <p><strong>Spécialités:</strong> {{student.specialite}}</p>
         </div>
