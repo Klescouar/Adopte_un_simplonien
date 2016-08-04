@@ -2,26 +2,38 @@
     display: flex;
     justify-content: space-between;
     .searchBar {
-        margin: 30px;
-        width: 15%;
-        height: 700px;
-        background-color: rgb(136, 179, 57);
+        width: 20%;
+        background-color: #F07324;
     }
     .cardPage {
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
-        margin: 30px;
-        width: 78%;
+        width: 80%;
         background-color: rgb(86, 112, 36);
         .card {
-            margin: 10px;
             height: 300px;
-            width: 250px;
-            background-color: rgb(164, 212, 72);
+            width: 25%;
+            background-color: #304D5E;
             display: flex;
-            justify-content: space-around;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: center;
             flex-wrap: wrap;
+            flex-grow: 1;
+            text-align: center;
+        }
+        .cardBis {
+            height: 300px;
+            width: 25%;
+            background-color: #5791B4;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: center;
+            flex-wrap: wrap;
+            flex-grow: 1;
+            text-align: center;
         }
     }
 }

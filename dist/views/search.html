@@ -5,13 +5,8 @@
         </form>
     </div>
     <div class="cardPage">
-<<<<<<< 4ecefa223aeb520b9dc51c19496f8eabfb3b7125
-        <div class="cards" ng-repeat="student in data[0] | filter:searchStudent track by $index">
-            <p>{{student.nom}} {{student.prenom}}</p>
-=======
         <div class="card" ng-repeat="student in data | filterBy:searchStudent track by $index">
             <p>{{student.nomPrenom}}</p>
->>>>>>> Add input ng-model
             <p> <strong>Promo:</strong> {{student.ville}}</p>
             <p><strong>Spécialités:</strong> {{student.specialite}}</p>
         </div>
