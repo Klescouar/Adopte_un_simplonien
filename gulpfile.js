@@ -46,7 +46,7 @@ gulp.task('sass', function() {
       return res;
     }
   }))
-  .pipe(sass({outputStyle: 'compressed'}))
+  .pipe(sass({outputStyle: 'compressed'})) // 
   .pipe(prefix('last 2 versions', '> 1%', 'ie 8', 'Android 2', 'Firefox ESR', 'ie 11'))
   .pipe(plumber())
   .pipe(gulp.dest('dist/assets/css'));
