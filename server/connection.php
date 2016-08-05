@@ -15,4 +15,5 @@ if ($connect['permission'] != false){
 }
 
 $redirection = htmlspecialchars($_POST['page']);
-header('Location: '.$redirection) ?>
+header('Location: '.$redirection)
+?>
