@@ -2,11 +2,30 @@
     <div class="searchBar">
         <form class="inputForm">
             <input ng-model="searchStudent" placeholder="Nom, langage, ville...">
-                <div class="searchImage"></div>
+            <div class="searchImage"></div>
         </form>
+        <div class="filterChoice">
+            <div class="filterTheme">
+                <div ng-click="changeState()" ng-repeat="theme in themes track by $index" ng-class="{'promo': ($index === 0), 'langage': ($index === 1), 'contrat': ($index === 2)}">
+                    <div ng-show="theme.active" class="triangle"></div>
+                </div>
+                <div class="gradient"></div>
+            </div>
+            <div class="filterIcone">
+                <div class="promoFilter">
+                    <button class="buttonCity" type="button" name="button" ng-repeat="school in schools"></button>
+                </div>
+                <div class="langageFilter">
+
+                </div>
+                <div class="contratFilter">
+
+                </div>
+            </div>
+        </div>
     </div>
     <div class="cardPage">
-        <div ng-class="{'card': ($index % 2 === 0), 'cardBis': $index % 2 !== 0}" ng-repeat="student in data | filterBy:searchStudent track by $index">
+        <div class="animated zoomInDown" ng-class="{'card': ($index % 2 === 0), 'cardBis': $index % 2 !== 0}" ng-repeat="student in data | filterBy:searchStudent track by $index">
             <p>{{student.nomPrenom}}</p>
             <p> <strong>Promo:</strong> {{student.ville}}</p>
             <p><strong>Spécialités:</strong> {{student.specialite}}</p>
