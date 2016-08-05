@@ -35,4 +35,22 @@ class PdoManage {
         }
         return $data;
     }
+
+    public function connection($pseudo, $password){
+        $verif = $this->db->prepare('SELECT id, password, permission FROM user WHERE pseudo = :pseudo');
+        $verif->bindParam('pseudo', $pseudo, PDO::PARAM_STR);
+        $verif->execute();
+
+        $infoUser = $verif->fetch();
+        $infoPermision = [];
+        
+        if (password_verify($password, $infoUser['password'])){
+            $infoPermision['pseudo'] = $pseudo;
+            $infoPermision['permission'] = $infoUser['permission'];
+        } else {
+            $infoPermision['permission'] = false;
+        }
+
+        return $infoPermision;
+    }
 }
