@@ -1,11 +1,14 @@
 body{
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  color: white;
 
   .nav-container{
-    padding: 0 100px;
-    background-color: #333333;
-    height: 70px;
+    padding: 0 7%;
+    background-color: $navbar-color;
     display: flex;
+    height: $nav-footer-height;
     justify-content: space-between;
     align-items: center;
 
@@ -18,7 +21,7 @@ body{
     .page-container-left{
 
     }
-    .sign-container-rigth{
+    .sign-container-right{
       .sign-up{
         padding: 10px 20px;
         border: solid 1px white;
@@ -27,38 +30,43 @@ body{
   }
 
   .footer-container{
-    background-color: #F7F7F7;
-    height: 70px;
+    background-color: $footer-color;
+    height: $nav-footer-height;
+    width: $full;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 
-    .logo{
-      background: url(../images/logoSimplon.png) no-repeat center;
+    .footer_item-container{
+      width: 300px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo, .facebook-icon, .twiter-icon, .google-icon{
+      background-repeat: no-repeat;
+      background-position: center;
       background-size: cover;
-      height: 50px;
-      width: 60px;
+      height: 20px;
+      width: 20px;
+    }
+
+    .logo{
+      background-image:url(../images/logoSimplon.png);
+      width: 40px;
+      height: 32px;
     }
     .facebook-icon{
-      background: url(../images/facebook-logo-button.png) no-repeat center;
-      background-size: cover;
-      height: 50px;
-      width: 50px;
+      background-image:url(../images/facebook-logo-button.png);
 
     }
     .twiter-icon{
-      background: url(../images/twitter.png) no-repeat center;
-      background-size: cover;
-      height: 50px;
-      width: 50px;
-      
+      background-image: url(../images/twitter.png);
+
     }
     .google-icon{
-      background: url(../images/google-plus.png) no-repeat center;
-      background-size: cover;
-      height: 50px;
-      width: 50px;
-      
+      background-image: url(../images/google-plus.png);
     }
   }
 }
