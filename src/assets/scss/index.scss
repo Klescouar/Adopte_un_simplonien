@@ -47,10 +47,8 @@ body{
     .logo, .facebook-icon, .twiter-icon, .google-icon{
       background-repeat: no-repeat;
       background-position: center;
-      background-size: cover;
-      height: 20px;
-      width: 20px;
-    }
+      position: relative;
+      z-index: 5;
 
     .logo{
       background-image:url(../images/logoSimplon.png);
@@ -59,7 +57,6 @@ body{
     }
     .facebook-icon{
       background-image:url(../images/facebook-logo-button.png);
-
     }
     .twiter-icon{
       background-image: url(../images/twitter.png);
