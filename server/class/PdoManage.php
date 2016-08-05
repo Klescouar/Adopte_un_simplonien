@@ -23,16 +23,16 @@ class PdoManage {
         $data = [];
 
         while ($donnees = $card->fetch()) {
-                   array_push($data, [
-                       "id" => $donnees['id'],
-                       "nom" => $donnees['nom'],
-                       "prenom" => $donnees['prenom'],
-                       "nomPrenom" => $donnees['nom'].' '.$donnees['prenom'],
-                       "ville" => $donnees['ville'],
-                       "photo" => $donnees['photo'],
-                       "specialite" => $donnees['specialite']
-                   ]);
-               }
-               return $data;
+            array_push($data, [
+                "id" => $donnees['id'],
+                "nom" => $donnees['nom'],
+                "prenom" => $donnees['prenom'],
+                "nomPrenom" => $donnees['nom'].' '.$donnees['prenom'],
+                "ville" => $donnees['ville'],
+                "photo" => $donnees['photo'],
+                "specialite" => $donnees['specialite']
+            ]);
+        }
+        return $data;
     }
 }
