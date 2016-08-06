@@ -37,7 +37,6 @@ var bs = require("browser-sync").create();
 
 
 gulp.task('sass', function() {
-<<<<<<< HEAD
   gulp.src('src/assets/scss/style.scss')
   .pipe(inject(gulp.src(['**/*.scss'], {read: false, cwd: 'src/assets/scss'}), {
     starttag: '/* IMPORTS */',
