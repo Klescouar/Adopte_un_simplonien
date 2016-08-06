@@ -1,2 +1,32 @@
-<h1>LOL</h1>
-<h1>LOLadaz</h1>
+<div class="contactPage" ng-controller="contactCtrl">
+    <div class="headContact">
+        <div class="simplonPicture">
+        </div>
+        <div class="adressContainer">
+            <div class="selectCity">
+                <h1>Choisis l'école que tu veux contacter:</h1>
+                <select ng-init="schoolChoice = schools[0].ville" class="" name="" ng-model="schoolChoice">
+                    <option ng-repeat="school in schools">{{school.ville}}</option>
+                </select>
+            </div>
+            <div ng-repeat="school in schools | filter:schoolChoice" class="adressSimplon">
+                <h1>Simplon {{school.ville}}</h1>
+                <p>{{school.rue}}</p>
+                <p>{{school.code}}</p>
+                <p>{{school.mail}}</p>
+                <p>{{school.phone}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="contactForm">
+        <h1>Une question, une suggestion, un doute ? C’est par ici !</h1>
+        <form method="post">
+            <input type="text" name="Nom" class="Name" placeholder="Nom/Prenom" />
+            <input type="text" name="City" class="City" placeholder="Ville" />
+            <input type="text" name="Email" class="Email" placeholder="Email" />
+            <input type="text" name="Phone" class="Phone" placeholder="Telephone" />
+            <textarea name="Message" rows="20" cols="20" class="Message" placeholder="Message"></textarea>
+            <input type="submit" name="submit" value="ENVOYER" class="submit-button" />
+        </form>
+    </div>
+</div>
