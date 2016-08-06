@@ -37,25 +37,21 @@ var bs = require("browser-sync").create();
 
 
 gulp.task('sass', function() {
-    gulp.src('src/assets/scss/style.scss')
-        .pipe(inject(gulp.src(['**/*.scss'], {
-            read: false,
-            cwd: 'src/assets/scss'
-        }), {
-            starttag: '/* IMPORTS */',
-            endtag: '/* Fin des IMPORTS */',
-            transform: function(filepath) {
-                var res = '@import \'' + filepath + '\';';
-                console.log(res);
-                return res;
-            }
-        }))
-        .pipe(sass({
-            outputStyle: 'compressed'
-        }))
-        .pipe(prefix('last 2 versions', '> 1%', 'ie 8', 'Android 2', 'Firefox ESR', 'ie 11'))
-        .pipe(plumber())
-        .pipe(gulp.dest('dist/assets/css'));
+<<<<<<< HEAD
+  gulp.src('src/assets/scss/style.scss')
+  .pipe(inject(gulp.src(['**/*.scss'], {read: false, cwd: 'src/assets/scss'}), {
+    starttag: '/* IMPORTS */',
+    endtag: '/* Fin des IMPORTS */',
+    transform: function (filepath) {
+      var res = '@import \'' + filepath + '\';';
+      console.log(res);
+      return res;
+    }
+  }))
+  .pipe(sass({outputStyle: 'compressed'})) //
+  .pipe(prefix('last 2 versions', '> 1%', 'ie 8', 'Android 2', 'Firefox ESR', 'ie 11'))
+  .pipe(plumber())
+  .pipe(gulp.dest('dist/assets/css'));
 });
 
 /**

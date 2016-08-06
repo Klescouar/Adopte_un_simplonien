@@ -23,16 +23,34 @@ class PdoManage {
         $data = [];
 
         while ($donnees = $card->fetch()) {
-                   array_push($data, [
-                       "id" => $donnees['id'],
-                       "nom" => $donnees['nom'],
-                       "prenom" => $donnees['prenom'],
-                       "nomPrenom" => $donnees['nom'].' '.$donnees['prenom'],
-                       "ville" => $donnees['ville'],
-                       "photo" => $donnees['photo'],
-                       "specialite" => $donnees['specialite']
-                   ]);
-               }
-               return $data;
+            array_push($data, [
+                "id" => $donnees['id'],
+                "nom" => $donnees['nom'],
+                "prenom" => $donnees['prenom'],
+                "nomPrenom" => $donnees['nom'].' '.$donnees['prenom'],
+                "ville" => $donnees['ville'],
+                "photo" => $donnees['photo'],
+                "specialite" => $donnees['specialite']
+            ]);
+        }
+        return $data;
+    }
+
+    public function connection($pseudo, $password){
+        $verif = $this->db->prepare('SELECT id, password, permission FROM user WHERE pseudo = :pseudo');
+        $verif->bindParam('pseudo', $pseudo, PDO::PARAM_STR);
+        $verif->execute();
+
+        $infoUser = $verif->fetch();
+        $infoPermision = [];
+
+        if (password_verify($password, $infoUser['password'])){
+            $infoPermision['pseudo'] = $pseudo;
+            $infoPermision['permission'] = $infoUser['permission'];
+        } else {
+            $infoPermision['permission'] = false;
+        }
+
+        return $infoPermision;
     }
 }
