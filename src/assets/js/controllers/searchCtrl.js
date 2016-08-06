@@ -8,6 +8,8 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
                 console.log("C'est la merde!");
             });
 
+    $scope.schools = serviceApi.schools;
+
     $scope.themes = [{
         name: 'Promo',
         active: true,
@@ -19,61 +21,6 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         active: false,
     }];
 
-    $scope.schools = [{
-        ville: 'Montreuil',
-        active: false,
-    }, {
-        ville: 'Indre',
-        active: false,
-    }, {
-        ville: 'Roubaix',
-        active: false,
-    }, {
-        ville: 'Noyon',
-        active: false,
-    }, {
-        ville: 'Troyes',
-        active: false,
-    }, {
-        ville: 'Epinal',
-        active: false,
-    }, {
-        ville: 'Rennes',
-        active: false,
-    }, {
-        ville: 'Vannes',
-        active: false,
-    }, {
-        ville: 'Hérault',
-        active: false,
-    }, {
-        ville: 'Villeurbanne',
-        active: false,
-    }, {
-        ville: 'Lozère',
-        active: false,
-    }, {
-        ville: 'Alès',
-        active: false,
-    }, {
-        ville: 'Lunel',
-        active: false,
-    }, {
-        ville: 'Toulouse',
-        active: false,
-    }, {
-        ville: 'Boulogne sur mer',
-        active: false,
-    }, {
-        ville: 'Narbonne',
-        active: false,
-    }, {
-        ville: 'Marseille',
-        active: false,
-    }, {
-        ville: 'Nice',
-        active: false,
-    }];
 
     $scope.langages = [{
         type: 'Javascript',
