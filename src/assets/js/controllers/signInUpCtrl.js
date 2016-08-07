@@ -8,6 +8,6 @@ app.controller('signInUpCtrl', ['$scope', '$http', 'serviceApi', function($scope
         $scope.signToggle = true;
     };
 
-    console.log($scope.signToggle);
+    console.log($scope.password);
 
 }]);
