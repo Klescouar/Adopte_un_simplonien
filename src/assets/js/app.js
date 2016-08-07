@@ -17,11 +17,10 @@ app.config(['$routeProvider', function($routeProvider) {
         .when('/profil', {
             templateUrl: 'views/profil.html'
         })
+        .when('/log', {
+            templateUrl: 'views/signInUp.html'
+        })
         .otherwise({
             redirectTo: '/'
         });
-}]);
-
-app.controller('app', ["$scope", function($scope) {
-  $scope.lol= 3;
 }]);

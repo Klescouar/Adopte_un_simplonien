@@ -53,16 +53,23 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 600px;
     background-color:  #7a001d;
+    padding: 100px;
     h1 {
         font-size: 1.5em;
         font-family: 'Lato', calibri, arial;
+        text-align: center;
+    }
+    p{
+      font-style: italic;
+      text-align: center;
     }
     form {
         display: flex;
         flex-direction: column;
-        width: 45%;
+        width: 60%;
+        min-width: 340px;
+        max-width: 700px;
     }
     input,
     textarea {
