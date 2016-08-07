@@ -46,6 +46,21 @@
             border: none;
             border-bottom: 2px solid #ebebeb;
         }
+        .inputSignError {
+            width: 75%;
+            height: 50px;
+            margin: 0 auto 15px;
+            padding: 0 15px;
+            border: none;
+            border-bottom: 2px solid #e05e5e;
+        }
+        .inputSignError:focus {
+            outline: none;
+            border-bottom-color: #e05e5e !important;
+        }
+        .inputSignError:hover {
+            border-bottom-color: #e05e5e;
+        }
         .inputSign:focus {
             outline: none;
             border-bottom-color: #3CC !important;
