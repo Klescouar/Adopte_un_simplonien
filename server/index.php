@@ -19,11 +19,12 @@ $app->get('api/card', function() use ($dbManage){
     return json_encode($card, JSON_PRETTY_PRINT);
 });
 
-$app->post('api/create/user', function(Request $pseudo) use ($dbManage){
-    return json_encode($pseudo->get('pseudo'));
-    // $confirmation = $dbManage->createUser();
-    //
-    // return $confirmation;
+$app->post('api/create/user', function(Request $user) use ($dbManage){
+    $login = trim(htmlspecialchars(addslashes($user->get('pseudo'))));
+    $mdp = trim(htmlspecialchars(addslashes($user->get('password'))));
+    $confirmation = $dbManage->createUser($login, $mdp);
+
+    return $confirmation;
 });
 
 $app->run();
