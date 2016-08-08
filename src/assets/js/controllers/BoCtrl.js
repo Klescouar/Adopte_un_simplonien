@@ -8,11 +8,12 @@ app.controller('BoCtrl', ['$scope', '$http', 'serviceApi', function($scope, $htt
         $http.post(serviceApi.createUser, data)
             .then(
                 function(response) {
-                    console.log = response.data;
+                    console.log (response.data);
                 },
                 function(err) {
                     console.log("C'est la merde!");
                 }
             );
     }
+
 }]);
