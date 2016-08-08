@@ -40,6 +40,23 @@ class PdoManage {
     }
 
     /**
+     *  Function affiche user
+    */
+    public function getUser(){
+        $user = $this->db->query('SELECT id, pseudo, permission FROM user ORDER BY id');
+        $data = [];
+
+        while ($donnees = $user->fetch()) {
+            array_push($data, [
+                "id" => $donnees['id'],
+                "pseudo" => $donnees['pseudo'],
+                "permission" => $donnees['permission']
+            ]);
+        }
+        return $data;
+    }
+
+    /**
      *  Function verification de connection et envois du niveau de permission
     */
     public function connection($pseudo, $password){
@@ -63,21 +80,21 @@ class PdoManage {
     /**
      *  Function  créer utilisateur
     */
-    public function createUser($pseudo, $password){
+    public function createUser($data){
         //Verification que le pseudo est disponible
         $verifPseudo = $this->db->prepare('SELECT id FROM user WHERE pseudo = :pseudo');
-        $verifPseudo->bindParam('pseudo', $pseudo, PDO::PARAM_STR);
+        $verifPseudo->bindParam('pseudo', $data['pseudo'], PDO::PARAM_STR);
         $verifPseudo->execute();
         $testPseudo = $verifPseudo->fetch();
 
         if (isset($testPseudo['id'])) {
             return 'pseudo déjà existant';
         } else {
-            $password = password_hash($password, PASSWORD_DEFAULT);
+            $password = password_hash($data['password'], PASSWORD_DEFAULT);
 
             $addUser = $this->db->prepare("INSERT INTO user(pseudo, password, permission) VALUES (:pseudo, :password, :permission) ");
             $addUser->execute(array(
-                'pseudo' => $pseudo,
+                'pseudo' => $data['pseudo'],
                 'password' => $password,
                 'permission' => 'visiteur'
             ));
@@ -128,5 +145,15 @@ class PdoManage {
 
             return $info['prenom'];
         }
+    }
+
+    /**
+     *  Function supprime utilisateur
+    */
+    public function deleteUser($id){
+        $delete = $this->db->prepare('DELETE FROM user WHERE id = :id');
+        $delete->execute(array('id' => $id));
+
+        return 'utilisateur '.$id.' supprimé';
     }
 }
