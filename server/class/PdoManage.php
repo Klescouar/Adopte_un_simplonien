@@ -70,8 +70,19 @@ class PdoManage {
 
         $testPseudo = $verifPseudo->fetch();
 
-        if (isset($testPseudo['pseudo'])) {
+        if (isset($testPseudo['id'])) {
             return 'pseudo déjà existant';
+        } else {
+            $password = password_hash($password, PASSWORD_DEFAULT);
+
+            $addUser = $this->db->prepare("INSERT INTO user(pseudo, password, permission) VALUES (:pseudo, :password, :permission) ");
+            $addUser->execute(array(
+                'pseudo' => $pseudo,
+                'password' => $password,
+                'permission' => 'visiteur'
+            ));
+
+            return 'Ça roule ma poule';
         }
     }
 }
