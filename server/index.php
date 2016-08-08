@@ -20,11 +20,11 @@ $app->get('api/card', function() use ($dbManage){
 });
 
 $app->post('api/create/user', function(Request $user) use ($dbManage){
-    $login = trim(htmlspecialchars(addslashes($user->get('pseudo'))));
+    $login = $user->post('pseudo');
     $mdp = trim(htmlspecialchars(addslashes($user->get('password'))));
     $confirmation = $dbManage->createUser($login, $mdp);
 
-    return $confirmation;
+    return $login;
 });
 
 $app->post('api/create/simplonien', function(Request $article) use ($dbManage){

@@ -20,6 +20,9 @@ app.config(['$routeProvider', function($routeProvider) {
         .when('/log', {
             templateUrl: 'views/signInUp.html'
         })
+        .when('/backOffice', {
+            templateUrl: 'views/backOffice.html'
+        })
         .otherwise({
             redirectTo: '/'
         });

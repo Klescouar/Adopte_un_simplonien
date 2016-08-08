@@ -1,0 +1,9 @@
+<div ng-controller="boCtrl">
+	<form>
+        		<input type="text" ng-model="boCreatePseudo">
+        		<input type="password" ng-model="boCreateMdp">
+        		<input type="password" ng-model="boCreateMdpVerif">
+        		<div ng-if="boCreateMdp != boCreateMdpVerif"> ne marche pas</div>
+        		<button ng-click="createAccount()">coucou</button>
+        	</form>
+    </div>
