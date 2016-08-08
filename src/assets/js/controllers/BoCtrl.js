@@ -1,10 +1,16 @@
-app.controller('BoCtrl', ['$scope', '$http', 'serviceApi', function($scope, $http, serviceApi) {
+app.controller('boCtrl', ['$scope', '$http', 'serviceApi',  function($scope, $http, serviceApi) {
+    
+
+
+
     $scope.createAccount = function(){
+        
         console.log('est');
         var data = {
             pseudo: $scope.boCreatePseudo,
-            mdp: $scope.boCreateMdp
-        }
+            password: $scope.boCreateMdp
+        };
+        console.log(data['pseudo'])
         $http.post(serviceApi.createUser, data)
             .then(
                 function(response) {
@@ -15,5 +21,6 @@ app.controller('BoCtrl', ['$scope', '$http', 'serviceApi', function($scope, $htt
                 }
             );
     }
-
 }]);
+
+
