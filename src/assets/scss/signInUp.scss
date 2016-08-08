@@ -1,0 +1,86 @@
+.signInUp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 750px;
+    .logbox {
+        padding: 10px;
+        width: 40%;
+        min-width: 330px;
+        background-color: #fff;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            color: #757575;
+            font-weight: 300;
+        }
+        h1,
+        input, a {
+            font-family: "Open Sans", Helvetica, sans-serif;
+        }
+        input{
+          font-size: 1.5em;
+        }
+        a{
+          font-style: italic;
+          color: #757575;
+          text-align: right;
+          cursor: pointer;
+        }
+        form{
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+          justify-content: space-around;
+        }
+        .inputSign {
+            width: 75%;
+            height: 50px;
+            margin: 0 auto 15px;
+            padding: 0 15px;
+            border: none;
+            border-bottom: 2px solid #ebebeb;
+        }
+        .inputSignError {
+            width: 75%;
+            height: 50px;
+            margin: 0 auto 15px;
+            padding: 0 15px;
+            border: none;
+            border-bottom: 2px solid #e05e5e;
+        }
+        .inputSignError:focus {
+            outline: none;
+            border-bottom-color: #e05e5e !important;
+        }
+        .inputSignError:hover {
+            border-bottom-color: #e05e5e;
+        }
+        .inputSign:focus {
+            outline: none;
+            border-bottom-color: #3CC !important;
+        }
+        .inputSign:hover {
+            border-bottom-color: #dcdcdc;
+        }
+        .inputSign:invalid {
+            box-shadow: none;
+        }
+        .inputButton {
+            width: 85%;
+            height: 50px;
+            margin: 30px auto;
+            color: white;
+            background-color: #7dcf44;
+            border: none;
+        }
+        .inputButton:focus {
+            outline: none;
+        }
+    }
+}

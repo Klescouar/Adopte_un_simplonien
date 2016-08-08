@@ -6,20 +6,24 @@ require 'class/DBconnect.php';
 
 require_once __DIR__.'/vendor/autoload.php';
 
-
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 $app = new Silex\Application();
 $db = DBconnect::getPDO();
 $dbManage = new PdoManage($db);
 
-$app->get('api/card', function () use ($dbManage){
+$app->get('api/card', function() use ($dbManage){
     $card = $dbManage->getCard();
 
     return json_encode($card, JSON_PRETTY_PRINT);
 });
 
-$app->get('api/hello/', function ($name) use ($app) {
-    return 'Hello ' . $app->escape($name);
+$app->post('api/create/user', function(Request $pseudo) use ($dbManage){
+    return json_encode($pseudo->get('pseudo'));
+    // $confirmation = $dbManage->createUser();
+    //
+    // return $confirmation;
 });
 
 $app->run();

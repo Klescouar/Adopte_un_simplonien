@@ -8,56 +8,95 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
                 console.log("C'est la merde!");
             });
 
+    $scope.schools = serviceApi.schools;
+
     $scope.themes = [{
         name: 'Promo',
         active: true,
     }, {
         name: 'Langage',
         active: false,
-
     }, {
         name: 'Contrat',
         active: false,
-
     }];
 
-    $scope.schools = [{
-        ville: 'Montreuil',
+
+    $scope.langages = [{
+        type: 'Javascript',
+        active: false,
     }, {
-        ville: 'Boulogne sur mer',
+        type: 'HTML',
+        active: false,
     }, {
-        ville: 'Roubaix',
+        type: 'CSS',
+        active: false,
     }, {
-        ville: 'Noyon',
+        type: 'PHP',
+        active: false,
     }, {
-        ville: 'Troyes',
+        type: 'Javascript',
+        active: false,
     }, {
-        ville: 'Epinal',
+        type: 'Angular',
+        active: false,
     }, {
-        ville: 'Rennes',
+        type: 'Montreuil',
+        active: false,
     }, {
-        ville: 'Vannes',
+        type: 'Typescript',
+        active: false,
     }, {
-        ville: 'Indre',
+        type: 'Jquery',
+        active: false,
     }, {
-        ville: 'Villeurbanne',
+        type: 'PHP',
+        active: false,
     }, {
-        ville: 'Lozère',
+        type: 'symphony',
+        active: false,
     }, {
-        ville: 'Alès',
+        type: 'JAVA',
+        active: false,
     }, {
-        ville: 'Lunel',
+        type: 'C#',
+        active: false,
     }, {
-        ville: 'Toulouse',
+        type: 'C++',
+        active: false,
     }, {
-        ville: 'Hérault',
+        type: 'C',
+        active: false,
     }, {
-        ville: 'Narbonne',
+        type: 'SASS',
+        active: false,
     }, {
-        ville: 'Marseille',
+        type: 'Gulp',
+        active: false,
     }, {
-        ville: 'Nice',
-    }];
+        type: 'Grunt',
+        active: false,
+    }, {
+        type: 'Jade',
+        active: false,
+    }, ];
+
+    $scope.contrats = [{
+        type: 'CDD',
+        active: false,
+    }, {
+        type: 'CDI',
+        active: false,
+    }, {
+        type: 'Contrat Pro',
+        active: false,
+    }, {
+        type: 'Stage',
+        active: false,
+    }, {
+        type: 'Freelance',
+        active: false,
+    }, ];
 
     $scope.changeState = function() {
         if (this.theme.name === 'Promo') {
@@ -75,5 +114,49 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         }
     };
 
+    $scope.searchTag = [];
+
+
+    $scope.changeFilterSchool = function() {
+        if (this.school.active === false) {
+            this.school.active = true;
+            $scope.searchTag.push(this.school.ville);
+        } else {
+            this.school.active = false
+            var index = $scope.searchTag.indexOf(this.school.ville);
+            if (index > -1) {
+                $scope.searchTag.splice(index, 1);
+            };
+        };
+        $scope.searchTagFilter = $scope.searchTag.toString().replace(/\,/g, ' ');
+    };
+
+    $scope.changeFilterLangage = function() {
+        if (this.langage.active === false) {
+            this.langage.active = true;
+            $scope.searchTag.push(this.langage.type);
+        } else {
+            this.langage.active = false
+            var index = $scope.searchTag.indexOf(this.langage.type);
+            if (index > -1) {
+                $scope.searchTag.splice(index, 1);
+            };
+        };
+        $scope.searchTagFilter = $scope.searchTag.toString().replace(/\,/g, ' ');
+    };
+
+    $scope.changeFilterContrat = function() {
+        if (this.contrat.active === false) {
+            this.contrat.active = true;
+            $scope.searchTag.push(this.contrat.type);
+        } else {
+            this.contrat.active = false
+            var index = $scope.searchTag.indexOf(this.contrat.type);
+            if (index > -1) {
+                $scope.searchTag.splice(index, 1);
+            };
+        };
+        $scope.searchTagFilter = $scope.searchTag.toString().replace(/\,/g, ' ');
+    };
 
 }]);

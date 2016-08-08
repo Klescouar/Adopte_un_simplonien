@@ -19,23 +19,29 @@ class PdoManage {
      *  Function affiche info card
     */
     public function getCard(){
-        $card = $this->db->query('SELECT id, photo, specialite, nom, prenom, ville FROM Students ORDER BY id');
+        $card = $this->db->query('SELECT id, Photo, SpecialiteUn, SpecialiteDeux, SpecialiteTrois, Nom, Prenom, Ville, Contrat FROM Students ORDER BY id');
         $data = [];
 
         while ($donnees = $card->fetch()) {
             array_push($data, [
                 "id" => $donnees['id'],
-                "nom" => $donnees['nom'],
-                "prenom" => $donnees['prenom'],
-                "nomPrenom" => $donnees['nom'].' '.$donnees['prenom'],
-                "ville" => $donnees['ville'],
-                "photo" => $donnees['photo'],
-                "specialite" => $donnees['specialite']
+                "nom" => $donnees['Nom'],
+                "prenom" => $donnees['Prenom'],
+                "nomPrenom" => $donnees['Nom'].' '.$donnees['Prenom'],
+                "ville" => $donnees['Ville'],
+                "photo" => $donnees['Photo'],
+                "specialite1" => $donnees['SpecialiteUn'],
+                "specialite2" => $donnees['SpecialiteDeux'],
+                "specialite3" => $donnees['SpecialiteTrois'],
+                "contrat" => $donnees['Contrat']
             ]);
         }
         return $data;
     }
 
+    /**
+     *  Function verification de connection et envois du niveau de permission
+    */
     public function connection($pseudo, $password){
         $verif = $this->db->prepare('SELECT id, password, permission FROM user WHERE pseudo = :pseudo');
         $verif->bindParam('pseudo', $pseudo, PDO::PARAM_STR);
@@ -43,7 +49,7 @@ class PdoManage {
 
         $infoUser = $verif->fetch();
         $infoPermision = [];
-        
+
         if (password_verify($password, $infoUser['password'])){
             $infoPermision['pseudo'] = $pseudo;
             $infoPermision['permission'] = $infoUser['permission'];
@@ -52,5 +58,20 @@ class PdoManage {
         }
 
         return $infoPermision;
+    }
+
+    /**
+     *  Function Create User
+    */
+    public function createUser($pseudo, $password){
+        $verifPseudo = $this->db->prepare('SELECT id FROM user WHERE pseudo = :pseudo');
+        $verifPseudo->bindParam('pseudo', $pseudo, PDO::PARAM_STR);
+        $verifPseudo->execute();
+
+        $testPseudo = $verifPseudo->fetch();
+
+        if (isset($testPseudo['pseudo'])) {
+            return 'pseudo déjà existant';
+        }
     }
 }

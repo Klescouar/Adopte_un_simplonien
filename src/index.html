@@ -12,21 +12,24 @@
 	<script type="text/javascript" src="lib/js/angular-route.js"></script>
 	<script src="assets/js/min/app.min.js"></script>
 	<script src="assets/js/min/searchCtrl.min.js"></script>
+	<script src="assets/js/min/contactCtrl.min.js"></script>
+	<script src="assets/js/min/confirmPassword.min.js"></script>
+	<script src="assets/js/min/signInUpCtrl.min.js"></script>
 	<script src="assets/js/min/serviceApi.min.js"></script>
 	<script src="assets/js/min/searchFilter.min.js"></script>
 </head>
 
-<body ng-app="AdopteUnSimplonien" ng-controller="app">
+<body ng-app="AdopteUnSimplonien">
 	<div class="nav-container">
 		<div class="page-container-left">
-			<a href="">Home</a>
-			<a href="">Simploniens</a>
-			<a href="">Qui sommes nous</a>
-			<a href="">Contact</a>
+			<a href="#/">Home</a>
+			<a href="#/search">Simploniens</a>
+			<a href="#/project">Qui sommes nous</a>
+			<a href="#/contact">Contact</a>
 		</div>
 		<div class="sign-container-rigth">
-			<a class="sign-up" href="">Inscription</a>
-			<a href="">Connexion</a>
+			<a class="sign-up" href="#/log">Inscription</a>
+			<a href="#/log">Connexion</a>
 		</div>
 	</div>
 	<div ng-view></div>
