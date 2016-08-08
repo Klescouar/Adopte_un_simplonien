@@ -27,4 +27,20 @@ $app->post('api/create/user', function(Request $user) use ($dbManage){
     return $confirmation;
 });
 
+$app->post('api/create/simplonien', function(Request $article) use ($dbManage){
+    $champs = ['prenom', 'nom', 'age', 'ville', 'photo', 'tags', 'description', 'sexe', 'domaine', 'specialite1', 'specialite2', 'specialite3', 'github', 'linkedin', 'portfolio', 'cV', 'twitter', 'stack', 'mail', 'contrat', 'datePromo'];
+
+    foreach ($champs as $key => $value) {
+        if (!empty($article->get($value))) {
+            $info[$value] = trim(htmlspecialchars(addslashes($article->get($value))));
+        } else {
+            $info[$value] = '';
+        }
+    }
+    $confirmation = $dbManage->createSimplonien($info);
+
+    return $confirmation;
+
+});
+
 $app->run();

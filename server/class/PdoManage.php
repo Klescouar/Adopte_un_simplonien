@@ -61,13 +61,13 @@ class PdoManage {
     }
 
     /**
-     *  Function Create User
+     *  Function  créer utilisateur
     */
     public function createUser($pseudo, $password){
+        //Verification que le pseudo est disponible
         $verifPseudo = $this->db->prepare('SELECT id FROM user WHERE pseudo = :pseudo');
         $verifPseudo->bindParam('pseudo', $pseudo, PDO::PARAM_STR);
         $verifPseudo->execute();
-
         $testPseudo = $verifPseudo->fetch();
 
         if (isset($testPseudo['id'])) {
@@ -83,6 +83,50 @@ class PdoManage {
             ));
 
             return 'Ça roule ma poule';
+        }
+    }
+
+    /**
+     * Function créer fiche simplonien
+    */
+    public function createSimplonien(Array $info){
+        //verification que simplonien n'existe pas déjà
+        $verifSimplonien = $this->db->prepare('SELECT id FROM Students WHERE prenom = :prenom && nom = :nom && age = :age');
+        $verifSimplonien->bindParam('prenom', $info['prenom'], PDO::PARAM_STR);
+        $verifSimplonien->bindParam('nom', $info['nom'], PDO::PARAM_STR);
+        $verifSimplonien->bindParam('age', $info['age'], PDO::PARAM_INT);
+        $verifSimplonien->execute();
+        $testSimplonien = $verifSimplonien->fetch();
+
+        if ($testSimplonien['id']) {
+            return 'Simplonien d"jà existant';
+        } else {
+            $addSimplonien = $this->db->prepare("INSERT INTO Students(Prenom, Nom, Age, Ville, Photo, Tags, Description, Sexe, Domaine, SpecialiteUn, SpecialiteDeux, SpecialiteTrois, Github, Linkedin, Portfolio, CV, Twitter, StackOverFlow, Mail, Contrat, DatePromo) VALUES (:Prenom, :Nom, :Age, :Ville, :Photo, :Tags, :Description, :Sexe, :Domaine, :SpecialiteUn, :SpecialiteDeux, :SpecialiteTrois, :Github, :Linkedin, :Portfolio, :CV, :Twitter, :StackOverFlow, :Mail, :Contrat, :DatePromo) ");
+            $addSimplonien->execute(array(
+                'Prenom' => $info['prenom'],
+                'Nom' => $info['nom'],
+                'Age' => $info['age'],
+                'Ville' => $info['ville'],
+                'Photo' => $info['photo'],
+                'Tags' => $info['tags'],
+                'Description' => $info['description'],
+                'Sexe' => $info['sexe'],
+                'Domaine' => $info['domaine'],
+                'SpecialiteUn' => $info['specialite1'],
+                'SpecialiteDeux' => $info['specialite2'],
+                'SpecialiteTrois' => $info['specialite3'],
+                'Github' => $info['github'],
+                'Linkedin' => $info['linkedin'],
+                'Portfolio' => $info['portfolio'],
+                'CV' => $info['cV'],
+                'Twitter' => $info['twitter'],
+                'StackOverFlow' => $info['stack'],
+                'Mail' => $info['mail'],
+                'Contrat' => $info['contrat'],
+                'DatePromo' => $info['datePromo']
+            ));
+
+            return $info['prenom'];
         }
     }
 }
