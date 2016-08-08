@@ -36,6 +36,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 3;
 
     .footer_item-container{
       width: 300px;
@@ -66,4 +68,5 @@ body{
       background-image: url(../images/google-plus.png);
     }
   }
+}
 }

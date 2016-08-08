@@ -63,7 +63,7 @@ class ComposerStaticInit6ca0675d846e319d7bedb657897d8bad
             ),
             'Pimple' => 
             array (
-                0 => __DIR__ . '/..' . '/pimple/pimple/lib',
+                0 => __DIR__ . '/..' . '/pimple/pimple/src',
             ),
         ),
     );
