@@ -81,6 +81,26 @@ class PdoManage {
     }
 
     /**
+     *  Function liste les articles simplonien
+    */
+    public function getListeArticle(){
+        $listeArticle = $this->db->query('SELECT id, prenom, nom, age, ville FROM Students ORDER BY id');
+        $data = [];
+
+        while ($donnees = $listeArticle->fetch()) {
+            array_push($data, [
+                "id" => $donnees['id'],
+                "prenom" => $donnees['prenom'],
+                "nom" => $donnees['nom'],
+                "age" => $donnees['age'],
+                "ville" => $donnees['ville']
+            ]);
+        }
+
+        return $data;
+    }
+
+    /**
      *  Function affiche article simplonien
      *  @param $id = INT id de l'article
     */
@@ -203,6 +223,17 @@ class PdoManage {
         $delete->execute(array('id' => $id));
 
         return 'utilisateur '.$id.' supprimé';
+    }
+
+    /**
+     *  Function supprime simplonien
+     *  @param $id = INT id du simplonien à supprimer
+    */
+    public function deleteSimplonien($id){
+        $delete = $this->db->prepare('DELETE FROM Students WHERE id = :id');
+        $delete->execute(array('id' => $id));
+
+        return 'simplonien '.$id.' supprimé';
     }
 
     /**
