@@ -26,22 +26,16 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         type: 'Javascript',
         active: false,
     }, {
-        type: 'HTML',
-        active: false,
-    }, {
-        type: 'CSS',
+        type: 'HTML/CSS',
         active: false,
     }, {
         type: 'PHP',
         active: false,
-    }, {
-        type: 'Javascript',
-        active: false,
-    }, {
+    },{
         type: 'Angular',
         active: false,
     }, {
-        type: 'Montreuil',
+        type: 'REACT',
         active: false,
     }, {
         type: 'Typescript',
@@ -129,6 +123,9 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
             };
         };
         $scope.searchTagFilter = $scope.searchTag.toString().replace(/\,/g, ' ');
+        if ($scope.searchTagFilter.length === 0) {
+            $scope.searchTagFilter = undefined;
+        }
     };
 
     $scope.changeFilterLangage = function() {
@@ -143,6 +140,9 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
             };
         };
         $scope.searchTagFilter = $scope.searchTag.toString().replace(/\,/g, ' ');
+        if ($scope.searchTagFilter.length === 0) {
+            $scope.searchTagFilter = undefined;
+        }
     };
 
     $scope.changeFilterContrat = function() {
@@ -157,6 +157,9 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
             };
         };
         $scope.searchTagFilter = $scope.searchTag.toString().replace(/\,/g, ' ');
+        if ($scope.searchTagFilter.length === 0) {
+            $scope.searchTagFilter = undefined;
+        }
     };
 
 }]);
