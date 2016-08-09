@@ -1,8 +1,8 @@
 <div class="searchPage" ng-controller='searchCtrl'>
     <div class="searchBar">
-        <div class="filterMain" >
+        <div class="filterMain">
             <form class="inputForm">
-              <div class="searchImage"></div>
+                <div class="searchImage"></div>
                 <input ng-model="searchStudent" placeholder="Nom, langage, ville...">
             </form>
             <div class="flex">
@@ -28,11 +28,15 @@
             </div>
         </div>
         <div class="cardPage">
-            <div class="card" ng-class="'card-small-'+(($index%6)+1)" ng-repeat="student in data | filter:searchTagFilter:true | filter:searchStudent track by $index">
-                <div class="studentPic"><img src="assets/images/{{student.photo}}" /></div>
-                <p>{{student.nomPrenom}}</p>
-                <p> <strong>Promo:</strong> {{student.ville}}</p>
-                <p>{{ "#" + student.specialite1 + " " + "#" + student.specialite2 + " " + "#" + student.specialite3}}</p>
+            <div class="card" ng-repeat="student in data | filter:searchTagFilter:true | filter:searchStudent track by $index">
+                <div class="topCard">
+                    <div class="studentPic"><img src="assets/images/{{student.photo}}" /></div>
+                    <p>{{student.nomPrenom}}</p>
+                    <p> <strong>Promo:</strong> {{student.ville}}</p>
+                </div>
+                <div class="botCard">
+                    <p>"#" + {{student.specialite1}} </p><p> "#" + {{student.specialite2}} </p><p> "#" + {{student.specialite3}}</p>
+                </div>
                 <p>{{student.contrat}}</p>
             </div>
         </div>
