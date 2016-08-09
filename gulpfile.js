@@ -22,7 +22,7 @@ var pngquant = require('imagemin-pngquant');
 var gulpCopy = require('gulp-copy');
 var inject = require('gulp-inject');
 var bs = require("browser-sync").create();
-
+var imageop = require('gulp-image-optimization');
 /**
  *
  * Styles
@@ -105,16 +105,25 @@ gulp.task('scripts', function() {
  * - Compress them!
  *
  **/
-gulp.task('images', function() {
-    return gulp.src('src/**/images/*')
-        .pipe(imagemin({
-            progressive: true,
-            svgoPlugins: [{
-                removeViewBox: false
-            }],
-            use: [pngquant()]
-        }))
-        .pipe(gulp.dest('dist'));
+// gulp.task('images', function() {
+//     return gulp.src('src/**/images/*')
+//         .pipe(imagemin({
+//             progressive: true,
+//             svgoPlugins: [{
+//                 removeViewBox: false
+//             }],
+//             use: [pngquant()]
+//         }))
+//         .pipe(gulp.dest('dist/'));
+// });
+
+
+gulp.task('images', function(cb) {
+    gulp.src(['src/assets/images/*']).pipe(imageop({
+        optimizationLevel: 1,
+        progressive: true,
+        interlaced: true
+    })).pipe(gulp.dest('dist/assets/images')).on('end', cb).on('error', cb);
 });
 
 /**
