@@ -31,7 +31,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
     }, {
         type: 'PHP',
         active: false,
-    },{
+    }, {
         type: 'Angular',
         active: false,
     }, {
@@ -92,19 +92,54 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         active: false,
     }, ];
 
+    $scope.togglePromo = false;
+    $scope.toggleLangage = false;
+    $scope.toggleContrat = false;
+
+    if ($(window).width() > 640) {
+        $('.filterRight').css('display', 'block');
+    }
+
     $scope.changeState = function() {
         if (this.theme.name === 'Promo') {
             this.theme.active = true;
             $scope.themes[1].active = false;
             $scope.themes[2].active = false;
+            if ($(window).width() < 640 && $scope.togglePromo === false) {
+                $('.filterRight').css('display', 'block');
+                $scope.togglePromo = true;
+                $scope.toggleLangage = false;
+                $scope.toggleContrat = false;
+            } else if ($(window).width() < 640 && $scope.togglePromo === true) {
+                $('.filterRight').css('display', 'none');
+                $scope.togglePromo = false;
+            }
         } else if (this.theme.name === 'Langage') {
             this.theme.active = true;
             $scope.themes[0].active = false;
             $scope.themes[2].active = false;
+            if ($(window).width() < 640 && $scope.toggleLangage === false) {
+                $('.filterRight').css('display', 'block');
+                $scope.togglePromo = false;
+                $scope.toggleLangage = true;
+                $scope.toggleContrat = false;
+            } else if ($(window).width() < 640 && $scope.toggleLangage === true) {
+                $('.filterRight').css('display', 'none');
+                $scope.toggleLangage = false;
+            }
         } else if (this.theme.name === 'Contrat') {
             this.theme.active = true;
             $scope.themes[0].active = false;
             $scope.themes[1].active = false;
+            if ($(window).width() < 640 && $scope.toggleContrat === false) {
+                $('.filterRight').css('display', 'block');
+                $scope.togglePromo = false;
+                $scope.toggleLangage = false;
+                $scope.toggleContrat = true;
+            } else if ($(window).width() < 640 && $scope.toggleContrat === true) {
+                $('.filterRight').css('display', 'none');
+                $scope.toggleContrat = false;
+            }
         }
     };
 
