@@ -1,0 +1,7 @@
+<form class="container-create-user">
+        		<input class="input-style" type="text" ng-model="boCreatePseudo" placeholder="Pseudo utilisateur">
+        		<input class="input-style" type="password" ng-model="boCreateMdp" placeholder="Mot de passe utilisateur">
+        		<input class="input-style" type="password" ng-model="boCreateMdpVerif" placeholder="Vérification mot de passe">
+        		<p class ="input-style" ng-if="boCreateMdp != boCreateMdpVerif">Les mots de passe ne sont pas identiques</p>
+        		<button class="input-style" ng-click="createAccount()">Créer un utilisateur</button>
+</form>
