@@ -1,9 +1,52 @@
-<div ng-controller="boCtrl">
-	<form>
-        		<input type="text" ng-model="boCreatePseudo">
-        		<input type="password" ng-model="boCreateMdp">
-        		<input type="password" ng-model="boCreateMdpVerif">
-        		<div ng-if="boCreateMdp != boCreateMdpVerif"> ne marche pas</div>
-        		<button ng-click="createAccount()">coucou</button>
-        	</form>
-    </div>
+<div class="container-bo" ng-controller="boCtrl">
+	<div class="container-nav-bo">
+		<a href=""  ng-click="show = 1">Créer un utilisateur</a>
+		<a href="" ng-click="show = 2">Supprimer un utilisateur</a>
+		<a href="" ng-click="show = 3">Créer une fiche Simplonien</a>
+		<a href="" ng-click="show = 4">Modifier une fiche Simplonien</a>
+		<a href="" ng-click="show = 5">Supprimer une fiche Simplonien</a>
+
+	</div>
+	<div class="container-interface">
+		<form class="container-create-user" ng-show="show==1">
+			<h2>Création d'un utilisateur</h2>
+	        		<input class="input-style" type="text" ng-model="boCreatePseudo" placeholder="Pseudo utilisateur (+ de 3 caractères)">
+	        		<input class="input-style" type="password" ng-model="boCreateMdp" placeholder="Mot de passe utilisateur (+ de 6 caractères)">
+	        		<input class="input-style" type="password" ng-model="boCreateMdpVerif" placeholder="Vérification mot de passe">
+	        		<p class ="input-style" ng-if="boCreateMdp != boCreateMdpVerif">Les mots de passe ne sont pas identiques</p>
+	        		<button class="input-style" ng-click="createAccount()">Créer un utilisateur</button>
+		</form>
+		<div class="container-delete-user" ng-show="show==2">
+			<h2>Suppression d'un utilisateur</h2>
+			<div class="container-title">
+				<div class="title">Pseudo</div>
+				<div class="title">Permission</div>
+			</div>
+			<div class="container-users">
+				<div class="cont-info" ng-repeat="entreprise in entreprises">
+					<p class="cont-pseudo">{{entreprise.name}}</p>
+					<p class="cont-perm">{{entreprise.permission}}</p>
+					<div class="delete-user" ng-click="deleteItem($index)" confirm="Are you sure ?"></div>
+				</div>
+
+
+			</div>
+		</div>
+		<div class="container-create-student" ng-show="show == 3">
+		<input class="input-style" placeholder="Nom" ng-model="boCreateLastName"></input>
+		<input class="input-style" placeholder="Prénom"></input>
+		<input class="input-style" placeholder="Âge"></input>
+		<select name="select" class="input-style">
+ 			<option value="value1">Montreuil</option> 
+  			<option value="value2" selected>Marseille</option>
+  			<option value="value3">Toulouse</option>
+		</select>
+		<textarea class="input-style" placeholder="Description"></textarea>
+		<input class="input-style" placeholder="Mes compétences"></input>
+		<input class="input-style"></input>
+		<button class="input-style" ng-click="createStudent()">Créer une fiche Simplonien</button>
+			
+		</div>
+	</div>
+
+ </div>
