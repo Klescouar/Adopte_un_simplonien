@@ -1,58 +1,63 @@
 .searchPage {
     display: flex;
-    justify-content: space-between;
-    .searchBar {
-        width: 20%;
-        min-width: 300px;
-        height: 92vh;
-        background-color: #DE5B49;
-        position: fixed;
-        z-index: 1;
-    }
-    .cardPage {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        width: 80%;
-        min-height: 800px;
-        background-color: #212020;
-        .card {
-            width: 33%;
-            min-width: 350px;
-            height: 400px;
-            background-color: #324D5C;
-            display: flex;
-            flex-direction: column;
-            align-items: stretch;
-            justify-content: center;
-            flex-wrap: wrap;
-            flex-grow: 1;
-            text-align: center;
-        }
-        .cardBis {
-            width: 33%;
-            min-width: 350px;
-            height: 400px;
-            background-color: #68A0BF;
-            display: flex;
-            flex-direction: column;
-            align-items: stretch;
-            justify-content: center;
-            flex-wrap: wrap;
-            flex-grow: 1;
-            text-align: center;
-        }
-    }
 }
 body {
     background-color: #333333;
+}
+.cardPage {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    width: 100%;
+    background-color: #212020;
+    .card-small-1 {
+        background-color: #00DE6D;
+    }
+    .card-small-2 {
+        background-color: #1F8CE0;
+    }
+    .card-small-3 {
+        background-color: #A91FB8;
+    }
+    .card-small-4 {
+        background-color: #00BD5D;
+    }
+    .card-small-5 {
+        background-color: #1676BD;
+    }
+    .card-small-6 {
+        background-color: #9D00AF;
+    }
+    .card {
+        width: 33%;
+        min-width: 250px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-grow: 1;
+        text-align: center;
+    }
+}
+.searchBar {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+.flex {
+    display: flex;
+    height: 100%;
 }
 .inputForm {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #212020;
-    height: 60px;
+    width: 99.5%;
+    height: 59px;
     input {
         width: 100%;
         height: 57px;
@@ -69,180 +74,222 @@ body {
         margin: auto;
     }
 }
+.studentPic {
+    height: 150px;
+    width: 150px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        height: 100%;
+        width: auto;
+    }
+}
+.filterMain {
+    height: 99%;
+    min-height: 100vh;
+    width: 315px;
+}
+.filterRight {
+    height: 100%;
+}
 .filterChoice {
     display: flex;
+    height: 100%;
     .filterTheme {
         width: 40%;
         height: 100%;
         display: flex;
         flex-direction: column;
         .promo {
-            background-color: #363636;
-            height: 130px;
+            background-color: #2E3E53;
+            min-height: 130px;
+            width: 130px;
             background-image: url('../images/placeholder.png');
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
-            z-index: 1;
             .triangle {
                 position: absolute;
-                left: 120px;
+                left: 127px;
                 top: 25px;
                 width: 0;
                 height: 0;
                 border-style: solid;
                 border-width: 40px 0 40px 40px;
-                border-color: transparent transparent transparent #363636;
+                border-color: transparent transparent transparent #2E3E53;
             }
         }
         .langage {
-            background-color: #7F7F7F;
-            height: 130px;
+            background-color: #425877;
+            min-height: 130px;
+            width: 130px;
             background-image: url('../images/code.png');
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
-            z-index: 1;
             .triangle {
                 position: absolute;
-                left: 120px;
+                left: 127px;
                 top: 25px;
                 width: 0;
                 height: 0;
                 border-style: solid;
                 border-width: 40px 0 40px 40px;
-                border-color: transparent transparent transparent #7F7F7F;
+                border-color: transparent transparent transparent #425877;
             }
         }
         .contrat {
-            background-color: #CCCCCC;
-            height: 130px;
+            background-color: #BBC1C6;
+            min-height: 130px;
+            width: 130px;
             background-image: url('../images/contract.png');
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
-            z-index: 1;
             .triangle {
                 position: absolute;
-                left: 120px;
+                left: 127px;
                 top: 25px;
                 width: 0;
                 height: 0;
                 border-style: solid;
                 border-width: 40px 0 40px 40px;
-                border-color: transparent transparent transparent #CCCCCC;
+                border-color: transparent transparent transparent #BBC1C6;
             }
         }
         .gradient {
-            height: 300px;
-            background: -moz-linear-gradient(90deg, rgba(247,247,247,1) 0%, rgba(247,247,247,1) 59%, rgba(204,204,204,1) 100%);
-            /* ff3.6+ */
-            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(204,204,204,1)), color-stop(41%, rgba(247,247,247,1)), color-stop(100%, rgba(247,247,247,1)));
-            /* safari4+,chrome */
-            background: -webkit-linear-gradient(90deg, rgba(247,247,247,1) 0%, rgba(247,247,247,1) 59%, rgba(204,204,204,1) 100%);
-            /* safari5.1+,chrome10+ */
-            background: -o-linear-gradient(90deg, rgba(247,247,247,1) 0%, rgba(247,247,247,1) 59%, rgba(204,204,204,1) 100%);
-            /* opera 11.10+ */
-            background: -ms-linear-gradient(90deg, rgba(247,247,247,1) 0%, rgba(247,247,247,1) 59%, rgba(204,204,204,1) 100%);
-            /* ie10+ */
-            background: linear-gradient(0deg, rgba(247,247,247,1) 0%, rgba(247,247,247,1) 59%, rgba(204,204,204,1) 100%);
-            /* w3c */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=  '#CCCCCC', endColorstr='#F7F7F7',GradientType=0 );
-            /* ie6-9 */
+            height: 100%;
+            width: 130px;
+            background: rgb(187, 193, 198);
+            background: -moz-linear-gradient(90deg, rgb(187, 193, 198) 0%, rgb(247, 247, 247) 28%);
+            background: -webkit-linear-gradient(90deg, rgb(187, 193, 198) 0%, rgb(247, 247, 247) 28%);
+            background: -o-linear-gradient(90deg, rgb(187, 193, 198) 0%, rgb(247, 247, 247) 28%);
+            background: -ms-linear-gradient(90deg, rgb(187, 193, 198) 0%, rgb(247, 247, 247) 28%);
+            background: linear-gradient(180deg, rgb(187, 193, 198) 0%, rgb(247, 247, 247) 28%);
         }
-    }
-    .filterIcone {
-        width: 60%;
     }
 }
 .filter {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
-    height: 670px;
-    .buttonFilterOff{
-      width: 100%;
-      height: 100%;
-      border: none;
-      cursor: pointer;
-      background-color:  #DE5B49;
+    height: 100%;
+    width: 184px;
+    background-color: #7B8C8C;
+    .buttonFilterOff {
+        width: 100%;
+        height: 25px;
+        border: none;
+        cursor: pointer;
+        background-color: #7B8C8C;
+        color: white;
     }
-    .buttonFilterOn{
-      width: 100%;
-      height: 100%;
-      border: none;
-      cursor: pointer;
-      background-color:  white;
+    .buttonFilterOn {
+        width: 100%;
+        height: 25px;
+        border: none;
+        cursor: pointer;
+        background-color: white;
     }
-    .buttonFilterOn:hover{
-      background-color:  white;
+    .buttonFilterOn:hover {
+        background-color: white;
     }
 }
-
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 640px) {
     .searchPage {
-        display: flex;
-        flex-direction: column;
         .searchBar {
+            width: 500px;
             min-height: 200px;
-            background-color: #DE5B49;
-            width: 100%;
-        }
-        .cardPage {
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            width: 100%;
-            .card {
-                width: 33%;
-                min-width: 400px;
-                height: 400px;
-                background-color: #324D5C;
-                display: flex;
-                flex-direction: column;
-                align-items: stretch;
-                justify-content: center;
-                flex-wrap: wrap;
-                flex-grow: 1;
-                text-align: center;
+            flex-direction: column;
+        }
+    }
+    .filterChoice {
+        display: flex;
+        height: 100%;
+        .filterTheme {
+            width: 40%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            .promo {
+                background-color: #2E3E53;
+                min-height: 130px;
+                width: 130px;
+                background-image: url('../images/placeholder.png');
+                background-position: center;
+                background-repeat: no-repeat;
+                position: relative;
+                .triangle {
+                    position: absolute;
+                    left: 127px;
+                    top: 25px;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 40px 0 40px 40px;
+                    border-color: transparent transparent transparent #2E3E53;
+                }
             }
-            .cardBis {
-                width: 33%;
-                min-width: 400px;
-                height: 400px;
-                background-color: #68A0BF;
-                display: flex;
-                flex-direction: column;
-                align-items: stretch;
-                justify-content: center;
-                flex-wrap: wrap;
-                flex-grow: 1;
-                text-align: center;
+            .langage {
+                background-color: #425877;
+                min-height: 130px;
+                width: 130px;
+                background-image: url('../images/code.png');
+                background-position: center;
+                background-repeat: no-repeat;
+                position: relative;
+                .triangle {
+                    position: absolute;
+                    left: 127px;
+                    top: 25px;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 40px 0 40px 40px;
+                    border-color: transparent transparent transparent #425877;
+                }
+            }
+            .contrat {
+                background-color: #BBC1C6;
+                min-height: 130px;
+                width: 130px;
+                background-image: url('../images/contract.png');
+                background-position: center;
+                background-repeat: no-repeat;
+                position: relative;
+                .triangle {
+                    position: absolute;
+                    left: 127px;
+                    top: 25px;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 40px 0 40px 40px;
+                    border-color: transparent transparent transparent #BBC1C6;
+                }
+            }
+            .gradient {
+                height: 100%;
+                width: 130px;
+                background: rgb(187, 193, 198);
+                background: -moz-linear-gradient(90deg, rgb(187, 193, 198) 0%, rgb(247, 247, 247) 28%);
+                background: -webkit-linear-gradient(90deg, rgb(187, 193, 198) 0%, rgb(247, 247, 247) 28%);
+                background: -o-linear-gradient(90deg, rgb(187, 193, 198) 0%, rgb(247, 247, 247) 28%);
+                background: -ms-linear-gradient(90deg, rgb(187, 193, 198) 0%, rgb(247, 247, 247) 28%);
+                background: linear-gradient(180deg, rgb(187, 193, 198) 0%, rgb(247, 247, 247) 28%);
             }
         }
     }
 }
-@media screen and (max-width: 800px) {
-    .searchPage {
-        display: flex;
-        flex-direction: column;
-        .searchBar {
-            min-height: 200px;
-            width: 100%;
-        }
-        .cardPage {
-            width: 100%;
-            .card {
-                width: 33%;
-                min-width: 400px;
-                height: 400px;
-            }
-            .cardBis {
-                width: 33%;
-                min-width: 400px;
-                height: 400px;
-            }
-        }
-    }
+.sticktotop {
+    position: fixed;
+    top: 0;
+}
+.marginToFix {
+    margin-left: 314px;
 }
