@@ -40,6 +40,23 @@ class PdoManage {
     }
 
     /**
+     *  Function affiche user
+    */
+    public function getUser(){
+        $user = $this->db->query('SELECT id, pseudo, permission FROM user ORDER BY id');
+        $data = [];
+
+        while ($donnees = $user->fetch()) {
+            array_push($data, [
+                "id" => $donnees['id'],
+                "pseudo" => $donnees['pseudo'],
+                "permission" => $donnees['permission']
+            ]);
+        }
+        return $data;
+    }
+
+    /**
      *  Function verification de connection et envois du niveau de permission
     */
     public function connection($pseudo, $password){
@@ -61,17 +78,82 @@ class PdoManage {
     }
 
     /**
-     *  Function Create User
+     *  Function  créer utilisateur
     */
-    public function createUser($pseudo, $password){
+    public function createUser($data){
+        //Verification que le pseudo est disponible
         $verifPseudo = $this->db->prepare('SELECT id FROM user WHERE pseudo = :pseudo');
-        $verifPseudo->bindParam('pseudo', $pseudo, PDO::PARAM_STR);
+        $verifPseudo->bindParam('pseudo', $data['pseudo'], PDO::PARAM_STR);
         $verifPseudo->execute();
-
         $testPseudo = $verifPseudo->fetch();
 
-        if (isset($testPseudo['pseudo'])) {
+        if (isset($testPseudo['id'])) {
             return 'pseudo déjà existant';
+        } else {
+            $password = password_hash($data['password'], PASSWORD_DEFAULT);
+
+            $addUser = $this->db->prepare("INSERT INTO user(pseudo, password, permission) VALUES (:pseudo, :password, :permission) ");
+            $addUser->execute(array(
+                'pseudo' => $data['pseudo'],
+                'password' => $password,
+                'permission' => 'visiteur'
+            ));
+
+            return 'Ça roule ma poule';
         }
+    }
+
+    /**
+     * Function créer fiche simplonien
+    */
+    public function createSimplonien(Array $info){
+        //verification que simplonien n'existe pas déjà
+        $verifSimplonien = $this->db->prepare('SELECT id FROM Students WHERE prenom = :prenom && nom = :nom && age = :age');
+        $verifSimplonien->bindParam('prenom', $info['prenom'], PDO::PARAM_STR);
+        $verifSimplonien->bindParam('nom', $info['nom'], PDO::PARAM_STR);
+        $verifSimplonien->bindParam('age', $info['age'], PDO::PARAM_INT);
+        $verifSimplonien->execute();
+        $testSimplonien = $verifSimplonien->fetch();
+
+        if ($testSimplonien['id']) {
+            return 'Simplonien d"jà existant';
+        } else {
+            $addSimplonien = $this->db->prepare("INSERT INTO Students(Prenom, Nom, Age, Ville, Photo, Tags, Description, Sexe, Domaine, SpecialiteUn, SpecialiteDeux, SpecialiteTrois, Github, Linkedin, Portfolio, CV, Twitter, StackOverFlow, Mail, Contrat, DatePromo) VALUES (:Prenom, :Nom, :Age, :Ville, :Photo, :Tags, :Description, :Sexe, :Domaine, :SpecialiteUn, :SpecialiteDeux, :SpecialiteTrois, :Github, :Linkedin, :Portfolio, :CV, :Twitter, :StackOverFlow, :Mail, :Contrat, :DatePromo) ");
+            $addSimplonien->execute(array(
+                'Prenom' => $info['prenom'],
+                'Nom' => $info['nom'],
+                'Age' => $info['age'],
+                'Ville' => $info['ville'],
+                'Photo' => $info['photo'],
+                'Tags' => $info['tags'],
+                'Description' => $info['description'],
+                'Sexe' => $info['sexe'],
+                'Domaine' => $info['domaine'],
+                'SpecialiteUn' => $info['specialite1'],
+                'SpecialiteDeux' => $info['specialite2'],
+                'SpecialiteTrois' => $info['specialite3'],
+                'Github' => $info['github'],
+                'Linkedin' => $info['linkedin'],
+                'Portfolio' => $info['portfolio'],
+                'CV' => $info['cV'],
+                'Twitter' => $info['twitter'],
+                'StackOverFlow' => $info['stack'],
+                'Mail' => $info['mail'],
+                'Contrat' => $info['contrat'],
+                'DatePromo' => $info['datePromo']
+            ));
+
+            return $info['prenom'];
+        }
+    }
+
+    /**
+     *  Function supprime utilisateur
+    */
+    public function deleteUser($id){
+        $delete = $this->db->prepare('DELETE FROM user WHERE id = :id');
+        $delete->execute(array('id' => $id));
+
+        return 'utilisateur '.$id.' supprimé';
     }
 }
