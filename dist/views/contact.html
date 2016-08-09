@@ -3,18 +3,11 @@
         <div class="simplonPicture">
         </div>
         <div class="adressContainer">
-            <div class="selectCity">
-                <h1>Choisis l'école que tu veux contacter:</h1>
-                <select ng-init="schoolChoice = schools[0].ville" class="" name="" ng-model="schoolChoice">
-                    <option ng-repeat="school in schools">{{school.ville}}</option>
-                </select>
-            </div>
-            <div ng-repeat="school in schools | filter:schoolChoice" class="adressSimplon">
-                <h1>Simplon {{school.ville}}</h1>
-                <p>{{school.rue}}</p>
-                <p>{{school.code}}</p>
-                <p>{{school.mail}}</p>
-                <p>{{school.phone}}</p>
+            <div class="adressSimplon">
+                <h1>Simplon Montreuil</h1>
+                <p>55 rue de Vincennes</p>
+                <p>93100 Montreuil</p>
+                <p>inbox@simplon.co</p>
             </div>
         </div>
     </div>
