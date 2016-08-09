@@ -8,7 +8,7 @@
             <div class="flex">
                 <div class="filterChoice">
                     <div class="filterTheme">
-                        <div ng-click="changeState()" ng-repeat="theme in themes track by $index" ng-class="{'promo': ($index === 0), 'langage': ($index === 1), 'contrat': ($index === 2)}">
+                        <div ng-click="changeState(); toggle()" ng-repeat="theme in themes track by $index" ng-class="{'promo': ($index === 0), 'langage': ($index === 1), 'contrat': ($index === 2)}">
                             <div ng-show="theme.active" class="triangle"></div>
                         </div>
                         <div class="gradient"></div>
