@@ -1,5 +1,7 @@
 app.service("serviceApi", function(){
-  this.api =  'http://localhost:8888/Adopte_un_simplonien/server/index.php/api/card';
+  this.api =  'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/card';
+  this.createUser = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/create/user';
+
 
   this.schools = [{
       ville: 'Montreuil',
@@ -149,8 +151,5 @@ app.service("serviceApi", function(){
       phone: '',
       active: false,
   }];
-
-
-  this.createUser = 'http://localhost:8888/Adopte_un_simplonien/server/index.php/api/create/user';
 
 });
