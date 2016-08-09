@@ -1,0 +1,37 @@
+// Ipad and bigger
+@media screen and (min-width: 737px){
+
+  .burger-menu{
+    display: none;
+  }
+  .page-container-left, .sign-container-right{
+    display: flex;
+  }
+
+  .burger-menu-icon, .user-icon{
+    display: none;
+  }
+}
+
+// Iphone 6s plus and smaller
+@media screen and (max-width: 736px){
+
+  .nav-container{
+    position: relative;
+    z-index: 2;
+
+    .burger-menu{
+      display: flex;
+      position: absolute;
+      z-index: 3;
+    }
+  }
+  .page-container-left, .sign-container-right{
+    display: none;
+  }
+
+  .footer-container{
+    position: relative;
+    z-index: 1
+  }
+}
