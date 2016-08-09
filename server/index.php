@@ -31,11 +31,18 @@ $app->get('api/user', function() use ($dbManage){
 });
 
 //Renvois Article complet sur un simplonien correspondant à l'id
-$app->get('api/ArticleSimplonien/{id}', function($id) use ($dbManage){
+$app->get('api/simplonien/{id}', function($id) use ($dbManage){
     $id = trim(htmlspecialchars(addslashes($id)));
     $articleSimplonien = $dbManage->getArticleSimplonien($id);
 
     return json_encode($articleSimplonien, JSON_PRETTY_PRINT);
+});
+
+//Renvois liste des article simplonien
+$app->get('api/listeSimplonien', function() use ($dbManage){
+    $listeArticle = $dbManage->getListeArticle();
+
+    return json_encode($listeArticle, JSON_PRETTY_PRINT);
 });
 
 /////////////////////////* POST *///////////////////////////////////
@@ -84,9 +91,16 @@ $app->delete('api/delete/user/{id}', function($id) use ($dbManage){
     return $deleteUser;
 });
 
+//Suprime l'article d'un simplonien
+$app->delete('api/delete/simplonien/{id}', function($id) use ($dbManage){
+
+    $id = trim(htmlspecialchars(addslashes($id)));
+    $deleteSimplonien = $dbManage->deleteSimplonien($id);
+    return $deleteSimplonien;
+});
 /////////////////////////* PUT *///////////////////////////////////
 //Modifie la fiche article d'un simplonien
-$app->put('api/modify/ArticleSimplonien', function(Request $article) use ($dbManage){
+$app->put('api/modify/simplonien', function(Request $article) use ($dbManage){
     // $id = trim(htmlspecialchars(addslashes($id)));
     $data = json_decode($article->getContent(), true);
     $article->request->replace(is_array($data) ? $data : array());
