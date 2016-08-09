@@ -1,113 +1,104 @@
-app.controller('boCtrl', ['$scope', '$http', 'serviceApi',  function($scope, $http, serviceApi) {
+app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route','$timeout',  function($scope, $http, serviceApi,$route,$timeout) {
 
+
+// to creat an acout user
     $scope.createAccount = function(){
         
         if($scope.boCreateMdpVerif === $scope.boCreateMdp && $scope.boCreatePseudo.length > 3 &&  $scope.boCreateMdpVerif.length > 6){
 
             console.log('est');
-            var data = {
+            var dataUser = {
                 pseudo: $scope.boCreatePseudo,
                 password: $scope.boCreateMdp
             };
-            console.log(data['pseudo'])
-            $http.post(serviceApi.createUser, data)
+
+            $http.post(serviceApi.createUser, dataUser)
                 .then(
                     function(response) {
-                        console.log (response.data);
+                       alert(response.data);
+                       $scope.showUser();
                     },
                     function(err) {
                         console.log("C'est la merde!");
                     }
                 );
         }
-
     }
+
+// to show user list
+
+$scope.showUser = function(){
+
+        $http.get(serviceApi.getUser)
+                .then(
+                    function(response) {  
+                         $scope.users = response.data;
+                    },
+                    function(err) {
+                        console.log("C'est la merde!");
+                    }
+                );
+};
+
+// to delete an acount user in the list
 
     $scope.deleteItem = function (index) {
 
-
-
-    $scope.entreprises.splice(index, 1);
-    }
-
-    $scope.entreprises = [{
-        name: 'uzik',
-        permission: 'user',
-    }, {
-        name: 'simplon',
-        permission: 'user',
-    }, {
-        name: 'betc',
-        permission: 'user',
-    }, {
-        name: 'crédit agricole',
-        permission: 'user',
-    }, {
-        name: 'sncf',
-        permission: 'user',
-    }, {
-        name: 'razorfish',
-        permission: 'user',
-    }, {
-        name: 'vogue',
-        permission: 'user',
-    }, {
-        name: 'google',
-        permission: 'user',
-    }, {
-        name: 'apple',
-        permission: 'user',
-    }, {
-        name: 'mozilla',
-        permission: 'user',
-    }, {
-        name: 'samsung',
-        permission: 'user',
-    }, {
-        name: 'malboro',
-        permission: 'user',
-    }, {
-        name: 'levis',
-        permission: 'user',
-    }
-    ];
-
-$scope.createStudent = function(){
-        
-            console.log('est');
-            var data = {
-                Nom: $scope.boCreateLastName,
-                Prenom: $scope.boCreateName,
-                Age: $scope.boCreateOld,
-                Ville: $scope.boCreateCity,
-                Photo: $scope.boCreatePhoto,
-                Tags: $scope.boCreateTags,
-                Description: $scope.boCreateAbout,
-                SpecialiteUn: $scope.boCreateSpeOne,
-                SpecialiteDeux: $scope.boCreateSpeTwo,
-                SpecialiteTrois: $scope.boCreateSpeThree,
-                Github: $scope.boCreateGithub,
-                Linkedin: $scope.boCreateLinkedin,
-                Portfolio: $scope.boCreatePortfolio,
-                CV: $scope.boCreateCV,
-                Twitter: $scope.boCreateTwitter,
-                StackOverFlow: $scope.boCreateStackOverFlow,
-                Mail: $scope.boCreateMail,
-                Contrat: $scope.boCreateContrat,
-                DatePromo: $scope.boCreateDatePromo
-
-            };
-            $http.post(serviceApi.createStudents, data)
+         $http.delete(serviceApi.deleteUser + index)
                 .then(
                     function(response) {
-                        console.log (response.data);
+                         console.log(response.data);
+                          $scope.showUser();
+                    },
+                    function(err) {
+                        console.log("C'est la merde!");
+                    }
+                );
+    };
+
+    $scope.showUser();
+
+$scope.createSimplonien = function(){
+        if($scope.boCreateMdpVerif === $scope.boCreateMdp && $scope.boCreatePseudo.length > 3 &&  $scope.boCreateMdpVerif.length > 6){
+
+            console.log('est');
+            var dataStudent = {
+                nom: $scope.boCreateLastName,
+                prenom: $scope.boCreateName,
+                age: $scope.boCreateOld,
+                ville: $scope.boCreatePromo,
+                photo: $scope.boCreatePhoto,
+                tags: $scope.boCreateTags,
+                description: $scope.boCreateAbout,
+                sexe : $scope.boCreateSexe,
+                specialite1: $scope.boCreateSpeOne,
+                specialite2: $scope.boCreateSpeTwo,
+                specialite3: $scope.boCreateSpeThree,
+                github: $scope.boCreateGithub,
+                linkedin: $scope.boCreateLinkedin,
+                portfolio: $scope.boCreatePortfolio,
+                cV: $scope.boCreateCV,
+                twitter: $scope.boCreateTwitter,
+                stack: $scope.boCreateStackOverFlow,
+                mail: $scope.boCreateMail,
+                contrat: $scope.boCreateContrat,
+                datePromo: $scope.boCreateDatePromo,
+                domaine: $scope.boCreateDomaine
+
+            };
+
+            $http.post(serviceApi.createStudent, dataStudent)
+                .then(
+                    function(response) {
+                        console.log('coucou');
+                        console.log (response.dataStudent);
                     },
                     function(err) {
                         console.log("C'est la merde!");
                     }
                 );
     
-
+            }
     }
 
 }]);
