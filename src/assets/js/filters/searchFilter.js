@@ -1,4 +1,4 @@
-app.filter('filterBy', function() {
+app.filter('filterBy', function(serviceApi) {
     return function(array, query) {
 
         var parts = query && query.trim().split(/\s+/),
