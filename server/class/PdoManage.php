@@ -142,6 +142,26 @@ class PdoManage {
         return $data;
     }
 
+    /**
+     *  Function liste les simplon disponible
+    */
+    public function getVilleSimplon(){
+        $listeSimplon = $this->db->query('SELECT id, Ville, Rue, Code, Mail, Phone FROM Ville ORDER BY id');
+        $data = [];
+
+        while ($donnees = $listeSimplon->fetch()) {
+            array_push($data, [
+                "id" => $donnees['id'],
+                "ville" => $donnees['Ville'],
+                "rue" => $donnees['Rue'],
+                "code" => $donnees['Code'],
+                "mail" => $donnees['Mail'],
+                "phone" => $donnees['Phone']
+            ]);
+        }
+
+        return $data;
+    }
 
     /**
      *  Function  créer utilisateur
@@ -176,7 +196,7 @@ class PdoManage {
     */
     public function createSimplonien(Array $info){
        //verification que simplonien n'existe pas déjà
-       $verifSimplonien = $this->db->prepare('SELECT id FROM Students WHERE prenom = :prenom && nom = :nom && age = :age');
+       $verifSimplonien = $this->db->prepare('SELECT id FROM Students WHERE Prenom = :prenom && Nom = :nom && Age = :age');
        $verifSimplonien->bindParam('prenom', $info['prenom'], PDO::PARAM_STR);
        $verifSimplonien->bindParam('nom', $info['nom'], PDO::PARAM_STR);
        $verifSimplonien->bindParam('age', $info['age'], PDO::PARAM_INT);
@@ -211,9 +231,38 @@ class PdoManage {
                'DatePromo' => $info['datePromo']
            ));
 
-           return $info['prenom'];
+           return $info['prenom'].' Créé';
        }
    }
+
+   /**
+    *  Function créer simplon
+    *  @param $data = Array contient les info de l'article simplonien
+   */
+   public function createSimplon(Array $info){
+      //verification que simplonien n'existe pas déjà
+      $verifSimplon = $this->db->prepare('SELECT id FROM Students WHERE Ville = :ville && Rue = :rue');
+      $verifSimplon->bindParam('ville', $info['ville'], PDO::PARAM_STR);
+      $verifSimplon->bindParam('rue', $info['rue'], PDO::PARAM_STR);
+      $verifSimplon->execute();
+      $testSimplon = $verifSimplon->fetch();
+
+      if ($testSimplon['id']) {
+          return 'Simplon d"jà existant';
+      } else {
+          $addSimplon = $this->db->prepare("INSERT INTO Ville(Ville, Rue, Code, Mail, Phone) VALUES (:ville, :rue, :code, :mail, :phone) ");
+          $addSimplon->execute(array(
+              'ville' => $info['ville'],
+              'rue' => $info['rue'],
+              'code' => $info['code'],
+              'mail' => $info['mail'],
+              'phone' => $info['phone']
+          ));
+
+          return $info['Ville'].' Créé';
+      }
+  }
+
     /**
      *  Function supprime utilisateur
      *  @param $id = INT id de l'utilisateur à supprimer
@@ -234,6 +283,17 @@ class PdoManage {
         $delete->execute(array('id' => $id));
 
         return 'simplonien '.$id.' supprimé';
+    }
+
+    /**
+     *  Function supprime simplon
+     *  @param $id = INT id du simplon à supprimer
+    */
+    public function deleteSimplon($id){
+        $delete = $this->db->prepare('DELETE FROM Ville WHERE id = :id');
+        $delete->execute(array('id' => $id));
+
+        return 'simplon '.$id.' supprimé';
     }
 
     /**

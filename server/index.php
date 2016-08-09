@@ -45,6 +45,13 @@ $app->get('api/listeSimplonien', function() use ($dbManage){
     return json_encode($listeArticle, JSON_PRETTY_PRINT);
 });
 
+//Renvois liste des Simplon disponible
+$app->get('api/villeSimplon', function() use ($dbManage){
+    $villeSimplon = $dbManage->getVilleSimplon();
+
+    return json_encode($villeSimplon, JSON_PRETTY_PRINT);
+});
+
 /////////////////////////* POST *///////////////////////////////////
 //Ajoute un utilisateur dans la bdd
 $app->post('api/create/user', function(Request $user) use ($dbManage){
@@ -82,6 +89,28 @@ $app->post('api/create/simplonien', function(Request $article) use ($dbManage){
 
 });
 
+//Ajoute Simplon dans la bdd
+$app->post('api/create/simplon', function(Request $article) use ($dbManage){
+   $data = json_decode($article->getContent(), true);
+   $article->request->replace(is_array($data) ? $data : array());
+   $data = $article->request->all();
+
+   $info = [];
+   $champs = ['ville', 'rue', 'code', 'mail', 'phone'];
+
+   foreach ($champs as $key => $value) {
+       if (!empty($data[$value])) {
+           $info[$value] = trim(htmlspecialchars(addslashes($data[$value])));
+       } else {
+           $info[$value] = '';
+       }
+   }
+   $confirmation = $dbManage->createSimplon($info);
+
+   return $confirmation;
+
+});
+
 /////////////////////////* DELETE *///////////////////////////////////
 //Supprime un utilisateur de la bdd
 $app->delete('api/delete/user/{id}', function($id) use ($dbManage){
@@ -97,6 +126,14 @@ $app->delete('api/delete/simplonien/{id}', function($id) use ($dbManage){
     $id = trim(htmlspecialchars(addslashes($id)));
     $deleteSimplonien = $dbManage->deleteSimplonien($id);
     return $deleteSimplonien;
+});
+
+//Supprime un simplon de la bdd
+$app->delete('api/delete/simplon/{id}', function($id) use ($dbManage){
+
+    $id = trim(htmlspecialchars(addslashes($id)));
+    $deleteSimplon = $dbManage->deleteSimplon($id);
+    return $deleteSimplon;
 });
 /////////////////////////* PUT *///////////////////////////////////
 //Modifie la fiche article d'un simplonien
