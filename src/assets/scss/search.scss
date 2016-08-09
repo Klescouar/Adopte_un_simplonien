@@ -55,8 +55,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #212020;
-    width: 99.5%;
+    background-color: white;
+    width: 100%;
     height: 59px;
     input {
         width: 100%;
@@ -95,6 +95,7 @@ body {
 }
 .filterRight {
     height: 100%;
+    display: block;
 }
 .filterChoice {
     display: flex;
@@ -185,7 +186,7 @@ body {
         height: 25px;
         border: none;
         cursor: pointer;
-        background-color: #7B8C8C;
+        background-color: transparent;
         color: white;
     }
     .buttonFilterOn {
@@ -201,89 +202,89 @@ body {
 }
 @media screen and (max-width: 640px) {
     .searchPage {
+        width: 100%;
         .searchBar {
-            width: 500px;
+            width: 100%;
             min-height: 200px;
             display: flex;
             flex-direction: column;
         }
     }
     .filterChoice {
-        display: flex;
-        height: 100%;
+        width: 100%;
+        height: auto;
         .filterTheme {
-            width: 40%;
+            width: 100%;
             height: 100%;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            height: 80px;
             .promo {
-                background-color: #2E3E53;
-                min-height: 130px;
-                width: 130px;
-                background-image: url('../images/placeholder.png');
-                background-position: center;
-                background-repeat: no-repeat;
-                position: relative;
+                min-height: 80px;
+                width: 100%;
                 .triangle {
-                    position: absolute;
-                    left: 127px;
-                    top: 25px;
-                    width: 0;
-                    height: 0;
-                    border-style: solid;
-                    border-width: 40px 0 40px 40px;
-                    border-color: transparent transparent transparent #2E3E53;
+                    display: none;
                 }
             }
             .langage {
-                background-color: #425877;
-                min-height: 130px;
-                width: 130px;
-                background-image: url('../images/code.png');
-                background-position: center;
-                background-repeat: no-repeat;
-                position: relative;
+                min-height: 80px;
+                width: 100%;
                 .triangle {
-                    position: absolute;
-                    left: 127px;
-                    top: 25px;
-                    width: 0;
-                    height: 0;
-                    border-style: solid;
-                    border-width: 40px 0 40px 40px;
-                    border-color: transparent transparent transparent #425877;
+                    display: none;
                 }
             }
             .contrat {
-                background-color: #BBC1C6;
-                min-height: 130px;
-                width: 130px;
-                background-image: url('../images/contract.png');
-                background-position: center;
-                background-repeat: no-repeat;
-                position: relative;
+                min-height: 80px;
+                width: 100%;
                 .triangle {
-                    position: absolute;
-                    left: 127px;
-                    top: 25px;
-                    width: 0;
-                    height: 0;
-                    border-style: solid;
-                    border-width: 40px 0 40px 40px;
-                    border-color: transparent transparent transparent #BBC1C6;
+                    display: none;
                 }
             }
             .gradient {
-                height: 100%;
-                width: 130px;
-                background: rgb(187, 193, 198);
-                background: -moz-linear-gradient(90deg, rgb(187, 193, 198) 0%, rgb(247, 247, 247) 28%);
-                background: -webkit-linear-gradient(90deg, rgb(187, 193, 198) 0%, rgb(247, 247, 247) 28%);
-                background: -o-linear-gradient(90deg, rgb(187, 193, 198) 0%, rgb(247, 247, 247) 28%);
-                background: -ms-linear-gradient(90deg, rgb(187, 193, 198) 0%, rgb(247, 247, 247) 28%);
-                background: linear-gradient(180deg, rgb(187, 193, 198) 0%, rgb(247, 247, 247) 28%);
+                display: none;
             }
         }
+    }
+    .filterMain {
+        width: 100%;
+        height: auto;
+        min-height: auto;
+    }
+    .flex {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+    .filter {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        width: 100%;
+        flex-wrap: wrap;
+        background-color: #7B8C8C;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 0.8em;
+        .buttonFilterOff {
+            width: 150px;
+            height: 25px;
+            border: none;
+            cursor: pointer;
+        }
+        .buttonFilterOn {
+            width: 150px;
+            height: 25px;
+            cursor: pointer;
+        }
+        .buttonFilterOn:hover {
+            background-color: white;
+        }
+    }
+    .filterRight {
+        height: auto;
+        display: none;
     }
 }
 .sticktotop {
