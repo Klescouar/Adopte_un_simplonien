@@ -26,22 +26,16 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         type: 'Javascript',
         active: false,
     }, {
-        type: 'HTML',
-        active: false,
-    }, {
-        type: 'CSS',
+        type: 'HTML/CSS',
         active: false,
     }, {
         type: 'PHP',
         active: false,
     }, {
-        type: 'Javascript',
-        active: false,
-    }, {
         type: 'Angular',
         active: false,
     }, {
-        type: 'Montreuil',
+        type: 'REACT',
         active: false,
     }, {
         type: 'Typescript',
@@ -98,19 +92,54 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         active: false,
     }, ];
 
+    $scope.togglePromo = false;
+    $scope.toggleLangage = false;
+    $scope.toggleContrat = false;
+
+    if ($(window).width() > 640) {
+        $('.filterRight').css('display', 'block');
+    }
+
     $scope.changeState = function() {
         if (this.theme.name === 'Promo') {
             this.theme.active = true;
             $scope.themes[1].active = false;
             $scope.themes[2].active = false;
+            if ($(window).width() < 640 && $scope.togglePromo === false) {
+                $('.filterRight').css('display', 'block');
+                $scope.togglePromo = true;
+                $scope.toggleLangage = false;
+                $scope.toggleContrat = false;
+            } else if ($(window).width() < 640 && $scope.togglePromo === true) {
+                $('.filterRight').css('display', 'none');
+                $scope.togglePromo = false;
+            }
         } else if (this.theme.name === 'Langage') {
             this.theme.active = true;
             $scope.themes[0].active = false;
             $scope.themes[2].active = false;
+            if ($(window).width() < 640 && $scope.toggleLangage === false) {
+                $('.filterRight').css('display', 'block');
+                $scope.togglePromo = false;
+                $scope.toggleLangage = true;
+                $scope.toggleContrat = false;
+            } else if ($(window).width() < 640 && $scope.toggleLangage === true) {
+                $('.filterRight').css('display', 'none');
+                $scope.toggleLangage = false;
+            }
         } else if (this.theme.name === 'Contrat') {
             this.theme.active = true;
             $scope.themes[0].active = false;
             $scope.themes[1].active = false;
+            if ($(window).width() < 640 && $scope.toggleContrat === false) {
+                $('.filterRight').css('display', 'block');
+                $scope.togglePromo = false;
+                $scope.toggleLangage = false;
+                $scope.toggleContrat = true;
+            } else if ($(window).width() < 640 && $scope.toggleContrat === true) {
+                $('.filterRight').css('display', 'none');
+                $scope.toggleContrat = false;
+            }
         }
     };
 
@@ -129,6 +158,9 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
             };
         };
         $scope.searchTagFilter = $scope.searchTag.toString().replace(/\,/g, ' ');
+        if ($scope.searchTagFilter.length === 0) {
+            $scope.searchTagFilter = undefined;
+        }
     };
 
     $scope.changeFilterLangage = function() {
@@ -143,6 +175,9 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
             };
         };
         $scope.searchTagFilter = $scope.searchTag.toString().replace(/\,/g, ' ');
+        if ($scope.searchTagFilter.length === 0) {
+            $scope.searchTagFilter = undefined;
+        }
     };
 
     $scope.changeFilterContrat = function() {
@@ -157,6 +192,9 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
             };
         };
         $scope.searchTagFilter = $scope.searchTag.toString().replace(/\,/g, ' ');
+        if ($scope.searchTagFilter.length === 0) {
+            $scope.searchTagFilter = undefined;
+        }
     };
 
 }]);

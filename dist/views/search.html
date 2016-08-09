@@ -1,34 +1,40 @@
 <div class="searchPage" ng-controller='searchCtrl'>
     <div class="searchBar">
-        <form class="inputForm">
-            <input ng-model="searchStudent" placeholder="Nom, langage, ville...">
-            <div class="searchImage"></div>
-        </form>
-        <div class="filterChoice">
-            <div class="filterTheme">
-                <div ng-click="changeState()" ng-repeat="theme in themes track by $index" ng-class="{'promo': ($index === 0), 'langage': ($index === 1), 'contrat': ($index === 2)}">
-                    <div ng-show="theme.active" class="triangle"></div>
+        <div class="filterMain" >
+            <form class="inputForm">
+              <div class="searchImage"></div>
+                <input ng-model="searchStudent" placeholder="Nom, langage, ville...">
+            </form>
+            <div class="flex">
+                <div class="filterChoice">
+                    <div class="filterTheme">
+                        <div ng-click="changeState(); toggle()" ng-repeat="theme in themes track by $index" ng-class="{'promo': ($index === 0), 'langage': ($index === 1), 'contrat': ($index === 2)}">
+                            <div ng-show="theme.active" class="triangle"></div>
+                        </div>
+                        <div class="gradient"></div>
+                    </div>
                 </div>
-                <div class="gradient"></div>
-            </div>
-            <div class="filterIcone">
-                <div ng-if="themes[0].active === true" class="filter">
-                    <input ng-click="changeFilterSchool()" ng-model="schoolData" type="button" value="{{school.ville}}" name="button" ng-repeat="school in schools" ng-class="{'buttonFilterOff': !school.active, 'buttonFilterOn' : school.active}">
-                </div>
-                <div class="filter" ng-if="themes[1].active === true">
-                    <input ng-click="changeFilterLangage()" type="button" value="{{langage.type}}" name="button" ng-repeat="langage in langages" ng-class="{'buttonFilterOff': !langage.active, 'buttonFilterOn' : langage.active}">
-                </div>
-                <div class="filter" ng-if="themes[2].active === true">
-                    <input ng-click="changeFilterContrat()" type="button" value="{{contrat.type}}" name="button" ng-repeat="contrat in contrats" ng-class="{'buttonFilterOff': !contrat.active, 'buttonFilterOn' : contrat.active}">
+                <div class="filterRight">
+                    <div ng-if="themes[0].active === true" class="filter">
+                        <input ng-click="changeFilterSchool()" ng-model="schoolData" type="button" value="{{school.ville}}" name="button" ng-repeat="school in schools" ng-class="{'buttonFilterOff': !school.active, 'buttonFilterOn' : school.active}">
+                    </div>
+                    <div class="filter" ng-if="themes[1].active === true">
+                        <input ng-click="changeFilterLangage()" type="button" value="{{langage.type}}" name="button" ng-repeat="langage in langages" ng-class="{'buttonFilterOff': !langage.active, 'buttonFilterOn' : langage.active}">
+                    </div>
+                    <div class="filter" ng-if="themes[2].active === true">
+                        <input ng-click="changeFilterContrat()" type="button" value="{{contrat.type}}" name="button" ng-repeat="contrat in contrats" ng-class="{'buttonFilterOff': !contrat.active, 'buttonFilterOn' : contrat.active}">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="cardPage">
-        <div class="animated bounceIn" ng-class="{'card': ($index % 2 === 0), 'cardBis': $index % 2 !== 0}" ng-repeat="student in data | filter:searchTagFilter:true | filter:searchStudent track by $index">
-            <p>{{student.nomPrenom}}</p>
-            <p> <strong>Promo:</strong> {{student.ville}}</p>
-            <p><strong>Spécialités:</strong> {{student.specialite}}</p>
+        <div class="cardPage">
+            <div class="card" ng-class="'card-small-'+(($index%6)+1)" ng-repeat="student in data | filter:searchTagFilter:true | filter:searchStudent track by $index">
+                <div class="studentPic"><img src="assets/images/{{student.photo}}" /></div>
+                <p>{{student.nomPrenom}}</p>
+                <p> <strong>Promo:</strong> {{student.ville}}</p>
+                <p>{{ "#" + student.specialite1 + " " + "#" + student.specialite2 + " " + "#" + student.specialite3}}</p>
+                <p>{{student.contrat}}</p>
+            </div>
         </div>
     </div>
 </div>
