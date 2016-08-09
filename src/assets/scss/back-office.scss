@@ -1,0 +1,140 @@
+.container-bo{
+	display: flex;
+
+	.container-nav-bo{
+		display: flex;
+		flex-direction:column;
+		background-color: black;
+		width: 25%;
+		height: 85vh;
+		flex-direction:column;
+		justify-content:center;
+		align-items:center;
+
+		a{
+			height: 50px;
+			width: 200px;
+			background-color: white;
+			color: black;
+			text-align: center;
+			display: flex;
+			align-items:center;
+			justify-content: center;
+			margin: 10px;
+		}
+
+		a:focus{
+			background-color: grey;
+			color: white;
+		}
+	}
+	
+	.container-interface{
+		display: flex;
+		flex-direction:column;
+		width: 100%;
+		height: 100%;
+
+
+		.container-create-user{
+			display: flex;
+			flex-direction:column;
+			justify-content:center;
+			align-items:center;
+			background-color: grey;
+			height: 80vh;
+
+
+			p{
+				color: red;
+				text-align: center;
+			}
+		}
+		.container-delete-user{
+			display: flex;
+			flex-direction:column;
+			justify-content:center;
+			align-items:center;
+			background-color: #4d84f1;
+			height: 100%;
+			
+
+			.container-title{
+				display: flex;
+				justify-content:center;
+				align-items:center;
+				padding-right: 40px;
+
+				.title{
+					margin : 10px;
+					background-color: black;
+					color: white;
+					height: 50px;
+					width: 180px;
+					text-align: center;
+
+				}
+			}
+			.container-users{
+				display: flex;
+				// margin-left: 43px;
+				display: flex;
+				justify-content:center;
+				height: 100%;
+				flex-direction:column;
+
+				.cont-info{
+					
+					display: flex;
+					align-items:center;
+	
+					.cont-pseudo{
+						margin : 10px;
+						background-color: white;
+						color: black;
+						height: 50px;
+						width: 180px;
+						text-align: center;
+
+					}
+
+					
+
+					.cont-perm{
+						margin : 10px;
+						background-color: white;
+						color: black;
+						height: 50px;
+						width: 200px;
+						text-align: center;
+					}
+				}
+
+				.delete-user{
+				background: url(../images/cross.png) no-repeat center;
+				background-size: cover;
+				height: 30px;
+				width: 30px;
+				}
+			}
+
+		}
+		.container-create-student{
+		
+		display: flex;
+		flex-direction:column;
+		justify-content:center;
+		align-items:center;
+		background-color: grey;
+		height: 80vh;
+
+		}
+
+	.input-style{
+				height: 50px;
+				width: 30%;
+				border: none;
+				margin: 10px;
+			}
+	}
+}
