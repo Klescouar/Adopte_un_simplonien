@@ -1,19 +1,15 @@
-p{
-	margin: 0px;
-	color: white;
-}
 
 .main-contrainer-profil{
 	display: flex;
 	flex-direction: row;
-	
+
 	height: 82vh;
 
 	.container-left{
 		width: 50%;
 		background-color: #324D5C;
 	}
-	
+
 	.container-middle{
 
 		.container-text{
@@ -63,7 +59,7 @@ p{
 		}
 
 		.cv-logo{
-			
+
 			background: url(../images/link.png) no-repeat center;
 			background-size: cover;
 			height: 60px;
