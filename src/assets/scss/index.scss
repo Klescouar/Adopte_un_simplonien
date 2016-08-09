@@ -70,13 +70,14 @@ body{
   }
 
   .footer-container{
+    bottom: 0px;
     background-color: $footer-color;
     height: $footer-height;
     width: $full;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    position: absolute;
     z-index: 3;
 
     .footer_item-container{
