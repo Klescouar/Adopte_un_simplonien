@@ -1,9 +1,6 @@
 .searchPage {
     display: flex;
 }
-body {
-    background-color: #333333;
-}
 .cardPage {
     padding: 10px;
     display: flex;
@@ -11,30 +8,43 @@ body {
     flex-wrap: wrap;
     flex-grow: 1;
     width: 100%;
-    background-color: #212020;
+    background-color: #40475A;
+    padding: 10px;
+    * {
+        font-family: 'Lato', calibri, arial;
+    }
     .card {
-        width: 25%;
         margin: 10px;
-        min-width: 280px;
-        height: 350px;
+        min-width: 295px;
+        height: 400px;
         background-color: white;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        flex-wrap: wrap;
-        flex-grow: 1;
         text-align: center;
-        color: black;
-        .topCard{
-          margin-top: 30px;
+        color: #40475A;
+        cursor: pointer;
+        .topCard {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
-        .botCard{
-          background-color: rgb(228, 226, 226);
-          width: 100%;
-          display: flex;
-          justify-content: 
+        .botCard {
+            background-color: rgb(228, 226, 226);
+            border-top: 1px solid #40475A;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
         }
+    }
+    .card:hover {
+        background-color: rgb(203, 203, 203);
+        transition: 0.5s all;
     }
 }
 .searchBar {
@@ -78,6 +88,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 2px solid #40475A;
     img {
         height: 100%;
         width: auto;
@@ -176,6 +187,7 @@ body {
     height: 100%;
     width: 184px;
     background-color: #7B8C8C;
+    padding-top: 15px;
     .buttonFilterOff {
         width: 100%;
         height: 25px;
