@@ -29,6 +29,7 @@
   "dependencies": {
     "angular": "^1.5.7",
     "angular-animate": "^1.5.7",
+    "angular-pageslide-directive": "^2.1.0",
     "angular-route": "^1.5.7",
     "jquery": "^3.1.0",
     "jquery-ui": "^1.12.0",
