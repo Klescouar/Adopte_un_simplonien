@@ -2,9 +2,10 @@
 	background: url(../images/backgroundOffice.jpg) ;
 	background-size: 10%;
 	display: flex;
+	min-height: 90vh;
 
 	.container-nav-bo{
-		position: fixed;
+		
 		display: flex;
 		flex-direction:column;
 		background-color: black;
@@ -35,6 +36,7 @@
 	.container-interface{
 		display: flex;
 		flex-direction:column;
+		justify-content:center;
 		width: 100%;
 		height: 100%;
 
@@ -121,6 +123,8 @@
 				}
 			}
 
+
+
 		}
 		.container-create-student{
 		
@@ -138,6 +142,19 @@
 				width: 30%;
 				border: none;
 				margin: 10px;
-			}
+	}
+
+
+	}
+
+	
+	.modify{
+		height: 30px;
+		width: 80px;
+		background-color: green;
+		border:none;
+		margin-left: 10px;
+		margin-right: 10px;
+		color:white;
 	}
 }

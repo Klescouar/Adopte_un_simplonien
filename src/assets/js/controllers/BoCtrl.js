@@ -58,6 +58,8 @@ $scope.showUser = function(){
 
     $scope.showUser();
 
+// to create a simplonien card
+
 $scope.createSimplonien = function(){
         if($scope.boCreateMdpVerif === $scope.boCreateMdp && $scope.boCreatePseudo.length > 3 &&  $scope.boCreateMdpVerif.length > 6){
 
@@ -87,6 +89,7 @@ $scope.createSimplonien = function(){
 
             };
 
+
             $http.post(serviceApi.createStudent, dataStudent)
                 .then(
                     function(response) {
@@ -101,6 +104,99 @@ $scope.createSimplonien = function(){
             }
     }
 
+
+// to show Simplonien list
+
+$scope.showSimplonien = function(){
+console.log("coucou")
+        $http.get(serviceApi.getSimplonien)
+                .then(
+                    function(response) {  
+                         $scope.simploniens = response.data;
+                    },
+                    function(err) {
+                        console.log("C'est la merde!");
+                    }
+                );
+};
+
+
+
+    // to delete a Simplonien card
+
+    $scope.deleteSimplonien = function (index) {
+
+         $http.delete(serviceApi.deleteSimplonien + index)
+                .then(
+                    function(response) {
+                         console.log(response.data);
+                          $scope.showSimplonien();
+                    },
+                    function(err) {
+                        console.log("C'est la merde!");
+                    }
+                );
+    };
+    $scope.showSimplonien();
+
+    // to modify a Simplonien's card
+
+    $scope.modify =function(index){
+         $http.get(serviceApi.modifySimplonien + index)
+                .then(
+                    function(response) {
+                        $scope.infoSimploniens = response.data;
+
+                    },
+                    function(err) {
+                        console.log("C'est la merde!");
+                    }
+                ); 
+    }
+    
+   
+
+    $scope.sendModif =function(){
+
+        var dataInfoSimploniens = {
+                nom: document.getElementById("boCreateLastNameSimploniens").value,
+                prenom: document.getElementById("boCreateNameSimploniens").value,
+                age: document.getElementById("boCreateOldSimploniens").value,
+                ville: document.getElementById("boCreatePromoSimploniens").value,
+                photo: document.getElementById("boCreatePhotoSimploniens").value,
+                tags: document.getElementById("boCreateTagsSimploniens").value,
+                description: document.getElementById("boCreateAboutSimploniens").value,
+                sexe : document.getElementById("boCreateSexeSimploniens").value,
+                specialite1: document.getElementById("boCreateSpeOneSimploniens").value,
+                specialite2: document.getElementById("boCreateSpeTwoSimploniens").value,
+                specialite3: document.getElementById("boCreateSpeThreeSimploniens").value,
+                github: document.getElementById("boCreateGithubSimploniens").value,
+                linkedin: document.getElementById("boCreateLinkedinSimploniens").value,
+                portfolio: document.getElementById("boCreatePortfolioSimploniens").value,
+                cV: document.getElementById("boCreateCVSimploniens").value,
+                twitter: document.getElementById("boCreateTwitterSimploniens").value,
+                stack: document.getElementById("boCreateStackOverFlowSimploniens").value,
+                mail: document.getElementById("boCreateMailSimploniens").value,
+                contrat: document.getElementById("boCreateContratSimploniens").value,
+                datePromo: document.getElementById("boCreateDatePromoSimploniens").value,
+                domaine: document.getElementById("boCreateDomaineSimploniens").value
+
+            };
+
+            
+
+            $http.put(serviceApi.modifySendSimplonien, dataInfoSimploniens)
+                .then(
+                    function(response) {
+                        console.log(response.data)
+                        console.log('coucou');
+                        
+                    },
+                    function(err) {
+                        console.log("C'est la merde!");
+                    }
+                );
+    }
+    
+
 }]);
-
-

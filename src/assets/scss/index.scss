@@ -60,12 +60,6 @@ body{
     }
   }
 
-
-// VIEW Size
-  .main-container{
-    height: calc(100vh - 100px);
-  }
-
 // FOOTER
   .footer-container{
     background-color: $footer-color;
@@ -74,8 +68,10 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     z-index: 3;
+    position: absolute;
+
+
 
     .footer_item-container{
       width: 350px;
