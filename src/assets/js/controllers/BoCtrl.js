@@ -58,6 +58,8 @@ $scope.showUser = function(){
 
     $scope.showUser();
 
+// to create a simplonien card
+
 $scope.createSimplonien = function(){
         if($scope.boCreateMdpVerif === $scope.boCreateMdp && $scope.boCreatePseudo.length > 3 &&  $scope.boCreateMdpVerif.length > 6){
 
@@ -100,6 +102,41 @@ $scope.createSimplonien = function(){
     
             }
     }
+
+
+// to show Simplonien list
+
+$scope.showSimplonien = function(){
+console.log("coucou")
+        $http.get(serviceApi.getSimplonien)
+                .then(
+                    function(response) {  
+                         $scope.simploniens = response.data;
+                    },
+                    function(err) {
+                        console.log("C'est la merde!");
+                    }
+                );
+};
+
+
+
+    // to delete a Simplonien card
+
+    $scope.deleteSimplonien = function (index) {
+
+         $http.delete(serviceApi.deleteSimplonien + index)
+                .then(
+                    function(response) {
+                         console.log(response.data);
+                          $scope.showSimplonien();
+                    },
+                    function(err) {
+                        console.log("C'est la merde!");
+                    }
+                );
+    };
+    $scope.showSimplonien();
 
 }]);
 

@@ -4,6 +4,7 @@ body{
   flex-direction: column;
   color: white;
   height: $full-height;
+  position: relative;
 
   .nav-container{
     padding: 0 7%;
@@ -12,15 +13,11 @@ body{
     height: $nav-height;
     justify-content: space-between;
     align-items: center;
-    overflow: visible;
 
     .page-container-left{
       justify-content: space-between;
       align-items: center;
       width: 400px;
-    }
-    a{
-      // margin: 20px;
     }
 
     .sign-container-right{
@@ -32,39 +29,55 @@ body{
         border: solid 1px white;
       }
     }
+  }
 
-    .burger-menu-icon, .user-icon, .burger-menu_close{
-      height: 30px;
-    }
-    .burger-menu_close{
-      margin-bottom: 20px;
+  .burger-menu-icon, .user-icon, .burger-menu_close-icon{
+    height: 30px;
+  }
+
+  .burger-menu_close:target{
+    left: -70%;
+  }
+
+  .burger-menu-open{
+    position: fixed;
+    flex-direction: column;
+    height: $full-height;
+    background-color: $navbar-color;
+    color: white;
+    width: 60%;
+    padding: 20px 20px;
+    top: 0;
+    left: -70%;
+    transition: all .5s ease-in;
+
+    &:target{
+      left:0;
     }
 
-    .burger-menu{
+    .burger-menu_items{
+      display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      height: $full-height;
-      background-color: $navbar-color;
-      color: white;
-      width: 60%;
-      padding: 20px 20px;
-      top: 0;
-      left: 0;
       a{
-        font-size: 2em;
-        margin: 20px 0;
+        display: block;
+        font-size: 1.5em;
       }
     }
   }
 
+  .main-container{
+    height: calc(100vh - 100px);
+  }
+
   .footer-container{
+    bottom: 0px;
     background-color: $footer-color;
     height: $footer-height;
     width: $full;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    position: absolute;
     z-index: 3;
 
     .footer_item-container{
