@@ -5,7 +5,7 @@
 	min-height: 90vh;
 
 	.container-nav-bo{
-		position: fixed;
+		
 		display: flex;
 		flex-direction:column;
 		background-color: black;
@@ -123,6 +123,8 @@
 				}
 			}
 
+
+
 		}
 		.container-create-student{
 		
@@ -140,6 +142,19 @@
 				width: 30%;
 				border: none;
 				margin: 10px;
-			}
+	}
+
+
+	}
+
+	
+	.modify{
+		height: 30px;
+		width: 80px;
+		background-color: green;
+		border:none;
+		margin-left: 10px;
+		margin-right: 10px;
+		color:white;
 	}
 }
