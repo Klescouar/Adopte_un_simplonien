@@ -1,39 +1,31 @@
-<div class="main-container-profil">
+<div class="main-container-profil" ng-controller="profilCtrl">
 	<div class="conatiner-left-profil"></div>
 	<div class="container-middle-profil">
-		<div class="profil-pic"></div>
-		<h2>Ninette</h2>
-		<p>Gestion de projet</p>
-		<p>22 ans</p>
+		<div class="profil-pic"><img src="./assets/images/{{student[0].Photo}}"></div>
+		<h2>{{student[0].Prenom}} {{student[0].Nom}}</h2>
+		<p>{{student[0].Domaine}}</p>
+		<p>{{student[0].Age}} ans</p>
 		<div class="line"></div>
-		<p class="comp">#design #organisation #javascript</p>
+		<p class="comp">#{{student[0].Specialite1}} #{{student[0].Specialite2}} #{{student[0].Specialite3}}</p>
 		<div class="container-social">
-			<div class="github"></div>
-			<div class="cv"></div>
-			<div class="linkedin"></div>
+			<div class="github" href="{{student[0].Github}}"></div>
+			<div class="cv" href="{{student[0].CV}}"></div>
+			<div class="linkedin" href="{{student[0].Linkedin}}"></div>
 		</div>
-		<p class="description">Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500.</p>
+		<p class="description">{{student[0].Description}}</p>
 		<div class="line"></div>
 		<div class="main-cont-tags">
 			<div class="cont-tags">
 				<h4 class="title-comp">Compétences</h4>
-				<p>#html5/css3</p>
-				<p>#javascript</p>
-				<p>#angularjs</p>
-			</div>
-			<div class="cont-tags">
-				<h4 class="title-comp">Outils</h4>
-				<p>#photoshop</p>
-				<p>#mamp</p>
-				<p>#git</p>
+				<p ng-repeat="comp in student">{{comp.Tags}}</p>
 			</div>
 		</div>
 		<div class="cont-project">
-				<div class="project"></div>
-				<div class="project"></div>
-				<div class="project"></div>
+			<div class="project"></div>
+			<div class="project"></div>
+			<div class="project"></div>
 		</div>
-		<button>Contacter Ninette</button>
+		<button>Contacter {{student[0].Prenom}}</button>
 	</div>
 	<div class="container-right-profil"></div>
 </div>
