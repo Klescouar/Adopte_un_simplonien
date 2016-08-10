@@ -31,13 +31,13 @@
             <div class="card" ng-repeat="student in data | filter:searchTagFilter:true | filter:searchStudent track by $index">
                 <div class="topCard">
                     <div class="studentPic"><img src="assets/images/{{student.photo}}" /></div>
-                    <p>{{student.nomPrenom}}</p>
-                    <p> <strong>Promo:</strong> {{student.ville}}</p>
+                    <h3>{{student.nomPrenom}}</h3>
+                    <p> {{student.ville}}</p>
+                    <p>Recherche: {{student.contrat}}</p>
                 </div>
                 <div class="botCard">
-                    <p>"#" + {{student.specialite1}} </p><p> "#" + {{student.specialite2}} </p><p> "#" + {{student.specialite3}}</p>
+                    <p>#{{student.specialite1}} </p><p> #{{student.specialite2}} </p><p> #{{student.specialite3}}</p>
                 </div>
-                <p>{{student.contrat}}</p>
             </div>
         </div>
     </div>
