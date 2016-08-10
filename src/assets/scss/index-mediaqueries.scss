@@ -1,7 +1,7 @@
 // Ipad and bigger
 @media screen and (min-width: 737px){
 
-  .burger-menu-open{
+  .burger-menu{
     display: none;
   }
   .page-container-left{
@@ -20,9 +20,9 @@
     position: relative;
     z-index: 2;
   }
-  .burger-menu-open{
+  .burger-menu{
+    z-index: 10;
     display: flex;
-    z-index: 3;
   }
   .page-container-left{
     display: none;
@@ -32,7 +32,7 @@
     position: relative;
     z-index: 1
   }
-  .burger-menu_close-icon{
+  .burger-menu-close-icon{
     margin-bottom: 30px;
   }
   .burger-menu_items a{
@@ -41,7 +41,7 @@
 }
 
 @media screen and (max-width: 414px){
-  .burger-menu_close-icon{
+  .burger-menu-close-icon{
     margin-bottom: 60px;
   }
 

@@ -29,20 +29,22 @@
 <body ng-app="AdopteUnSimplonien">
 
 	<!-- Burger Menu -->
-	<div class="burger-menu_close" id="burger-menu_close">
-		<div class="burger-menu-open" id="#burger-menu-open">
-			<a href="#burger-menu_close"><img src="assets/images/close-button.svg" alt="" class="burger-menu_close-icon"></a>
+
+		<div class="burger-menu closed">
+			<img src="assets/images/close-button.svg" alt="" class="burger-menu-close-icon" id="burger-close">
 			<div class="burger-menu_items">
-				<a href="">Home</a>
-				<a href="">Simploniens</a>
-				<a href="">Qui sommes-nous?</a>
-				<a href="">Contact</a>
+				<a href="#/">Home</a>
+				<a href="#/search">Simploniens</a>
+				<a href="#/project">Qui sommes-nous?</a>
+				<a href="#/contact">Contact</a>
 				<a href="">Se connecter</a>
 			</div>
 		</div>
-	</div>
+
+
+	<!-- Desktop navbar -->
 	<div class="nav-container">
-		<a href="#burger-menu-open"><img src="assets/images/bars.svg" alt="" class="burger-menu-icon"></a>
+		<img src="assets/images/bars.svg" alt="" class="burger-menu-icon" id="burger-open">
 		<div class="page-container-left">
 			<a href="#/">Home</a>
 			<a href="#/search">Simploniens</a>
@@ -51,7 +53,11 @@
 		</div>
 		<img src="assets/images/user.svg" alt="" class="user-icon">
 	</div>
+
+	<!-- Ng-VIEW -->
 	<div class="main-container" ng-view></div>
+
+	<!-- Footer -->
 	<div class="footer-container">
 		<div class="footer_item-container">
 			<a target="_blank" href="http://simplon.co/" class="logo"></a>
@@ -61,5 +67,4 @@
 		</div>
 	</div>
 </body>
-
 </html>
