@@ -1,0 +1,23 @@
+// Ipad and bigger
+@media screen and (min-width: 737px){
+  .main-title{
+    font-size: 4em;
+  }
+  .main-text{
+    font-size: 1.5em;
+    width: 70%;
+  }
+}
+// Iphone 6s plus and smaller - Landscape
+@media screen and (max-width: 736px){
+  .main-title{
+    font-size: 3em;
+  }
+  .main-text{
+    font-size: 1.5em
+  }
+}
+
+// Iphone 6s plus and smaller - Portrait
+@media screen and (max-width: 414px){
+}

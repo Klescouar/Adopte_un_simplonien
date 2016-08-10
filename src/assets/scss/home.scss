@@ -7,16 +7,15 @@
   rgba(115,159,190,0.85),
   rgba(115,159,190,0.85)),
   url(../images/photo-1429051883746-afd9d56fbdaf.jpeg) no-repeat center / cover;
+  height: calc(100vh-100px);
 
   .main-title{
-    font-size: 4em;
     margin-top: 0px;
     margin-bottom: 20px;
     text-align: center;
   }
   .main-text{
     font-weight:300;
-    width: 70%;
     text-align: center;
     margin: 10px 0 20px 0;
   }
