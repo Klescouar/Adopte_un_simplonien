@@ -10,6 +10,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
 
     $scope.schools = serviceApi.schools;
 
+
     $scope.themes = [{
         name: 'Promo',
         active: true,
@@ -143,58 +144,84 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         }
     };
 
-    $scope.searchTag = [];
-
+    $scope.searchSchool = [];
+    $scope.searchLangage = [];
+    $scope.searchContrat = [];
+    $scope.searchResult = [{
+        Langage: [],
+        Ville: [],
+        Contrat: [],
+    }];
 
     $scope.changeFilterSchool = function() {
-        if (this.school.active === false) {
-            this.school.active = true;
-            $scope.searchTag.push(this.school.ville);
-        } else {
-            this.school.active = false
-            var index = $scope.searchTag.indexOf(this.school.ville);
-            if (index > -1) {
-                $scope.searchTag.splice(index, 1);
-            };
-        };
-        $scope.searchTagFilter = $scope.searchTag.toString().replace(/\,/g, ' ');
-        if ($scope.searchTagFilter.length === 0) {
-            $scope.searchTagFilter = undefined;
+        if ($scope.searchResult[0].Ville.length < 1) {
+            if (this.school.active === false) {
+                this.school.active = true;
+                $scope.searchResult[0].Ville.push(this.school.ville);
+            } else if (this.school.active === true) {
+                this.school.active = false;
+                var index = $scope.searchResult[0].Ville.indexOf(this.school.ville);
+                if (index > -1) {
+                    $scope.searchResult[0].Ville.splice(index, 1);
+                }
+            }
+        } else if ($scope.searchResult[0].Ville.length = 1) {
+            if (this.school.active = true) {
+                this.school.active = false;
+                var index = $scope.searchResult[0].Ville.indexOf(this.school.ville);
+                if (index > -1) {
+                    $scope.searchResult[0].Ville.splice(index, 1);
+                }
+            }
         }
+        console.log($scope.searchResult[0]);
+
     };
 
+
     $scope.changeFilterLangage = function() {
-        if (this.langage.active === false) {
-            this.langage.active = true;
-            $scope.searchTag.push(this.langage.type);
-        } else {
-            this.langage.active = false
-            var index = $scope.searchTag.indexOf(this.langage.type);
+        if ($scope.searchResult[0].Langage.length < 3) {
+            if (this.langage.active === false) {
+                this.langage.active = true;
+                $scope.searchResult[0].Langage.push(this.langage.type);
+            } else if (this.langage.active === true) {
+                this.langage.active = false;
+                var index = $scope.searchResult[0].Langage.indexOf(this.langage.type);
+                if (index > -1) {
+                    $scope.searchResult[0].Langage.splice(index, 1);
+                }
+            }
+        } else if ($scope.searchResult[0].Langage.length >= 3) {
+            this.langage.active = false;
+            var index = $scope.searchResult[0].Langage.indexOf(this.langage.type);
             if (index > -1) {
-                $scope.searchTag.splice(index, 1);
-            };
-        };
-        $scope.searchTagFilter = $scope.searchTag.toString().replace(/\,/g, ' ');
-        if ($scope.searchTagFilter.length === 0) {
-            $scope.searchTagFilter = undefined;
+                $scope.searchResult[0].Langage.splice(index, 1);
+            }
         }
+        console.log($scope.searchResult[0]);
+
     };
 
     $scope.changeFilterContrat = function() {
-        if (this.contrat.active === false) {
-            this.contrat.active = true;
-            $scope.searchTag.push(this.contrat.type);
-        } else {
-            this.contrat.active = false
-            var index = $scope.searchTag.indexOf(this.contrat.type);
+        if ($scope.searchResult[0].Contrat.length < 3) {
+            if (this.contrat.active === false) {
+                this.contrat.active = true;
+                $scope.searchResult[0].Contrat.push(this.contrat.type);
+            } else if (this.contrat.active === true) {
+                this.contrat.active = false;
+                var index = $scope.searchResult[0].Contrat.indexOf(this.contrat.type);
+                if (index > -1) {
+                    $scope.searchResult[0].Contrat.splice(index, 1);
+                }
+            }
+        } else if ($scope.searchResult[0].Contrat.length >= 3) {
+            this.contrat.active = false;
+            var index = $scope.searchResult[0].Contrat.indexOf(this.contrat.type);
             if (index > -1) {
-                $scope.searchTag.splice(index, 1);
-            };
-        };
-        $scope.searchTagFilter = $scope.searchTag.toString().replace(/\,/g, ' ');
-        if ($scope.searchTagFilter.length === 0) {
-            $scope.searchTagFilter = undefined;
+                $scope.searchResult[0].Contrat.splice(index, 1);
+            }
         }
+        console.log($scope.searchResult[0]);
     };
 
 }]);

@@ -66,18 +66,15 @@ body{
   }
 
   .main-container{
-    height: calc(100vh - 100px);
   }
 
   .footer-container{
-    bottom: 0px;
     background-color: $footer-color;
     height: $footer-height;
     width: $full;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
     z-index: 3;
 
     .footer_item-container{

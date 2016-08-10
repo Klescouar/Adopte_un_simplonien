@@ -14,7 +14,7 @@ app.config(['$routeProvider', function($routeProvider) {
         .when('/contact', {
             templateUrl: 'views/contact.html'
         })
-        .when('/profil', {
+        .when('/profil:id_profil', {
             templateUrl: 'views/profil.html'
         })
         .when('/log', {

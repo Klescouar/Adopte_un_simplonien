@@ -28,17 +28,17 @@
             </div>
         </div>
         <div class="cardPage">
-            <div class="card" ng-repeat="student in data | filter:searchTagFilter:true | filter:searchStudent track by $index">
+             <a class="card" href="#/profil{{student.id}}" ng-repeat="student in data | filterBy:searchStudent:true track by $index">
                 <div class="topCard">
                     <div class="studentPic"><img src="assets/images/{{student.photo}}" /></div>
                     <h3>{{student.nomPrenom}}</h3>
                     <p> {{student.ville}}</p>
-                    <p>Recherche: {{student.contrat}}</p>
+                    <p>Recherche: <strong>{{student.contrat}}</strong></p>
                 </div>
                 <div class="botCard">
-                    <p>#{{student.specialite1}} </p><p> #{{student.specialite2}} </p><p> #{{student.specialite3}}</p>
+                    <p>#{{student.specialite1}}   #{{student.specialite2}}  #{{student.specialite3}}</p>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 </div>
