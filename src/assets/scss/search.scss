@@ -6,25 +6,25 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    flex-grow: 1;
-    width: 100%;
     background-color: #40475A;
-    padding: 10px;
     * {
         font-family: 'Lato', calibri, arial;
     }
     .card {
         margin: 10px;
-        min-width: 295px;
+        min-width: 250px;
+        width: 15%;
         height: 400px;
         background-color: white;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
+        flex-grow: 1;
         text-align: center;
         color: #40475A;
         cursor: pointer;
+        transition: 0.2s all;
         .topCard {
             margin-top: 30px;
             display: flex;
@@ -45,7 +45,7 @@
     }
     .card:hover {
         background-color: rgb(203, 203, 203);
-        transition: 0.5s all;
+        transition: 0.2s all;
     }
 }
 .searchBar {
@@ -188,7 +188,6 @@
     height: 100%;
     width: 184px;
     background-color: #7B8C8C;
-    padding-top: 15px;
     .buttonFilterOff {
         width: 100%;
         height: 25px;
@@ -295,6 +294,7 @@
         display: none;
     }
 }
+.cardPage {}
 .sticktotop {
     position: fixed;
     top: 0;

@@ -24,6 +24,42 @@ $app->get('api/card', function() use ($dbManage){
     return json_encode($card, JSON_PRETTY_PRINT);
 });
 
+//Renvois card filtré
+$app->get('api/cardFiltre', function(Request $filtre) use ($dbManage){
+    $data = json_decode($filtre->getContent(), true);
+    $filtre->request->replace(is_array($data) ? $data : array());
+    $data = $filtre->request->all();
+
+    $champs = ['language','ville','contrat'];
+    $info = [];
+    $testcaca = [];
+
+    foreach ($champs as $value) {
+        if (gettype($data[$value]) == 'array'){
+            foreach ($data[$value] as $keyB => $valueB) {
+                $info[$value][$keyB] = trim(htmlspecialchars(addslashes($valueB)));
+            }
+        } else {
+            $info[$value] = trim(htmlspecialchars(addslashes($data[$value])));
+        }
+    }
+
+    for ($i=0; $i < 3; $i++) {
+        if(empty($info['language'][$i])){
+            $info['language'][$i] = '';
+        }
+    }
+
+    for ($i=0; $i < 5; $i++) {
+        if(empty($info['contrat'][$i])){
+            $info['contrat'][$i] = '';
+        }
+    }
+
+    $cardFiltre = $dbManage->getCardFiltre($info);
+    return json_encode($cardFiltre, JSON_PRETTY_PRINT);
+});
+
 //Renvois liste d'utilisateur
 $app->get('api/user', function() use ($dbManage){
     $user = $dbManage->getUser();
