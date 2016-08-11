@@ -70,20 +70,20 @@ class PdoManage {
     public function getCardFiltre($filtre){
         $card = $this->db->query('SELECT id, Photo, SpecialiteUn, SpecialiteDeux, SpecialiteTrois, Nom, Prenom, Ville, Contrat FROM Students ORDER BY id');
         $data = [];
-        $language1 = $filtre['language'][0];
-        $language2 = $filtre['language'][1];
-        $language3 = $filtre['language'][2];
-        $ville = $filtre['ville'];
-        $contrat1 = $filtre['contrat'][0];
-        $contrat2 = $filtre['contrat'][1];
-        $contrat3 = $filtre['contrat'][2];
-        $contrat4 = $filtre['contrat'][3];
-        $contrat5 = $filtre['contrat'][4];
+        $language1 = $filtre['Langage'][0];
+        $language2 = $filtre['Langage'][1];
+        $language3 = $filtre['Langage'][2];
+        $ville = $filtre['Ville'];
+        $contrat1 = $filtre['Contrat'][0];
+        $contrat2 = $filtre['Contrat'][1];
+        $contrat3 = $filtre['Contrat'][2];
+        $contrat4 = $filtre['Contrat'][3];
+        $contrat5 = $filtre['Contrat'][4];
 
         $cardFilterDone = [];
         while ($donnees = $card->fetch()) {
             $recherche = $donnees['SpecialiteUn'].' '.$donnees['SpecialiteDeux'].' '.$donnees['SpecialiteTrois'].' '.$donnees['Ville'].' '.$donnees['Contrat'];
-            if (preg_match('/^(?=.*'.$language1.')(?=.*'.$language2.')(?=.*'.$language3.')(?=.*'.$ville.')(?=.*'.$contrat1.')(?=.*'.$contrat2.')(?=.*'.$contrat3.')(?=.*'.$contrat4.')(?=.*'.$contrat5.')/s', $recherche)){
+            if(preg_match('/^(?=.*'.$language1.')(?=.*'.$language2.')(?=.*'.$language3.')(?=.*'.$ville.')(?=.*'.$contrat1.')(?=.*'.$contrat2.')(?=.*'.$contrat3.')(?=.*'.$contrat4.')(?=.*'.$contrat5.')/s', $recherche)){
                 array_push($cardFilterDone, [
                     "id" => $donnees['id'],
                     "nom" => $donnees['Nom'],
@@ -98,9 +98,7 @@ class PdoManage {
                 ]);
             }
         }
-        if (empty($cardFilterDone[0])){
-            $cardFilterDone = 'Aucun Simplonien ne correspond';
-        }
+
         return $cardFilterDone;
     }
 

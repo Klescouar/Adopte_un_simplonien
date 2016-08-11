@@ -147,81 +147,92 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
     $scope.searchSchool = [];
     $scope.searchLangage = [];
     $scope.searchContrat = [];
-    $scope.searchResult = [{
+    var searchResult = {
         Langage: [],
-        Ville: [],
+        Ville: "",
         Contrat: [],
-    }];
+    };
 
     $scope.changeFilterSchool = function() {
-        if ($scope.searchResult[0].Ville.length < 1) {
+        if (searchResult.Ville.length === 0) {
             if (this.school.active === false) {
                 this.school.active = true;
-                $scope.searchResult[0].Ville.push(this.school.ville);
+                searchResult.Ville = this.school.ville;
+                searchFilter();
             } else if (this.school.active === true) {
                 this.school.active = false;
-                var index = $scope.searchResult[0].Ville.indexOf(this.school.ville);
-                if (index > -1) {
-                    $scope.searchResult[0].Ville.splice(index, 1);
-                }
+                searchResult.Ville = "";
+                searchFilter();
             }
-        } else if ($scope.searchResult[0].Ville.length = 1) {
-            if (this.school.active = true) {
+        } else if (searchResult.Ville.length > 1) {
+            if (this.school.active === true) {
                 this.school.active = false;
-                var index = $scope.searchResult[0].Ville.indexOf(this.school.ville);
-                if (index > -1) {
-                    $scope.searchResult[0].Ville.splice(index, 1);
-                }
+                searchResult.Ville = "";
+                searchFilter();
             }
         }
-        console.log($scope.searchResult[0]);
-
     };
 
 
     $scope.changeFilterLangage = function() {
-        if ($scope.searchResult[0].Langage.length < 3) {
+        if (searchResult.Langage.length < 3) {
             if (this.langage.active === false) {
                 this.langage.active = true;
-                $scope.searchResult[0].Langage.push(this.langage.type);
+                searchResult.Langage.push(this.langage.type);
+                searchFilter();
             } else if (this.langage.active === true) {
                 this.langage.active = false;
-                var index = $scope.searchResult[0].Langage.indexOf(this.langage.type);
+                var index = searchResult.Langage.indexOf(this.langage.type);
                 if (index > -1) {
-                    $scope.searchResult[0].Langage.splice(index, 1);
+                    searchResult.Langage.splice(index, 1);
                 }
+                searchFilter();
             }
-        } else if ($scope.searchResult[0].Langage.length >= 3) {
+        } else if (searchResult.Langage.length >= 3) {
             this.langage.active = false;
-            var index = $scope.searchResult[0].Langage.indexOf(this.langage.type);
+            var index = searchResult.Langage.indexOf(this.langage.type);
             if (index > -1) {
-                $scope.searchResult[0].Langage.splice(index, 1);
+                searchResult.Langage.splice(index, 1);
             }
+            searchFilter();
         }
-        console.log($scope.searchResult[0]);
-
     };
 
     $scope.changeFilterContrat = function() {
-        if ($scope.searchResult[0].Contrat.length < 3) {
+        if (searchResult.Contrat.length < 3) {
             if (this.contrat.active === false) {
                 this.contrat.active = true;
-                $scope.searchResult[0].Contrat.push(this.contrat.type);
+                searchResult.Contrat.push(this.contrat.type);
+                searchFilter();
             } else if (this.contrat.active === true) {
                 this.contrat.active = false;
-                var index = $scope.searchResult[0].Contrat.indexOf(this.contrat.type);
+                var index = searchResult.Contrat.indexOf(this.contrat.type);
                 if (index > -1) {
-                    $scope.searchResult[0].Contrat.splice(index, 1);
+                    searchResult.Contrat.splice(index, 1);
                 }
+                searchFilter();
             }
-        } else if ($scope.searchResult[0].Contrat.length >= 3) {
+        } else if (searchResult.Contrat.length >= 3) {
             this.contrat.active = false;
-            var index = $scope.searchResult[0].Contrat.indexOf(this.contrat.type);
+            var index = searchResult.Contrat.indexOf(this.contrat.type);
             if (index > -1) {
-                $scope.searchResult[0].Contrat.splice(index, 1);
+                searchResult.Contrat.splice(index, 1);
             }
+            searchFilter();
         }
-        console.log($scope.searchResult[0]);
     };
+
+    var searchFilter = function() {
+        $http.post(serviceApi.filter, searchResult)
+            .then(
+                function(response) {
+                  $scope.data = response.data;
+                },
+                function(err) {
+                    console.log("C'est la merde!");
+                }
+            );
+            console.log($scope.data);
+    }
 
 }]);
