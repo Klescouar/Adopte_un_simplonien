@@ -1,3 +1,6 @@
+.contactPage{
+  height: calc(100vh - 100px);
+}
 .headContact {
     * {
         padding: 0;
@@ -89,6 +92,7 @@
     textarea:focus {
         background-color: 0.333;
         border-bottom: 1px solid #fff;
+        outline: none;
     }
     textarea {
         height: 150px;
