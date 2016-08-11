@@ -13,6 +13,5 @@ app.controller('profilCtrl', ['$scope', '$http', 'serviceApi', '$routeParams', f
             }
         );
 
-$scope.photo = "trombi15.jpg";
 
 }]);
