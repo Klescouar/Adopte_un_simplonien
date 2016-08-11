@@ -173,7 +173,7 @@ $app->delete('api/delete/simplon/{id}', function($id) use ($dbManage){
 });
 /////////////////////////* PUT *///////////////////////////////////
 //Modifie la fiche article d'un simplonien
-$app->put('api/modify/simplonien', function(Request $article) use ($dbManage){
+$app->put('api/modify/simplonien/{id}', function(Request $article, $id) use ($dbManage){
     // $id = trim(htmlspecialchars(addslashes($id)));
     $data = json_decode($article->getContent(), true);
     $article->request->replace(is_array($data) ? $data : array());
@@ -183,7 +183,6 @@ $app->put('api/modify/simplonien', function(Request $article) use ($dbManage){
     $champs = ['prenom', 'nom', 'age', 'ville', 'photo', 'tags', 'description', 'sexe', 'domaine', 'specialite1', 'specialite2', 'specialite3', 'github', 'linkedin', 'portfolio', 'cV', 'twitter', 'stack', 'mail', 'contrat', 'datePromo'];
     //Sécurité sur les entrées reçus
     foreach ($champs as $key => $value) {
-        return json_encode($data);
         if (!empty($data[$value])) {
             $info[$value] = trim(htmlspecialchars(addslashes($data[$value])));
         } else {
