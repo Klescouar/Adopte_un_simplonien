@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-.main-container-profil {
-	height: 100%;
-=======
+
 .main-container-profil{
->>>>>>> 7e52c3806ff12e0865858077709facc656b744c6
+
 	width: 100%;
 	display: flex;
 	.conatiner-left-profil {
@@ -14,7 +11,6 @@
 	.container-middle-profil {
 		position: relative;
 		display: flex;
-<<<<<<< HEAD
 		flex-direction: column;
 		align-items: center;
 		justify-content: space-around;
@@ -34,23 +30,8 @@
 				height: 100%;
 				width: auto;
 			}
-=======
-		flex-direction:column;
-		align-items:center;
-		justify-content:space-between;
-		width: 30%;
-		height: 100%;
-		background-color: white;
-		height: calc(100vh - 100px);
 
-		.profil-pic{
-			background:url(../images/trombi10.jpg) no-repeat center;
-			background-size: cover;
-			height: 130px;
-			width: 130px;
-			border: solid 2px #90c7dc;
-			border-radius: 100px;
->>>>>>> 7e52c3806ff12e0865858077709facc656b744c6
+		
 		}
 		h2 {
 			color: black;
