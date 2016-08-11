@@ -142,6 +142,7 @@ console.log("coucou")
     // to modify a Simplonien's card
 
     $scope.modify =function(index){
+        $scope.id = index;
          $http.get(serviceApi.modifySimplonien + index)
                 .then(
                     function(response) {
@@ -183,14 +184,13 @@ console.log("coucou")
 
             };
 
-            
-
-            $http.put(serviceApi.modifySendSimplonien, dataInfoSimploniens)
+            console.log($scope.id);
+            $http.put(serviceApi.modifySendSimplonien + $scope.id, dataInfoSimploniens)
                 .then(
                     function(response) {
-                        console.log(response.data)
-                        console.log('coucou');
-                        
+                        console.log(response.data);
+                        $scope.showSimplonien();
+                                                
                     },
                     function(err) {
                         console.log("C'est la merde!");
