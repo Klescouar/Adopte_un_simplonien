@@ -1,20 +1,12 @@
-<<<<<<< HEAD
 .main-container-profil {
-	height: 100%;
-=======
-.main-container-profil{
->>>>>>> 7e52c3806ff12e0865858077709facc656b744c6
-	width: 100%;
 	display: flex;
 	.conatiner-left-profil {
 		width: 10%;
 		background-color: #90c7dc;
-
 	}
 	.container-middle-profil {
 		position: relative;
 		display: flex;
-<<<<<<< HEAD
 		flex-direction: column;
 		align-items: center;
 		justify-content: space-around;
@@ -22,10 +14,11 @@
 		height: 100%;
 		background-color: white;
 		.profil-pic {
-			height: 130px;
-			width: 130px;
+			height: 150px;
+			width: 150px;
 			border: solid 2px #90c7dc;
 			border-radius: 50%;
+			margin: 30px;
 			overflow: hidden;
 			display: flex;
 			justify-content: center;
@@ -34,23 +27,6 @@
 				height: 100%;
 				width: auto;
 			}
-=======
-		flex-direction:column;
-		align-items:center;
-		justify-content:space-between;
-		width: 30%;
-		height: 100%;
-		background-color: white;
-		height: calc(100vh - 100px);
-
-		.profil-pic{
-			background:url(../images/trombi10.jpg) no-repeat center;
-			background-size: cover;
-			height: 130px;
-			width: 130px;
-			border: solid 2px #90c7dc;
-			border-radius: 100px;
->>>>>>> 7e52c3806ff12e0865858077709facc656b744c6
 		}
 		h2 {
 			color: black;
@@ -58,7 +34,7 @@
 		}
 		p {
 			color: black;
-			margin: 0;
+			margin: 10px;
 		}
 		.line {
 			border-top: solid 2px #f1f5f8;
@@ -97,7 +73,7 @@
 		}
 		.description {
 			text-align: center;
-			margin: 20px;
+			margin: 30px;
 			color: #6e748d;
 		}
 		.main-cont-tags {
@@ -110,16 +86,19 @@
 				align-items: center;
 				p {
 					margin: 3px;
+					width: 350px;
+					text-align: center;
 					color: #41ccf4;
 				}
 				.title-comp {
-					margin: 0;
+					margin-bottom: 20px;
 					color: #6e748d;
 				}
 			}
 		}
 		.cont-project {
 			display: flex;
+			margin: 40px;
 			width: 100%;
 			justify-content: space-around;
 			.project {
@@ -129,7 +108,7 @@
 				width: 40px;
 			}
 		}
-		button{
+		button {
 			bottom: 0;
 			height: 50px;
 			width: 100%;
@@ -140,7 +119,12 @@
 	}
 	.container-right-profil {
 		background-size: cover;
-
+		background-position: center;
 		width: 60%;
+		.linear{
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(rgba(144, 199, 220,0.70),rgba(144, 199, 220,0.70));
+		}
 	}
 }

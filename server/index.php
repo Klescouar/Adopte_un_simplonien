@@ -25,12 +25,12 @@ $app->get('api/card', function() use ($dbManage){
 });
 
 //Renvois card filtré
-$app->get('api/cardFiltre', function(Request $filtre) use ($dbManage){
-    $data = json_decode($filtre->getContent(), true);
-    $filtre->request->replace(is_array($data) ? $data : array());
-    $data = $filtre->request->all();
+$app->post('api/cardFiltre', function(Request $filtre) use ($dbManage){
+  $data = json_decode($filtre->getContent(), true);
+  $filtre->request->replace(is_array($data) ? $data : array());
+  $data = $filtre->request->all();
 
-    $champs = ['language','ville','contrat'];
+    $champs = ['Langage','Ville','Contrat'];
     $info = [];
     $testcaca = [];
 
@@ -45,17 +45,16 @@ $app->get('api/cardFiltre', function(Request $filtre) use ($dbManage){
     }
 
     for ($i=0; $i < 3; $i++) {
-        if(empty($info['language'][$i])){
-            $info['language'][$i] = '';
+        if(empty($info['Langage'][$i])){
+            $info['Langage'][$i] = '';
         }
     }
 
     for ($i=0; $i < 5; $i++) {
-        if(empty($info['contrat'][$i])){
-            $info['contrat'][$i] = '';
+        if(empty($info['Contrat'][$i])){
+            $info['Contrat'][$i] = '';
         }
     }
-
     $cardFiltre = $dbManage->getCardFiltre($info);
     return json_encode($cardFiltre, JSON_PRETTY_PRINT);
 });
