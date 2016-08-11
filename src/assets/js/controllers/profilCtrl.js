@@ -11,6 +11,9 @@ app.controller('profilCtrl', ['$scope', '$http', 'serviceApi', '$routeParams', f
                     console.log("C'est la merde!");
                 }
             );
-    }
+            $scope.kev = "trombi1.jpg";
 
-]);
+    }]);
+
+
+
