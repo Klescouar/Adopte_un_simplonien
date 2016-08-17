@@ -1,8 +1,17 @@
 <div class="contactPage" ng-controller="contactCtrl">
-    <div class="headContact">
-        <div class="simplonPicture">
-        </div>
-        <div class="adressContainer">
+    <div class="simplonPicture">
+        <div class="contactForm animated slideInUp" >
+            <h1>Une question, une suggestion, un doute ? C’est par ici !</h1>
+            <!-- <p>Votre message sera reçu par Simplon Montreuil</p> -->
+            <form method="post">
+                <input type="text" name="Nom" class="Name" placeholder="Nom/Prenom *" required/>
+                <input type="text" name="Nom" class="Name" placeholder="Entreprise *" />
+                <input type="text" name="City" class="City" placeholder="Ville *" required/>
+                <input type="email" name="Email" class="Email" placeholder="Email *" required/>
+                <input type="text" name="Phone" class="Phone" placeholder="Telephone" />
+                <textarea name="Message" rows="20" cols="20" class="Message" placeholder="Message *" required></textarea>
+                <input type="submit" name="submit" value="ENVOYER" class="submit-button" />
+            </form>
             <div class="adressSimplon">
                 <h1>Simplon Montreuil</h1>
                 <p>55 rue de Vincennes</p>
@@ -10,18 +19,18 @@
                 <p>inbox@simplon.co</p>
             </div>
         </div>
-    </div>
-    <div class="contactForm">
-        <h1>Une question, une suggestion, un doute ? C’est par ici !</h1>
-        <p>Votre message sera reçu par Simplon Montreuil</p>
-        <form method="post">
-            <input type="text" name="Nom" class="Name" placeholder="Nom/Prenom *" required/>
-            <input type="text" name="Nom" class="Name" placeholder="Entreprise *" />
-            <input type="text" name="City" class="City" placeholder="Ville *" required/>
-            <input type="email" name="Email" class="Email" placeholder="Email *" required/>
-            <input type="text" name="Phone" class="Phone" placeholder="Telephone" />
-            <textarea name="Message" rows="20" cols="20" class="Message" placeholder="Message *" required></textarea>
-            <input type="submit" name="submit" value="ENVOYER" class="submit-button" />
-        </form>
+        <!-- <div class="adressContainer">
+            <p>Créée à Montreuil (93) en avril 2013, Simplon.co est une entreprise sociale agréée solidaire par l’Etat et labellisée French Tech, « La France S’Engage et « Grande Ecole du numérique » qui propose – au travers d’un réseau d’écoles « fabriques
+                sociales numériques » – des formations présentielles gratuites qualifiantes ou des formations rémunérées certifiantes à des métiers techniques du numérique particulièrement recherchés et ce en priorité aux personnes éloignées de l’emploi
+                dans les quartiers populaires, les milieux ruraux et en Outre Mer. Simplon.co agit également dans le domaine de la démocratisation de l’apprentissage de la programmation informatique auprès du grand public et des enfants en coordonnant
+                des initiatives comme la Europe Code Week et l’Africa Code Week 2015. Simplon.co possède une activité de création de sites web et d’applications mobiles permettant à des personnes en insertion de se former et de trouver un emploi durable
+                : Simplon Prod.</p>
+            <div class="adressSimplon">
+                <h1>Simplon Montreuil</h1>
+                <p>55 rue de Vincennes</p>
+                <p>93100 Montreuil</p>
+                <p>inbox@simplon.co</p>
+            </div>
+        </div> -->
     </div>
 </div>
