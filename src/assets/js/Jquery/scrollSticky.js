@@ -24,8 +24,12 @@ $(document).ready(function() {
     $('.burger-menu').toggleClass('open closed');
   });
   $(window).resize(function(){
-    if($(window).width() > 736 && $('.burger-menu').hasClass('open')){
+    if($(window).width() < 736){
       $('.burger-menu').toggleClass('open closed');
+      $('.page-container-left').css("display", "none");
+    };
+    if($(window).width() > 736){
+      $('.page-container-left').css("display", "flex");
     };
   });
 });
