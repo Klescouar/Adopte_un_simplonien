@@ -3,6 +3,7 @@
         padding: 0;
         margin: 0;
     }
+    height: calc(100vh - 103px);
     background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("../images/simplonContact2.jpg");
     background-position: center;
     background-size: cover;
@@ -64,7 +65,7 @@
     padding-left: 60px;
     width: 33%;
     margin: 50px;
-    min-width: 500px;
+    min-width: 550px;
     h1 {
         font-size: 1.5em;
         font-family: 'Lato', calibri, arial;
@@ -120,5 +121,18 @@
 @media screen and (max-width: 640px) {
     .contactForm {
         min-width: 360px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.70);
+        padding-top: 30px;
+        padding-right: 20px;
+        padding-left: 20px;
+        width: 33%;
+        margin: 30px;
+        h1{
+            font-size: 1.2em;
+        }
     }
 }
