@@ -11,28 +11,35 @@ body{
   display: flex;
   flex-direction: column;
   color: white;
-  position: relative;
-  z-index: 0;
-
-  a{
-    text-decoration: none;
-    color: white;
-  }
 
 // NAVBAR
   .nav-container{
-    padding: 0 7%;
     background-color: $navbar-color;
     display: flex;
-    height: $nav-height;
     justify-content: space-between;
     align-items: center;
-
+    a{
+      padding: 15px 30px 15px 30px;
+      text-decoration: none;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .user-icon{
+      border: 1px solid white;
+      height: 40px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .user-icon:hover{
+        background-color: rgb(64, 62, 62);
+    }
 // DESKTOP NAV ITEMS
     .page-container-left{
+      display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 400px;
       margin-right: auto;
     }
   }
@@ -68,19 +75,21 @@ body{
 // FOOTER
   .footer-container{
     background-color: $footer-color;
-    height: $footer-height;
     width: $full;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     z-index: 3;
-
 
     .footer_item-container{
       width: 350px;
       display: flex;
       justify-content: space-around;
       align-items: center;
+      a {
+        margin: 15px;
+      }
     }
 
     .logo, .facebook-icon, .twiter-icon, .google-icon{
