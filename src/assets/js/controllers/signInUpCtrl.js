@@ -1,5 +1,5 @@
 app.controller('signInUpCtrl', ['$scope', '$http', 'serviceApi', function($scope, $http, serviceApi) {
-    $scope.signToggle = true;
+    $scope.signToggle = false;
     $scope.logBox = function() {
         $scope.signToggle = false;
     };
@@ -7,7 +7,7 @@ app.controller('signInUpCtrl', ['$scope', '$http', 'serviceApi', function($scope
         $scope.signToggle = true;
     };
 
-    
+
     $scope.createAccount = function(){
         console.log('est');
         var data = {
