@@ -99,6 +99,11 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
     if ($(window).width() > 640) {
         $('.filterRight').css('display', 'block');
     }
+    $(window).resize(function() {
+        if ($(window).width() > 640) {
+            $('.filterRight').css('display', 'block');
+        };
+    });
 
     $scope.changeState = function() {
         if (this.theme.name === 'Promo') {
@@ -141,6 +146,8 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
                 $scope.toggleContrat = false;
             }
         }
+        console.log($scope.togglePromo);
+
     };
 
     $scope.searchSchool = [];

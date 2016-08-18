@@ -212,9 +212,6 @@
         cursor: pointer;
         background-color: white;
     }
-    .buttonFilterOn:hover {
-        background-color: rgba(175, 195, 209, 0.85);
-    }
 }
 @media screen and (max-width: 640px) {
     .searchPage {
@@ -231,13 +228,13 @@
         height: auto;
         .filterTheme {
             width: 100%;
-            height: 100%;
             display: flex;
             flex-direction: row;
             height: 80px;
             .promo {
                 min-height: 80px;
                 width: 100%;
+                background-size: 30%;
                 .triangle {
                     display: none;
                 }
@@ -245,6 +242,7 @@
             .langage {
                 min-height: 80px;
                 width: 100%;
+                background-size: 30%;
                 .triangle {
                     display: none;
                 }
@@ -252,6 +250,7 @@
             .contrat {
                 min-height: 80px;
                 width: 100%;
+                background-size: 30%;
                 .triangle {
                     display: none;
                 }
@@ -278,7 +277,7 @@
         height: auto;
         width: 100%;
         flex-wrap: wrap;
-        background-color: #7B8C8C;
+        background-color: rgba(115,159,190,0.85);
         padding-top: 15px;
         padding-bottom: 15px;
         font-size: 0.8em;
