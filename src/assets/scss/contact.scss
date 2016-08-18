@@ -1,6 +1,4 @@
-.contactPage{
-  height: calc(100vh - 100px);
-}
+
 .headContact {
     * {
         padding: 0;
@@ -20,10 +18,12 @@
         align-items: center;
         p {
             margin: 5px;
+            color: white;
         }
         h1 {
             font-size: 1.5em;
             padding: 20px;
+            color: white;
         }
         .selectCity {
           display: flex;
@@ -62,10 +62,12 @@
         font-size: 1.5em;
         font-family: 'Lato', calibri, arial;
         text-align: center;
+        color: white;
     }
     p{
       font-style: italic;
       text-align: center;
+      color: white;
     }
     form {
         display: flex;
