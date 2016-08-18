@@ -10,7 +10,6 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
 
     $scope.schools = serviceApi.schools;
 
-
     $scope.themes = [{
         name: 'Promo',
         active: true,
@@ -226,13 +225,13 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         $http.post(serviceApi.filter, searchResult)
             .then(
                 function(response) {
-                  $scope.data = response.data;
+                    $scope.data = response.data;
                 },
                 function(err) {
                     console.log("C'est la merde!");
                 }
             );
-            console.log($scope.data);
+        console.log($scope.data);
     }
 
 }]);
