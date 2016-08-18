@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div class="filterRight">
-                    <div ng-if="themes[0].active === true" class="filter">
+                    <div class="filter" ng-if="themes[0].active === true">
                         <input ng-click="changeFilterSchool()" ng-model="schoolData" type="button" value="{{school.ville}}" name="button" ng-repeat="school in schools" ng-class="{'buttonFilterOff': !school.active, 'buttonFilterOn' : school.active}">
                     </div>
                     <div class="filter" ng-if="themes[1].active === true">
