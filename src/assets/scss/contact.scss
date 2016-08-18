@@ -1,80 +1,52 @@
-
-.headContact {
+.simplonPicture {
     * {
         padding: 0;
         margin: 0;
     }
-    .simplonPicture {
-        height: 60vh;
-        background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("../images/simplonContact2.jpg");
-        background-position: center;
-        background-size: cover;
-        background-attachment: fixed;
-    }
-    .adressContainer {
-        background-color: #A7052B;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        p {
-            margin: 5px;
-            color: white;
-        }
-        h1 {
-            font-size: 1.5em;
-            padding: 20px;
-            color: white;
-        }
-        .selectCity {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          padding: 30px;
-            select {
-                border: 1px solid #111;
-                width: 160px;
-                padding: 5px;
-                border: 1px solid #ccc;
-                height: 34px;
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                appearance: none;
-            }
-        }
-        .adressSimplon{
-          display: flex;
-          justify-content: center;
-          flex-direction: column;
-          align-items: center;
-          padding: 20px;
-        }
-    }
+    height: calc(100vh - 103px);
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("../images/simplonContact2.jpg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.adressSimplon {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
 }
 .contactForm {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    background-color:  #7a001d;
-    padding: 100px;
+    background-color: rgba(0, 0, 0, 0.70);
+    padding-top: 30px;
+    padding-right: 60px;
+    padding-left: 60px;
+    width: 33%;
+    margin: 50px;
+    min-width: 550px;
     h1 {
         font-size: 1.5em;
         font-family: 'Lato', calibri, arial;
         text-align: center;
         color: white;
+        line-height: 1.6em;
     }
-    p{
-      font-style: italic;
-      text-align: center;
-      color: white;
+    p {
+        font-style: italic;
+        text-align: center;
+        color: white;
     }
     form {
         display: flex;
         flex-direction: column;
-        width: 60%;
-        min-width: 340px;
-        max-width: 700px;
+        width: 90%;
+        margin-top: 30px;
     }
     input,
     textarea {
@@ -97,7 +69,7 @@
         outline: none;
     }
     textarea {
-        height: 150px;
+        height: 130px;
     }
     .submit-button {
         font-family: 'Lato', calibri, arial;
@@ -109,4 +81,22 @@
         transition: all 0.1s ease-in-out;
     }
     .submit-button:hover {}
+}
+@media screen and (max-width: 640px) {
+    .contactForm {
+        min-width: 360px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.70);
+        padding-top: 30px;
+        padding-right: 20px;
+        padding-left: 20px;
+        width: 33%;
+        margin: 30px;
+        h1 {
+            font-size: 1.2em;
+        }
+    }
 }
