@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="cardPage">
-            <a class="card" href="#/profil{{student.id}}" ng-repeat="student in data track by $index">
+            <a class="card" href="#/profil{{student.id}}" ng-repeat="student in data | filter:searchStudent:q track by $index">
                 <div class="topCard">
                     <div class="studentPic"><img src="assets/images/{{student.photo}}" /></div>
                     <h3>{{student.nomPrenom}}</h3>

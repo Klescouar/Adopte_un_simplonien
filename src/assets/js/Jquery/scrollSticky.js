@@ -14,29 +14,11 @@ $(document).ready(function() {
             });
         }
     });
-    $('#burger-open').click(function() {
-        $('.burger-menu').toggleClass('open closed');
+
+    $('#menu-button').on('click', function() {
+        $('.burgerMenu').toggleClass('menu-open');
     });
-    $('#burger-close').click(function() {
-        $('.burger-menu').toggleClass('open closed');
-    });
-    $('.burger-menu').find('a').click(function() {
-        $('.burger-menu').toggleClass('open closed');
-    });
-    if ($(window).width() < 736) {
-        $('.burger-menu').toggleClass('open closed');
-        $('.page-container-left').css("display", "none");
-    };
-    if ($(window).width() > 736) {
-        $('.page-container-left').css("display", "flex");
-    };
-    $(window).resize(function() {
-        if ($(window).width() < 736) {
-            $('.burger-menu').toggleClass('open closed');
-            $('.page-container-left').css("display", "none");
-        };
-        if ($(window).width() > 736) {
-            $('.page-container-left').css("display", "flex");
-        };
+    $('nav li').on('click', function() {
+        $('.burgerMenu').toggleClass('menu-open');
     });
 });
