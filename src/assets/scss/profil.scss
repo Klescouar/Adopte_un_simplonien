@@ -1,6 +1,8 @@
 .main-container-profil {
 	width: 100%;
 	display: flex;
+justify-content: center;
+min-height: calc(100vh - 112px);
 	.conatiner-left-profil {
 		width: 10%;
 		background-color: #90c7dc;
