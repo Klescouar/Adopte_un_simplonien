@@ -25,10 +25,29 @@
 			<div class="project"></div>
 			<div class="project"></div>
 		</div>
-		<button>Contacter {{student[0].Prenom}}</button>
+		<button data-toggle="modal" data-target="#contactDirect">Contacter {{student[0].Prenom}}</button>
 	</div>
 	<div class="container-right-profil" ng-style="{'background-image':'url(./assets/images/'+student[0].Photo+')'}">
 		<div class="linear">
 		</div>
 	</div>
+
+
+	<div class="modal fade" id='contactDirect' tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="contactStudent">
+					<div class="logbox">
+						<form class="signup" method="post" action="/sendMessage" name="form">
+							<div class="profil-pic"><img src="./assets/images/{{student[0].Photo}}"></div>
+							<h1>Ecrire à Kevin Le Scouarnec {{student[0].Prenom}} {{student[0].Nom}}</h1>
+						<textarea name="name" rows="8" cols="40" placeholder="Ecrivez votre message ici..."></textarea>
+						<input type="submit" name="name" value="Envoyer!">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 </div>
