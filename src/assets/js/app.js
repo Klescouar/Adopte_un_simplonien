@@ -23,6 +23,9 @@ app.config(['$routeProvider', function($routeProvider) {
         .when('/backOffice', {
             templateUrl: 'views/backOffice.html'
         })
+        .when('/contactStudent', {
+            templateUrl: 'views/contactStudent.html'
+        })
         .otherwise({
             redirectTo: '/'
         });

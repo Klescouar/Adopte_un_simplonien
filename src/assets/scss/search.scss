@@ -1,6 +1,6 @@
 .searchPage {
     display: flex;
-    min-height: calc(100vh - 112px);
+    min-height: calc(100vh - 108px);
 }
 .cardPage {
     padding: 10px;
@@ -100,7 +100,7 @@
     }
 }
 .filterMain {
-    height: 99%;
+    height: 97%;
     width: 315px;
 }
 .filterRight {
@@ -203,14 +203,14 @@
         color: white;
     }
     .buttonFilterOff:hover {
-        background-color: rgba(175, 195, 209, 0.85);
+        background-color: rgba(156, 189, 212, 0.85);
     }
     .buttonFilterOn {
         width: 100%;
         height: 25px;
         border: none;
         cursor: pointer;
-        background-color: white;
+        background-color: rgb(236, 234, 234);
     }
 }
 @media screen and (max-width: 640px) {
