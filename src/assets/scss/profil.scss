@@ -14,20 +14,9 @@
 		width: 450px;
 		height: 100%;
 		background-color: white;
-		.profil-pic {
-			height: 150px;
-			width: 150px;
-			border: solid 2px #90c7dc;
-			border-radius: 50%;
-			margin: 30px;
-			overflow: hidden;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			img {
-				height: 100%;
-				width: auto;
-			}
+		img {
+			height: 100%;
+			width: auto;
 		}
 		h2 {
 			color: black;
@@ -148,3 +137,14 @@
 		background-color: black;
 	}
 };
+
+.profil-pic {
+	height: 150px;
+	width: 150px;
+	border: solid 2px #90c7dc;
+	border-radius: 50%;
+	margin: 30px;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;}
