@@ -36,13 +36,14 @@
 	<div class="modal fade" id='contactDirect' tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
 				<div class="contactStudent">
 					<div class="logbox">
 						<form class="signup" method="post" action="/sendMessage" name="form">
 							<div class="profil-pic" ng-style="{'background-image':'url(./assets/images/'+student[0].Photo+')'}"></div>
 							<h1>Ecrire à {{student[0].Prenom}} {{student[0].Nom}}</h1>
-						<textarea name="name" rows="8" cols="40" placeholder="Ecrivez votre message ici..."></textarea>
-						<input type="submit" name="name" value="Envoyer!">
+							<textarea name="name" rows="8" cols="40" placeholder="Ecrivez votre message ici..."></textarea>
+							<input type="submit" name="name" value="Envoyer!">
 						</form>
 					</div>
 				</div>
