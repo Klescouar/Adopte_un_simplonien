@@ -1,3 +1,11 @@
+<?php
+	session_start();
+
+	if($_SESSION['permission'] !== 'admin') {
+		?> <h2>404</h2> <?php
+	} else {
+ ?>
+
 <div class="container-bo" ng-controller="boCtrl">
 	<div class="container-nav-bo">
 		<a href=""  ng-click="show = 1">Créer un utilisateur</a>
@@ -39,7 +47,7 @@
 			<input class="input-style" placeholder="Prénom" ng-model="boCreateName" required>
 			<input class="input-style" placeholder="Âge" ng-model="boCreateOld" required>
 			<select name="select" class="input-style" ng-model="boCreatePromo" >
-	 			<option value="value1">Montreuil</option> 
+	 			<option value="value1">Montreuil</option>
 	  			<option value="value2" selected>Marseille</option>
 	  			<option value="value3">Toulouse</option>
 			</select>
@@ -63,7 +71,7 @@
 			<input class="input-style" placeholder="Contrat" ng-model="boCreateContrat" required>
 			<input class="input-style" placeholder="DatePromo" ng-model="boCreateDatePromo"required="required">
 			<input class="input-style" value="Créer une fiche Simplonien" type="submit">
-			
+
 		</form>
 		<div class="container-delete-user" ng-show="show==4">
 			<h2>Supprimer une fiche d'un Simplonien</h2>
@@ -87,7 +95,7 @@
 					<input id ="boCreateNameSimploniens" class="input-style" value="{{infoSimploniens[0].Prenom}}" placeholder="Prénom"  required>
 					<input id ="boCreateOldSimploniens" class="input-style" value="{{infoSimploniens[0].Age}}" placeholder="Âge" required>
 					<select id ="boCreatePromoSimploniens" name="select" class="input-style"  >
-			 			<option value="value1">Montreuil</option> 
+			 			<option value="value1">Montreuil</option>
 			  			<option value="value2" selected>Marseille</option>
 			  			<option value="value3">Toulouse</option>
 					</select>
@@ -118,3 +126,4 @@
 	</div>
 
  </div>
+<?php } ?>

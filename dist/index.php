@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -73,8 +77,13 @@
 			<a href="#/project">Qui sommes nous</a>
 			<a href="#/contact">Contact</a>
 		</div>
-		<a class="user-icon" data-toggle="modal" data-target="#signInUp">Espace Perso</a>
-	</div>
+		<?php if(isset($_SESSION['pseudo'])) { ?>
+			<p style="color:white">Bienvenue <?php echo $_SESSION['pseudo'] ?></p>
+			<a href="../server/deconnection.php" class="user-icon">Deconnexion</a>
+			<a href="#/backOffice" class="user-icon">Back Office</a>
+		<?php }else{?>
+			<a class="user-icon" data-toggle="modal" data-target="#signInUp">Espace Perso</a>
+		<?php } ?>	</div>
 
 	<!-- Ng-VIEW -->
 	<div class="main-container" ng-view></div>
@@ -110,10 +119,16 @@
 						</form>
 					</div>
 					<div class="logbox" ng-if="!signToggle">
-						<form class="signup" method="post" action="/signup">
+						<form class="signup" method="post" action="../server/connection.php">
 							<h1>Connexion</h1>
-							<input type="text" placeholder="Pseudo" class="inputSign" required />
-							<input type="password" placeholder="Mot de passe" required class="inputSign" />
+							<?php if($_SESSION['permission'] !== 'user' || $_SESSION['permission'] !== 'admin') { ?>
+							<p>
+								Vous devez vous connecter pour voir les profils complets des simploniens!
+							</p>
+									<?php } ?>
+							<input type="email" name="pseudo" placeholder="Adresse email" class="inputSign" required />
+							<input type="password" name="password" placeholder="Mot de passe" required class="inputSign" />
+							<input type="hidden" name="page" value="dist/index.php">
 							<input type="submit" value="Connexion!" class="inputButton" />
 							<a ng-click="signBox()">Pas encore inscrit?</a>
 						</form>

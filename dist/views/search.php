@@ -1,3 +1,7 @@
+<?php
+	session_start();
+ ?>
+
 <div class="searchPage" ng-controller='searchCtrl'>
     <div class="searchBar">
         <div class="filterMain">
@@ -27,25 +31,22 @@
                 </div>
             </div>
         </div>
-
         <div class="cardPage">
             <?php if($_SESSION['permission'] === 'user' || $_SESSION['permission'] === 'admin') { ?>
             <a class="card" href="#/profil{{student.id}}" ng-repeat="student in data | filter:searchStudent:q track by $index">
                 <?php } else { ?>
-                <a class="card" href="" ng-repeat="student in data | filter:searchStudent:q track by $index">
+                <a class="card" data-toggle="modal" data-target="#signInUp" ng-repeat="student in data | filter:searchStudent:q track by $index">
                     <?php } ?>
-                    <div class="topCard">
-                        <div class="studentPic"><img src="assets/images/{{student.photo}}" /></div>
-                        <h3>{{student.nomPrenom}}</h3>
-                        <p> {{student.ville}}</p>
-                        <p>Recherche: <strong>{{student.contrat}}</strong></p>
-                    </div>
-                    <div class="botCard">
-                        <p>#{{student.specialite1}}</p>
-                        <p>#{{student.specialite2}}</p>
-                        <p>#{{student.specialite3}}</p>
-                    </div>
-                </a>
+                <div class="topCard">
+                    <div class="studentPic"><img src="assets/images/{{student.photo}}" /></div>
+                    <h3>{{student.nomPrenom}}</h3>
+                    <p> {{student.ville}}</p>
+                    <p>Recherche: <strong>{{student.contrat}}</strong></p>
+                </div>
+                <div class="botCard">
+                    <p>#{{student.specialite1}}</p> <p>#{{student.specialite2}}</p> <p>#{{student.specialite3}}</p>
+                </div>
+            </a>
         </div>
     </div>
 </div>
