@@ -134,9 +134,9 @@ gulp.task('images', function(cb) {
  **/
 
 gulp.task('copy', function() {
-    gulp.src('src/index.html')
+    gulp.src('src/index.php')
         .pipe(gulp.dest('dist'));
-    gulp.src('src/views/*.html')
+    gulp.src('src/views/*.php')
         .pipe(gulp.dest('dist/views'));
     gulp.src('src/lib/**/*')
         .pipe(gulp.dest('dist/lib'));
@@ -154,8 +154,8 @@ gulp.task('default', ['sass', 'scripts', 'images', 'copy', 'browser-sync'], func
     gulp.watch('src/assets/scss/**/*.scss', ['sass']);
     gulp.watch('src/**/*.js', ['scripts']);
     gulp.watch('src/assets/images/*', ['images']);
-    gulp.watch('src/index.html', ['copy']);
-    gulp.watch('src/views/*.html', ['copy']);
+    gulp.watch('src/index.php', ['copy']);
+    gulp.watch('src/views/*.php', ['copy']);
 });
 
 
