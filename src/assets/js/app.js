@@ -3,28 +3,28 @@ var app = angular.module('AdopteUnSimplonien', ['ngRoute']);
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'views/home.html'
+            templateUrl: 'views/home.php'
         })
         .when('/search', {
-            templateUrl: 'views/search.html'
+            templateUrl: 'views/search.php'
         })
         .when('/project', {
-            templateUrl: 'views/project.html'
+            templateUrl: 'views/project.php'
         })
         .when('/contact', {
-            templateUrl: 'views/contact.html'
+            templateUrl: 'views/contact.php'
         })
         .when('/profil:id_profil', {
-            templateUrl: 'views/profil.html'
+            templateUrl: 'views/profil.php'
         })
         .when('/log', {
-            templateUrl: 'views/signInUp.html'
+            templateUrl: 'views/signInUp.php'
         })
         .when('/backOffice', {
-            templateUrl: 'views/backOffice.html'
+            templateUrl: 'views/backOffice.php'
         })
         .when('/contactStudent', {
-            templateUrl: 'views/contactStudent.html'
+            templateUrl: 'views/contactStudent.php'
         })
         .otherwise({
             redirectTo: '/'
