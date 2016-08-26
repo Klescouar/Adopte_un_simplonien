@@ -1,3 +1,10 @@
+<?php
+	session_start();
+
+	if($_SESSION['permission'] !== 'admin') {
+		?> <h2>Page reservé aux utilisateurs enregistré</h2> <?php
+	} else {
+ ?>
 <div class="main-container-profil" ng-controller="profilCtrl">
 	<div class="conatiner-left-profil"></div>
 	<div class="container-middle-profil">
@@ -52,3 +59,4 @@
 	</div>
 
 </div>
+<?php } ?>
