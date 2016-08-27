@@ -83,11 +83,12 @@
 			visibility: visible;
 			background-color: #DE5B49;
 			position: absolute;
-			bottom: 65px;
+			bottom: 40px;
 			right: 4%;
-			height: 60%;
-			width: 35%;
+			height: 370px;
+			width: 500px;
 			z-index: 200;
+			font-size: 0.8em;
 
 			.corpus-description {
 				color: white;
@@ -211,9 +212,9 @@
 			background-color: #87adc7;
 			position: absolute;
 			bottom: 65px;
+			height: 370px;
+			width: 500px;
 			left: 4%;
-			height: 60%;
-			width: 35%;
 			z-index: 200;
 
 			.corpus-description {
@@ -256,7 +257,5 @@
 	bottom: -1565px;
 	visibility: hidden;
 	position: absolute;
-	height: 400px;
-	width: 350px;
 	z-index: 200;
 }
