@@ -1,5 +1,6 @@
 .searchPage {
     display: flex;
+    min-height: calc(100vh - 108px);
 }
 .cardPage {
     padding: 10px;
@@ -26,7 +27,7 @@
         text-align: center;
         color: #40475A;
         cursor: pointer;
-        transition: 0.2s all;
+        transition: 0.1s all;
         .topCard {
             margin-top: 30px;
             display: flex;
@@ -38,20 +39,23 @@
             background-color: rgb(228, 226, 226);
             border-top: 1px solid #40475A;
             width: 100%;
-            height: 100px;
+            height: 75px;
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
+            p{
+                padding: 4px;
+            }
         }
     }
     .card:hover {
-        background-color: rgb(203, 203, 203);
-        transition: 0.2s all;
+        background-color: rgb(240, 240, 240    );
+        text-decoration: none;
+        transition: 0.1s all;
     }
 }
 .searchBar {
     display: flex;
-    min-height: 100vh;
     width: 100%;
 }
 .flex {
@@ -63,13 +67,14 @@
     justify-content: space-between;
     align-items: center;
     background-color: white;
-    width: 100%;
+    width: 284px;
     height: 59px;
     input {
         width: 100%;
         height: 57px;
         border-radius: 0;
         border: none;
+        padding-left: 30px;
     }
     .searchImage {
         background-image: url('../images/magnifying-glass.png');
@@ -79,6 +84,7 @@
         height: 40px;
         width: 30%;
         margin: auto;
+        border-color: rgb(158, 158, 158);
     }
 }
 .studentPic {
@@ -90,7 +96,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid #40475A;
+    border: 2px solid #5c769c;
     img {
         height: 100%;
         width: auto;
@@ -98,7 +104,6 @@
 }
 .filterMain {
     height: 99%;
-    min-height: 100vh;
     width: 315px;
 }
 .filterRight {
@@ -115,64 +120,67 @@
         flex-direction: column;
         .promo {
             background-color: #2E3E53;
-            min-height: 130px;
-            width: 130px;
+            min-height: 100px;
+            width: 100px;
             background-image: url('../images/placeholder.png');
+            background-size: 40%;
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
             .triangle {
                 position: absolute;
-                left: 127px;
-                top: 25px;
+                left: 97px;
+                top: 20px;
                 width: 0;
                 height: 0;
                 border-style: solid;
-                border-width: 40px 0 40px 40px;
+                border-width: 30px 0 30px 30px;
                 border-color: transparent transparent transparent #2E3E53;
             }
         }
         .langage {
             background-color: #425877;
-            min-height: 130px;
-            width: 130px;
+            min-height: 100px;
+            width: 100px;
             background-image: url('../images/code.png');
             background-position: center;
+            background-size: 40%;
             background-repeat: no-repeat;
             position: relative;
             .triangle {
                 position: absolute;
-                left: 127px;
-                top: 25px;
+                left: 97px;
+                top: 20px;
                 width: 0;
                 height: 0;
                 border-style: solid;
-                border-width: 40px 0 40px 40px;
+                border-width: 30px 0 30px 30px;
                 border-color: transparent transparent transparent #425877;
             }
         }
         .contrat {
             background-color: #BBC1C6;
-            min-height: 130px;
-            width: 130px;
+            min-height: 100px;
+            width: 100px;
             background-image: url('../images/contract.png');
             background-position: center;
             background-repeat: no-repeat;
+            background-size: 40%;
             position: relative;
             .triangle {
                 position: absolute;
-                left: 127px;
-                top: 25px;
+                left: 97px;
+                top: 20px;
                 width: 0;
                 height: 0;
                 border-style: solid;
-                border-width: 40px 0 40px 40px;
+                border-width: 30px 0 30px 30px;
                 border-color: transparent transparent transparent #BBC1C6;
             }
         }
         .gradient {
             height: 100%;
-            width: 130px;
+            width: 100px;
             background: rgb(187, 193, 198);
             background: -moz-linear-gradient(90deg, rgb(187, 193, 198) 0%, rgb(247, 247, 247) 28%);
             background: -webkit-linear-gradient(90deg, rgb(187, 193, 198) 0%, rgb(247, 247, 247) 28%);
@@ -188,7 +196,8 @@
     align-items: center;
     height: 100%;
     width: 184px;
-    background-color: #7B8C8C;
+    background-color: rgba(115,159,190,0.85);
+    padding-top: 20px;
     .buttonFilterOff {
         width: 100%;
         height: 25px;
@@ -197,15 +206,15 @@
         background-color: transparent;
         color: white;
     }
+    .buttonFilterOff:hover {
+        background-color: rgba(156, 189, 212, 0.85);
+    }
     .buttonFilterOn {
         width: 100%;
         height: 25px;
         border: none;
         cursor: pointer;
-        background-color: white;
-    }
-    .buttonFilterOn:hover {
-        background-color: white;
+        background-color: rgb(236, 234, 234);
     }
 }
 @media screen and (max-width: 640px) {
@@ -223,13 +232,13 @@
         height: auto;
         .filterTheme {
             width: 100%;
-            height: 100%;
             display: flex;
             flex-direction: row;
             height: 80px;
             .promo {
                 min-height: 80px;
                 width: 100%;
+                background-size: 30%;
                 .triangle {
                     display: none;
                 }
@@ -237,6 +246,7 @@
             .langage {
                 min-height: 80px;
                 width: 100%;
+                background-size: 30%;
                 .triangle {
                     display: none;
                 }
@@ -244,6 +254,7 @@
             .contrat {
                 min-height: 80px;
                 width: 100%;
+                background-size: 30%;
                 .triangle {
                     display: none;
                 }
@@ -271,7 +282,7 @@
         height: auto;
         width: 100%;
         flex-wrap: wrap;
-        background-color: #7B8C8C;
+        background-color: rgba(115,159,190,0.85);
         padding-top: 15px;
         padding-bottom: 15px;
         font-size: 0.8em;
@@ -301,5 +312,5 @@
     top: 0;
 }
 .marginToFix {
-    margin-left: 314px;
+    margin-left: 284px;
 }

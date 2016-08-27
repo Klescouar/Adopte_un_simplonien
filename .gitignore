@@ -1,11 +1,8 @@
 node_modules
-/dist/assets/css/style.css
 phpmyadmin/
-/dist/assets/css/.DS_Store
-/dist/assets/.DS_Store
-/dist/.DS_Store
 /src/assets/scss/.DS_Store
 /src/assets/.DS_Store
 /src/views/.DS_Store
 /src/.DS_Store
 /src/assets/js/service/serviceApi.js
+/server/vendor/
