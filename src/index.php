@@ -25,6 +25,7 @@ session_start();
 	<script src="assets/js/min/boCtrl.min.js"></script>
 	<script src="assets/js/min/contactCtrl.min.js"></script>
 	<script src="assets/js/min/profilCtrl.min.js"></script>
+	<script src="assets/js/min/scrollDirective.min.js"></script>
 	<script src="assets/js/min/projectCtrl.min.js"></script>
 	<script src="assets/js/min/confirmPassword.min.js"></script>
 	<script src="assets/js/min/BackgroundImageDirective.min.js"></script>
@@ -81,7 +82,8 @@ session_start();
 		<?php if(isset($_SESSION['pseudo'])) { ?>
 			<p style="color:white">Bienvenue <?php echo $_SESSION['pseudo'] ?></p>
 			<a href="../server/deconnection.php" class="user-icon">Deconnexion</a>
-			<a href="#/backOffice" class="user-icon">Back Office</a>
+			<?php if( $_SESSION['permission'] === 'admin') { ?>
+			<a href="#/backOffice" class="user-icon">Back Office</a><?php } ?>
 		<?php }else{?>
 			<a class="user-icon" data-toggle="modal" data-target="#signInUp">Espace Perso</a>
 		<?php } ?>	</div>
