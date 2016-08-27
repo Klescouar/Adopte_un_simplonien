@@ -1,4 +1,19 @@
 app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, $http, serviceApi) {
+
+    $scope.schools = serviceApi.schools;
+    $scope.togglePromo = false;
+    $scope.toggleLangage = false;
+    $scope.toggleContrat = false;
+    $scope.searchSchool = [];
+    $scope.searchLangage = [];
+    $scope.searchContrat = [];
+    var searchResult = {
+        Langage: [],
+        Ville: "",
+        Contrat: [],
+    };
+
+
     $http.get(serviceApi.api)
         .then(
             function(response) {
@@ -8,7 +23,18 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
                 console.log("C'est la merde!");
             });
 
-    $scope.schools = serviceApi.schools;
+    var searchFilter = function() {
+        $http.post(serviceApi.filter, searchResult)
+            .then(
+                function(response) {
+                    $scope.data = response.data;
+                },
+                function(err) {
+                    console.log("C'est la merde!");
+                }
+            );
+    }
+
 
 
     $scope.themes = [{
@@ -76,6 +102,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         active: false,
     }, ];
 
+
     $scope.contrats = [{
         type: 'CDD',
         active: false,
@@ -93,13 +120,17 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         active: false,
     }, ];
 
-    $scope.togglePromo = false;
-    $scope.toggleLangage = false;
-    $scope.toggleContrat = false;
+
 
     if ($(window).width() > 640) {
         $('.filterRight').css('display', 'block');
     }
+    $(window).resize(function() {
+        if ($(window).width() > 640) {
+            $('.filterRight').css('display', 'block');
+        };
+    });
+
 
     $scope.changeState = function() {
         if (this.theme.name === 'Promo') {
@@ -144,14 +175,6 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         }
     };
 
-    $scope.searchSchool = [];
-    $scope.searchLangage = [];
-    $scope.searchContrat = [];
-    var searchResult = {
-        Langage: [],
-        Ville: "",
-        Contrat: [],
-    };
 
     $scope.changeFilterSchool = function() {
         if (searchResult.Ville.length === 0) {
@@ -164,7 +187,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
                 searchResult.Ville = "";
                 searchFilter();
             }
-        } else if (searchResult.Ville.length > 1) {
+        } else if (searchResult.Ville.length > 0) {
             if (this.school.active === true) {
                 this.school.active = false;
                 searchResult.Ville = "";
@@ -198,6 +221,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         }
     };
 
+
     $scope.changeFilterContrat = function() {
         if (searchResult.Contrat.length < 3) {
             if (this.contrat.active === false) {
@@ -221,18 +245,4 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
             searchFilter();
         }
     };
-
-    var searchFilter = function() {
-        $http.post(serviceApi.filter, searchResult)
-            .then(
-                function(response) {
-                  $scope.data = response.data;
-                },
-                function(err) {
-                    console.log("C'est la merde!");
-                }
-            );
-            console.log($scope.data);
-    }
-
 }]);

@@ -1,12 +1,262 @@
-.cont-simplon-description{	
-	height: 100%;
+.cont-simplon-description {
+	overflow: hidden;
 
-	.cont-img-description{
+	.title-simplon {
+		position: absolute;
+		z-index: 500;
+		top: 50%;
+		bottom: 50%;
+		right: 40%;
+		left: 40%;
+		color: white;
+		font-weight: bold;
+		font-size: 2.7em;
+		cursor: pointer;
+		text-decoration: none;
+	}
+
+	.title-recrutement {
+		width: 500px;
+		position: absolute;
+		z-index: 500;
+		top: 140%;
+		bottom: 140%;
+		right: 36%;
+		left: 36%;
+		color: white;
+		font-weight: bold;
+		font-size: 2.7em;
+		cursor: pointer;
+		text-decoration: none;
+	}
+
+	.title-simplon-closed {
+		transition: all 0.5s;
+		visibility: hidden;
+	}
+
+	.title-recrutement-closed {
+		transition: all 0.5s;
+		visibility: hidden;
+	}
+
+	.cont-img-description {
 		background: url("../images/simplonContact2.jpg") no-repeat center;
 		background-size: cover;
-		height: 100vh;
-		overflow: visible;
-		width: 100%;
+		min-height: calc(100vh - 60px);
+
+		.description-simlpon {
+			bottom: -1565px;
+			background-color: #DE5B49;
+			right: 4%;
+			visibility: hidden;
+
+			.corpus-description {
+				color: white;
+				margin-right: 50px;
+				margin-left: 50px;
+				margin-top: 50px;
+				font-size: 1.6em;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: 400;
+				font-stretch: normal;
+				line-height: 35px;
+			}
+
+			.end-description {
+				color: white;
+				margin-right: 40px;
+				margin-left: 40px;
+				margin-bottom: 40px;
+				font-size: 1em;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: 300;
+				font-stretch: normal;
+				line-height: 35px;
+			}
 		}
 
+		.description-simlpon-is-open {
+			transition: all 1s;
+			visibility: visible;
+			background-color: #DE5B49;
+			position: absolute;
+			bottom: 65px;
+			right: 4%;
+			height: 60%;
+			width: 35%;
+			z-index: 200;
+
+			.corpus-description {
+				color: white;
+				margin-right: 40px;
+				margin-left: 40px;
+				margin-top: 40px;
+				font-size: 1.6em;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: 300;
+				font-stretch: normal;
+				line-height: 35px;
+			}
+
+			.end-description {
+				color: white;
+				margin: 40px;
+				font-size: 1em;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: 300;
+				font-stretch: normal;
+				line-height: 35px;
+			}
+		}
+	}
+	//MASK BORDER TOP AND BOTTOM
+	.mask {
+		transition: all 1s;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		z-index: 100;
+		background: #fff;
+		visibility: hidden;
+		height: 0;
+		width: 100%;
+	}
+
+	.mask-is-open {
+		transition: all 1s;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		visibility: visible;
+		width: 100%;
+		z-index: 100;
+		height: 130px;
+		background: #fff;
+
+		.cross-close {
+			background: url("../images/close.png") no-repeat center;
+			background-size: cover;
+			margin-right: 70px;
+			height: 50px;
+			width: 50px;
+			z-index: 200;
+			cursor: pointer;
+		}
+	}
+
+	.mask2 {
+		transition: all 1s;
+		visibility: hidden;
+		height: 0;
+		width: 100%;
+		z-index: 100;
+		background: #fff;
+	}
+
+	.mask2-is-open {
+		transition: all 1s;
+		visibility: visible;
+		width: 100%;
+		z-index: 100;
+		height: 130px;
+		background: #fff;
+	}
+	//DESCRIPTION RECRUTEMENT
+	.cont-img-description-down {
+		background: url("../images/codecamp_2015_-9.jpg") no-repeat center;
+		background-size: cover;
+		min-height: calc(100vh - 50px);
+
+		.description-simlpon {
+			bottom: -1565px;
+			background-color: #DE5B49;
+			left: 4%;
+			visibility: hidden;
+
+			.corpus-description {
+				color: white;
+				margin-right: 50px;
+				margin-left: 50px;
+				margin-top: 50px;
+				font-size: 1.6em;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: 400;
+				font-stretch: normal;
+				line-height: 35px;
+			}
+
+			.end-description {
+				color: white;
+				margin-right: 40px;
+				margin-left: 40px;
+				margin-bottom: 40px;
+				font-size: 1em;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: 300;
+				font-stretch: normal;
+				line-height: 35px;
+			}
+		}
+
+		.description-simlpon-is-open {
+			transition: all 1s;
+			visibility: visible;
+			background-color: #87adc7;
+			position: absolute;
+			bottom: 65px;
+			left: 4%;
+			height: 60%;
+			width: 35%;
+			z-index: 200;
+
+			.corpus-description {
+				color: white;
+				margin-right: 40px;
+				margin-left: 40px;
+				margin-top: 40px;
+				font-size: 1.6em;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: 300;
+				font-stretch: normal;
+				line-height: 35px;
+			}
+
+			.end-description {
+				color: white;
+				margin: 40px;
+				font-size: 1em;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: 300;
+				font-stretch: normal;
+				line-height: 35px;
+			}
+		}
+	}
+}
+
+.cont-img {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	position: relative;
+	width: 100%;
+}
+
+.generic-cont-description {
+	transition: all 1s;
+	bottom: -1565px;
+	visibility: hidden;
+	position: absolute;
+	height: 60%;
+	width: 35%;
+	z-index: 200;
 }

@@ -1,42 +1,60 @@
+.inputMail{
+    background-color: rgb(115,159,190) !important;
+    width: 300px !important;
+}
+
+
+
 .signInUp {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 750px;
+    background-color: #425877;
     .logbox {
         padding: 10px;
-        width: 40%;
+        width: 80%;
         min-width: 330px;
         background-color: #fff;
-        height: 500px;
+        height: 600px;
         display: flex;
         justify-content: center;
         align-items: center;
+        background-color: #425877;
         h1 {
             text-align: center;
             font-size: 2em;
-            color: #757575;
             font-weight: 300;
+            padding: 20px;
+            border: 1px solid rgba(115,159,190,0.85);
         }
+        a,
         h1,
-        input, a {
+        input {
             font-family: "Open Sans", Helvetica, sans-serif;
+            color: white;
         }
-        input{
-          font-size: 1.5em;
+        input {
+            font-size: 1.1em;
+            background-color: #425877;
+            color: white;
         }
-        a{
-          font-style: italic;
-          color: #757575;
-          text-align: right;
-          cursor: pointer;
+        a {
+            font-style: italic;
+            text-align: right;
+            cursor: pointer;
         }
-        form{
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          height: 100%;
-          justify-content: space-around;
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            p{
+                color: white;
+                font-style: italic;
+                margin-bottom: 80px;
+                text-align: center;
+            }
         }
         .inputSign {
             width: 75%;
@@ -44,7 +62,7 @@
             margin: 0 auto 15px;
             padding: 0 15px;
             border: none;
-            border-bottom: 2px solid #ebebeb;
+            border-bottom: 1px solid rgba(115,159,190,0.85);
         }
         .inputSignError {
             width: 75%;
@@ -63,10 +81,12 @@
         }
         .inputSign:focus {
             outline: none;
-            border-bottom-color: #3CC !important;
+            border-bottom: 1px solid #ebebeb !important;
+            color: white !important;
+
         }
         .inputSign:hover {
-            border-bottom-color: #dcdcdc;
+            border-bottom: 1px solid rgba(144, 187, 217, 0.85);
         }
         .inputSign:invalid {
             box-shadow: none;
@@ -76,7 +96,7 @@
             height: 50px;
             margin: 30px auto;
             color: white;
-            background-color: #7dcf44;
+            background-color: rgba(115,159,190,0.85);
             border: none;
         }
         .inputButton:focus {

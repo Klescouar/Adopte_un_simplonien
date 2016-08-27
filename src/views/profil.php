@@ -1,3 +1,6 @@
+<?php
+	session_start();
+ ?>
 <div class="main-container-profil" ng-controller="profilCtrl">
 	<div class="conatiner-left-profil"></div>
 	<div class="container-middle-profil">
@@ -42,6 +45,7 @@
 						<form class="signup" method="post" action="/sendMessage" name="form">
 							<div class="profil-pic" ng-style="{'background-image':'url(./assets/images/'+student[0].Photo+')'}"></div>
 							<h1>Ecrire à {{student[0].Prenom}} {{student[0].Nom}}</h1>
+							<input class="inputMail" type="email" name="email" placeholder="Votre email..." >
 							<textarea name="name" rows="8" cols="40" placeholder="Ecrivez votre message ici..."></textarea>
 							<input type="submit" name="name" value="Envoyer!">
 						</form>
