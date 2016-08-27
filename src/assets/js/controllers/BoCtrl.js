@@ -6,11 +6,12 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route','$timeout', 
         
         if($scope.boCreateMdpVerif === $scope.boCreateMdp && $scope.boCreatePseudo.length > 3 &&  $scope.boCreateMdpVerif.length > 6){
 
-            console.log('est');
+            
             var dataUser = {
                 pseudo: $scope.boCreatePseudo,
                 password: $scope.boCreateMdp
             };
+            console.log(dataUser)
 
             $http.post(serviceApi.createUser, dataUser)
                 .then(

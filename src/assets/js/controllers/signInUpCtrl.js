@@ -8,22 +8,43 @@ app.controller('signInUpCtrl', ['$scope', '$http', 'serviceApi', function($scope
     };
 
 
-    $scope.createAccount = function(){
-        console.log('est');
-        var data = {
-            pseudo: $scope.boCreatePseudo,
-            password: $scope.boCreateMdp
-        }
-        $http.post(serviceApi.createUser, data)
-            .then(
-                function(response) {
-                    console.log (response.data);
-                },
-                function(err) {
-                    console.log("C'est la merde!");
-                }
-            );
+  $scope.createAccount = function(){
+ 
+    if($scope.boCreateMdpVerif === $scope.boCreateMdp){
+        
+                       var dataUser = {
+                pseudo:  $('#pseudo').val(),
+                password: $('#mdp').val()
+
+            };
+            console.log(dataUser)
+
+            $http.post(serviceApi.createUser, dataUser)
+                .then(
+                    function(response) {
+                       alert(response.data);
+                      
+                    },
+                    function(err) {
+                        console.log("C'est la merde!");
+                    }
+                );
+    
     }
-    console.log($scope.password);
+
+}
+
+//     $scope.showUser = function(){
+
+//         $http.get(serviceApi.getUser)
+//                 .then(
+//                     function(response) {  
+//                          $scope.users = response.data;
+//                     },
+//                     function(err) {
+//                         console.log("C'est la merde!");
+//                     }
+//                 );
+// };
 
 }]);
