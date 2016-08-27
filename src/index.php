@@ -25,6 +25,7 @@ session_start();
 	<script src="assets/js/min/boCtrl.min.js"></script>
 	<script src="assets/js/min/contactCtrl.min.js"></script>
 	<script src="assets/js/min/profilCtrl.min.js"></script>
+	<script src="assets/js/min/projectCtrl.min.js"></script>
 	<script src="assets/js/min/confirmPassword.min.js"></script>
 	<script src="assets/js/min/BackgroundImageDirective.min.js"></script>
 	<script src="assets/js/min/adminCreate.min.js"></script>
