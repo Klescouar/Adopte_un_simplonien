@@ -1,9 +1,7 @@
 .cont-simplon-description {
 	overflow: hidden;
-
 	.title-simplon {
 		position: absolute;
-		z-index: 500;
 		top: 50%;
 		bottom: 50%;
 		right: 40%;
@@ -14,11 +12,8 @@
 		cursor: pointer;
 		text-decoration: none;
 	}
-
 	.title-recrutement {
-		width: 500px;
 		position: absolute;
-		z-index: 500;
 		top: 140%;
 		bottom: 140%;
 		right: 36%;
@@ -29,28 +24,23 @@
 		cursor: pointer;
 		text-decoration: none;
 	}
-
 	.title-simplon-closed {
 		transition: all 0.5s;
 		visibility: hidden;
 	}
-
 	.title-recrutement-closed {
 		transition: all 0.5s;
 		visibility: hidden;
 	}
-
 	.cont-img-description {
 		background: url("../images/simplonContact2.jpg") no-repeat center;
 		background-size: cover;
 		min-height: calc(100vh - 60px);
-
 		.description-simlpon {
 			bottom: -1565px;
 			background-color: #DE5B49;
 			right: 4%;
 			visibility: hidden;
-
 			.corpus-description {
 				color: white;
 				margin-right: 50px;
@@ -63,7 +53,6 @@
 				font-stretch: normal;
 				line-height: 35px;
 			}
-
 			.end-description {
 				color: white;
 				margin-right: 40px;
@@ -77,7 +66,6 @@
 				line-height: 35px;
 			}
 		}
-
 		.description-simlpon-is-open {
 			transition: all 1s;
 			visibility: visible;
@@ -85,11 +73,12 @@
 			position: absolute;
 			bottom: 40px;
 			right: 4%;
-			height: 370px;
-			width: 500px;
-			z-index: 200;
+			min-height: 370px;
+			min-width: 500px;
+			height: 60%;
+			width: 30%;
 			font-size: 0.8em;
-
+			z-index: 1;
 			.corpus-description {
 				color: white;
 				margin-right: 40px;
@@ -102,7 +91,6 @@
 				font-stretch: normal;
 				line-height: 35px;
 			}
-
 			.end-description {
 				color: white;
 				margin: 40px;
@@ -121,13 +109,11 @@
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
-		z-index: 100;
 		background: #fff;
 		visibility: hidden;
 		height: 0;
 		width: 100%;
 	}
-
 	.mask-is-open {
 		transition: all 1s;
 		display: flex;
@@ -135,35 +121,28 @@
 		align-items: center;
 		visibility: visible;
 		width: 100%;
-		z-index: 100;
 		height: 14vh;
 		background: #fff;
-
 		.cross-close {
 			background: url("../images/close.png") no-repeat center;
 			background-size: cover;
 			margin-right: 70px;
 			height: 50px;
 			width: 50px;
-			z-index: 200;
 			cursor: pointer;
 		}
 	}
-
 	.mask2 {
 		transition: all 1s;
 		visibility: hidden;
 		height: 0;
 		width: 100%;
-		z-index: 100;
 		background: #fff;
 	}
-
 	.mask2-is-open {
 		transition: all 1s;
 		visibility: visible;
 		width: 100%;
-		z-index: 100;
 		height: 14vh;
 		background: #fff;
 	}
@@ -172,13 +151,11 @@
 		background: url("../images/codecamp_2015_-9.jpg") no-repeat center;
 		background-size: cover;
 		min-height: calc(100vh - 50px);
-
 		.description-simlpon {
 			bottom: -1565px;
 			background-color: #DE5B49;
 			left: 4%;
 			visibility: hidden;
-
 			.corpus-description {
 				color: white;
 				margin-right: 50px;
@@ -191,7 +168,6 @@
 				font-stretch: normal;
 				line-height: 35px;
 			}
-
 			.end-description {
 				color: white;
 				margin-right: 40px;
@@ -205,18 +181,18 @@
 				line-height: 35px;
 			}
 		}
-
 		.description-simlpon-is-open {
 			transition: all 1s;
 			visibility: visible;
 			background-color: #87adc7;
 			position: absolute;
 			bottom: 65px;
-			height: 370px;
-			width: 500px;
+			min-height: 370px;
+			min-width: 500px;
+			height: 60%;
+			width: 30%;
 			left: 4%;
-			z-index: 200;
-
+			z-index: 1;
 			.corpus-description {
 				color: white;
 				margin-right: 40px;
@@ -229,7 +205,6 @@
 				font-stretch: normal;
 				line-height: 35px;
 			}
-
 			.end-description {
 				color: white;
 				margin: 40px;
@@ -243,7 +218,6 @@
 		}
 	}
 }
-
 .cont-img {
 	display: flex;
 	justify-content: space-between;
@@ -251,11 +225,48 @@
 	position: relative;
 	width: 100%;
 }
-
 .generic-cont-description {
 	transition: all 1s;
 	bottom: -1565px;
 	visibility: hidden;
 	position: absolute;
 	z-index: 200;
+}
+@media screen and (max-width: 640px) {
+	.cont-simplon-description {
+		.mask-is-open {
+			display: none;
+		}
+		.mask2-is-open {
+			display: none;
+		}
+		.cont-img-description {
+			.description-simlpon-is-open {
+				width: 100%;
+				height: 100%;
+				background-color: rgba(#de5b49, 0.92);
+				min-width: 0;
+				min-height: 0;
+				bottom: 0;
+				right: 0;
+				left: 0;
+			}
+		}
+	}
+	.cont-simplon-description .cont-img-description-down .description-simlpon-is-open {
+		width: 100%;
+		height: 100%;
+		background-color: rgba(#87adc7, 0.92);
+		min-width: 0;
+		min-height: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+	}
+	.cont-simplon-description .title-simplon {
+		display: none;
+	}
+	.cont-simplon-description .title-recrutement {
+		display: none;
+	}
 }

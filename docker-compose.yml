@@ -1,0 +1,9 @@
+web:
+  image: nginx
+  ports:
+    - "80:80"
+  environment:
+    - VARIABLE=truc
+    - VARIABLE2=truc2
+  volumes:
+    - /var:/var

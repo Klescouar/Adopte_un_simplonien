@@ -4,8 +4,8 @@
 .closed {
     left: -73%;
 }
-.modal{
-    margin-top: 100px;
+.modal {
+  margin: auto;
 }
 button.close {
     position: absolute;
@@ -55,35 +55,9 @@ body {
             margin-right: auto;
         }
     }
-    //BURGER MENU
-    //.burger-menu-icon, .burger-menu-close-icon{
-    //  width: 30px;
-    //}
-    //
-    //.burger-menu{
-    //  position: absolute;
-    //  flex-direction: column;
-    //  align-items: flex-start;
-    //  height: $full-height;
-    //  background-color: $navbar-color;
-    //  color: white;
-    //  width: 60%;
-    //  top: 0;
-    //  bottom: 0;
-    //  padding: 20px 20px;
-    //  transition: all .2s ease-in;
-    //
-    //  .burger-menu_items{
-    //    display: flex;
-    //    flex-direction: column;
-    //    a{
-    //      font-size: 1.5em;
-    //    }
-    //  }
-    //}
     .burgerMenu {
         display: none;
-        z-index: 300;
+        z-index: 9999;
         position: fixed;
         top: 0;
         left: 0;

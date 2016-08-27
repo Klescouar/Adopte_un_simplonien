@@ -1,4 +1,4 @@
-app.controller('projectCtrl', ['$scope', '$http', 'serviceApi', function($scope, $http, serviceApi) {
+app.controller('projectCtrl', ['$scope', '$http', 'serviceApi', '$timeout', function($scope, $http, serviceApi, $timeout) {
     $scope.showDescription = false;
     $scope.showDescription2 = false;
     console.log("coucou");
@@ -12,4 +12,11 @@ app.controller('projectCtrl', ['$scope', '$http', 'serviceApi', function($scope,
         $scope.showDescription2 = !$scope.showDescription2;
         console.log($scope.showDescription2);
     };
+    $timeout(function() {
+        if (window.innerWidth < 640) {
+            $scope.showDescription = true;
+            $scope.showDescription2 = true;
+        }
+    }, 70);
+
 }]);
