@@ -1,19 +1,20 @@
 app.controller('signInUpCtrl', ['$scope', '$http', 'serviceApi', function($scope, $http, serviceApi) {
-    $scope.signToggle = false;
+    $scope.signToggle = 3;
     $scope.logBox = function() {
-        $scope.signToggle = false;
+        $scope.signToggle = 1;
     };
     $scope.signBox = function() {
-        $scope.signToggle = true;
+        $scope.signToggle = 2;
     };
 
+    $scope.createAccount = function() {
+      $scope.signToggle = 3;
 
-  $scope.createAccount = function(){
- 
-    if($scope.boCreateMdpVerif === $scope.boCreateMdp){
-        
-                       var dataUser = {
-                pseudo:  $('#pseudo').val(),
+
+        if ($scope.boCreateMdpVerif === $scope.boCreateMdp) {
+
+            var dataUser = {
+                pseudo: $('#pseudo').val(),
                 password: $('#mdp').val()
 
             };
@@ -21,30 +22,11 @@ app.controller('signInUpCtrl', ['$scope', '$http', 'serviceApi', function($scope
 
             $http.post(serviceApi.createUser, dataUser)
                 .then(
-                    function(response) {
-                       alert(response.data);
-                      
-                    },
+                    function(response) {},
                     function(err) {
                         console.log("C'est la merde!");
                     }
                 );
-    
+        }
     }
-
-}
-
-//     $scope.showUser = function(){
-
-//         $http.get(serviceApi.getUser)
-//                 .then(
-//                     function(response) {  
-//                          $scope.users = response.data;
-//                     },
-//                     function(err) {
-//                         console.log("C'est la merde!");
-//                     }
-//                 );
-// };
-
 }]);

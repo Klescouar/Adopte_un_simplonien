@@ -4,8 +4,17 @@
 .closed {
     left: -73%;
 }
+.confirmBox{
+  height: 200px;
+  width: 200px;
+  background-color: black;
+}
 .modal {
   margin: auto;
+}
+.confirm{
+  color: white;
+  font-size: 2em;
 }
 button.close {
     position: absolute;
