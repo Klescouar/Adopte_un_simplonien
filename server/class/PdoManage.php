@@ -222,7 +222,7 @@ class PdoManage {
             $addUser->execute(array(
                 'pseudo' => $data['pseudo'],
                 'password' => $password,
-                'permission' => 'visiteur'
+                'permission' => 'user'
             ));
 
             return 'Ça roule ma poule';
