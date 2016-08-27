@@ -1,6 +1,6 @@
 <div class="cont-simplon-description" ng-controller="projectCtrl">
 	<p class="title-simplon" ng-click="showTop()" ng-class="{'title-simplon-closed': showDescription}">SIMPLON.CO ?</p>
-	<div class="cont-img-description cont-img">
+	<div class="cont-img-description cont-img" ng-class="{'cont-img-description-simple':showDescription}">
 		<div class="mask" ng-class="{'mask-is-open': showDescription}">
 			<div class="cross-close" ng-click="showTop()"></div>
 		</div>
