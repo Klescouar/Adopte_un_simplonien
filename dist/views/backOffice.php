@@ -16,6 +16,7 @@
 
 	</div>
 	<div class="container-interface">
+		<h1 ng-if="show === 0"> Welcome in your BackOffice Norbert!</h1>
 		<form class="container-create-user" ng-submit="createAccount()" ng-show="show==1">
 			<h2>Créer un utilisateur</h2>
 	        		<input class="input-style" type="text" ng-model="boCreatePseudo" placeholder="Pseudo utilisateur (+ de 3 caractères)" required>
