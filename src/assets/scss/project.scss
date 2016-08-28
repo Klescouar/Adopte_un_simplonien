@@ -1,6 +1,7 @@
 .cont-simplon-description {
 	overflow: hidden;
 	.title-simplon {
+		z-index: 1;
 		position: absolute;
 		top: 50%;
 		bottom: 50%;
@@ -33,6 +34,7 @@
 		visibility: hidden;
 	}
 	.cont-img-description {
+		transition: all 10s;
 		background: linear-gradient(rgba(222,91,73,0.70), rgba(222,91,73,0.70)), url("../images/simplonContact2.jpg") no-repeat center;
 		background-size: cover;
 		min-height: calc(100vh - 60px);
@@ -235,10 +237,14 @@
 
 
 .cont-img-description-simple {
-		transition: all 1s;
-		background: url("../images/simplonContact2.jpg") no-repeat center !important;
-		background-size: cover;
-		min-height: calc(100vh - 60px);
+
+	visibility: hidden;
+	transition: all 1s !important;
+	z-index: 9999 !important;
+	background: linear-gradient(rgba(222,91,73,0.10), rgba(222,91,73,0.10)), url("../images/simplonContact2.jpg") no-repeat center !important;
+	background-size: cover!important;
+	min-height: calc(100vh - 60px) !important;
+		
 }
 
 @media screen and (max-width: 640px) {

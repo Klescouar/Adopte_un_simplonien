@@ -13,8 +13,8 @@ session_start();
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" href="lib/css/bootstrap.css">
 	<meta name="viewport" content="width=device-width, user-scalable=no">
-	<script src="lib/js/angular-animate.min.js"></script>
 	<script src="lib/js/angular.min.js"></script>
+	<script src="lib/js/angular-animate.min.js"></script>
 	<script src="lib/js/jquery.min.js"></script>
 	<script type="text/javascript" src="lib/js/angular-route.js"></script>
 	<!-- <script src='lib/js/angular-modal-service.min.js'></script> -->
@@ -111,11 +111,11 @@ session_start();
 					<div class="logbox" ng-if="signToggle">
 						<form class="signup" method="post"  name="form">
 							<h1>Créer un compte</h1>
-							<input  id="pseudo" type="text" placeholder="Pseudo" pattern="^[\w]{3,16}$" autofocus="autofocus" required class="inputSign" ng-model="CreatePseudo" />
+							<input  id="pseudo" type="text" placeholder="Pseudo" pattern="^[\w]{3,16}$" autofocus="autofocus" required class="inputSign" />
 
 
-							<input id="mdp"  ng-model='CreateMdp' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign' : !form.confirm_password.$error.passwordVerify}" name='password' placeholder="Mot de passe" required>
-							<input ng-model='boCreateMdpVerif' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign' : !form.confirm_password.$error.passwordVerify}" name='confirm_password' placeholder="Confirmer mot de passe"
+							<input id="mdp" data-ng-model='user.password' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign' : !form.confirm_password.$error.passwordVerify}" name='password' placeholder="Mot de passe" required>
+							<input id="mdp-verif" ng-model='boCreateMdpVerif' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign' : !form.confirm_password.$error.passwordVerify}" name='confirm_password' placeholder="Confirmer mot de passe"
 											required data-password-verify="user.password">
 							<!-- <input type="email" placeholder="Adresse email" class="inputSign" required/> -->
 							<input type="submit" value="Inscription!" class="inputButton" ng-click="createAccount()"/>
