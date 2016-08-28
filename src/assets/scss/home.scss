@@ -34,12 +34,13 @@
         text-align: center;
         text-decoration: none;
         color: white;
-
-
+        p{
+          margin: 0;
+        }
     }
 
     .main-button:hover{
-        background-color: lighten(#DE5B49, 8%);
+        background-color: lighten(#DE5B49, 4%);
     }
 }
 @media screen and (max-width: 600px) {
