@@ -4,8 +4,25 @@
 .closed {
     left: -73%;
 }
+.confirmBox{
+  height: 200px;
+  width: 200px;
+  background-color: black;
+}
 .modal {
   margin: auto;
+}
+.confirm{
+  color: white;
+  font-size: 1.6em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  p{
+    margin: 20px;
+  }
 }
 button.close {
     position: absolute;
@@ -33,6 +50,9 @@ body {
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+        p{
+          margin: 0;
         }
         .page-container-left a {
             padding: 15px 30px;
@@ -303,7 +323,7 @@ body {
         }
     }
 }
-@media screen and (max-width: 736px) {
+@media screen and (max-width: 800px) {
     body {
         .nav-container {
             .page-container-left {

@@ -8,10 +8,12 @@ session_start();
 <head>
 	<meta charset="UTF-8">
 	<title>Adopte un Simplonien</title>
+	<meta name="description" content="Le site AdopteUnSimplonien.fr permet aux entreprises d'avoir un lien direct avec les élèves de l'école Simplon en recherchent de contrat (CDD/CDI/Contrat Pro/Stage)" />
 	<link rel="stylesheet" href="lib/css/normalize.css">
 	<link rel="stylesheet" href="lib/css/animate.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" href="lib/css/bootstrap.css">
+	<link rel="icon" type="image/png" href="assets/images/logoSimplon.png" />
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<script src="lib/js/angular.min.js"></script>
 	<script src="lib/js/angular-animate.min.js"></script>
@@ -40,20 +42,7 @@ session_start();
 	<script src='lib/js/ui-bootstrap.js'></script>
 </head>
 
-<body ng-app="AdopteUnSimplonien">
-
-	<!-- Burger Menu -->
-
-	<!-- <div class="burger-menu closed">
-		<img src="assets/images/close-button.svg" alt="" class="burger-menu-close-icon" id="burger-close">
-		<div class="burger-menu_items">
-			<a href="#/">Home</a>
-			<a href="#/search">Simploniens</a>
-			<a href="#/project">Qui sommes-nous?</a>
-			<a href="#/contact">Contact</a>
-			<a href="">Se connecter</a>
-		</div>
-	</div> -->
+<body ng-app="AdopteUnSimplonien" ng-controller="signInUpCtrl">
 
 	<!-- Desktop navbar -->
 	<div class="nav-container">
@@ -86,7 +75,7 @@ session_start();
 			<?php if( $_SESSION['permission'] === 'admin') { ?>
 			<a href="#/backOffice" class="user-icon">Back Office</a><?php } ?>
 		<?php }else{?>
-			<a class="user-icon" data-toggle="modal" data-target="#signInUp">Espace Perso</a>
+			<a class="user-icon" ng-click="logBox()" data-toggle="modal" data-target="#signInUp">Espace Perso</a>
 		<?php } ?>	</div>
 
 	<!-- Ng-VIEW -->
@@ -106,23 +95,26 @@ session_start();
 	<div class="modal fade" id='signInUp' tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
-				<div class="signInUp" ng-controller="signInUpCtrl">
+				<div class="signInUp">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<div class="logbox" ng-if="signToggle">
-						<form class="signup" method="post"  name="form">
+					<div class="logbox" ng-if="signToggle === 2">
+						<form class="signup" method="post"  name="form" action="#/">
 							<h1>Créer un compte</h1>
 							<input  id="pseudo" type="text" placeholder="Pseudo" pattern="^[\w]{3,16}$" autofocus="autofocus" required class="inputSign" />
 
 
 							<input id="mdp" data-ng-model='user.password' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign' : !form.confirm_password.$error.passwordVerify}" name='password' placeholder="Mot de passe" required>
-							<input id="mdp-verif" ng-model='boCreateMdpVerif' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign' : !form.confirm_password.$error.passwordVerify}" name='confirm_password' placeholder="Confirmer mot de passe"
+							<input id="mdp-verif" ng-model='boCreateMdpVerif' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign' : !form.confirm_password.$error.passwordVerify}" name='confirm_password' placeholder="Confirmer mot de passe">
+
+							<input  id="pseudo" type="text" placeholder="Pseudo" pattern="^[\w]{3,16}$" autofocus="autofocus" required class="inputSign" ng-model="CreatePseudo" />
+							<input id="mdp"  ng-model='CreateMdp' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign' : !form.confirm_password.$error.passwordVerify}" name='password' placeholder="Mot de passe" required>
+							<input ng-model='boCreateMdpVerif' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign' : !form.confirm_password.$error.passwordVerify}" name='confirm_password' placeholder="Confirmer mot de passe"
 											required data-password-verify="user.password">
-							<!-- <input type="email" placeholder="Adresse email" class="inputSign" required/> -->
-							<input type="submit" value="Inscription!" class="inputButton" ng-click="createAccount()"/>
+							<input type="submit" value="Inscription!" class="inputButton" ng-click="createAccount()" />
 							<a ng-click="logBox()">Déjà inscrit?</a>
 						</form>
 					</div>
-					<div class="logbox" ng-if="!signToggle">
+					<div class="logbox" ng-if="signToggle === 1">
 						<form class="signup" method="post" action="../server/connection.php">
 							<h1>Connexion</h1>
 							<?php if($_SESSION['permission'] !== 'user' || $_SESSION['permission'] !== 'admin') { ?>
@@ -130,32 +122,21 @@ session_start();
 								Vous devez vous connecter pour voir les profils complets des simploniens!
 							</p>
 									<?php } ?>
-							<input type="email" name="pseudo" placeholder="Adresse email" class="inputSign" required />
+							<input type="text" name="pseudo" placeholder="Adresse email" class="inputSign" required />
 							<input type="password" name="password" placeholder="Mot de passe" required class="inputSign" />
 							<input type="hidden" name="page" value="dist/index.php">
 							<input type="submit" value="Connexion!" class="inputButton" />
 							<a ng-click="signBox()">Pas encore inscrit?</a>
 						</form>
 					</div>
+					<div class="logbox confirm" ng-if= 'signToggle === 3'>
+						<p>Vous êtes inscrit!</p>
+						<p> Vous pouvez désormais voir les fiches des simploniens et les contacter directement!</p>
+					</div>
 				</div>
-
-				<!-- <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title">Modal title</h4>
-	      </div>
-	      <div class="modal-body">
-	        <p>One fine body&hellip;</p>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary">Save changes</button>
-	      </div> -->
 			</div>
-			<!-- /.modal-content -->
 		</div>
-		<!-- /.modal-dialog -->
 	</div>
-	<!-- /.modal -->
 </body>
 
 </html>
