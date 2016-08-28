@@ -63,6 +63,7 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
     // to create a simplonien card
 
     $scope.createSimplonien = function() {
+
         console.log('est');
         var dataStudent = {
             nom: $scope.boCreateLastName,
@@ -86,7 +87,10 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
             contrat: $scope.boCreateContrat,
             datePromo: $scope.boCreateDatePromo,
             domaine: $scope.boCreateDomaine
+
         };
+
+
         $http.post(serviceApi.createStudent, dataStudent)
             .then(
                 function(response) {
