@@ -144,6 +144,7 @@ $scope.show = 0;
     // to modify a Simplonien's card
 
     $scope.modify = function(index) {
+        $scope.show = 5;
         $scope.id = index;
         $http.get(serviceApi.modifySimplonien + index)
             .then(
