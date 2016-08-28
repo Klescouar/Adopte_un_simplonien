@@ -6,12 +6,6 @@ app.controller('profilCtrl', ['$scope', '$http', 'serviceApi', '$routeParams', f
         .then(
             function(response) {
                 $scope.student = response.data;
-
-                console.log($scope.student);
-
-                console.log($scope.student[0].Linkedin);
-
-
             },
             function(err) {
                 console.log("C'est la merde!");
