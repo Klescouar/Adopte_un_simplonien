@@ -8,10 +8,12 @@ session_start();
 <head>
 	<meta charset="UTF-8">
 	<title>Adopte un Simplonien</title>
+	<meta name="description" content="Le site AdopteUnSimplonien.fr permet aux entreprises d'avoir un lien direct avec les élèves de l'école Simplon en recherchent de contrat (CDD/CDI/Contrat Pro/Stage)" />
 	<link rel="stylesheet" href="lib/css/normalize.css">
 	<link rel="stylesheet" href="lib/css/animate.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" href="lib/css/bootstrap.css">
+	<link rel="icon" type="image/png" href="assets/images/logoSimplon.png" />
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<script src="lib/js/angular-animate.min.js"></script>
 	<script src="lib/js/angular.min.js"></script>
