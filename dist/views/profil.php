@@ -11,9 +11,9 @@
 		<div class="line"></div>
 		<p class="comp">#{{student[0].Specialite1}} #{{student[0].Specialite2}} #{{student[0].Specialite3}}</p>
 		<div class="container-social">
-			 <div class="github" ng-href="{{student[0].Github}}"></div>
-			<div class="cv" ng-href="{{student[0].CV}}"></div>
-			<div class="linkedin" ng-href="{{student[0].Linkedin}}"></div>
+		<a ng-href="{{student[0].Github}}">	 <div class="github" ></div></a>
+		<a ng-href="{{student[0].CV}}">	<div class="cv"></div></a>
+		<a ng-href="{{student[0].Linkedin}}">	<div class="linkedin"></div></a>
 		</div>
 		<p class="description">{{student[0].Description}}</p>
 		<div class="line"></div>
