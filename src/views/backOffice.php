@@ -46,11 +46,7 @@
 			<input class="input-style" placeholder="Nom" type="text" ng-model="boCreateLastName" required>
 			<input class="input-style" placeholder="Prénom" ng-model="boCreateName" required>
 			<input class="input-style" placeholder="Âge" ng-model="boCreateOld" required>
-			<select name="select" class="input-style" ng-model="boCreatePromo" >
-	 			<option value="value1">Montreuil</option>
-	  			<option value="value2" selected>Marseille</option>
-	  			<option value="value3">Toulouse</option>
-			</select>
+			<input class="input-style" placeholder="Ville" ng-model="boCreatePromo" required>
 			<label for="photo">Upload photo</label>
 			<input class="input-style" type="file" id="photo"  name="Photo" placeholder="Photo" ng-model="boCreatePhoto" >
 			<input class="input-style" placeholder="Tags" ng-model="boCreateTags" required>
@@ -63,8 +59,7 @@
 			<input class="input-style" placeholder="Github" ng-model="boCreateGithub" required>
 			<input class="input-style" placeholder="Linkedin" ng-model="boCreateLinkedin" required>
 			<input class="input-style" placeholder="Portfolio" ng-model="boCreatePortfolio">
-			<label for="cv">Upload CV</label>
-			<input class="input-style" type="file" id="cv"  name="cv" placeholder="CV" ng-model="boCreateCV" >
+			<input class="input-style"  id="cv"  name="cv" placeholder="CV" ng-model="boCreateCV" >
 			<input class="input-style" placeholder="Twitter" ng-model="boCreateTwitter">
 			<input class="input-style" placeholder="StackOverFlow" ng-model="boCreateStackOverFlow">
 			<input class="input-style" placeholder="Mail" ng-model="boCreateMail" required>
@@ -78,11 +73,7 @@
 				<input  id="boCreateLastNameSimploniens" class="input-style" value="{{infoSimploniens[0].Nom}}" placeholder="Nom" type="text"  required>
 				<input id ="boCreateNameSimploniens" class="input-style" value="{{infoSimploniens[0].Prenom}}" placeholder="Prénom"  required>
 				<input id ="boCreateOldSimploniens" class="input-style" value="{{infoSimploniens[0].Age}}" placeholder="Âge" required>
-				<select id ="boCreatePromoSimploniens" name="select" class="input-style"  >
-					<option value="value1">Montreuil</option>
-						<option value="value2" selected>Marseille</option>
-						<option value="value3">Toulouse</option>
-				</select>
+				<input id ="boCreatePromoSimploniens" class="input-style" value="{{infoSimploniens[0].Ville}}" placeholder="Ville" required>
 				<label for="photo">Upload photo</label>
 				<input id ="boCreatePhotoSimploniens" class="input-style" type="file" id="photo"  name="Photo" value="{{infoSimploniens[0].Nom}}" placeholder="Photo"  >
 				<input  id ="boCreateTagsSimploniens"class="input-style" placeholder="Tags" value="{{infoSimploniens[0].Tags}}"  required>
@@ -95,8 +86,7 @@
 				<input id ="boCreateGithubSimploniens" class="input-style" value="{{infoSimploniens[0].Github}}" placeholder="Github" required>
 				<input id ="boCreateLinkedinSimploniens" class="input-style" value="{{infoSimploniens[0].Linkedin}}" placeholder="Linkedin" required>
 				<input id ="boCreatePortfolioSimploniens" class="input-style" value="{{infoSimploniens[0].Portfolio}}" placeholder="Portfolio" >
-				<label for="cv">Upload CV</label>
-				<input id ="boCreateCVSimploniens" class="input-style" value="{{infoSimploniens[0].CV}}" type="file" id="cv"  name="cv" placeholder="CV" >
+				<input id ="boCreateCVSimploniens" class="input-style" value="{{infoSimploniens[0].CV}}" id="cv"  name="cv" placeholder="CV" >
 				<input id ="boCreateTwitterSimploniens" class="input-style" value="{{infoSimploniens[0].Twitter}}" placeholder="Twitter">
 				<input id ="boCreateStackOverFlowSimploniens" class="input-style" value="{{infoSimploniens[0].StackOverFlow}}" placeholder="StackOverFlow">
 				<input id ="boCreateMailSimploniens" class="input-style" value="{{infoSimploniens[0].Mail}}" placeholder="Mail" required>

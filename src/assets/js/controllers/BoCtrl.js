@@ -63,7 +63,7 @@ $scope.show = 0;
     // to create a simplonien card
 
     $scope.createSimplonien = function() {
-        if ($scope.boCreateMdpVerif === $scope.boCreateMdp && $scope.boCreatePseudo.length > 3 && $scope.boCreateMdpVerif.length > 6) {
+      
 
             console.log('est');
             var dataStudent = {
@@ -97,13 +97,14 @@ $scope.show = 0;
                     function(response) {
                         console.log('coucou');
                         console.log(response.dataStudent);
+                        $scope.showSimplonien();
                     },
                     function(err) {
                         console.log("C'est la merde!");
                     }
                 );
 
-        }
+        
     }
 
 

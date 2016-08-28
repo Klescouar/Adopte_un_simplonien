@@ -4,16 +4,17 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background: linear-gradient( rgba(115,159,190,0.85), rgba(115,159,190,0.85)), url("../images/photo-1429051883746-afd9d56fbdaf.jpeg") no-repeat center / cover;
+    background: linear-gradient( rgba(115,159,190,0.60), rgba(115,159,190,0.60)), url("../images/photo-1429051883746-afd9d56fbdaf.jpeg") no-repeat center / cover;
     color: white;
     .main-container {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        height: 300px;
+        height: 350px;
         width: 100%;
     }
+
     .main-title {
         margin-top: 0;
         margin-bottom: 20px;
@@ -23,14 +24,18 @@
         font-weight: 300;
         text-align: center;
         margin: 0 0 20px;
+        margin-right: 20px;
     }
     .main-button {
+
         cursor: pointer;
-        font-size: 1.6em;
+        font-size: 1.3em;
         margin: 0 20px;
         text-align: center;
         text-decoration: none;
         color: white;
+
+
     }
 
     .main-button:hover{

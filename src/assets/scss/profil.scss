@@ -16,6 +16,23 @@ min-height: calc(100vh - 112px);
 		width: 450px;
 		min-height: 100%;
 		background-color: white;
+
+		.projects{
+			margin: 0;
+			margin-top: 20px;
+			color: #6e748d;
+		}
+		
+		.age{
+			color: #6e748d;
+			font-size: 15px;
+		}
+
+		.spe{
+			color: #6e748d;
+			font-size: 20px;
+		}
+
 		img {
 			height: 100%;
 			width: auto;
@@ -171,3 +188,4 @@ background-color: #90c7dc;
 	display: flex;
 	justify-content: center;
 	align-items: center;}
+
