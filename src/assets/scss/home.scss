@@ -25,11 +25,16 @@
         margin: 0 0 20px;
     }
     .main-button {
+        cursor: pointer;
         font-size: 1.6em;
         margin: 0 20px;
         text-align: center;
         text-decoration: none;
         color: white;
+    }
+
+    .main-button:hover{
+        background-color: lighten(#DE5B49, 8%);
     }
 }
 @media screen and (max-width: 600px) {
