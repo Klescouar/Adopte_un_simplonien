@@ -1,4 +1,4 @@
-var app = angular.module('AdopteUnSimplonien', ['ngRoute']);
+var app = angular.module('AdopteUnSimplonien', ['ngRoute','ngAnimate']);
 
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
