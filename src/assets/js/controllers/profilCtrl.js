@@ -5,7 +5,7 @@ app.controller('profilCtrl', ['$scope', '$http', 'serviceApi', '$routeParams', f
         .then(
             function(response) {
                 $scope.student = response.data;
-                console.log($scope.student[0].Linkedin);
+                console.log($scope.student[0].Domaine);
 
             },
             function(err) {
