@@ -83,7 +83,10 @@
         border: 1px solid #fff;
         transition: all 0.1s ease-in-out;
     }
-    .submit-button:hover {}
+    .submit-button:hover {
+        background-color: white;
+        color: black;
+    }
 }
 @media screen and (max-width: 640px) {
     .contactForm {
