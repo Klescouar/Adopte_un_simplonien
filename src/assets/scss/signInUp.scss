@@ -99,6 +99,11 @@
             background-color: rgba(115,159,190,0.85);
             border: none;
         }
+        
+        .inputButton:hover {
+            background-color:lighten(#739fbe, 7%);
+        }
+
         .inputButton:focus {
             outline: none;
         }
