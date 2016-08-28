@@ -194,6 +194,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         }
     };
 
+console.log($scope.schools[1]);
 
     $scope.changeFilterSchool = function() {
         if (searchResult.Ville.length === 0) {
@@ -210,6 +211,14 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
             if (this.school.active === true) {
                 this.school.active = false;
                 searchResult.Ville = "";
+                searchFilter();
+            }
+            else if (this.school.active === false) {
+                for (var i = 0; i < $scope.schools.length; i++) {
+                  $scope.schools[i].active = false;
+                  this.school.active = true;
+                }
+                searchResult.Ville = this.school.ville;
                 searchFilter();
             }
         }
