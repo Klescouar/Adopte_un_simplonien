@@ -3,41 +3,47 @@
 	.title-simplon {
 		position: absolute;
 		top: 50%;
-		bottom: 50%;
 		right: 40%;
-		left: 40%;
+		left: 38%;
 		color: white;
 		font-weight: bold;
-		font-size: 2.7em;
+		font-size: 2em;
+		width: 370px;
 		cursor: pointer;
 		text-decoration: none;
 		z-index: 1;
+		transition: all 0.3s;
 	}
 	.title-recrutement {
 		position: absolute;
 		top: 140%;
 		bottom: 140%;
 		right: 36%;
-		left: 36%;
+		left: 40%;
 		color: white;
+		width: 370px;
 		font-weight: bold;
-		font-size: 2.7em;
+		font-size: 2em;
 		cursor: pointer;
 		text-decoration: none;
 		z-index: 1;
+		transition: all 0.3s;
 	}
 	.title-simplon-closed {
-		transition: all 0.5s;
-		visibility: hidden;
+		transition: all 0.3s;
+		left: 50%;
+		font-size: 0;
 	}
 	.title-recrutement-closed {
-		transition: all 0.5s;
-		visibility: hidden;
+		transition: all 0.3s;
+		left: 50%;
+		font-size: 0;
 	}
 	.cont-img-description {
 		background: linear-gradient(rgba(222,91,73,0.70), rgba(222,91,73,0.70)), url("../images/simplonContact2.jpg") no-repeat center;
 		background-size: cover;
 		min-height: calc(100vh - 60px);
+		cursor: pointer;
 		.description-simlpon {
 			bottom: -1565px;
 			background-color: #DE5B49;
@@ -73,9 +79,9 @@
 			visibility: visible;
 			background-color: #DE5B49;
 			position: absolute;
-			bottom: 40px;
+			bottom: 10px;
 			right: 4%;
-			min-height: 370px;
+			min-height: 450px;
 			min-width: 500px;
 			height: 60%;
 			width: 30%;
@@ -126,11 +132,11 @@
 		height: 14vh;
 		background: #fff;
 		.cross-close {
-			background: url("../images/close.png") no-repeat center;
+			background: url("../images/cancel.png") no-repeat center;
 			background-size: cover;
 			margin-right: 70px;
-			height: 50px;
-			width: 50px;
+			height: 35px;
+			width: 35px;
 			cursor: pointer;
 		}
 	}
@@ -150,9 +156,10 @@
 	}
 	//DESCRIPTION RECRUTEMENT
 	.cont-img-description-down {
-		background:linear-gradient(rgba(115,159,190,0.70), rgba(115,159,190,0.70)), url("../images/codecamp_2015_-9.jpg") no-repeat center;
+		background: linear-gradient(rgba(115,159,190,0.70), rgba(115,159,190,0.70)), url("../images/codecamp_2015_-9.jpg") no-repeat center;
 		background-size: cover;
 		min-height: calc(100vh - 50px);
+		cursor: pointer;
 		.description-simlpon {
 			bottom: -1565px;
 			background-color: #DE5B49;
@@ -188,8 +195,8 @@
 			visibility: visible;
 			background-color: #87adc7;
 			position: absolute;
-			bottom: 65px;
-			min-height: 370px;
+			bottom: 10px;
+			min-height: 450px;
 			min-width: 500px;
 			height: 60%;
 			width: 30%;
@@ -231,17 +238,13 @@
 	transition: all 1s;
 	bottom: -1565px;
 	visibility: hidden;
+	min-height: 450px;
+	min-width: 500px;
+	height: 60%;
+	width: 30%;
 	position: absolute;
 	z-index: 200;
 }
-
-
-.cont-img-description-simple {
-		background: url("../images/simplonContact2.jpg") no-repeat center !important;
-		background-size: cover;
-		min-height: calc(100vh - 60px);
-}
-
 @media screen and (max-width: 640px) {
 	.cont-simplon-description {
 		.mask-is-open {
@@ -279,5 +282,4 @@
 	.cont-simplon-description .title-recrutement {
 		display: none;
 	}
-
 }

@@ -14,7 +14,15 @@
 }
 .confirm{
   color: white;
-  font-size: 2em;
+  font-size: 1.6em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  p{
+    margin: 20px;
+  }
 }
 button.close {
     position: absolute;
