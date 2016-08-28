@@ -1,5 +1,6 @@
 app.controller('signInUpCtrl', ['$scope', '$http', 'serviceApi', function($scope, $http, serviceApi) {
     $scope.signToggle = 1;
+    $scope.verifPass = true;
     $scope.logBox = function() {
         $scope.signToggle = 1;
     };
@@ -8,11 +9,13 @@ app.controller('signInUpCtrl', ['$scope', '$http', 'serviceApi', function($scope
     };
 
     $scope.createAccount = function() {
-      $scope.signToggle = 3;
 
- 
-    if($('#mdp').val() === $('#mdp-verif').val()){
+        if ($('#mdp').val() !== $('#mdp-verif').val()) {
+          $scope.verifPass = false;
+        };
 
+        if ($('#mdp').val() === $('#mdp-verif').val()) {
+            $scope.signToggle = 3;
             var dataUser = {
                 pseudo: $('#pseudo').val(),
                 password: $('#mdp').val()
