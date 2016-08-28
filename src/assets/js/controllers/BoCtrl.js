@@ -1,5 +1,6 @@
 app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout', function($scope, $http, serviceApi, $route, $timeout) {
 
+$scope.show = 0;
 
     // to creat an acout user
     $scope.createAccount = function() {
