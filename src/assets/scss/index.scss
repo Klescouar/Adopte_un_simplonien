@@ -51,6 +51,9 @@ body {
             justify-content: center;
             align-items: center;
         }
+        p{
+          margin: 0;
+        }
         .page-container-left a {
             padding: 15px 30px;
         }
@@ -320,7 +323,7 @@ body {
         }
     }
 }
-@media screen and (max-width: 736px) {
+@media screen and (max-width: 800px) {
     body {
         .nav-container {
             .page-container-left {
