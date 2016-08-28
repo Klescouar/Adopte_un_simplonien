@@ -6,8 +6,8 @@
 	<div class="container-middle-profil">
 		<div class="profil-pic"><img src="./assets/images/{{student[0].Photo}}"></div>
 		<h2>{{student[0].Prenom}} {{student[0].Nom}}</h2>
-		<p>{{student[0].Domaine}}</p>
-		<p>{{student[0].Age}} ans</p>
+		<p class="spe">{{student[0].Domaine}}</p>
+		<p class="age">{{student[0].Age}} ans</p>
 		<div class="line"></div>
 		<p class="comp">#{{student[0].Specialite1}} #{{student[0].Specialite2}} #{{student[0].Specialite3}}</p>
 		<div class="container-social">
@@ -23,6 +23,7 @@
 				<p ng-repeat="comp in student">{{comp.Tags}}</p>
 			</div>
 		</div>
+		<h4 class="projects">Projets</h4>
 		<div class="cont-project">
 			<div class="project"></div>
 			<div class="project"></div>
