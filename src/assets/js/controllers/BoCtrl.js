@@ -1,11 +1,11 @@
 app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout', function($scope, $http, serviceApi, $route, $timeout) {
 
-$scope.show = 0;
+    $scope.show = 0;
 
     // to creat an acout user
     $scope.createAccount = function() {
 
-        if ($scope.boCreateMdpVerif === $scope.boCreateMdp && $scope.boCreatePseudo.length > 3 && $scope.boCreateMdpVerif.length > 6) {
+        if ($scope.boCreateMdpVerif === $scope.boCreateMdp && $scope.boCreatePseudo.length > 2 && $scope.boCreateMdpVerif.length > 5) {
 
 
             var dataUser = {
@@ -17,7 +17,7 @@ $scope.show = 0;
             $http.post(serviceApi.createUser, dataUser)
                 .then(
                     function(response) {
-                        alert(response.data);
+                        alert('Compte créé!');
                         $scope.showUser();
                     },
                     function(err) {
@@ -63,47 +63,41 @@ $scope.show = 0;
     // to create a simplonien card
 
     $scope.createSimplonien = function() {
-        if ($scope.boCreateMdpVerif === $scope.boCreateMdp && $scope.boCreatePseudo.length > 3 && $scope.boCreateMdpVerif.length > 6) {
-
-            console.log('est');
-            var dataStudent = {
-                nom: $scope.boCreateLastName,
-                prenom: $scope.boCreateName,
-                age: $scope.boCreateOld,
-                ville: $scope.boCreatePromo,
-                photo: $scope.boCreatePhoto,
-                tags: $scope.boCreateTags,
-                description: $scope.boCreateAbout,
-                sexe: $scope.boCreateSexe,
-                specialite1: $scope.boCreateSpeOne,
-                specialite2: $scope.boCreateSpeTwo,
-                specialite3: $scope.boCreateSpeThree,
-                github: $scope.boCreateGithub,
-                linkedin: $scope.boCreateLinkedin,
-                portfolio: $scope.boCreatePortfolio,
-                cV: $scope.boCreateCV,
-                twitter: $scope.boCreateTwitter,
-                stack: $scope.boCreateStackOverFlow,
-                mail: $scope.boCreateMail,
-                contrat: $scope.boCreateContrat,
-                datePromo: $scope.boCreateDatePromo,
-                domaine: $scope.boCreateDomaine
-
-            };
-
-
-            $http.post(serviceApi.createStudent, dataStudent)
-                .then(
-                    function(response) {
-                        console.log('coucou');
-                        console.log(response.dataStudent);
-                    },
-                    function(err) {
-                        console.log("C'est la merde!");
-                    }
-                );
-
-        }
+        console.log('est');
+        var dataStudent = {
+            nom: $scope.boCreateLastName,
+            prenom: $scope.boCreateName,
+            age: $scope.boCreateOld,
+            ville: $scope.boCreatePromo,
+            photo: $scope.boCreatePhoto,
+            tags: $scope.boCreateTags,
+            description: $scope.boCreateAbout,
+            sexe: $scope.boCreateSexe,
+            specialite1: $scope.boCreateSpeOne,
+            specialite2: $scope.boCreateSpeTwo,
+            specialite3: $scope.boCreateSpeThree,
+            github: $scope.boCreateGithub,
+            linkedin: $scope.boCreateLinkedin,
+            portfolio: $scope.boCreatePortfolio,
+            cV: $scope.boCreateCV,
+            twitter: $scope.boCreateTwitter,
+            stack: $scope.boCreateStackOverFlow,
+            mail: $scope.boCreateMail,
+            contrat: $scope.boCreateContrat,
+            datePromo: $scope.boCreateDatePromo,
+            domaine: $scope.boCreateDomaine
+        };
+        $http.post(serviceApi.createStudent, dataStudent)
+            .then(
+                function(response) {
+                    console.log('coucou');
+                    console.log(response.dataStudent);
+                    $scope.showSimplonien();
+                },
+                function(err) {
+                    console.log("C'est la merde!");
+                }
+            );
     }
 
 
@@ -212,7 +206,7 @@ $scope.show = 0;
                         $('.container-interface').addClass('marginToFix2');
                     } else {
                         $('.container-nav-bo').removeClass('sticktotop');
-                          $('.container-interface').removeClass('marginToFix2');
+                        $('.container-interface').removeClass('marginToFix2');
                     }
                 });
             }
