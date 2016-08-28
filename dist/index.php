@@ -15,8 +15,8 @@ session_start();
 	<link rel="stylesheet" href="lib/css/bootstrap.css">
 	<link rel="icon" type="image/png" href="assets/images/logoSimplon.png" />
 	<meta name="viewport" content="width=device-width, user-scalable=no">
-	<script src="lib/js/angular-animate.min.js"></script>
 	<script src="lib/js/angular.min.js"></script>
+	<script src="lib/js/angular-animate.min.js"></script>
 	<script src="lib/js/jquery.min.js"></script>
 	<script type="text/javascript" src="lib/js/angular-route.js"></script>
 	<!-- <script src='lib/js/angular-modal-service.min.js'></script> -->
@@ -100,6 +100,12 @@ session_start();
 					<div class="logbox" ng-if="signToggle === 2">
 						<form class="signup" method="post"  name="form" action="#/">
 							<h1>Créer un compte</h1>
+							<input  id="pseudo" type="text" placeholder="Pseudo" pattern="^[\w]{3,16}$" autofocus="autofocus" required class="inputSign" />
+
+
+							<input id="mdp" data-ng-model='user.password' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign' : !form.confirm_password.$error.passwordVerify}" name='password' placeholder="Mot de passe" required>
+							<input id="mdp-verif" ng-model='boCreateMdpVerif' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign' : !form.confirm_password.$error.passwordVerify}" name='confirm_password' placeholder="Confirmer mot de passe">
+
 							<input  id="pseudo" type="text" placeholder="Pseudo" pattern="^[\w]{3,16}$" autofocus="autofocus" required class="inputSign" ng-model="CreatePseudo" />
 							<input id="mdp"  ng-model='CreateMdp' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign' : !form.confirm_password.$error.passwordVerify}" name='password' placeholder="Mot de passe" required>
 							<input ng-model='boCreateMdpVerif' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign' : !form.confirm_password.$error.passwordVerify}" name='confirm_password' placeholder="Confirmer mot de passe"

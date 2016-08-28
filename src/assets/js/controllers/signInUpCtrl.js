@@ -10,8 +10,8 @@ app.controller('signInUpCtrl', ['$scope', '$http', 'serviceApi', function($scope
     $scope.createAccount = function() {
       $scope.signToggle = 3;
 
-
-        if ($scope.boCreateMdpVerif === $scope.boCreateMdp) {
+ 
+    if($('#mdp').val() === $('#mdp-verif').val()){
 
             var dataUser = {
                 pseudo: $('#pseudo').val(),

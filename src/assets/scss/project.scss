@@ -1,6 +1,7 @@
 .cont-simplon-description {
 	overflow: hidden;
 	.title-simplon {
+		z-index: 1;
 		position: absolute;
 		top: 50%;
 		left: 35%;
@@ -38,7 +39,8 @@
 		font-size: 0;
 	}
 	.cont-img-description {
-		background: linear-gradient(rgba(222,91,73,0.50), rgba(222,91,73,0.50)), url("../images/simplonContact2.jpg") no-repeat center;
+
+		background: linear-gradient(rgba(222,91,73,0.70), rgba(222,91,73,0.70)), url("../images/simplonContact2.jpg") no-repeat center;
 		background-size: cover;
 		min-height: calc(100vh - 60px);
 		cursor: pointer;
@@ -243,6 +245,7 @@
 	position: absolute;
 	z-index: 200;
 }
+
 @media screen and (max-width: 640px) {
 	.cont-simplon-description {
 		.mask-is-open {
@@ -280,4 +283,5 @@
 	.cont-simplon-description .title-recrutement {
 		display: none;
 	}
+	
 }
