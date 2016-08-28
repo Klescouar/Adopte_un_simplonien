@@ -57,6 +57,10 @@ body {
         .page-container-left a {
             padding: 15px 30px;
         }
+
+        .page-container-left a:hover{
+            border-bottom: solid white 1px;
+        }
         .user-icon {
             border: 1px solid white;
             height: 40px;

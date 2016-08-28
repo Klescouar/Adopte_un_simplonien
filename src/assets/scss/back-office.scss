@@ -1,17 +1,16 @@
 .container-bo{
-	background: url(../images/backgroundOffice.jpg) ;
+	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/backgroundOffice.jpg);
 	background-size: 10%;
 	display: flex;
 	min-height: 90vh;
 
 	.container-nav-bo{
-		
+
 		display: flex;
 		flex-direction:column;
 		background-color: black;
-		width: 25%;
-		height: 90vh;
-		flex-direction:column;
+		width: 315px;
+		height: 100vh;
 		justify-content:center;
 		align-items:center;
 
@@ -32,13 +31,16 @@
 			color: white;
 		}
 	}
-	
+
 	.container-interface{
 		display: flex;
 		flex-direction:column;
 		justify-content:center;
-		width: 100%;
-		height: 100%;
+		width: 75%;
+		color: white;
+		h1{
+			text-align: center;
+		}
 
 
 		.container-create-user{
@@ -46,7 +48,7 @@
 			flex-direction:column;
 			justify-content:center;
 			align-items:center;
-			
+
 			height: 80vh;
 
 
@@ -60,9 +62,8 @@
 			flex-direction:column;
 			justify-content:center;
 			align-items:center;
-			
 			height: 100%;
-			
+
 
 			.container-title{
 				display: flex;
@@ -82,17 +83,16 @@
 			}
 			.container-users{
 				display: flex;
-				// margin-left: 43px;
-				display: flex;
-				justify-content:center;
-				height: 100%;
 				flex-direction:column;
+				justify-content:center;
+				align-items: center;
+				height: 100%;
 
 				.cont-info{
-					
+
 					display: flex;
 					align-items:center;
-	
+
 					.cont-pseudo{
 						margin : 10px;
 						background-color: white;
@@ -103,7 +103,7 @@
 
 					}
 
-					
+
 
 					.cont-perm{
 						margin : 10px;
@@ -127,13 +127,13 @@
 
 		}
 		.container-create-student{
-		
+
 		display: flex;
 		flex-direction:column;
 		justify-content:center;
 		align-items:center;
-		
-		
+
+
 
 		}
 
@@ -142,12 +142,13 @@
 				width: 30%;
 				border: none;
 				margin: 10px;
+				color: black;
 	}
 
 
 	}
 
-	
+
 	.modify{
 		height: 30px;
 		width: 80px;
