@@ -1,5 +1,5 @@
 app.controller('signInUpCtrl', ['$scope', '$http', 'serviceApi', function($scope, $http, serviceApi) {
-    $scope.signToggle = 3;
+    $scope.signToggle = 1;
     $scope.logBox = function() {
         $scope.signToggle = 1;
     };
