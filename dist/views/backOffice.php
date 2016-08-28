@@ -18,8 +18,8 @@
 		<h1 ng-if="show === 0"> Welcome in your BackOffice Norbert!</h1>
 		<form class="container-create-user" ng-submit="createAccount()" ng-show="show==1">
 			<h2>Créer un utilisateur</h2>
-	        		<input class="input-style" type="text" ng-model="boCreatePseudo" placeholder="Pseudo utilisateur (+ de 3 caractères)" required>
-	        		<input class="input-style" type="password" ng-model="boCreateMdp" placeholder="Mot de passe utilisateur (+ de 6 caractères)" required >
+	        		<input class="input-style" type="text" ng-model="boCreatePseudo" placeholder="Pseudo utilisateur (minimum 3 caractères)" required>
+	        		<input class="input-style" type="password" ng-model="boCreateMdp" placeholder="Mot de passe utilisateur (minimum 6 caractères)" required >
 	        		<input class="input-style" type="password" ng-model="boCreateMdpVerif" placeholder="Vérification mot de passe" required>
 	        		<p class ="input-style" ng-if="boCreateMdp != boCreateMdpVerif ||  boCreateMdp.length < 6">Les mots de passe ne sont pas identiques ou inférieur à 6 caractères</p>
 	        		<input class="input-style" value="Créer un utilisateur" type="submit">
@@ -27,10 +27,6 @@
 		</form>
 		<div class="container-delete-user" ng-show="show==2">
 			<h2>Suppression d'un utilisateur</h2>
-			<div class="container-title">
-				<div class="title">Pseudo</div>
-				<div class="title">Permission</div>
-			</div>
 			<div class="container-users">
 				<div class="cont-info" ng-repeat="user in users">
 					<p class="cont-pseudo">{{user.pseudo}}</p>
@@ -60,8 +56,8 @@
 			<input class="input-style" placeholder="Specialite1" ng-model="boCreateSpeOne"required>
 			<input class="input-style" placeholder="Specialite2" ng-model="boCreateSpeTwo"required>
 			<input class="input-style" placeholder="Specialite3" ng-model="boCreateSpeThree"required>
-			<input class="input-style" placeholder="Github" ng-model="boCreateGithub" required>
-			<input class="input-style" placeholder="Linkedin" ng-model="boCreateLinkedin" required>
+			<input class="input-style" placeholder="Github" ng-model="boCreateGithub">
+			<input class="input-style" placeholder="Linkedin" ng-model="boCreateLinkedin">
 			<input class="input-style" placeholder="Portfolio" ng-model="boCreatePortfolio">
 			<label for="cv">Upload CV</label>
 			<input class="input-style" type="file" id="cv"  name="cv" placeholder="CV" ng-model="boCreateCV" >
