@@ -75,11 +75,6 @@
 		</form>
 		<div class="container-delete-user" ng-show="show==4">
 			<h2>Supprimer une fiche d'un Simplonien</h2>
-			<div class="container-title">
-				<div class="title">Nom</div>
-				<div class="title">Prenom</div>
-				<div class="title">Ville</div>
-			</div>
 			<div class="container-users">
 				<div class="cont-info" ng-repeat="simplonien in simploniens">
 					<p class="cont-pseudo">{{simplonien.nom}}</p>

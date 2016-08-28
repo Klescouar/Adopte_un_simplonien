@@ -25,7 +25,7 @@ session_start();
 	<script src="assets/js/min/app.min.js"></script>
 	<script src="assets/js/min/searchCtrl.min.js"></script>
 	<script src="assets/js/min/scrollSticky.min.js"></script>
-	<script src="assets/js/min/boCtrl.min.js"></script>
+	<script src="assets/js/min/BoCtrl.min.js"></script>
 	<script src="assets/js/min/contactCtrl.min.js"></script>
 	<script src="assets/js/min/profilCtrl.min.js"></script>
 	<script src="assets/js/min/scrollDirective.min.js"></script>
