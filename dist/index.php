@@ -101,15 +101,8 @@ session_start();
 						<form class="signup" method="post"  name="form" action="#/">
 							<h1>Créer un compte</h1>
 							<input  id="pseudo" type="text" placeholder="Pseudo" pattern="^[\w]{3,16}$" autofocus="autofocus" required class="inputSign" />
-
-
-							<input id="mdp" data-ng-model='user.password' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign' : !form.confirm_password.$error.passwordVerify}" name='password' placeholder="Mot de passe" required>
+							<input id="mdp" data-ng-model='user.password' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign' : !form.confirm_password.$error.passwordVerify}" name='password' placeholder="Mot de passe" required/>
 							<input id="mdp-verif" ng-model='boCreateMdpVerif' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign' : !form.confirm_password.$error.passwordVerify}" name='confirm_password' placeholder="Confirmer mot de passe">
-
-							<input  id="pseudo" type="text" placeholder="Pseudo" pattern="^[\w]{3,16}$" autofocus="autofocus" required class="inputSign" ng-model="CreatePseudo" />
-							<input id="mdp"  ng-model='CreateMdp' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign' : !form.confirm_password.$error.passwordVerify}" name='password' placeholder="Mot de passe" required>
-							<input ng-model='boCreateMdpVerif' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign' : !form.confirm_password.$error.passwordVerify}" name='confirm_password' placeholder="Confirmer mot de passe"
-											required data-password-verify="user.password">
 							<input type="submit" value="Inscription!" class="inputButton" ng-click="createAccount()" />
 							<a ng-click="logBox()">Déjà inscrit?</a>
 						</form>
