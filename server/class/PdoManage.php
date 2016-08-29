@@ -216,6 +216,7 @@ class PdoManage {
         if (isset($testPseudo['id'])) {
             return 'pseudo déjà existant';
         } else {
+
             $password = password_hash($data['password'], PASSWORD_DEFAULT);
 
             $addUser = $this->db->prepare("INSERT INTO user(pseudo, password, permission) VALUES (:pseudo, :password, :permission) ");
@@ -243,7 +244,7 @@ class PdoManage {
        $testSimplonien = $verifSimplonien->fetch();
 
        if ($testSimplonien['id']) {
-           return 'Simplonien d"jà existant';
+           return 'Simplonien déjà existant';
        } else {
            $addSimplonien = $this->db->prepare("INSERT INTO Students(Prenom, Nom, Age, Ville, Photo, Tags, Description, Sexe, Domaine, SpecialiteUn, SpecialiteDeux, SpecialiteTrois, Github, Linkedin, Portfolio, CV, Twitter, StackOverFlow, Mail, Contrat, DatePromo) VALUES (:Prenom, :Nom, :Age, :Ville, :Photo, :Tags, :Description, :Sexe, :Domaine, :SpecialiteUn, :SpecialiteDeux, :SpecialiteTrois, :Github, :Linkedin, :Portfolio, :CV, :Twitter, :StackOverFlow, :Mail, :Contrat, :DatePromo) ");
            $addSimplonien->execute(array(

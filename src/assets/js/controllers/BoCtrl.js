@@ -12,11 +12,11 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
                 pseudo: $scope.boCreatePseudo,
                 password: $scope.boCreateMdp
             };
-            console.log(dataUser)
 
             $http.post(serviceApi.createUser, dataUser)
                 .then(
                     function(response) {
+                        console.log(response.data);
                         alert('Compte créé!');
                         $scope.showUser();
                     },
