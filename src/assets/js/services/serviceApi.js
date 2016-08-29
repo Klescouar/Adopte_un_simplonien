@@ -154,7 +154,7 @@ app.service("serviceApi", function(){
       phone: '',
       active: false,
   }];
-  this.createUser = 'http://localhost/LAMP//Adopte_un_simplonien/server/index.php/api/create/user';
+  this.createUser = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/create/user';
   this.getUser = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/user';
   this.deleteUser = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/delete/user/';
   this.createStudent = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/create/simplonien';
