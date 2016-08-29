@@ -1,17 +1,8 @@
-app.controller('projectCtrl', ['$scope', '$http', 'serviceApi', '$timeout', function($scope, $http, serviceApi, $timeout) {
+app.controller('projectCtrl', ['$scope', '$http', 'serviceApi', '$timeout', '$window', function($scope, $http, serviceApi, $timeout, $window) {
     $scope.showDescription = false;
     $scope.showDescription2 = false;
     console.log("coucou");
 
-    $scope.showTop = function() {
-        $scope.showDescription = !$scope.showDescription;
-        console.log($scope.showDescription);
-    };
-
-    $scope.showDown = function() {
-        $scope.showDescription2 = !$scope.showDescription2;
-        console.log($scope.showDescription2);
-    };
     $timeout(function() {
         if (window.innerWidth < 640) {
             $scope.showDescription = true;
@@ -19,4 +10,14 @@ app.controller('projectCtrl', ['$scope', '$http', 'serviceApi', '$timeout', func
         }
     }, 70);
 
+
+    angular.element($window).bind("scroll", function(e) {
+        $scope.showDescription = true;
+        console.log('scroll')
+        if (window.pageYOffset > 700) {
+            $scope.showDescription2 = true;
+        }
+        $scope.$apply(function() {
+        });
+    });
 }]);
