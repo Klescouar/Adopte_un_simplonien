@@ -1,8 +1,7 @@
-<div class="cont-simplon-description" ng-controller="projectCtrl">
+<div scroll class="cont-simplon-description" ng-controller="projectCtrl">
 	<p class="title-simplon" ng-click="showTop()" ng-class="{'title-simplon-closed': showDescription}">Qu'est ce que simplon.co ?</p>
 	<div class="cont-img-description cont-img" ng-click="showTop()" ng-class="{'cont-img-description-simple':showDescription}">
 		<div class="mask" ng-class="{'mask-is-open': showDescription}">
-			<div class="cross-close"></div>
 		</div>
 		<div class="generic-cont-description description-simlpon"  ng-class="{'description-simlpon-is-open': showDescription}">
 			<p class="corpus-description">
@@ -14,7 +13,6 @@ Simplon.co est une entreprise de l’économie sociale et solidaire (agrément E
 	<p class="title-recrutement" ng-click="showDown()" ng-class="{'title-recrutement-closed': showDescription2}">Adopter un simplonien ?</p>
 	<div class="cont-img-description-down cont-img" ng-click="showDown()">
 		<div class="mask" ng-class="{'mask-is-open': showDescription2}">
-		<div class="cross-close"></div>
 		</div>
 		<div class="generic-cont-description description-simlpon" ng-class="{'description-simlpon-is-open': showDescription2}">
 			<p class="corpus-description">A Simplon les élèves sont dès les premiers jours mis à rude épreuve. On leur apprend rapidement à devenir des autodidactes confirmés et à développer leur curiosité numérique, technique et visuelle. Les challenges, projets et défits vont rythmer les 6 mois d'aprentissage intensifs pour leur permettre de devenir des développeurs juniors complets et employables.</p>
