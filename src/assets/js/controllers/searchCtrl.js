@@ -6,19 +6,23 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
     $scope.searchSchool = [];
     $scope.searchLangage = [];
     $scope.searchContrat = [];
+    $scope.testData = [];
     var searchResult = {
         Langage: [],
         Ville: "",
         Contrat: [],
     };
 
+    var testData = []
+
 
     var searchFilter = function() {
+        $scope.studentShow = [];
         $http.get(serviceApi.api)
             .then(
                 function(response) {
                     $scope.data = response.data;
-                    $scope.studentShow = [];
+                    testData = $scope.data;
                     for (var i = 0; i < $scope.data.length; i++) {
                         var search = [{
                             'specialite': [$scope.data[i].specialite1, $scope.data[i].specialite2, $scope.data[i].specialite3],
@@ -49,7 +53,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
     };
 
     searchFilter();
-
+console.log(testData);
 
 
     $scope.themes = [{
