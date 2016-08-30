@@ -17,7 +17,6 @@ app.controller('projectCtrl', ['$scope', '$http', 'serviceApi', '$timeout', '$wi
         if (window.pageYOffset > 700) {
             $scope.showDescription2 = true;
         }
-        $scope.$apply(function() {
-        });
+        $scope.$apply(function() {});
     });
 }]);

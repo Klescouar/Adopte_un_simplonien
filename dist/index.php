@@ -16,6 +16,7 @@ session_start();
 	<link rel="icon" type="image/png" href="assets/images/logoSimplon.png" />
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<script src="lib/js/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.15.0/lodash.js"></script>
 	<script src="lib/js/angular-animate.min.js"></script>
 	<script src="lib/js/jquery.min.js"></script>
 	<script type="text/javascript" src="lib/js/angular-route.js"></script>
