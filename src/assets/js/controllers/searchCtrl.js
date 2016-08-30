@@ -13,42 +13,38 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
     };
 
 
-    var searchFilter = function() {
-        $http.get(serviceApi.api)
-            .then(
-                function(response) {
-                    $scope.data = response.data;
-                    $scope.studentShow = [];
-                    for (var i = 0; i < $scope.data.length; i++) {
-                        var search = [{
-                            'specialite': [$scope.data[i].specialite1, $scope.data[i].specialite2, $scope.data[i].specialite3],
-                            'contrat': [$scope.data[i].contrat],
-                            'ville': $scope.data[i].ville,
-                        }];
-                        var ville = _.some(search, {
-                            'ville': searchResult.Ville
-                        });
-                        const langage = _.some(search, {
-                            'specialite': searchResult.Langage
-                        });
-                        const contrat = _.some(search, {
-                            'contrat': searchResult.Contrat
-                        });
-                        if (searchResult.Ville.length == 0) {
-                            ville = true;
-                        }
-                        if (ville === true && langage === true && contrat === true) {
-                            $scope.studentShow.push($scope.data[i]);
-                        }
-                    }
-                },
-                function(err) {
-                    console.log("C'est la merde!");
-                }
-            );
-    };
-
     searchFilter();
+    $http.get(serviceApi.api)
+        .then(
+            function(response) {
+                $scope.data = response.data;
+                $scope.cardFull = response.data;
+            },
+            function(err) {
+                console.log("C'est la merde!");
+            });
+
+    var searchFilter = function() {
+        var lang1 = typeof searchResult.Langage[0] !== 'undefined'?searchResult.Langage[0] : '';
+        var lang2 = typeof searchResult.Langage[1] !== 'undefined'?searchResult.Langage[1] : '';
+        var lang3 = typeof searchResult.Langage[2] !== 'undefined'?searchResult.Langage[2] : '';
+        var ville = typeof searchResult.Ville !== 'undefined'?searchResult.Ville : '';
+        var contrat1 = typeof searchResult.Contrat[0] !== 'undefined'?searchResult.Contrat[0] : '';
+        var contrat2 = typeof searchResult.Contrat[1] !== 'undefined'?searchResult.Contrat[1] : '';
+        var contrat3 = typeof searchResult.Contrat[2] !== 'undefined'?searchResult.Contrat[2] : '';
+        var contrat4 = typeof searchResult.Contrat[3] !== 'undefined'?searchResult.Contrat[3] : '';
+        var contrat5 = typeof searchResult.Contrat[4] !== 'undefined'?searchResult.Contrat[4] : '';
+
+        $scope.data = [];
+
+        angular.forEach($scope.cardFull, function(value, key) {
+            var recherche = value.contrat+' '+value.specialite1+' '+value.specialite2+' '+value.specialite3+' '+value.ville;
+            if (recherche.match("^(?=.*"+lang1+")(?=.*"+lang2+")(?=.*"+lang3+")(?=.*"+ville+")(?=.*"+contrat1+")(?=.*"+contrat2+")(?=.*"+contrat3+")(?=.*"+contrat4+")(?=.*"+contrat5+")","i")) {
+                $scope.data.push(value);
+                console.log($scope.data);
+            }
+        });
+    }
 
 
 
