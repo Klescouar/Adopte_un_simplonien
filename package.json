@@ -24,6 +24,7 @@
     "imagemin-pngquant": "^4.0.0",
     "jshint": "^2.9.2",
     "jshint-stylish": "^2.2.0",
+    "lodash": "^4.15.0",
     "ng-sticky-element": "^0.1.0"
   },
   "dependencies": {

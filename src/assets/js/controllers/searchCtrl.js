@@ -1,5 +1,4 @@
 app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, $http, serviceApi) {
-
     $scope.schools = serviceApi.schools;
     $scope.togglePromo = false;
     $scope.toggleLangage = false;
@@ -14,26 +13,42 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
     };
 
 
-    $http.get(serviceApi.api)
-        .then(
-            function(response) {
-                $scope.data = response.data;
-            },
-            function(err) {
-                console.log("C'est la merde!");
-            });
-
     var searchFilter = function() {
-        $http.post(serviceApi.filter, searchResult)
+        $http.get(serviceApi.api)
             .then(
                 function(response) {
                     $scope.data = response.data;
+                    $scope.studentShow = [];
+                    for (var i = 0; i < $scope.data.length; i++) {
+                        var search = [{
+                            'specialite': [$scope.data[i].specialite1, $scope.data[i].specialite2, $scope.data[i].specialite3],
+                            'contrat': [$scope.data[i].contrat],
+                            'ville': $scope.data[i].ville,
+                        }];
+                        var ville = _.some(search, {
+                            'ville': searchResult.Ville
+                        });
+                        const langage = _.some(search, {
+                            'specialite': searchResult.Langage
+                        });
+                        const contrat = _.some(search, {
+                            'contrat': searchResult.Contrat
+                        });
+                        if (searchResult.Ville.length == 0) {
+                            ville = true;
+                        }
+                        if (ville === true && langage === true && contrat === true) {
+                            $scope.studentShow.push($scope.data[i]);
+                        }
+                    }
                 },
                 function(err) {
                     console.log("C'est la merde!");
                 }
             );
-    }
+    };
+
+    searchFilter();
 
 
 
@@ -194,7 +209,6 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         }
     };
 
-console.log($scope.schools[1]);
 
     $scope.changeFilterSchool = function() {
         if (searchResult.Ville.length === 0) {
@@ -212,11 +226,10 @@ console.log($scope.schools[1]);
                 this.school.active = false;
                 searchResult.Ville = "";
                 searchFilter();
-            }
-            else if (this.school.active === false) {
+            } else if (this.school.active === false) {
                 for (var i = 0; i < $scope.schools.length; i++) {
-                  $scope.schools[i].active = false;
-                  this.school.active = true;
+                    $scope.schools[i].active = false;
+                    this.school.active = true;
                 }
                 searchResult.Ville = this.school.ville;
                 searchFilter();

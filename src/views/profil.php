@@ -42,14 +42,20 @@
 			<div class="modal-content">
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 				<div class="contactStudent">
-					<div class="logbox">
-						<form class="signup" method="post" action="/sendMessage" name="form">
+					<div class="logbox logBoxStyle" ng-if="contactStud === 1">
+						<form class="signup" method="post" name="form">
 							<div class="profil-pic" ng-style="{'background-image':'url(./assets/images/'+student[0].Photo+')'}"></div>
 							<h1>Ecrire à {{student[0].Prenom}} {{student[0].Nom}}</h1>
+							<p ng-if='verifChamps === true'>Veuillez remplir tous les champs...</p>
 							<input class="inputMail" type="email" name="email" placeholder="Votre email..." >
-							<textarea name="name" rows="8" cols="40" placeholder="Ecrivez votre message ici..."></textarea>
-							<input type="submit" name="name" value="Envoyer!">
+							<textarea name="name" class="textAreaMail" rows="8" cols="40" placeholder="Ecrivez votre message ici..."></textarea>
+							<input type="submit" name="name" ng-click="contactStudent()" value="Envoyer!">
 						</form>
+					</div>
+					<div class="logbox confirmContact" ng-if="contactStud === 2">
+						<p>
+							Message envoyé!
+						</p>
 					</div>
 				</div>
 			</div>
