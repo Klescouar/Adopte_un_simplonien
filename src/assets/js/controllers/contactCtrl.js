@@ -1,6 +1,6 @@
-app.controller('contactCtrl', ['$scope', '$http', 'serviceApi', function($scope, $http, serviceApi) {
+app.controller('contactCtrl', ['$scope', '$http', 'serviceApi', '$window', function($scope, $http, serviceApi, $window) {
     $scope.schools = serviceApi.schools;
-
+    $scope.showForm = false;
 
     function initialize() {
         var mapProp = {
@@ -24,4 +24,14 @@ app.controller('contactCtrl', ['$scope', '$http', 'serviceApi', function($scope,
         });
     }
     google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+    angular.element($window).bind("scroll", function(e) {
+        if (window.pageYOffset > 700) {
+            $scope.showForm = true;
+        }
+        $scope.$apply(function() {});
+        console.log($scope.showForm);
+    });
 }]);

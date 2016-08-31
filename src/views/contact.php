@@ -12,8 +12,8 @@
             <p>93100 Montreuil</p>
             <p>inbox@simplon.co</p>
         </div>
-        <div class="contactForm animated slideInUp">
-        <form method="post">
+        <div class="contactForm">
+        <form method="post" ng-if="showForm === true" class="animated slideInUp">
             <input type="text" name="Nom" class="Name" placeholder="Nom/Prenom *" required/>
             <input type="text" name="Nom" class="Name" placeholder="Entreprise *" required/>
             <input type="text" name="City" class="City" placeholder="Ville *" required/>
