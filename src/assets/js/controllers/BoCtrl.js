@@ -94,7 +94,6 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
         $http.post(serviceApi.createStudent, dataStudent)
             .then(
                 function(response) {
-                    console.log('coucou');
                     console.log(response.dataStudent);
                     $scope.showSimplonien();
                 },
@@ -108,7 +107,6 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
     // to show Simplonien list
 
     $scope.showSimplonien = function() {
-        console.log("coucou")
         $http.get(serviceApi.getSimplonien)
             .then(
                 function(response) {
@@ -148,7 +146,7 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
             .then(
                 function(response) {
                     $scope.infoSimploniens = response.data;
-
+                    console.log($scope.infoSimploniens);
                 },
                 function(err) {
                     console.log("C'est la merde!");
@@ -185,7 +183,7 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
 
         };
 
-        console.log($scope.id);
+        console.log(dataInfoSimploniens);
         $http.put(serviceApi.modifySendSimplonien + $scope.id, dataInfoSimploniens)
             .then(
                 function(response) {
