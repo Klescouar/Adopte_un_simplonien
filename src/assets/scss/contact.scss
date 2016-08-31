@@ -37,7 +37,6 @@
         animation-duration: 0.8s;
         height: 700px;
         margin-bottom: 30px;
-        border-right: 1px solid black;
 
         h1 {
             font-size: 1.5em;
@@ -58,6 +57,7 @@
             flex-direction: column;
             justify-content: space-around;
             width: 40%;
+            min-width: 550px;
             height: 600px;
             margin-top: 30px;
             color: black;
@@ -119,6 +119,39 @@
         }
     }
 }
+
+@media screen and (max-width: 640px) {
+    .contactDown .contactForm {
+        min-width: 360px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 30px;
+        padding-right: 20px;
+        padding-left: 20px;
+        width: 33%;
+        margin: 30px;
+        h1 {
+            font-size: 1.2em;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            min-width: 360px;
+            height: 600px;
+            margin-top: 30px;
+            color: black;
+            padding: 30px;
+            border: 1px dashed  #DE5B49;
+        }
+    }
+}
+
+
+
+
 //.simplonPicture {
 //    * {
 //        padding: 0;

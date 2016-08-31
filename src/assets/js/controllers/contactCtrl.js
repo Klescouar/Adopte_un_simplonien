@@ -23,6 +23,11 @@ app.controller('contactCtrl', ['$scope', '$http', 'serviceApi', '$window', funct
             title: 'Hello World!',
         });
     }
+
+    initialize();
+
+
+
     google.maps.event.addDomListener(window, 'load', initialize);
 
 
