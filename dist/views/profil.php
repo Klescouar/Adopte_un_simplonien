@@ -44,7 +44,7 @@
 				<div class="contactStudent">
 					<div class="logbox logBoxStyle" ng-if="contactStud === 1">
 						<form class="signup" method="post" name="form">
-							<div class="profil-pic" ng-style="{'background-image':'url(./assets/images/'+student[0].Photo+')'}"></div>
+							<div class="profilPicMail" ng-style="{'background-image':'url(./assets/images/'+student[0].Photo+')'}"></div>
 							<h1>Ecrire à {{student[0].Prenom}} {{student[0].Nom}}</h1>
 							<p ng-if='verifChamps === true'>Veuillez remplir tous les champs...</p>
 							<input class="inputMail" type="email" name="email" placeholder="Votre email..." >

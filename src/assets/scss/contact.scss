@@ -5,6 +5,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     display: flex;
+    padding: 30px;
     justify-content: center;
     align-items: center;
 
@@ -12,24 +13,28 @@
         color: white;
         letter-spacing: 0.10em;
         font-weight: bold;
+        text-align: center;
     }
 }
+
 .adressSimplon {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     padding: 30px;
+    text-align: center;
 }
+
 .contactDown {
     display: flex;
     flex-direction: column;
     align-items: center;
+
     .contactForm {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding-top: 30px;
         padding-right: 60px;
         padding-left: 60px;
         width: 100%;
@@ -59,10 +64,9 @@
             width: 40%;
             min-width: 550px;
             height: 600px;
-            margin-top: 30px;
             color: black;
             padding: 30px;
-            border: 1px dashed  #DE5B49;
+            border: 1px dashed #DE5B49;
         }
 
         input,
@@ -113,45 +117,64 @@
         width: 90%;
         height: 45vh;
         margin: 36px;
+
         #googleMap {
             width: 100%;
             height: 100%;
         }
     }
 }
-
 @media screen and (max-width: 640px) {
     .contactDown .contactForm {
-        min-width: 360px;
+        min-width: 320px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        padding-top: 30px;
+        padding-top: 0px;
         padding-right: 20px;
         padding-left: 20px;
-        width: 33%;
-        margin: 30px;
+        width: 90%;
+        margin: 0px;
+
         h1 {
             font-size: 1.2em;
         }
+
         form {
             display: flex;
             flex-direction: column;
             justify-content: space-around;
-            min-width: 360px;
+            min-width: 320px;
+            width: 100%;
             height: 600px;
             margin-top: 30px;
             color: black;
             padding: 30px;
-            border: 1px dashed  #DE5B49;
+            border: 1px dashed #DE5B49;
+        }
+    }
+
+    .simplonPicture {
+        h1 {
+            color: white;
+            letter-spacing: 0.10em;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.3em;
+        }
+    }
+
+    .adressSimplon {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        h1{
+            font-size: 2em;
         }
     }
 }
-
-
-
-
 //.simplonPicture {
 //    * {
 //        padding: 0;
