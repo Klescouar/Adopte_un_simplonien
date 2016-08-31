@@ -33,7 +33,7 @@ app.controller('contactCtrl', ['$scope', '$http', 'serviceApi', '$window', funct
 
 
     angular.element($window).bind("scroll", function(e) {
-        if (window.pageYOffset > 600) {
+        if (window.pageYOffset > 460) {
             $scope.showForm = true;
         }
         $scope.$apply(function() {});
