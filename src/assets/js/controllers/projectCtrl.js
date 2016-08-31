@@ -14,7 +14,7 @@ app.controller('projectCtrl', ['$scope', '$http', 'serviceApi', '$timeout', '$wi
     angular.element($window).bind("scroll", function(e) {
         $scope.showDescription = true;
         console.log('scroll')
-        if (window.pageYOffset > 700) {
+        if (window.pageYOffset > 600) {
             $scope.showDescription2 = true;
         }
         $scope.$apply(function() {});
