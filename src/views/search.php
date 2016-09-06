@@ -35,15 +35,15 @@
 					<div class="tagSearch"> <p ng-if="searchResult.Ville.length === 0 && searchResult.Langage.length === 0 && searchResult.Contrat.length === 0">
 						Your tags here...
 					</p>
-						<div class="tagView" ng-if="searchResult.Ville.length > 0">
+						<div class="tagViewVille" ng-if="searchResult.Ville.length > 0">
 									{{searchResult.Ville}}
 									<div class="closeButton" ng-click="deleteSchoolTag()"></div>
 						</div>
-						<div class="tagView" ng-click="deleteLangTag()" ng-repeat="lang in searchResult.Langage">
+						<div class="tagViewLang" ng-click="deleteLangTag()" ng-repeat="lang in searchResult.Langage">
 									{{lang}}
 									<div class="closeButton" ></div>
 						</div>
-						<div class="tagView"  ng-click="deleteContTag()" ng-repeat="cont in searchResult.Contrat">
+						<div class="tagViewCont"  ng-click="deleteContTag()" ng-repeat="cont in searchResult.Contrat">
 									{{cont}}
 									<div class="closeButton"></div>
 						</div>
