@@ -14,8 +14,8 @@
         margin: 0;
     }
 }
-.tagView {
-    background-color: #6476a7;
+.tagViewCont {
+    background-color: #5EB58F;
     font-size: 0.6em;
     margin: 10px;
     padding: 3px 3px 3px 7px;
@@ -23,15 +23,35 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    .closeButton {
-        width: 17px;
-        height: 17px;
-        margin-left: 7px;
-        background-image: url("../images/error.png");
-        background-position: center;
-        background-size: cover;
-        cursor: pointer;
-    }
+}
+.tagViewLang {
+    background-color: #CD6AE6;
+    font-size: 0.6em;
+    margin: 10px;
+    padding: 3px 3px 3px 7px;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.tagViewVille {
+    background-color: #3B8BED;
+    font-size: 0.6em;
+    margin: 10px;
+    padding: 3px 3px 3px 7px;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.closeButton {
+    width: 17px;
+    height: 17px;
+    margin-left: 7px;
+    background-image: url("../images/error.png");
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
 }
 .cardPage {
     display: flex;
@@ -41,9 +61,6 @@
     padding: 7px;
     width: 100%;
     height: 100%;
-    * {
-        font-family: 'Lato', calibri, arial;
-    }
     .card {
         margin: 7px;
         min-width: 250px;

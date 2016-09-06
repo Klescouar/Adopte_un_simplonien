@@ -25,6 +25,7 @@ session_start();
 
 	<script src="assets/js/min/app.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2HIhxJzwOMeqTQyzgzRQP3RAMlAD0By0&callback=initMap" async defer></script>
+	<script src="assets/js/min/homeCtrl.min.js"></script>
 	<script src="assets/js/min/searchCtrl.min.js"></script>
 	<script src="assets/js/min/scrollSticky.min.js"></script>
 	<script src="assets/js/min/BoCtrl.min.js"></script>

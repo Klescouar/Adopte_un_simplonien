@@ -2,6 +2,7 @@ app.controller('contactCtrl', ['$scope', '$http', 'serviceApi', '$window', funct
     $scope.schools = serviceApi.schools;
     $scope.showForm = false;
 
+
     function initialize() {
         var mapProp = {
             center: new google.maps.LatLng(51.508742, -0.120850),
