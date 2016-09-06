@@ -77,7 +77,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         type: 'Angular',
         active: false,
     }, {
-        type: 'REACT',
+        type: 'React',
         active: false,
     }, {
         type: 'Typescript',
