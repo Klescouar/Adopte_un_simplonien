@@ -32,6 +32,7 @@
             </div>
         </div>
         <div class="cardPage">
+					<div class="tagSearch"></div>
             <?php if($_SESSION['permission'] === 'user' || $_SESSION['permission'] === 'admin') { ?>
             <a class="card" href="#/profil{{student.id}}" ng-repeat="student in data | filter:searchStudent:q track by $index">
                 <?php } else { ?>

@@ -2,8 +2,13 @@
     display: flex;
     min-height: calc(100vh - 108px);
 }
+.tagSearch{
+  height: 59px;
+  width: 98%;
+  border-left: 1px solid white;
+  background-color: white;
+}
 .cardPage {
-    padding: 10px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;

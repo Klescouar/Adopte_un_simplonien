@@ -24,6 +24,7 @@ session_start();
 	<script src='lib/js/bootstrap.min.js'></script>
 
 	<script src="assets/js/min/app.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2HIhxJzwOMeqTQyzgzRQP3RAMlAD0By0&callback=initMap" async defer></script>
 	<script src="assets/js/min/searchCtrl.min.js"></script>
 	<script src="assets/js/min/scrollSticky.min.js"></script>
 	<script src="assets/js/min/BoCtrl.min.js"></script>
@@ -57,16 +58,16 @@ session_start();
 			<nav>
 				<ul>
 					<li><a href="#/">Home</a></li>
-					<li><a href="#/search">Simploniens</a></li>
+					<li><a href="#/search">Nos simploniens</a></li>
 					<li><a href="#/project">Qui sommes-nous?</a></li>
 					<li><a href="#/contact">Contact</a></li>
 				</ul>
 			</nav>
 		</div>
 
-		<div class="page-container-left">
+		<div class="page-container-left container borderXwidth">
 			<a href="#/">Home</a>
-			<a href="#/search">Simploniens</a>
+			<a href="#/search">Nos <s></s>imploniens</a>
 			<a href="#/project">Qui sommes nous</a>
 			<a href="#/contact">Contact</a>
 		</div>
