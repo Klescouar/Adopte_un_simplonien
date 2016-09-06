@@ -89,7 +89,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         type: 'PHP',
         active: false,
     }, {
-        type: 'symphony',
+        type: 'Design',
         active: false,
     }, {
         type: 'JAVA',
@@ -98,22 +98,22 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         type: 'C#',
         active: false,
     }, {
-        type: 'C++',
+        type: 'UI/UX',
         active: false,
     }, {
-        type: 'C',
+        type: 'Ruby',
         active: false,
     }, {
-        type: 'SASS',
+        type: 'Responsive',
         active: false,
     }, {
-        type: 'Gulp',
+        type: 'Node',
         active: false,
     }, {
-        type: 'Grunt',
+        type: 'Meteor',
         active: false,
     }, {
-        type: 'Jade',
+        type: 'Git',
         active: false,
     }, ];
 
