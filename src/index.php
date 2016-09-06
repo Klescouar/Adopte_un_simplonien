@@ -59,16 +59,16 @@ session_start();
 			<nav>
 				<ul>
 					<li><a href="#/">Home</a></li>
-					<li><a href="#/search">Simploniens</a></li>
+					<li><a href="#/search">Nos simploniens</a></li>
 					<li><a href="#/project">Qui sommes-nous?</a></li>
 					<li><a href="#/contact">Contact</a></li>
 				</ul>
 			</nav>
 		</div>
 
-		<div class="page-container-left">
+		<div class="page-container-left container borderXwidth">
 			<a href="#/">Home</a>
-			<a href="#/search">Simploniens</a>
+			<a href="#/search">Nos simploniens</a>
 			<a href="#/project">Qui sommes nous</a>
 			<a href="#/contact">Contact</a>
 		</div>
