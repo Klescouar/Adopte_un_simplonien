@@ -41,7 +41,7 @@
 		font-size: 0;
 	}
 	.cont-img-description {
-		background: linear-gradient(rgba(222,91,73,0.15), rgba(222,91,73,0.15)), url("../images/simplonContact2.jpg") no-repeat center;
+		background: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url("../images/simplonContact2.jpg") no-repeat center;
 		background-size: cover;
 		min-height: calc(100vh - 60px);
 		cursor: pointer;
@@ -197,6 +197,7 @@
 			background-color: #87adc7;
 			position: absolute;
 			bottom: 10px;
+			font-size: 0.8em;
 			min-height: 450px;
 			min-width: 500px;
 			height: 60%;
