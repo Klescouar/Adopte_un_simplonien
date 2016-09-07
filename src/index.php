@@ -69,7 +69,7 @@ session_start();
 		<div class="page-container-left container borderXwidth">
 			<a href="#/">Home</a>
 			<a href="#/search">Nos simploniens</a>
-			<a href="#/project">Qui sommes nous</a>
+			<a href="#/project">Qui sommes-nous?</a>
 			<a href="#/contact">Contact</a>
 		</div>
 		<?php if(isset($_SESSION['pseudo'])) { ?>
