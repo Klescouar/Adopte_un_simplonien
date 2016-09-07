@@ -48,9 +48,12 @@
 									<div class="closeButton"></div>
 						</div>
 					</div>
-					<p class="null" ng-if="data.length === 0">
+					<div class="position" ng-if="data.length === 0">
+											<p class="null" ng-class="{'delay': (data.length === 0)}">
 						Aucun simplonien ne correspond a vos critères...
 					</p>
+				</div>
+
             <?php if($_SESSION['permission'] === 'user' || $_SESSION['permission'] === 'admin') { ?>
             <a class="card" href="#/profil{{student.id}}" ng-repeat="student in data | filter:searchStudent:q track by $index">
                 <?php } else { ?>

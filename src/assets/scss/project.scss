@@ -1,25 +1,24 @@
 .cont-simplon-description {
 	overflow: hidden;
 	.title-simplon {
-		position: absolute;
-		top: 50%;
-		left: 30%;
+		position: relative;
+		left: -50%;
 		color: white;
 		font-weight: bold;
 		font-size: 2.6em;
-		width: 550px;
 		cursor: pointer;
+		width: 530px;
 		text-decoration: none;
 		z-index: 1;
 		transition: all 0.3s;
 	}
 	.title-recrutement {
-		position: absolute;
-		top: 140%;
+		position: relative;
 		bottom: 140%;
-		left: 33%;
+		margin-top: 110%;
+		left: -50%;
 		color: white;
-		width: 500px;
+		width: 530px;
 		font-weight: bold;
 		font-size: 2.6em;
 		cursor: pointer;
@@ -29,12 +28,12 @@
 	}
 	.title-simplon-closed {
 		transition: all 0.3s;
-		left: 48%;
+		left: 16%;
 		font-size: 0;
 	}
 	.title-recrutement-closed {
 		transition: all 0.3s;
-		left: 48%;
+		left: 16%;
 		font-size: 0;
 	}
 	.cont-img-description {
@@ -319,8 +318,14 @@
 		display: none;
 	}
 	.arrow {
-	
+
 	}
+}
+
+.position{
+	position: absolute;
+	left: 50%;
+	top: 50%;
 }
 
 @keyframes bounce {
