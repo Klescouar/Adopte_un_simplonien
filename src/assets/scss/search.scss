@@ -28,6 +28,8 @@
     align-items: center;
 }
 .null{
+  position: relative;
+  left: -25%;
   color: #686e7e;
   font-size: 2em;
   text-align: center;
@@ -374,4 +376,22 @@
 }
 .marginToFix2 {
     margin-left: 315px;
+}
+
+.delay {
+  -moz-animation: delay 0.4s ;
+  -webkit-animation: delay 0.4s ;
+  animation: delay 0.4s ;
+}
+
+@keyframes delay {
+  0% {
+		color: transparent;
+  }
+  60% {
+		color: transparent;
+  }
+  100% {
+    color: #686e7e;
+  }
 }
