@@ -48,6 +48,9 @@
 									<div class="closeButton"></div>
 						</div>
 					</div>
+					<p class="null" ng-if="data.length === 0">
+						Aucun simplonien ne correspond a vos critères...
+					</p>
             <?php if($_SESSION['permission'] === 'user' || $_SESSION['permission'] === 'admin') { ?>
             <a class="card" href="#/profil{{student.id}}" ng-repeat="student in data | filter:searchStudent:q track by $index">
                 <?php } else { ?>
