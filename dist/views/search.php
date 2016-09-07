@@ -49,7 +49,7 @@
 						</div>
 					</div>
 					<div class="position" ng-if="data.length === 0">
-											<p class="null" ng-class="{'delay': (data.length === 0)}">
+							<p class="null" ng-class="{'delay': (data.length === 0)}">
 						Aucun simplonien ne correspond a vos critères...
 					</p>
 				</div>
