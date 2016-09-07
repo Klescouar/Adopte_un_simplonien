@@ -6,10 +6,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     font-size: 2em;
     color: #686e7e;
-    height: 59px;
-    width: 100%;
+    max-height: 100px;
+    width: 99%;
+    border: 1px dashed #3B8BED;
     p {
         margin: 0;
     }
@@ -247,7 +249,7 @@
     height: 100%;
     width: 184px;
     background-color: rgba(115,159,190,0.85);
-    padding-top: 20px;
+    padding: 20px 0px 100px 0px;
     .buttonFilterOff {
         width: 100%;
         height: 25px;
@@ -355,6 +357,9 @@
         height: auto;
         display: none;
     }
+}
+.inputForm{
+  width: 100%;
 }
 .cardPage {}
 .sticktotop {
