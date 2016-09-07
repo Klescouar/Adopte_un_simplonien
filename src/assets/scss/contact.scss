@@ -1,17 +1,21 @@
 .contactContainer {
+    font-family: "ROBOTO";
     display: flex;
     justify-content: space-between;
+
     h1 {
         font-size: 1.5em;
         text-align: center;
         color: black;
         line-height: 1.6em;
     }
+
     p {
         font-style: italic;
         text-align: center;
         color: black;
     }
+
     form {
         display: flex;
         flex-direction: column;
@@ -24,20 +28,25 @@
         margin: 30px;
         border: 1px dashed #DE5B49;
     }
+
     ::-webkit-input-placeholder {
         color: #333232;
     }
+
     :-moz-placeholder {
         color: #333232;
         opacity: 1;
     }
+
     ::-moz-placeholder {
         color: #333232;
         opacity: 1;
     }
+
     :-ms-input-placeholder {
         color: #333232;
     }
+
     input,
     textarea {
         padding: 5px;
@@ -51,16 +60,19 @@
         border-bottom: 1px solid rgb(121, 117, 117);
         margin-bottom: 15px;
     }
+
     input:focus,
     textarea:focus {
         background-color: 0.333;
         border-bottom: 1px solid #DE5B49;
         outline: none;
     }
+
     textarea {
         height: 130px;
         max-width: 100%;
     }
+
     .submit-button {
         font-size: 0.8em;
         font-weight: 300;
@@ -69,12 +81,14 @@
         border: 3px solid #DE5B49;
         transition: all 0.2s ease-in-out;
     }
+
     .submit-button:hover {
         background-color: #DE5B49;
         transition: all 0.2s ease-in-out;
         color: black;
     }
 }
+
 .simplonPicture {
     height: 40vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/simplonBaHori.png");
@@ -85,13 +99,16 @@
     padding: 30px;
     justify-content: center;
     align-items: center;
+
     h1 {
         color: white;
         letter-spacing: 0.10em;
-        font-weight: bold;
         text-align: center;
+        font-family: "ROBOTO";
+        font-weight: normal;
     }
 }
+
 .adressSimplon {
     display: flex;
     justify-content: center;
@@ -100,12 +117,14 @@
     padding: 30px;
     text-align: center;
 }
+
 .contactDown {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
+
     .contactForm {
         display: flex;
         justify-content: center;
@@ -118,10 +137,12 @@
         height: 700px;
         margin-bottom: 30px;
     }
+
     .mapContact {
         width: 90%;
         height: 45vh;
         margin: 36px;
+
         #googleMap {
             width: 100%;
             height: 100%;
@@ -140,9 +161,11 @@
         padding-left: 20px;
         width: 90%;
         margin: 0;
+
         h1 {
             font-size: 1.2em;
         }
+
         form {
             display: flex;
             flex-direction: column;
@@ -156,6 +179,7 @@
             border: 1px dashed #DE5B49;
         }
     }
+
     .simplonPicture {
         h1 {
             color: white;
@@ -165,11 +189,13 @@
             font-size: 1.3em;
         }
     }
+
     .adressSimplon {
         display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;
+
         h1 {
             font-size: 2em;
         }

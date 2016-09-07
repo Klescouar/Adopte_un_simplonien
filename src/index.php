@@ -66,7 +66,7 @@ session_start();
 			</nav>
 		</div>
 
-		<div class="page-container-left container borderXwidth">
+		<div class="page-container-left containerNav borderXwidth">
 			<a href="#/">Home</a>
 			<a href="#/search">Nos simploniens</a>
 			<a href="#/project">Qui sommes-nous?</a>
