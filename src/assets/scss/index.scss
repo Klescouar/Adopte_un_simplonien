@@ -1,6 +1,12 @@
 @font-face {
-font-family: 'avenir';
-src: url('../../lib/fonts/avenir/AvenirLTStd-Book.otf') format('otf');
+
+  font-family: "ROBOTO";
+  src: url("../../lib/fonts/Quicksand/Quicksand_Book.otf");
+}
+
+*{
+  font-family: "ROBOTO";
+
 }
 
 .open {
@@ -232,7 +238,6 @@ body {
         display: block;
         overflow: hidden;
         text-align: center;
-        font-family: 'Helvetica Neue Light', Helvetica, sans-serif;
         font-weight: 200;
         font-size: 1.3em;
         line-height: 36px;
