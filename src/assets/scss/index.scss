@@ -1,3 +1,8 @@
+@font-face {
+font-family: 'avenir';
+src: url('../../lib/fonts/avenir/AvenirLTStd-Book.otf') format('otf');
+}
+
 .open {
     left: 0;
 }
@@ -33,6 +38,7 @@ button.close {
     font-weight: normal;
 }
 body {
+    font-family: "avenir";
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
