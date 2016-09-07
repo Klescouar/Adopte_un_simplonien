@@ -8,6 +8,7 @@
 Simplon.co est une entreprise de l’économie sociale et solidaire (agrément ESUS) : ses formations sont qualifiantes ou certifiantes, certaines sont labellisées Grande Ecole du Numérique, mais toutes sont ouvertes sur critères sociaux sans aucun pré-requis technique (débutants acceptés) mais il est obligatoire d’avoir une très forte MOTIVATION, une appétence pour le numérique (et la programmation) et d’aimer travailler en équipe ! </p>
 			<p class="end-description">FABRIQUE DE TALENTS 3.0</p>
 		</div>
+		<div class="arrow bounce"></div>
 		<div class="mask2" ng-class="{'mask2-is-open': showDescription}"></div>
 	</div>
 	<p class="title-recrutement" ng-click="showDown()" ng-class="{'title-recrutement-closed': showDescription2}">Adopter un simplonien ?</p>
