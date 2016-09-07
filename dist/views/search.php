@@ -33,7 +33,7 @@
         </div>
         <div class="cardPage">
 					<div class="tagSearch"> <p ng-if="searchResult.Ville.length === 0 && searchResult.Langage.length === 0 && searchResult.Contrat.length === 0">
-							Your tags here...
+							Tableau de bord
 					</p>
 						<div class="tagViewVille" ng-if="searchResult.Ville.length > 0">
 									{{searchResult.Ville}}
