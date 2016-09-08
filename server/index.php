@@ -22,6 +22,10 @@ $dbManage = new PdoManage($db);
 /////////////////////////* GET *///////////////////////////////////
 //connection
 $app->get('api/connection' function(Request $login) use ($dbManage){
+    $data = json_decode($login->getContent(), true);
+    $login->request->replace(is_array($data) ? $data : array());
+    $data = $login->request->all();
+
     $connect = $dbManage->connection($login['pseudo'], $login['password']);
 
     if ($connect['permission'] != false){
