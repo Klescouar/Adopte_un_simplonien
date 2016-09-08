@@ -20,6 +20,21 @@ $dbManage = new PdoManage($db);
 
 
 /////////////////////////* GET *///////////////////////////////////
+//connection
+$app->get('api/connection' function(Request $login) use ($dbManage){
+    $connect = $dbManage->connection($login['pseudo'], $login['password']);
+
+    if ($connect['permission'] != false){
+        $_SESSION['pseudo'] = $connect['pseudo'];
+        $_SESSION['permission'] = $connect['permission'];
+
+        return "T'es co ma couille";
+    }
+
+    return "T'es pas co deso";
+
+})
+
 //Renvois données pour les card
 $app->get('api/card', function() use ($dbManage){
     $card = $dbManage->getCard();
