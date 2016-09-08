@@ -6,6 +6,7 @@
     align-items: center;
     background: linear-gradient( rgba(115,159,190,0.60), rgba(115,159,190,0.60)), url("../images/photo-1429051883746-afd9d56fbdaf.jpeg") no-repeat center / cover;
     color: white;
+
     .main-container {
         display: flex;
         flex-direction: column;
@@ -19,21 +20,20 @@
         margin-top: 0;
         margin-bottom: 20px;
         text-align: center;
+        font-size: 5em;
     }
+
     .main-text {
         font-weight: 300;
         text-align: center;
-        margin: 0 0 20px;
-        margin-right: 20px;
+        margin: 0 20px 20px 0;
     }
-
-
 
     .red-button {
         display: flex;
-        justify-content:center;
-        align-items:center;
-        height: 70px;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
         width: 220px;
         background: #de5b49;
         color: white;
@@ -41,10 +41,9 @@
         text-decoration: none;
         overflow: hidden;
         transition: color 0.7s ease;
-        transition-delay : 0.2s;
-    
-
+        transition-delay: 0.2s;
     }
+
     .red-button p {
         font-size: 14px;
         margin: 0;
@@ -52,58 +51,56 @@
         z-index: 222;
         font-weight: bold;
     }
+
     .red-button:hover {
-        border: solid #de5b49 2px;
-        color:  #de5b49;
+        color: #de5b49;
     }
 
-.chevron{
-    position: relative;
-    z-index: 222;
-    margin-right: 5px;
-    height: 15px;
-    width: 15px;
-  
-    color: white;
-    transition: background-color 0.7s ease;
-     transition-delay : 0.2s;
+    .chevron {
+        position: relative;
+        z-index: 222;
+        margin-right: 5px;
+        height: 15px;
+        width: 15px;
+        color: white;
+        transition: all 0.7s ease;
+        transition-delay: 0.2s;
     }
 
-  .red-button:hover > .chevron{
-    transition: background-color 0.7s ease;
-    color: #de5b49; 
-  }
-
-
-
+    .red-button:hover > .chevron {
+        transition: all 0.7s ease;
+        color: #de5b49;
+    }
 
     .red-button::after {
-  content: "";
-  z-index: 0;
-  display: block;
- height: 100px;
-  width: 100%;
-  background: white;
-  transform: skewX(25deg);
-  position: absolute;
-  bottom: 0;
-  left: -150%;
-  transition: all 0.7s ease;
+        content: "";
+        z-index: 0;
+        display: block;
+        height: 100px;
+        width: 100%;
+        background: white;
+        transform: skewX(25deg);
+        position: absolute;
+        bottom: 0;
+        left: -150%;
+        transition: all 0.7s ease;
+    }
 
+    .red-button:hover:after {
+        width: 300%;
+    }
 }
-
-
-.red-button:hover:after {
-  width: 300%;
-  
+@media screen and (max-width: 735px) {
+    .home-container {
+        .main-title {
+            font-size: 3em !important;
+        }
+    }
 }
-
-
-
-
-}
-@media screen and (max-width: 600px) {
-    .main-text {
-        margin: 40px;
+@media screen and (max-width: 970px) {
+    .home-container {
+        .main-title {
+            font-size: 4.5em;
+        }
     }
 }

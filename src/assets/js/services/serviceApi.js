@@ -1,9 +1,9 @@
 app.service("serviceApi", function(){
 
-  this.api =  'http://www.jeanandreani.fr/server/index.php/api/card';
+  this.api =  'http://localhost/LAMP/ADserver/index.php/api/card';
   this.profilUser = 'http://www.jeanandreani.fr/server/index.php/api/simplonien/';
   this.filter = 'http://www.jeanandreani.fr/server/index.php/api/cardFiltre';
-
+  this.connect = 'http://www.jeanandreani.fr/server/index.php/api/connection';
 
 
   this.schools = [{
