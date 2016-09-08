@@ -1,15 +1,23 @@
+<?php
+	session_start();
+	echo $_SERVER["HTTP_REFERER"];?>
 <div class="contactPage" ng-controller="contactCtrl">
     <div class="simplonPicture">
+        <?php if ($_SESSION['message'] != ''){ ?>
+            <h2 style="color:white"><?php echo $_SESSION['message'] ?></h2>
+            <?php $_SESSION['message'] = '' ?>
+        <?php } else { ?>
             <h1>Une question, une suggestion, un doute ? C’est par ici !</h1>
+        <?php } ?>
     </div>
     <div class="contactContainer">
-    <form method="post" class="animated slideInUp">
-        <input type="text" name="Nom" class="Name" placeholder="Nom/Prenom *" required/>
-        <input type="text" name="Nom" class="Name" placeholder="Entreprise *" required/>
-        <input type="text" name="City" class="City" placeholder="Ville *" required/>
-        <input type="email" name="Email" class="Email" placeholder="Email *" required/>
-        <input type="text" name="Phone" class="Phone" placeholder="Telephone" />
-        <textarea name="Message" rows="20" cols="20" class="Message" placeholder="Message *" required></textarea>
+    <form method="post" action="../server/mail.php" class="animated slideInUp">
+        <input type="text" name="nom" class="Name" placeholder="Nom/Prenom *" required/>
+        <input type="text" name="entreprise" class="Name" placeholder="Entreprise *" required/>
+        <input type="text" name="vile" class="City" placeholder="Ville *" required/>
+        <input type="email" name="email" class="Email" placeholder="Email *" required/>
+        <input type="text" name="phone" class="Phone" placeholder="Telephone" />
+        <textarea name="message" rows="20" cols="20" class="Message" placeholder="Message *" required></textarea>
         <input type="submit" name="submit" value="ENVOYER" class="submit-button" />
     </form>
     <div class="contactDown">
