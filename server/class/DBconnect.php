@@ -6,7 +6,7 @@
 class DBconnect{
 
     public static function getPDO(){
-        $db = new PDO('mysql:host=localhost;dbname=AdoptSimplonien;charset=utf8', 'root', 'root');
+        $db = new PDO('mysql:host=jeanandrnzbdd.mysql.db;dbname=jeanandrnzbdd;charset=utf8', 'jeanandrnzbdd', 'JeanKev1');
         return $db;
     }
 }
