@@ -57,7 +57,7 @@
             <?php if($_SESSION['permission'] === 'user' || $_SESSION['permission'] === 'admin') { ?>
             <a class="card" href="#/profil{{student.id}}" ng-repeat="student in data | filter:searchStudent:q track by $index">
                 <?php } else { ?>
-                <a class="card" data-toggle="modal" data-target="#signInUp" ng-repeat="student in data | filter:searchStudent:q track by $index">
+                <a class="card" data-toggle="modal" data-target="#signInUp" ng-click="logbox()" ng-repeat="student in data | filter:searchStudent:q track by $index">
                     <?php } ?>
                 <div class="topCard">
                     <div class="studentPic"><img src="assets/images/{{student.photo}}" /></div>

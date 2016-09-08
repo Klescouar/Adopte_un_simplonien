@@ -92,7 +92,7 @@ body {
             border: 1px solid white;
             height: 40px;
             margin: 10px;
-            width: 140px;
+            min-width: 140px;
             cursor: pointer;
             padding: 15px 5px;
         }
@@ -436,7 +436,7 @@ body {
         }
     }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 933px) {
     body {
         .nav-container {
             .page-container-left {

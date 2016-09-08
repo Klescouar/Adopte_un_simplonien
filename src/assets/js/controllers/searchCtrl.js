@@ -12,7 +12,6 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         Ville: "",
         Contrat: [],
     };
-
     var testData = []
 
 
