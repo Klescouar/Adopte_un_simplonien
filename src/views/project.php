@@ -1,5 +1,7 @@
 <div scroll class="cont-simplon-description" ng-controller="projectCtrl">
-	<p class="title-simplon" ng-click="showTop()" ng-class="{'title-simplon-closed': showDescription}">Qu'est ce que simplon.co ?</p>
+	<div class="position">
+		<p class="title-simplon" ng-click="showTop()" ng-class="{'title-simplon-closed': showDescription}">Qu'est ce que simplon.co ?</p>
+	</div>
 	<div class="cont-img-description cont-img" ng-click="showTop()" ng-class="{'cont-img-description-simple':showDescription}">
 		<div class="mask" ng-class="{'mask-is-open': showDescription}">
 		</div>
@@ -8,9 +10,11 @@
 Simplon.co est une entreprise de l’économie sociale et solidaire (agrément ESUS) : ses formations sont qualifiantes ou certifiantes, certaines sont labellisées Grande Ecole du Numérique, mais toutes sont ouvertes sur critères sociaux sans aucun pré-requis technique (débutants acceptés) mais il est obligatoire d’avoir une très forte MOTIVATION, une appétence pour le numérique (et la programmation) et d’aimer travailler en équipe ! </p>
 			<p class="end-description">FABRIQUE DE TALENTS 3.0</p>
 		</div>
+		<div class="arrow bounce"></div>
 		<div class="mask2" ng-class="{'mask2-is-open': showDescription}"></div>
 	</div>
-	<p class="title-recrutement" ng-click="showDown()" ng-class="{'title-recrutement-closed': showDescription2}">Adopter un simplonien ?</p>
+	<div class="position">
+	<p class="title-recrutement" ng-click="showDown()" ng-class="{'title-recrutement-closed': showDescription2}">Adopter un simplonien ?</p>		</div>
 	<div class="cont-img-description-down cont-img" ng-click="showDown()">
 		<div class="mask" ng-class="{'mask-is-open': showDescription2}">
 		</div>

@@ -33,7 +33,7 @@
         </div>
         <div class="cardPage">
 					<div class="tagSearch"> <p ng-if="searchResult.Ville.length === 0 && searchResult.Langage.length === 0 && searchResult.Contrat.length === 0">
-							Your tags here...
+							Tableau de bord
 					</p>
 						<div class="tagViewVille" ng-if="searchResult.Ville.length > 0">
 									{{searchResult.Ville}}
@@ -48,13 +48,16 @@
 									<div class="closeButton"></div>
 						</div>
 					</div>
-					<p class="null" ng-if="data.length === 0">
+					<div class="position" ng-if="data.length === 0">
+							<p class="null" ng-class="{'delay': (data.length === 0)}">
 						Aucun simplonien ne correspond a vos critères...
 					</p>
+				</div>
+
             <?php if($_SESSION['permission'] === 'user' || $_SESSION['permission'] === 'admin') { ?>
             <a class="card" href="#/profil{{student.id}}" ng-repeat="student in data | filter:searchStudent:q track by $index">
                 <?php } else { ?>
-                <a class="card" data-toggle="modal" data-target="#signInUp" ng-repeat="student in data | filter:searchStudent:q track by $index">
+                <a class="card" data-toggle="modal" data-target="#signInUp" ng-click="logbox()" ng-repeat="student in data | filter:searchStudent:q track by $index">
                     <?php } ?>
                 <div class="topCard">
                     <div class="studentPic"><img src="assets/images/{{student.photo}}" /></div>
