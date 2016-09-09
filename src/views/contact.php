@@ -1,14 +1,9 @@
 <?php
 	session_start();
-	echo $_SERVER["HTTP_REFERER"];?>
+?>
 <div class="contactPage" ng-controller="contactCtrl">
     <div class="simplonPicture">
-        <?php if ($_SESSION['message'] != ''){ ?>
-            <h2 style="color:white"><?php echo $_SESSION['message'] ?></h2>
-            <?php $_SESSION['message'] = '' ?>
-        <?php } else { ?>
             <h1>Une question, une suggestion, un doute ? C’est par ici !</h1>
-        <?php } ?>
     </div>
     <div class="contactContainer">
     <form method="post" action="../server/mail.php" class="animated slideInUp">

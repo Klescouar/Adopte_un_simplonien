@@ -40,17 +40,16 @@ $scope.loginPost = function(){
         };
 
         if ($('#mdp').val() === $('#mdp-verif').val()) {
-            $scope.signToggle = 3;
             var dataUser = {
                 pseudo: $('#pseudo').val(),
                 password: $('#mdp').val()
 
             };
-            console.log(dataUser)
-
             $http.post(serviceApi.createUser, dataUser)
                 .then(
-                    function(response) {},
+                    function(response) {
+                      $scope.signToggle = 3;
+                    },
                     function(err) {
                         console.log("C'est la merde!");
                     }

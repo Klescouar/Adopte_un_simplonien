@@ -128,8 +128,7 @@ session_start();
 						</form>
 					</div>
 					<div class="logbox confirm" ng-if= 'signToggle === 3'>
-						<p>Vous êtes inscrit!</p>
-						<p> Vous pouvez désormais voir les fiches des simploniens et les contacter directement!</p>
+						<p>Vous êtes désormais inscrit!</p>
 					</div>
 				</div>
 			</div>
