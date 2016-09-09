@@ -1,3 +1,6 @@
+<?php
+	session_start();
+	echo $_SERVER["HTTP_REFERER"];?>
 <div class="contactPage" ng-controller="contactCtrl">
     <div class="simplonPicture">
              <form method="post" >

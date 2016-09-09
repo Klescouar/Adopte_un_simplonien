@@ -67,7 +67,7 @@ session_start();
 			</nav>
 		</div>
 
-		<div class="page-container-left container borderXwidth">
+		<div class="page-container-left containerNav borderXwidth">
 			<a href="#/">Home</a>
 			<a href="#/search">Nos simploniens</a>
 			<a href="#/project">Qui sommes-nous?</a>
@@ -113,17 +113,17 @@ session_start();
 						</form>
 					</div>
 					<div class="logbox" ng-if="signToggle === 1">
-						<form class="signup" method="post" action="../server/connection.php">
+						<form class="signup" method="post">
 							<h1>Connexion</h1>
 							<?php if($_SESSION['permission'] !== 'user' || $_SESSION['permission'] !== 'admin') { ?>
 							<p>
 								Vous devez vous connecter pour voir les profils complets des simploniens!
 							</p>
 									<?php } ?>
-							<input type="text" name="pseudo" placeholder="Adresse email" class="inputSign" required />
-							<input type="password" name="password" placeholder="Mot de passe" required class="inputSign" />
+							<input type="text" id="connectPseudo" name="pseudo" placeholder="Adresse email" class="inputSign" required />
+							<input type="password" id="connectMdp" name="password" placeholder="Mot de passe" required class="inputSign" />
 							<input type="hidden" name="page" value="dist/index.php">
-							<input type="submit" value="Connexion!" class="inputButton" />
+							<input type="submit" ng-click="loginPost()" value="Connexion!" class="inputButton" />
 							<a ng-click="signBox()">Pas encore inscrit?</a>
 						</form>
 					</div>
