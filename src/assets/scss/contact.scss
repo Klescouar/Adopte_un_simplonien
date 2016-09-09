@@ -4,52 +4,72 @@
     h1 {
         font-size: 1.5em;
         text-align: center;
-        color: black;
         line-height: 1.6em;
+        color: white;
     }
     p {
         font-style: italic;
         text-align: center;
-        color: black;
+        color: white;
     }
+    
+}
+.simplonPicture {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+        color: white;
+        letter-spacing: 0.10em;
+        font-weight: bold;
+        text-align: center;
+        font-size: 20px;
+        width: 75%;
+    }
+
     form {
+       background-color: #90c7dc;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        width: 40%;
-        min-width: 550px;
-        height: 600px;
+        align-items:center;
+        width: 30%;
+        min-height: calc(100vh - 110px);  
         color: black;
         padding: 30px;
-        margin: 30px;
-        border: 1px dashed #DE5B49;
+        
+
     }
     ::-webkit-input-placeholder {
-        color: #333232;
+        color: white;
     }
     :-moz-placeholder {
-        color: #333232;
-        opacity: 1;
+        color: white;
+        
     }
     ::-moz-placeholder {
-        color: #333232;
-        opacity: 1;
+        color: white;
+       
     }
     :-ms-input-placeholder {
-        color: #333232;
+        color: white;
     }
     input,
     textarea {
         padding: 5px;
         font-size: 0.9em;
         font-weight: 300;
-        color: black;
-        background-color: transparent;
+        // background-color: transparent;
         border-top: 1px solid transparent;
         border-left: 1px solid transparent;
         border-right: 1px solid transparent;
         border-bottom: 1px solid rgb(121, 117, 117);
         margin-bottom: 15px;
+        width:75%;
+        background-color: #3b515e;
+        color: white;
+        height: 55px;
     }
     input:focus,
     textarea:focus {
@@ -59,7 +79,9 @@
     }
     textarea {
         height: 130px;
-        max-width: 100%;
+        max-width: 75%;
+        background-color: #3b515e;
+        color: white;
     }
     .submit-button {
         font-size: 0.8em;
@@ -74,30 +96,26 @@
         transition: all 0.2s ease-in-out;
         color: black;
     }
-}
-.simplonPicture {
-    height: 40vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/simplonBaHori.png");
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    display: flex;
-    padding: 30px;
-    justify-content: center;
-    align-items: center;
-    h1 {
-        color: white;
-        letter-spacing: 0.10em;
-        font-weight: bold;
-        text-align: center;
+
+     .mapContact {
+        
+        opacity: 0.6;
+        position: relative;
+        z-index: 9999;
+        width: 70vw;
+        height:calc(100vh - 110px);
+        #googleMap {
+            width: 100%;
+            height: 100%;
+        }
     }
 }
 .adressSimplon {
+    width: 100vw;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    padding: 30px;
     text-align: center;
 }
 .contactDown {
@@ -110,23 +128,13 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding-right: 60px;
-        padding-left: 60px;
         width: 100%;
         min-width: 550px;
         animation-duration: 0.8s;
         height: 700px;
         margin-bottom: 30px;
     }
-    .mapContact {
-        width: 90%;
-        height: 45vh;
-        margin: 36px;
-        #googleMap {
-            width: 100%;
-            height: 100%;
-        }
-    }
+   
 }
 @media screen and (max-width: 640px) {
     .contactDown .contactForm {
