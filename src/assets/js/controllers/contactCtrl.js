@@ -14,11 +14,13 @@ app.controller('contactCtrl', ['$scope', '$http', 'serviceApi', '$window', funct
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        // var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
 
         var marker = new google.maps.Marker({
             position: {
                 lat: 48.854491,
-                lng: 2.435967
+                lng: 2.435967,
+                icon: '../../images/placeholder-map.png'
             },
             map: map,
             title: 'Hello World!',
@@ -33,11 +35,5 @@ app.controller('contactCtrl', ['$scope', '$http', 'serviceApi', '$window', funct
 
 
 
-    angular.element($window).bind("scroll", function(e) {
-        if (window.pageYOffset > 460) {
-            $scope.showForm = true;
-        }
-        $scope.$apply(function() {});
-        console.log($scope.showForm);
-    });
+
 }]);
