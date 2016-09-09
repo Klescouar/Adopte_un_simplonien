@@ -102,8 +102,8 @@ session_start();
 				<div class="signInUp">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<div class="logbox" ng-if="signToggle === 2">
+						<h1>Créer un compte</h1>
 						<form class="signup" method="post"  name="form">
-							<h1>Créer un compte</h1>
 							<p ng-if="verifPass === false">Vos mots de passe ne sont pas identique</p>
 							<input id="pseudo" type="text" placeholder="Pseudo" autofocus="autofocus" required class="inputSign" />
 -             <input id="mdp" data-ng-model='user.password' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign':!form.confirm_password.$error.passwordVerify}" name='password' placeholder="Mot de passe" required>
@@ -113,8 +113,8 @@ session_start();
 						</form>
 					</div>
 					<div class="logbox" ng-if="signToggle === 1">
+						<h1>Connexion</h1>
 						<form class="signup" method="post">
-							<h1>Connexion</h1>
 							<?php if($_SESSION['permission'] !== 'user' || $_SESSION['permission'] !== 'admin') { ?>
 							<p>
 								Vous devez vous connecter pour voir les profils complets des simploniens!
