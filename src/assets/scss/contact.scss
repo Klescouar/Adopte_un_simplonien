@@ -1,38 +1,21 @@
+
+
+
 .contactContainer {
     display: flex;
     justify-content: space-between;
-
     h1 {
-        font-size: 1.5em;
+        font-size: 2em;
         text-align: center;
         line-height: 2em;
         color: white;
         margin: 0 0 20px;
     }
-}
-
-
-::-webkit-input-placeholder {
-    color: white;
-}
-
-:-moz-placeholder {
-    color: white;
-}
-
-::-moz-placeholder {
-    color: white;
-}
-
-:-ms-input-placeholder {
-    color: white;
-}
-
-.contactContainer {
     form {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        align-items: center;
         min-width: 360px;
         width: 40%;
         padding: 20px 30px;
@@ -41,43 +24,44 @@
         height: calc(100vh - 110px);
     }
 
-        input,
-        textarea {
-            padding: 5px;
-            font-family: 'Lato', calibri, arial;
-            font-size: 0.9em;
-            font-weight: 300;
-            color: black;
-            background-color: transparent;
-            border-top: 1px solid transparent;
-            border-left: 1px solid transparent;
-            border-right: 1px solid transparent;
-            border-bottom: 1px solid rgb(116, 116, 116);
-            margin-bottom: 15px;
-        }
+    input,
+    textarea {
+        padding: 5px;
+        font-family: 'Lato', calibri, arial;
+        font-size: 0.9em;
+        font-weight: 300;
+        color: white;
+        width:80%;
+        background-color: transparent;
+        border-top: 1px solid transparent;
+        border-left: 1px solid transparent;
+        border-right: 1px solid transparent;
+        border-bottom: 1px solid rgb(179, 179, 179);
+        margin-bottom: 15px;
+    }
 
-        ::-webkit-input-placeholder {
-            color: #282727;
-        }
+    ::-webkit-input-placeholder {
+        color: white;
+    }
 
-        :-moz-placeholder {
-            color: #282727;
-        }
+    :-moz-placeholder {
+        color:  white;
+    }
 
-        ::-moz-placeholder {
-            color: #282727;
-        }
+    ::-moz-placeholder {
+        color:  white;
+    }
 
-        :-ms-input-placeholder {
-            color: #282727;
-        }
+    :-ms-input-placeholder {
+        color:  white;
+    }
 
-        input:focus,
-        textarea:focus {
-            background-color: 0.333;
-            border-bottom: 1px solid #DE5B49;
-            outline: none;
-        }
+    input:focus,
+    textarea:focus {
+        background-color: 0.333;
+        border-bottom: 1px solid white;
+        outline: none;
+    }
 
     textarea {
         height: 130px;
@@ -118,6 +102,7 @@
     .mapContact {
         display: none;
     }
+
     .contactContainer {
         form {
             width: 100%;
