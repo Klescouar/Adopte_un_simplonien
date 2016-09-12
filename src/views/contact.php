@@ -3,14 +3,14 @@
             <h1>Une question, une suggestion, un doute ? C’est par ici !</h1>
     </div>
     <div class="contactDown">
-        <div class="mapContact">
-            <div id="googleMap"></div>
-        </div>
         <div class="adressSimplon">
             <h1>Simplon Montreuil</h1>
             <p>55 rue de Vincennes</p>
             <p>93100 Montreuil</p>
             <p>inbox@simplon.co</p>
+        </div>
+        <div class="mapContact">
+            <div id="googleMap"></div>
         </div>
         <div class="contactForm">
         <form method="post" ng-if="showForm === true" class="animated slideInUp">
