@@ -17,12 +17,14 @@
         background-color: #fff;
         height: 600px;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        justify-content: space-around;
         align-items: center;
         background-color: #425877;
         h1 {
             text-align: center;
             font-size: 2em;
+            width: 90%;
             font-weight: 300;
             padding: 20px;
             border: 1px solid rgba(115,159,190,0.85);
@@ -30,7 +32,6 @@
         a,
         h1,
         input {
-            font-family: "Open Sans", Helvetica, sans-serif;
             color: white;
         }
         input {
@@ -52,7 +53,7 @@
             p{
                 color: white;
                 font-style: italic;
-                margin-bottom: 80px;
+                margin-bottom: 120px;
                 text-align: center;
             }
         }
@@ -99,7 +100,7 @@
             background-color: rgba(115,159,190,0.85);
             border: none;
         }
-        
+
         .inputButton:hover {
             background-color:lighten(#739fbe, 7%);
         }

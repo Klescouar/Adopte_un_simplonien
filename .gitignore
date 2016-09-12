@@ -6,3 +6,4 @@ phpmyadmin/
 /src/.DS_Store
 /src/assets/js/service/serviceApi.js
 /server/vendor/
+.htaccess

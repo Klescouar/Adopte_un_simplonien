@@ -1,74 +1,45 @@
-.simplonPicture {
-    height: 40vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../images/simplonBaHori.png");
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
+.contactContainer {
     display: flex;
-    padding: 30px;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
 
     h1 {
-        color: white;
-        letter-spacing: 0.10em;
-        font-weight: bold;
+        font-size: 1.5em;
         text-align: center;
+        line-height: 2em;
+        color: white;
+        margin: 0 0 20px;
     }
 }
 
-.adressSimplon {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 30px;
-    padding-bottom: 10px;
-    text-align: center;
+
+::-webkit-input-placeholder {
+    color: white;
 }
 
-.contactDown {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+:-moz-placeholder {
+    color: white;
+}
 
-    .contactForm {
+::-moz-placeholder {
+    color: white;
+}
+
+:-ms-input-placeholder {
+    color: white;
+}
+
+.contactContainer {
+    form {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-right: 60px;
-        padding-left: 60px;
-        width: 100%;
-        min-width: 550px;
-        animation-duration: 0.8s;
-        height: 700px;
-        margin-bottom: 30px;
-
-        h1 {
-            font-size: 1.5em;
-            font-family: 'Lato', calibri, arial;
-            text-align: center;
-            color: black;
-            line-height: 1.6em;
-        }
-
-        p {
-            font-style: italic;
-            text-align: center;
-            color: black;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 40%;
-            min-width: 550px;
-            height: 600px;
-            color: black;
-            padding: 30px;
-            border: 1px dashed #DE5B49;
-        }
+        flex-direction: column;
+        justify-content: space-around;
+        min-width: 360px;
+        width: 40%;
+        padding: 20px 30px;
+        background-color: #40475A;
+        height: 100%;
+        height: calc(100vh - 110px);
+    }
 
         input,
         textarea {
@@ -108,61 +79,47 @@
             outline: none;
         }
 
-        textarea {
-            height: 130px;
-            max-width: 100%;
-        }
-
-        .submit-button {
-            font-family: 'Lato', calibri, arial;
-            font-size: 0.8em;
-            font-weight: 300;
-            width: 100px;
-            background-color: transparent;
-            border: 3px solid #DE5B49;
-            transition: all 0.2s ease-in-out;
-        }
-
-        .submit-button:hover {
-            background-color: #DE5B49;
-            transition: all 0.2s ease-in-out;
-            color: black;
-        }
+    textarea {
+        height: 130px;
+        max-width: 100%;
     }
 
-    .mapContact {
-        width: 90%;
-        height: 45vh;
-        margin: 36px;
+    .submit-button {
+        font-size: 0.8em;
+        font-weight: 300;
+        width: 100px;
+        background-color: transparent;
+        border: 1px solid #fff;
+        transition: all 0.1s ease-in-out;
+    }
 
-        #googleMap {
-            width: 100%;
-            height: 100%;
-        }
+    .submit-button:hover {
+        background-color: white;
+        color: black;
+    }
+}
+
+.mapContact {
+    position: relative;
+    z-index: 999;
+    width: 70%;
+    height: calc(100vh - 110px);
+    background-color: #40475b;
+    overflow: hidden;
+    display: block;
+
+    #googleMap {
+        width: 100%;
+        height: calc(100vh - 110px);
+        opacity: 0.6;
     }
 }
 @media screen and (max-width: 640px) {
-    .contactDown .contactForm {
-        min-width: 320px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        padding-top: 0;
-        padding-right: 20px;
-        padding-left: 20px;
-        width: 90%;
-        margin: 0;
-
-        h1 {
-            font-size: 1.2em;
-        }
-
+    .mapContact {
+        display: none;
+    }
+    .contactContainer {
         form {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            min-width: 320px;
             width: 100%;
             height: 600px;
             margin-top: 30px;
@@ -229,7 +186,6 @@
 //    margin: 10px;
 //    h1 {
 //        font-size: 1.5em;
-//        font-family: 'Lato', calibri, arial;
 //        text-align: center;
 //        color: white;
 //        line-height: 1.6em;
@@ -248,7 +204,6 @@
 //    input,
 //    textarea {
 //        padding: 5px;
-//        font-family: 'Lato', calibri, arial;
 //        font-size: 0.9em;
 //        font-weight: 300;
 //        color: #fff;
@@ -270,7 +225,6 @@
 //        max-width: 100%;
 //    }
 //    .submit-button {
-//        font-family: 'Lato', calibri, arial;
 //        font-size: 0.8em;
 //        font-weight: 300;
 //        width: 100px;
