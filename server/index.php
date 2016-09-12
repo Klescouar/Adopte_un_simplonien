@@ -19,26 +19,7 @@ $db = DBconnect::getPDO();
 $dbManage = new PdoManage($db);
 
 
-/////////////////////////* GET *///////////////////////////////////
-//connection
-$app->get('api/connection' function(Request $login) use ($dbManage){
-    $data = json_decode($login->getContent(), true);
-    $login->request->replace(is_array($data) ? $data : array());
-    $data = $login->request->all();
-
-    $connect = $dbManage->connection($login['pseudo'], $login['password']);
-
-    if ($connect['permission'] != false){
-        $_SESSION['pseudo'] = $connect['pseudo'];
-        $_SESSION['permission'] = $connect['permission'];
-
-        return "T'es co ma couille";
-    }
-
-    return "T'es pas co deso";
-
-})
-
+/////////////////////////* GET *//////////////////////////////////
 //Renvois données pour les card
 $app->get('api/card', function() use ($dbManage){
     $card = $dbManage->getCard();
