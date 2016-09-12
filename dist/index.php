@@ -15,6 +15,7 @@ session_start();
 	<link rel="stylesheet" href="lib/css/bootstrap.css">
 	<link rel="icon" type="image/png" href="assets/images/logoSimplon.png" />
 	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<script src="https://use.fontawesome.com/2add07b476.js"></script>
 	<script src="lib/js/angular.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.15.0/lodash.js"></script>
 	<script src="lib/js/angular-animate.min.js"></script>
@@ -25,6 +26,7 @@ session_start();
 
 	<script src="assets/js/min/app.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2HIhxJzwOMeqTQyzgzRQP3RAMlAD0By0&callback=initMap" async defer></script>
+	<script src="assets/js/min/homeCtrl.min.js"></script>
 	<script src="assets/js/min/searchCtrl.min.js"></script>
 	<script src="assets/js/min/scrollSticky.min.js"></script>
 	<script src="assets/js/min/BoCtrl.min.js"></script>
@@ -58,17 +60,17 @@ session_start();
 			<nav>
 				<ul>
 					<li><a href="#/">Home</a></li>
-					<li><a href="#/search">Simploniens</a></li>
+					<li><a href="#/search">Nos simploniens</a></li>
 					<li><a href="#/project">Qui sommes-nous?</a></li>
 					<li><a href="#/contact">Contact</a></li>
 				</ul>
 			</nav>
 		</div>
 
-		<div class="page-container-left">
+		<div class="page-container-left containerNav borderXwidth">
 			<a href="#/">Home</a>
-			<a href="#/search">Simploniens</a>
-			<a href="#/project">Qui sommes nous</a>
+			<a href="#/search">Nos simploniens</a>
+			<a href="#/project">Qui sommes-nous?</a>
 			<a href="#/contact">Contact</a>
 		</div>
 		<?php if(isset($_SESSION['pseudo'])) { ?>
@@ -100,8 +102,8 @@ session_start();
 				<div class="signInUp">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<div class="logbox" ng-if="signToggle === 2">
+						<h1>Créer un compte</h1>
 						<form class="signup" method="post"  name="form">
-							<h1>Créer un compte</h1>
 							<p ng-if="verifPass === false">Vos mots de passe ne sont pas identique</p>
 							<input id="pseudo" type="text" placeholder="Pseudo" autofocus="autofocus" required class="inputSign" />
 -             <input id="mdp" data-ng-model='user.password' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign':!form.confirm_password.$error.passwordVerify}" name='password' placeholder="Mot de passe" required>
@@ -111,23 +113,22 @@ session_start();
 						</form>
 					</div>
 					<div class="logbox" ng-if="signToggle === 1">
-						<form class="signup" method="post" action="../server/connection.php">
-							<h1>Connexion</h1>
+						<h1>Connexion</h1>
+						<form class="signup" method="post">
 							<?php if($_SESSION['permission'] !== 'user' || $_SESSION['permission'] !== 'admin') { ?>
 							<p>
 								Vous devez vous connecter pour voir les profils complets des simploniens!
 							</p>
 									<?php } ?>
-							<input type="text" name="pseudo" placeholder="Adresse email" class="inputSign" required />
-							<input type="password" name="password" placeholder="Mot de passe" required class="inputSign" />
+							<input type="text" id="connectPseudo" name="pseudo" placeholder="Adresse email" class="inputSign" required />
+							<input type="password" id="connectMdp" name="password" placeholder="Mot de passe" required class="inputSign" />
 							<input type="hidden" name="page" value="dist/index.php">
-							<input type="submit" value="Connexion!" class="inputButton" />
+							<input type="submit" ng-click="loginPost()" value="Connexion!" class="inputButton" />
 							<a ng-click="signBox()">Pas encore inscrit?</a>
 						</form>
 					</div>
 					<div class="logbox confirm" ng-if= 'signToggle === 3'>
-						<p>Vous êtes inscrit!</p>
-						<p> Vous pouvez désormais voir les fiches des simploniens et les contacter directement!</p>
+						<p>Vous êtes désormais inscrit!</p>
 					</div>
 				</div>
 			</div>

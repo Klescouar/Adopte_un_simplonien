@@ -7,14 +7,12 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
     $scope.searchLangage = [];
     $scope.searchContrat = [];
     $scope.testData = [];
-    var searchResult = {
+    $scope.searchResult = {
         Langage: [],
         Ville: "",
         Contrat: [],
     };
-
     var testData = []
-
 
 
     $http.get(serviceApi.api)
@@ -28,23 +26,24 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
             });
 
     var searchFilter = function() {
-        var lang1 = typeof searchResult.Langage[0] !== 'undefined'?searchResult.Langage[0] : '';
-        var lang2 = typeof searchResult.Langage[1] !== 'undefined'?searchResult.Langage[1] : '';
-        var lang3 = typeof searchResult.Langage[2] !== 'undefined'?searchResult.Langage[2] : '';
-        var ville = typeof searchResult.Ville !== 'undefined'?searchResult.Ville : '';
-        var contrat1 = typeof searchResult.Contrat[0] !== 'undefined'?searchResult.Contrat[0] : '';
-        var contrat2 = typeof searchResult.Contrat[1] !== 'undefined'?searchResult.Contrat[1] : '';
-        var contrat3 = typeof searchResult.Contrat[2] !== 'undefined'?searchResult.Contrat[2] : '';
-        var contrat4 = typeof searchResult.Contrat[3] !== 'undefined'?searchResult.Contrat[3] : '';
-        var contrat5 = typeof searchResult.Contrat[4] !== 'undefined'?searchResult.Contrat[4] : '';
+        console.log($scope.searchResult);
+
+        var lang1 = typeof $scope.searchResult.Langage[0] !== 'undefined' ? $scope.searchResult.Langage[0] : '';
+        var lang2 = typeof $scope.searchResult.Langage[1] !== 'undefined' ? $scope.searchResult.Langage[1] : '';
+        var lang3 = typeof $scope.searchResult.Langage[2] !== 'undefined' ? $scope.searchResult.Langage[2] : '';
+        var ville = typeof $scope.searchResult.Ville !== 'undefined' ? $scope.searchResult.Ville : '';
+        var contrat1 = typeof $scope.searchResult.Contrat[0] !== 'undefined' ? $scope.searchResult.Contrat[0] : '';
+        var contrat2 = typeof $scope.searchResult.Contrat[1] !== 'undefined' ? $scope.searchResult.Contrat[1] : '';
+        var contrat3 = typeof $scope.searchResult.Contrat[2] !== 'undefined' ? $scope.searchResult.Contrat[2] : '';
+        var contrat4 = typeof $scope.searchResult.Contrat[3] !== 'undefined' ? $scope.searchResult.Contrat[3] : '';
+        var contrat5 = typeof $scope.searchResult.Contrat[4] !== 'undefined' ? $scope.searchResult.Contrat[4] : '';
 
         $scope.data = [];
 
         angular.forEach($scope.cardFull, function(value, key) {
-            var recherche = value.contrat+' '+value.specialite1+' '+value.specialite2+' '+value.specialite3+' '+value.ville;
-            if (recherche.match("^(?=.*"+lang1+")(?=.*"+lang2+")(?=.*"+lang3+")(?=.*"+ville+")(?=.*"+contrat1+")(?=.*"+contrat2+")(?=.*"+contrat3+")(?=.*"+contrat4+")(?=.*"+contrat5+")","i")) {
+            var recherche = value.contrat + ' ' + value.specialite1 + ' ' + value.specialite2 + ' ' + value.specialite3 + ' ' + value.ville;
+            if (recherche.match("^(?=.*" + lang1 + ")(?=.*" + lang2 + ")(?=.*" + lang3 + ")(?=.*" + ville + ")(?=.*" + contrat1 + ")(?=.*" + contrat2 + ")(?=.*" + contrat3 + ")(?=.*" + contrat4 + ")(?=.*" + contrat5 + ")", "i")) {
                 $scope.data.push(value);
-                console.log($scope.data);
             };
         });
     };
@@ -77,7 +76,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         type: 'Angular',
         active: false,
     }, {
-        type: 'REACT',
+        type: 'React',
         active: false,
     }, {
         type: 'Typescript',
@@ -211,27 +210,27 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
 
 
     $scope.changeFilterSchool = function() {
-        if (searchResult.Ville.length === 0) {
+        if ($scope.searchResult.Ville.length === 0) {
             if (this.school.active === false) {
                 this.school.active = true;
-                searchResult.Ville = this.school.ville;
+                $scope.searchResult.Ville = this.school.ville;
                 searchFilter();
             } else if (this.school.active === true) {
                 this.school.active = false;
-                searchResult.Ville = "";
+                $scope.searchResult.Ville = "";
                 searchFilter();
             }
-        } else if (searchResult.Ville.length > 0) {
+        } else if ($scope.searchResult.Ville.length > 0) {
             if (this.school.active === true) {
                 this.school.active = false;
-                searchResult.Ville = "";
+                $scope.searchResult.Ville = "";
                 searchFilter();
             } else if (this.school.active === false) {
                 for (var i = 0; i < $scope.schools.length; i++) {
                     $scope.schools[i].active = false;
                     this.school.active = true;
                 }
-                searchResult.Ville = this.school.ville;
+                $scope.searchResult.Ville = this.school.ville;
                 searchFilter();
             }
         }
@@ -239,24 +238,24 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
 
 
     $scope.changeFilterLangage = function() {
-        if (searchResult.Langage.length < 3) {
+        if ($scope.searchResult.Langage.length < 3) {
             if (this.langage.active === false) {
                 this.langage.active = true;
-                searchResult.Langage.push(this.langage.type);
+                $scope.searchResult.Langage.push(this.langage.type);
                 searchFilter();
             } else if (this.langage.active === true) {
                 this.langage.active = false;
-                var index = searchResult.Langage.indexOf(this.langage.type);
+                var index = $scope.searchResult.Langage.indexOf(this.langage.type);
                 if (index > -1) {
-                    searchResult.Langage.splice(index, 1);
+                    $scope.searchResult.Langage.splice(index, 1);
                 }
                 searchFilter();
             }
-        } else if (searchResult.Langage.length >= 3) {
+        } else if ($scope.searchResult.Langage.length >= 3) {
             this.langage.active = false;
-            var index = searchResult.Langage.indexOf(this.langage.type);
+            var index = $scope.searchResult.Langage.indexOf(this.langage.type);
             if (index > -1) {
-                searchResult.Langage.splice(index, 1);
+                $scope.searchResult.Langage.splice(index, 1);
             }
             searchFilter();
         }
@@ -264,26 +263,66 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
 
 
     $scope.changeFilterContrat = function() {
-        if (searchResult.Contrat.length < 3) {
+        if ($scope.searchResult.Contrat.length < 3) {
             if (this.contrat.active === false) {
                 this.contrat.active = true;
-                searchResult.Contrat.push(this.contrat.type);
+                $scope.searchResult.Contrat.push(this.contrat.type);
                 searchFilter();
             } else if (this.contrat.active === true) {
                 this.contrat.active = false;
-                var index = searchResult.Contrat.indexOf(this.contrat.type);
+                var index = $scope.searchResult.Contrat.indexOf(this.contrat.type);
                 if (index > -1) {
-                    searchResult.Contrat.splice(index, 1);
+                    $scope.searchResult.Contrat.splice(index, 1);
                 }
                 searchFilter();
             }
-        } else if (searchResult.Contrat.length >= 3) {
+        } else if ($scope.searchResult.Contrat.length >= 3) {
             this.contrat.active = false;
-            var index = searchResult.Contrat.indexOf(this.contrat.type);
+            var index = $scope.searchResult.Contrat.indexOf(this.contrat.type);
             if (index > -1) {
-                searchResult.Contrat.splice(index, 1);
+                $scope.searchResult.Contrat.splice(index, 1);
             }
             searchFilter();
         }
     };
+
+    $scope.deleteSchoolTag = function() {
+        for (var i = 0; i < $scope.schools.length; i++) {
+            if ($scope.schools[i].ville === $scope.searchResult.Ville) {
+                $scope.schools[i].active = false;
+            }
+        }
+        $scope.searchResult.Ville = "";
+        searchFilter();
+    };
+
+    $scope.deleteLangTag = function() {
+        console.log(this.lang);
+        for (var i = 0; i < $scope.langages.length; i++) {
+            if ($scope.langages[i].type === this.lang) {
+                $scope.langages[i].active = false;
+                var index = $scope.searchResult.Langage.indexOf(this.lang);
+                if (index > -1) {
+                    $scope.searchResult.Langage.splice(index, 1);
+                }
+            }
+        }
+        searchFilter();
+    };
+
+    $scope.deleteContTag = function() {
+        for (var i = 0; i < $scope.contrats.length; i++) {
+            if ($scope.contrats[i].type === this.cont) {
+                $scope.contrats[i].active = false;
+                var index = $scope.searchResult.Contrat.indexOf(this.cont);
+                if (index > -1) {
+                    $scope.searchResult.Contrat.splice(index, 1);
+                }
+            }
+        }
+        searchFilter();
+    };
+
+
+
 }]);
