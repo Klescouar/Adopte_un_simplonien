@@ -95,6 +95,7 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
             .then(
                 function(response) {
                     console.log(response.dataStudent);
+                    alert('Simplonien créé!');
                     $scope.showSimplonien();
                 },
                 function(err) {
@@ -128,6 +129,7 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
             .then(
                 function(response) {
                     console.log(response.data);
+                    alert('Simplonien supprimé!');
                     $scope.showSimplonien();
                 },
                 function(err) {
@@ -146,6 +148,7 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
             .then(
                 function(response) {
                     $scope.infoSimploniens = response.data;
+
                     console.log($scope.infoSimploniens);
                 },
                 function(err) {

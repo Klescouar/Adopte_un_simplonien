@@ -15,6 +15,7 @@ $scope.contactStudent = function(){
         .then(
             function(response) {
                 $scope.student = response.data;
+                console.log($scope.student[0]);
             },
             function(err) {
                 console.log("C'est la merde!");
