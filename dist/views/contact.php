@@ -5,7 +5,8 @@
 
     <div class="contactContainer">
     <form method="post" action="../server/mail.php">
-			  <h1>Une question, une suggestion, un doute ? C’est par ici !</h1>
+			  <h1>Une question, une suggestion, un doute ?</h1>
+				<h1>C’est par ici !</h1>
         <input type="text" name="nom" class="Name" placeholder="Nom/Prenom *" required/>
         <input type="text" name="entreprise" class="Name" placeholder="Entreprise *" required/>
         <input type="text" name="vile" class="City" placeholder="Ville *" required/>

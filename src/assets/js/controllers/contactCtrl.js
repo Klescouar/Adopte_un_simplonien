@@ -20,7 +20,6 @@ app.controller('contactCtrl', ['$scope', '$http', 'serviceApi', '$window', funct
             position: {
                 lat: 48.854491,
                 lng: 2.435967,
-                icon: '../../images/placeholder-map.png'
             },
             map: map,
             title: 'Hello World!',
