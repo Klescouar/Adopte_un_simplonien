@@ -4,7 +4,5 @@ phpmyadmin/
 /src/assets/.DS_Store
 /src/views/.DS_Store
 /src/.DS_Store
-/src/assets/js/service/serviceApi.js
 /server/vendor/
-src/assets/js/services/serviceApi.js
 .htaccess
