@@ -1,3 +1,4 @@
+// Mise a disposition de la police dans ses différents formats
 @font-face {
     font-family: "ROBOTO";
     src: url("../../lib/fonts/Quicksand/Quicksand_Book.otf");
@@ -107,7 +108,7 @@ body {
             align-items: center;
             margin-right: auto;
         }
-
+        // HOVER BUTTON NAVBAR
         div.borderXwidth a:after,
         div.borderXwidth a:before {
             position: absolute;
@@ -144,7 +145,7 @@ body {
             cursor: pointer;
         }
     }
-
+    // BURGER MENU
     .burgerMenu {
         display: none;
         z-index: 9999;
@@ -154,7 +155,7 @@ body {
         min-height: 100vh;
         width: 0;
     }
-
+    // BUTTON OPEN/CLOSE
     #menu-button {
         background: transparent;
         padding: 14px;
@@ -321,7 +322,7 @@ body {
         opacity: 1;
         transform: none;
     }
-
+    // Temps de disparition des différents <li>
     nav li:nth-of-type(1) {
         transition-delay: 100ms;
     }
@@ -341,7 +342,7 @@ body {
     nav li:nth-of-type(5) {
         transition-delay: 0;
     }
-
+    // Temps de d'apparition des différents <li>
     .menu-open nav li:nth-of-type(1) {
         transition-delay: 200ms;
     }
@@ -361,6 +362,7 @@ body {
     .menu-open nav li:nth-of-type(5) {
         transition-delay: 100ms;
     }
+    // Animation for OPEN/CLOSE button
     @keyframes wind {
         0%,
         100% {
