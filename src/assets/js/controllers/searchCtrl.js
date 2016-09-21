@@ -32,6 +32,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         var contrat3 = typeof $scope.searchResult.Contrat[2] !== 'undefined' ? $scope.searchResult.Contrat[2] : '';
         var contrat4 = typeof $scope.searchResult.Contrat[3] !== 'undefined' ? $scope.searchResult.Contrat[3] : '';
         var contrat5 = typeof $scope.searchResult.Contrat[4] !== 'undefined' ? $scope.searchResult.Contrat[4] : '';
+        console.log($scope.searchResult.Ville);
 
         angular.forEach($scope.cardFull, function(value, key) {
             var recherche = value.contrat + ' ' + value.specialite1 + ' ' + value.specialite2 + ' ' + value.specialite3 + ' ' + value.ville;
@@ -216,7 +217,9 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
                 for (var i = 0; i < $scope.schools.length; i++) {
                     $scope.schools[i].active = false;
                     this.school.active = true;
+                    $scope.searchResult.Ville = this.school.ville;
                 }
+                searchFilter();
             }
         }
     }
