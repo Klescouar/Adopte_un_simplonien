@@ -28,7 +28,7 @@
         text-align: center;
         margin: 0 20px 20px 0;
     }
-
+    // Positionnement du boutton avec transition sur sa couleur
     .red-button {
         display: flex;
         justify-content: center;
@@ -48,7 +48,6 @@
         font-size: 14px;
         margin: 0;
         position: relative;
-        z-index: 222;
         font-weight: bold;
     }
 
@@ -56,9 +55,12 @@
         color: #de5b49;
     }
 
+    .red-button:hover > p {
+        z-index: 2;
+    }
+
     .chevron {
         position: relative;
-        z-index: 222;
         margin-right: 5px;
         height: 15px;
         width: 15px;
@@ -66,12 +68,14 @@
         transition: color 0.7s ease;
         transition-delay: 0.2s;
     }
-
+    // pour qu'au hover du boutton le changement de couleur s'applique sur le chevron
     .red-button:hover > .chevron {
         transition: all 0.7s ease;
         color: #de5b49;
+        z-index: 2;
     }
-
+    // Création d'un élément positionné à côté du boutton avec transition
+    // :after car l'élément viendra se positionner au dessus de l'éléménet parent, donc après
     .red-button::after {
         content: "";
         z-index: 0;
@@ -85,7 +89,7 @@
         left: -150%;
         transition: all 0.7s ease;
     }
-
+    // L'élément s'agrandit et passe par dessus le bouton au hover
     .red-button:hover:after {
         width: 300%;
     }

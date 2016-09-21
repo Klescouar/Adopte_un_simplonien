@@ -50,7 +50,8 @@ session_start();
 
 	<!-- Desktop navbar -->
 	<div class="nav-container">
-		<!-- <img src="assets/images/bars.svg" alt="" class="burger-menu-icon" id="burger-open"> -->
+
+		<!-- Menu Burger -->
 		<div class="burgerMenu">
 			<div id="menu-button" role="button" title="sweet hamburger">
 				<div class="hamburger">
@@ -67,6 +68,7 @@ session_start();
 			</nav>
 		</div>
 
+		<!-- NavBar classique -->
 		<div class="page-container-left containerNav borderXwidth">
 			<a href="#/">Home</a>
 			<a href="#/search">Nos simploniens</a>
