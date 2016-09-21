@@ -1,10 +1,17 @@
 app.service("serviceApi", function(){
 
   this.api =  'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/card';
-  this.profilUser = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/simplonien/';
   this.filter = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/cardFiltre';
   this.connect = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/connection';
-
+  this.getUser = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/user';
+  this.profilUser = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/simplonien/';
+  this.createUser = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/create/user';
+  this.deleteUser = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/delete/user/';
+  this.createStudent = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/create/simplonien';
+  this.getSimplonien = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/listeSimplonien';
+  this.deleteSimplonien = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/delete/simplonien/';
+  this.modifySimplonien = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/simplonien/';
+  this.modifySendSimplonien = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/modify/simplonien/';
 
   this.schools = [{
       ville: 'Montreuil',
@@ -237,14 +244,4 @@ app.service("serviceApi", function(){
       type: 'Freelance',
       active: false,
   }, ];
-
-
-  this.createUser = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/create/user';
-  this.getUser = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/user';
-  this.deleteUser = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/delete/user/';
-  this.createStudent = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/create/simplonien';
-  this.getSimplonien = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/listeSimplonien';
-  this.deleteSimplonien = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/delete/simplonien/';
-  this.modifySimplonien = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/simplonien/';
-  this.modifySendSimplonien = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/modify/simplonien/';
 });

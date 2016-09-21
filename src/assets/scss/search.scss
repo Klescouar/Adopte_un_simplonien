@@ -278,6 +278,12 @@
         background-color: rgb(236, 234, 234);
     }
 }
+
+
+
+
+// MEDIA QUERIES
+
 @media screen and (max-width: 640px) {
     .searchPage {
         width: 100%;
@@ -389,6 +395,9 @@
   -webkit-animation: delay 0.4s ;
   animation: delay 0.4s ;
 }
+
+
+// ANIMATION
 
 @keyframes delay {
   0% {

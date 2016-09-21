@@ -14,7 +14,8 @@ Simplon.co est une entreprise de l’économie sociale et solidaire (agrément E
 		<div class="mask2" ng-class="{'mask2-is-open': showDescription}"></div>
 	</div>
 	<div class="position">
-	<p class="title-recrutement" ng-click="showDown()" ng-class="{'title-recrutement-closed': showDescription2}">Adopter un simplonien ?</p>		</div>
+		<p class="title-recrutement" ng-click="showDown()" ng-class="{'title-recrutement-closed': showDescription2}">Adopter un simplonien ?</p>
+	</div>
 	<div class="cont-img-description-down cont-img" ng-click="showDown()">
 		<div class="mask" ng-class="{'mask-is-open': showDescription2}">
 		</div>
