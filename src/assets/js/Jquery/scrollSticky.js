@@ -5,19 +5,15 @@ $(document).ready(function() {
     $('nav li').on('click', function() {
         $('.burgerMenu').toggleClass('menu-open');
     });
-});
 
-
-if ($(window).width() > 640) {
-    $('.filterRight').css('display', 'block');
-}
-$(window).resize(function() {
     if ($(window).width() > 640) {
         $('.filterRight').css('display', 'block');
-    };
-});
-
-$(document).ready(function() {
+    }
+    $(window).resize(function() {
+        if ($(window).width() > 640) {
+            $('.filterRight').css('display', 'block');
+        };
+    });
     $(function() {
         var nav = $('.filterMain');
         if (nav.length) {

@@ -1,6 +1,6 @@
 app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, $http, serviceApi) {
     $scope.schools = serviceApi.schools;
-    $scope.contrat = serviceApi.contrat;
+    $scope.contrats = serviceApi.contrats;
     $scope.langages = serviceApi.langages;
     $scope.themes = serviceApi.themes;
     $scope.togglePromo = false;
@@ -20,7 +20,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
                 $scope.cardFull = response.data;
             },
             function(err) {
-                console.log("C'est la merde!");
+                console.log("Error");
             });
 
 
@@ -38,7 +38,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         var contrat3 = typeof $scope.searchResult.Contrat[2] !== 'undefined' ? $scope.searchResult.Contrat[2] : '';
         var contrat4 = typeof $scope.searchResult.Contrat[3] !== 'undefined' ? $scope.searchResult.Contrat[3] : '';
         var contrat5 = typeof $scope.searchResult.Contrat[4] !== 'undefined' ? $scope.searchResult.Contrat[4] : '';
-        
+
         // On parcourt chaque card contenu dans la variable cardFull, on mets en place d'une STRING dans la variable 'recherche' contenant toutes les infos de la card afin de comparer celle ci avec les tags des variables ci dessus. Si la comparaison match, on push la card dans $scope.data et elle sera affichée dans le front.
         angular.forEach($scope.cardFull, function(value, key) {
             var recherche = value.contrat + ' ' + value.specialite1 + ' ' + value.specialite2 + ' ' + value.specialite3 + ' ' + value.ville;
@@ -143,7 +143,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
 
     // Selectionner les tags correspondant aux contrats.
     $scope.changeFilterContrat = function() {
-        if ($scope.searchResult.Contrat.length < 3) {
+        if ($scope.searchResult.Contrat.length < 5) {
             if (this.contrat.active === false) {
                 this.contrat.active = true;
                 $scope.searchResult.Contrat.push(this.contrat.type);
@@ -156,7 +156,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
                 }
                 searchFilter();
             }
-        } else if ($scope.searchResult.Contrat.length >= 3) {
+        } else if ($scope.searchResult.Contrat.length >= 5) {
             this.contrat.active = false;
             var index = $scope.searchResult.Contrat.indexOf(this.contrat.type);
             if (index > -1) {

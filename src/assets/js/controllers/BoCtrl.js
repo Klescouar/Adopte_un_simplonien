@@ -21,7 +21,7 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
                         $scope.showUser();
                     },
                     function(err) {
-                        console.log("C'est la merde!");
+                        console.log("Error");
                     }
                 );
         }
@@ -37,7 +37,7 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
                     $scope.users = response.data;
                 },
                 function(err) {
-                    console.log("C'est la merde!");
+                    console.log("Error");
                 }
             );
     };
@@ -53,7 +53,7 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
                     $scope.showUser();
                 },
                 function(err) {
-                    console.log("C'est la merde!");
+                    console.log("Error");
                 }
             );
     };
@@ -99,7 +99,7 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
                     $scope.showSimplonien();
                 },
                 function(err) {
-                    console.log("C'est la merde!");
+                    console.log("Error");
                 }
             );
     }
@@ -114,7 +114,7 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
                     $scope.simploniens = response.data;
                 },
                 function(err) {
-                    console.log("C'est la merde!");
+                    console.log("Error");
                 }
             );
     };
@@ -133,7 +133,7 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
                     $scope.showSimplonien();
                 },
                 function(err) {
-                    console.log("C'est la merde!");
+                    console.log("Error");
                 }
             );
     };
@@ -152,7 +152,7 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
                     console.log($scope.infoSimploniens);
                 },
                 function(err) {
-                    console.log("C'est la merde!");
+                    console.log("Error");
                 }
             );
     }
@@ -195,7 +195,7 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
 
                 },
                 function(err) {
-                    console.log("C'est la merde!");
+                    console.log("Error");
                 }
             );
     }
