@@ -70,8 +70,7 @@
 				<input id ="boCreateNameSimploniens" class="input-style" value="{{infoSimploniens[0].Prenom}}" placeholder="Prénom"  required>
 				<input id ="boCreateOldSimploniens" class="input-style" value="{{infoSimploniens[0].Age}}" placeholder="Âge" required>
 				<input id ="boCreatePromoSimploniens" class="input-style" value="{{infoSimploniens[0].Ville}}" placeholder="Ville" required>
-				<label for="photo">Upload photo</label>
-				<input id ="boCreatePhotoSimploniens" class="input-style" type="file" id="photo"  name="Photo" value="{{infoSimploniens[0].Nom}}" placeholder="Photo"  >
+				<input id ="boCreatePhotoSimploniens" class="input-style" type="text" id="photo"  name="Photo" value="{{infoSimploniens[0].Photo}}" placeholder="Photo"  >
 				<input  id ="boCreateTagsSimploniens"class="input-style" placeholder="Tags" value="{{infoSimploniens[0].Tags}}"  required>
 				<textarea id ="boCreateAboutSimploniens" class="input-style" placeholder="Description"  required>{{infoSimploniens[0].Description}}</textarea>
 				<input id ="boCreateSexeSimploniens" class="input-style" value="{{infoSimploniens[0].Sexe}}" placeholder="Sexe"  required>

@@ -49,7 +49,7 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
         $http.delete(serviceApi.deleteUser + index)
             .then(
                 function(response) {
-                    console.log(response.data);
+                    alert('Utilisateur supprimé!');
                     $scope.showUser();
                 },
                 function(err) {
@@ -166,6 +166,7 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
             prenom: document.getElementById("boCreateNameSimploniens").value,
             age: document.getElementById("boCreateOldSimploniens").value,
             ville: document.getElementById("boCreatePromoSimploniens").value,
+            photo: document.getElementById("boCreatePhotoSimploniens").value,
             tags: document.getElementById("boCreateTagsSimploniens").value,
             description: document.getElementById("boCreateAboutSimploniens").value,
             sexe: document.getElementById("boCreateSexeSimploniens").value,
@@ -189,7 +190,7 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
         $http.put(serviceApi.modifySendSimplonien + $scope.id, dataInfoSimploniens)
             .then(
                 function(response) {
-                    console.log(response.data);
+                    alert('Simplonien modifié!')
                     $scope.showSimplonien();
 
                 },
