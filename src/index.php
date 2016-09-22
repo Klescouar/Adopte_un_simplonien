@@ -28,6 +28,7 @@ session_start();
 	<script type="text/javascript" src="lib/js/angular-route.js"></script>
 	<script src='lib/js/bootstrap.min.js'></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2HIhxJzwOMeqTQyzgzRQP3RAMlAD0By0&callback=initMap" async defer></script>
+	<script src="https://use.fontawesome.com/2add07b476.js"></script>
 	<!-- app.js -->
 	<script src="assets/js/min/app.min.js"></script>
 	<!-- Controllers -->

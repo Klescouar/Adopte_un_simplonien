@@ -16,7 +16,6 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
             $http.post(serviceApi.createUser, dataUser)
                 .then(
                     function(response) {
-                        console.log(response.data);
                         alert('Compte créé!');
                         $scope.showUser();
                     },
@@ -63,8 +62,6 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
     // to create a simplonien card
 
     $scope.createSimplonien = function() {
-
-        console.log('est');
         var dataStudent = {
             nom: $scope.boCreateLastName,
             prenom: $scope.boCreateName,
@@ -87,14 +84,13 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
             contrat: $scope.boCreateContrat,
             datePromo: $scope.boCreateDatePromo,
             domaine: $scope.boCreateDomaine
-
         };
 
 
         $http.post(serviceApi.createStudent, dataStudent)
             .then(
                 function(response) {
-                    console.log(response.dataStudent);
+                    console.log(response.data);
                     alert('Simplonien créé!');
                     $scope.showSimplonien();
                 },
@@ -128,7 +124,6 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
         $http.delete(serviceApi.deleteSimplonien + index)
             .then(
                 function(response) {
-                    console.log(response.data);
                     alert('Simplonien supprimé!');
                     $scope.showSimplonien();
                 },
@@ -148,8 +143,6 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
             .then(
                 function(response) {
                     $scope.infoSimploniens = response.data;
-
-                    console.log($scope.infoSimploniens);
                 },
                 function(err) {
                     console.log("Error");
@@ -186,7 +179,6 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
 
         };
 
-        console.log(dataInfoSimploniens);
         $http.put(serviceApi.modifySendSimplonien + $scope.id, dataInfoSimploniens)
             .then(
                 function(response) {
