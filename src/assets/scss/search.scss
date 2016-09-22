@@ -10,7 +10,9 @@
     font-size: 2em;
     color: #686e7e;
     min-height: 70px;
+    max-height: 100px;
     width: 100%;
+    background-color: rgb(64,71,90);
     margin: 0px 7px 0px 7px;
     border: 1px dashed #3B8BED;
     p {
@@ -395,6 +397,15 @@
   -webkit-animation: delay 0.4s ;
   animation: delay 0.4s ;
 }
+
+@media screen and (max-width: 870px) {
+  .tagSearch {
+      min-height: 70px;
+      max-height: 150px;
+  }
+}
+
+
 
 
 // ANIMATION
