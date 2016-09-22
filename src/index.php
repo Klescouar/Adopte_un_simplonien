@@ -114,7 +114,7 @@ session_start();
 						<form class="signup" method="post"  name="form">
 							<p ng-if="verifPass === false">Vos mots de passe ne sont pas identique</p>
 							<input id="pseudo" type="text" placeholder="Pseudo" autofocus="autofocus" required class="inputSign" />
--             <input id="mdp" data-ng-model='user.password' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign':!form.confirm_password.$error.passwordVerify}" name='password' placeholder="Mot de passe" required>
+-             <input id="mdp" data-ng-model='user.password' type="password" ng-class="{'inputSignError' : 			  form.confirm_password.$error.passwordVerify, 'inputSign':!form.confirm_password.$error.passwordVerify}" name='password' placeholder="Mot de passe" required>
 -              <input id="mdp-verif" ng-model='user.password_verify' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign' : !form.confirm_password.$error.passwordVerify}" name='confirm_password' placeholder="Confirmer mot de passe" required data-password-verify="user.password">
 							<input type="submit" value="Inscription!" class="inputButton" ng-click="createAccount()" />
 							<a ng-click="logBox()">Déjà inscrit?</a>
