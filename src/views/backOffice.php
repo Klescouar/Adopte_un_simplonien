@@ -43,8 +43,7 @@
 			<input class="input-style" placeholder="Prénom" ng-model="boCreateName" required>
 			<input class="input-style" placeholder="Âge" ng-model="boCreateOld" required>
 			<input class="input-style" placeholder="Ville" ng-model="boCreatePromo" required>
-			<label for="photo">Upload photo</label>
-			<input class="input-style" type="file" id="photo"  name="Photo" placeholder="Photo" ng-model="boCreatePhoto" >
+			<input class="input-style" type="text" id="photo"  name="Photo" placeholder="Photo" ng-model="boCreatePhoto" >
 			<input class="input-style" placeholder="Tags" ng-model="boCreateTags" required>
 			<textarea class="input-style" placeholder="Description" ng-model="boCreateAbout" required></textarea>
 			<input class="input-style" placeholder="Sexe" ng-model="boCreateSexe" required>
