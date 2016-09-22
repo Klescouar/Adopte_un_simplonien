@@ -141,7 +141,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         }
     };
 
-    // Selectionner les tags correspondant aux contrats.
+    // Selectionner les tags correspondant aux contrats
     $scope.changeFilterContrat = function() {
         if ($scope.searchResult.Contrat.length < 5) {
             if (this.contrat.active === false) {
@@ -166,7 +166,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         }
     };
 
-    // Pouvoir supprimmer un tags en cliquant sur la croix de l'icone dans le tableau de bord.
+    // Pouvoir supprimmer un tag en cliquant sur la croix de l'icone dans le tableau de bord.
     $scope.deleteSchoolTag = function() {
         for (var i = 0; i < $scope.schools.length; i++) {
             if ($scope.schools[i].ville === $scope.searchResult.Ville) {
@@ -177,7 +177,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         searchFilter();
     };
 
-    // Pouvoir supprimmer un tags en cliquant sur la croix de l'icone dans le tableau de bord.
+    // Pouvoir supprimmer un tag en cliquant sur la croix de l'icone dans le tableau de bord.
     $scope.deleteLangTag = function() {
         console.log(this.lang);
         for (var i = 0; i < $scope.langages.length; i++) {
@@ -192,7 +192,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         searchFilter();
     };
 
-    // Pouvoir supprimmer un tags en cliquant sur la croix de l'icone dans le tableau de bord.
+    // Pouvoir supprimmer un tag en cliquant sur la croix de l'icone dans le tableau de bord.
     $scope.deleteContTag = function() {
         for (var i = 0; i < $scope.contrats.length; i++) {
             if ($scope.contrats[i].type === this.cont) {
