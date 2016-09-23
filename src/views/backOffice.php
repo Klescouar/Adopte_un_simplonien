@@ -94,11 +94,11 @@
 			<h2>Supprimer une fiche d'un Simplonien</h2>
 			<div class="container-users">
 				<div class="cont-info" ng-repeat="simplonien in simploniens">
-					<p ng-if="simplonien.nom !== undefined" class="cont-pseudo">{{simplonien.nom}}</p>
-					<p ng-if="simplonien.nom !== undefined" class="cont-perm">{{simplonien.prenom}}</p>
-					<p  ng-if="simplonien.nom !== undefined" class="cont-perm">{{simplonien.ville}}</p>
-					<button ng-if="simplonien.nom !== undefined" class="modify" ng-click="modify(simplonien.id)">Modifier</button>
-					<div class="delete-user" ng-click="deleteSimplonien(simplonien.id)" confirm="Are you sure ?"></div>
+					<p ng-if="simplonien.nom !== '' " class="cont-pseudo">{{simplonien.nom}}</p>
+					<p ng-if="simplonien.nom !== '' " class="cont-perm">{{simplonien.prenom}}</p>
+					<p  ng-if="simplonien.nom !== '' " class="cont-perm">{{simplonien.ville}}</p>
+					<button ng-if="simplonien.nom !== '' " class="modify" ng-click="modify(simplonien.id)">Modifier</button>
+					<div ng-if="simplonien.nom !== '' " class="delete-user" ng-click="deleteSimplonien(simplonien.id)" confirm="Are you sure ?"></div>
 
 			</div>
 		</div>

@@ -1,11 +1,5 @@
-<?php
-	session_start();
- ?>
-
 <div class="searchPage" ng-controller='searchCtrl'>
     <div class="searchBar">
-
-        <!-- FILTER ON THE LEFT -->
         <div class="filterMain">
             <form class="inputForm">
                 <div class="searchImage"></div>
@@ -33,43 +27,10 @@
                 </div>
             </div>
         </div>
-
-
-        <!-- PARTIE AVEC LES CARTES (DROITE) -->
         <div class="cardPage">
-
-            <!-- TABLEAU DE BORD (AFFICHAGE DES TAGS) -->
-					<div class="tagSearch"> <p ng-if="searchResult.Ville.length === 0 && searchResult.Langage.length === 0 && searchResult.Contrat.length === 0">
-							Tableau de bord
-					</p>
-						<div class="tagViewVille" ng-if="searchResult.Ville.length > 0">
-									{{searchResult.Ville}}
-									<div class="closeButton" ng-click="deleteSchoolTag()"></div>
-						</div>
-						<div class="tagViewLang" ng-repeat="lang in searchResult.Langage">
-									{{lang}}
-									<div class="closeButton" ng-click="deleteLangTag()"></div>
-						</div>
-						<div class="tagViewCont" ng-repeat="cont in searchResult.Contrat">
-									{{cont}}
-									<div class="closeButton" ng-click="deleteContTag()"></div>
-						</div>
-					</div>
-					<div class="position" ng-if="data.length === 0">
-							<p class="null" ng-class="{'delay': (data.length === 0)}">
-						Aucun simplonien ne correspond a vos critères...
-					</p>
-				</div>
-
-
-                <!-- CARD -->
-            <?php if($_SESSION['permission'] === 'user' || $_SESSION['permission'] === 'admin') { ?>
             <a class="card" href="#/profil{{student.id}}" ng-repeat="student in data | filter:searchStudent:q track by $index">
-                <?php } else { ?>
-                <a class="card" data-toggle="modal" data-target="#signInUp" ng-click="logbox()" ng-repeat="student in data | filter:searchStudent:q  track by $index" >
-                    <?php } ?>
                 <div class="topCard">
-                    <div class="studentPic"><img src="assets/images/{{student.photo}}" /></div>
+                  <div class="studentPic" ng-style="{'background-image':'url(./assets/images/'+student.photo+')'}"></div>
                     <h3>{{student.nomPrenom}}</h3>
                     <p> {{student.ville}}</p>
                     <p>Recherche: <strong>{{student.contrat}}</strong></p>
@@ -78,9 +39,6 @@
                     <p>#{{student.specialite1}}</p> <p>#{{student.specialite2}}</p> <p>#{{student.specialite3}}</p>
                 </div>
             </a>
-
-
-
         </div>
     </div>
 </div>

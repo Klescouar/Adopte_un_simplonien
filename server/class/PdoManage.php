@@ -47,18 +47,20 @@ class PdoManage {
         $data = [];
 
         while ($donnees = $card->fetch()) {
-            array_push($data, [
-                "id" => $donnees['id'],
-                "nom" => $donnees['Nom'],
-                "prenom" => $donnees['Prenom'],
-                "nomPrenom" => $donnees['Nom'].' '.$donnees['Prenom'],
-                "ville" => $donnees['Ville'],
-                "photo" => $donnees['Photo'],
-                "specialite1" => $donnees['SpecialiteUn'],
-                "specialite2" => $donnees['SpecialiteDeux'],
-                "specialite3" => $donnees['SpecialiteTrois'],
-                "contrat" => $donnees['Contrat']
-            ]);
+            if ($donnees['Nom'] !== '' ) {
+                array_push($data, [
+                    "id" => $donnees['id'],
+                    "nom" => $donnees['Nom'],
+                    "prenom" => $donnees['Prenom'],
+                    "nomPrenom" => $donnees['Nom'].' '.$donnees['Prenom'],
+                    "ville" => $donnees['Ville'],
+                    "photo" => $donnees['Photo'],
+                    "specialite1" => $donnees['SpecialiteUn'],
+                    "specialite2" => $donnees['SpecialiteDeux'],
+                    "specialite3" => $donnees['SpecialiteTrois'],
+                    "contrat" => $donnees['Contrat']
+                ]);
+            }
         }
         return $data;
     }
