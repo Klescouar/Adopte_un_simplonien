@@ -248,7 +248,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
 
 
     $scope.changeFilterContrat = function() {
-        if ($scope.searchResult.Contrat.length < 3) {
+        if ($scope.searchResult.Contrat.length < 5) {
             if (this.contrat.active === false) {
                 this.contrat.active = true;
                 $scope.searchResult.Contrat.push(this.contrat.type);
@@ -261,7 +261,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
                 }
                 searchFilter();
             }
-        } else if ($scope.searchResult.Contrat.length >= 3) {
+        } else if ($scope.searchResult.Contrat.length >= 5) {
             this.contrat.active = false;
             var index = $scope.searchResult.Contrat.indexOf(this.contrat.type);
             if (index > -1) {
@@ -282,7 +282,6 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
     };
 
     $scope.deleteLangTag = function() {
-        console.log(this.lang);
         for (var i = 0; i < $scope.langages.length; i++) {
             if ($scope.langages[i].type === this.lang) {
                 $scope.langages[i].active = false;
