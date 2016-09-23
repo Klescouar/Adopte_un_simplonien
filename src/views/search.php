@@ -4,6 +4,8 @@
 
 <div class="searchPage" ng-controller='searchCtrl'>
     <div class="searchBar">
+
+        <!-- FILTER ON THE LEFT -->
         <div class="filterMain">
             <form class="inputForm">
                 <div class="searchImage"></div>
@@ -31,7 +33,12 @@
                 </div>
             </div>
         </div>
+
+
+        <!-- PARTIE AVEC LES CARTES (DROITE) -->
         <div class="cardPage">
+
+            <!-- TABLEAU DE BORD (AFFICHAGE DES TAGS) -->
 					<div class="tagSearch"> <p ng-if="searchResult.Ville.length === 0 && searchResult.Langage.length === 0 && searchResult.Contrat.length === 0">
 							Tableau de bord
 					</p>
@@ -39,13 +46,13 @@
 									{{searchResult.Ville}}
 									<div class="closeButton" ng-click="deleteSchoolTag()"></div>
 						</div>
-						<div class="tagViewLang" ng-click="deleteLangTag()" ng-repeat="lang in searchResult.Langage">
+						<div class="tagViewLang" ng-repeat="lang in searchResult.Langage">
 									{{lang}}
-									<div class="closeButton" ></div>
+									<div class="closeButton" ng-click="deleteLangTag()"></div>
 						</div>
-						<div class="tagViewCont"  ng-click="deleteContTag()" ng-repeat="cont in searchResult.Contrat">
+						<div class="tagViewCont" ng-repeat="cont in searchResult.Contrat">
 									{{cont}}
-									<div class="closeButton"></div>
+									<div class="closeButton" ng-click="deleteContTag()"></div>
 						</div>
 					</div>
 					<div class="position" ng-if="data.length === 0">
@@ -54,6 +61,8 @@
 					</p>
 				</div>
 
+
+                <!-- CARD -->
             <?php if($_SESSION['permission'] === 'user' || $_SESSION['permission'] === 'admin') { ?>
             <a class="card" href="#/profil{{student.id}}" ng-repeat="student in data | filter:searchStudent:q track by $index">
                 <?php } else { ?>
@@ -69,6 +78,9 @@
                     <p>#{{student.specialite1}}</p> <p>#{{student.specialite2}}</p> <p>#{{student.specialite3}}</p>
                 </div>
             </a>
+
+
+
         </div>
     </div>
 </div>

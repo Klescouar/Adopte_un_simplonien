@@ -2,7 +2,7 @@ app.controller('contactCtrl', ['$scope', '$http', 'serviceApi', '$window', funct
     $scope.schools = serviceApi.schools;
     $scope.showForm = false;
 
-
+// Mise en place de la map Google
     function initialize() {
         var mapProp = {
             center: new google.maps.LatLng(51.508742, -0.120850),
@@ -28,11 +28,6 @@ app.controller('contactCtrl', ['$scope', '$http', 'serviceApi', '$window', funct
 
     initialize();
 
-
-
     google.maps.event.addDomListener(window, 'load', initialize);
-
-
-
 
 }]);

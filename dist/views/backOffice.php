@@ -30,9 +30,9 @@
 			<h2>Suppression d'un utilisateur</h2>
 			<div class="container-users">
 				<div class="cont-info" ng-repeat="user in users">
-					<p ng-if="user.pseudo !== 'admin'" class="cont-pseudo">{{user.pseudo}}</p>
-					<p class="cont-perm">{{user.permission}}</p>
-					<div class="delete-user" ng-click="deleteItem(user.id)" confirm="Are you sure ?"></div>
+					<p ng-if="user.permission !== 'admin'" class="cont-pseudo">{{user.pseudo}}</p>
+					<p ng-if="user.permission !== 'admin'" class="cont-perm">{{user.permission}}</p>
+					<div ng-if="user.permission !== 'admin'" class="delete-user" ng-click="deleteItem(user.id)" confirm="Are you sure ?"></div>
 				</div>
 
 
@@ -44,8 +44,7 @@
 			<input class="input-style" placeholder="Prénom" ng-model="boCreateName" required>
 			<input class="input-style" placeholder="Âge" ng-model="boCreateOld" required>
 			<input class="input-style" placeholder="Ville" ng-model="boCreatePromo" required>
-			<label for="photo">Upload photo</label>
-			<input class="input-style" type="file" id="photo"  name="Photo" placeholder="Photo" ng-model="boCreatePhoto" >
+			<input class="input-style" type="text" id="photo"  name="Photo" placeholder="Photo" ng-model="boCreatePhoto" >
 			<input class="input-style" placeholder="Tags" ng-model="boCreateTags" required>
 			<textarea class="input-style" placeholder="Description" ng-model="boCreateAbout" required></textarea>
 			<input class="input-style" placeholder="Sexe" ng-model="boCreateSexe" required>
@@ -71,8 +70,7 @@
 				<input id ="boCreateNameSimploniens" class="input-style" value="{{infoSimploniens[0].Prenom}}" placeholder="Prénom"  required>
 				<input id ="boCreateOldSimploniens" class="input-style" value="{{infoSimploniens[0].Age}}" placeholder="Âge" required>
 				<input id ="boCreatePromoSimploniens" class="input-style" value="{{infoSimploniens[0].Ville}}" placeholder="Ville" required>
-				<label for="photo">Upload photo</label>
-				<input id ="boCreatePhotoSimploniens" class="input-style" type="file" id="photo"  name="Photo" value="{{infoSimploniens[0].Nom}}" placeholder="Photo"  >
+				<input id ="boCreatePhotoSimploniens" class="input-style" type="text" id="photo"  name="Photo" value="{{infoSimploniens[0].Photo}}" placeholder="Photo"  >
 				<input  id ="boCreateTagsSimploniens"class="input-style" placeholder="Tags" value="{{infoSimploniens[0].Tags}}"  required>
 				<textarea id ="boCreateAboutSimploniens" class="input-style" placeholder="Description"  required>{{infoSimploniens[0].Description}}</textarea>
 				<input id ="boCreateSexeSimploniens" class="input-style" value="{{infoSimploniens[0].Sexe}}" placeholder="Sexe"  required>
@@ -96,10 +94,10 @@
 			<h2>Supprimer une fiche d'un Simplonien</h2>
 			<div class="container-users">
 				<div class="cont-info" ng-repeat="simplonien in simploniens">
-					<p class="cont-pseudo">{{simplonien.nom}}</p>
-					<p class="cont-perm">{{simplonien.prenom}}</p>
-					<p class="cont-perm">{{simplonien.ville}}</p>
-					<button class="modify" ng-click="modify(simplonien.id)">Modifier</button>
+					<p ng-if="simplonien.nom.length < 0" class="cont-pseudo">{{simplonien.nom}}</p>
+					<p ng-if="simplonien.nom.length < 0" class="cont-perm">{{simplonien.prenom}}</p>
+					<p  ng-if="simplonien.nom.length < 0" class="cont-perm">{{simplonien.ville}}</p>
+					<button ng-if="simplonien.nom.length < 0" class="modify" ng-click="modify(simplonien.id)">Modifier</button>
 					<div class="delete-user" ng-click="deleteSimplonien(simplonien.id)" confirm="Are you sure ?"></div>
 
 			</div>

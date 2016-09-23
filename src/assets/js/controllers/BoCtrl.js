@@ -16,12 +16,11 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
             $http.post(serviceApi.createUser, dataUser)
                 .then(
                     function(response) {
-                        console.log(response.data);
                         alert('Compte créé!');
                         $scope.showUser();
                     },
                     function(err) {
-                        console.log("C'est la merde!");
+                        console.log("Error");
                     }
                 );
         }
@@ -37,7 +36,7 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
                     $scope.users = response.data;
                 },
                 function(err) {
-                    console.log("C'est la merde!");
+                    console.log("Error");
                 }
             );
     };
@@ -49,11 +48,11 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
         $http.delete(serviceApi.deleteUser + index)
             .then(
                 function(response) {
-                    console.log(response.data);
+                    alert('Utilisateur supprimé!');
                     $scope.showUser();
                 },
                 function(err) {
-                    console.log("C'est la merde!");
+                    console.log("Error");
                 }
             );
     };
@@ -63,8 +62,6 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
     // to create a simplonien card
 
     $scope.createSimplonien = function() {
-
-        console.log('est');
         var dataStudent = {
             nom: $scope.boCreateLastName,
             prenom: $scope.boCreateName,
@@ -87,19 +84,19 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
             contrat: $scope.boCreateContrat,
             datePromo: $scope.boCreateDatePromo,
             domaine: $scope.boCreateDomaine
-
         };
 
+        console.log(dataStudent);
 
         $http.post(serviceApi.createStudent, dataStudent)
             .then(
                 function(response) {
-                    console.log(response.dataStudent);
+                    console.log(response.data);
                     alert('Simplonien créé!');
                     $scope.showSimplonien();
                 },
                 function(err) {
-                    console.log("C'est la merde!");
+                    console.log("Error");
                 }
             );
     }
@@ -114,7 +111,7 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
                     $scope.simploniens = response.data;
                 },
                 function(err) {
-                    console.log("C'est la merde!");
+                    console.log("Error");
                 }
             );
     };
@@ -128,12 +125,11 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
         $http.delete(serviceApi.deleteSimplonien + index)
             .then(
                 function(response) {
-                    console.log(response.data);
                     alert('Simplonien supprimé!');
                     $scope.showSimplonien();
                 },
                 function(err) {
-                    console.log("C'est la merde!");
+                    console.log("Error");
                 }
             );
     };
@@ -148,11 +144,9 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
             .then(
                 function(response) {
                     $scope.infoSimploniens = response.data;
-
-                    console.log($scope.infoSimploniens);
                 },
                 function(err) {
-                    console.log("C'est la merde!");
+                    console.log("Error");
                 }
             );
     }
@@ -186,16 +180,15 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
 
         };
 
-        console.log(dataInfoSimploniens);
         $http.put(serviceApi.modifySendSimplonien + $scope.id, dataInfoSimploniens)
             .then(
                 function(response) {
-                    console.log(response.data);
+                    alert('Simplonien modifié!')
                     $scope.showSimplonien();
 
                 },
                 function(err) {
-                    console.log("C'est la merde!");
+                    console.log("Error");
                 }
             );
     }

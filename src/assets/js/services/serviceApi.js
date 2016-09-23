@@ -1,10 +1,17 @@
 app.service("serviceApi", function(){
 
   this.api =  'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/card';
-  this.profilUser = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/simplonien/';
   this.filter = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/cardFiltre';
   this.connect = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/connection';
-
+  this.getUser = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/user';
+  this.profilUser = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/simplonien/';
+  this.createUser = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/create/user';
+  this.deleteUser = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/delete/user/';
+  this.createStudent = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/create/simplonien';
+  this.getSimplonien = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/listeSimplonien';
+  this.deleteSimplonien = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/delete/simplonien/';
+  this.modifySimplonien = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/simplonien/';
+  this.modifySendSimplonien = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/modify/simplonien/';
 
   this.schools = [{
       ville: 'Montreuil',
@@ -154,12 +161,87 @@ app.service("serviceApi", function(){
       phone: '',
       active: false,
   }];
-  this.createUser = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/create/user';
-  this.getUser = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/user';
-  this.deleteUser = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/delete/user/';
-  this.createStudent = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/create/simplonien';
-  this.getSimplonien = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/listeSimplonien';
-  this.deleteSimplonien = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/delete/simplonien/';
-  this.modifySimplonien = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/simplonien/';
-  this.modifySendSimplonien = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/modify/simplonien/';
+
+  this.themes = [{
+      name: 'Promo',
+      active: true,
+  }, {
+      name: 'Langage',
+      active: false,
+  }, {
+      name: 'Contrat',
+      active: false,
+  }];
+
+
+  this.langages = [{
+      type: 'Javascript',
+      active: false,
+  }, {
+      type: 'HTML/CSS',
+      active: false,
+  }, {
+      type: 'PHP',
+      active: false,
+  }, {
+      type: 'Angular',
+      active: false,
+  }, {
+      type: 'REACT',
+      active: false,
+  }, {
+      type: 'Typescript',
+      active: false,
+  }, {
+      type: 'Jquery',
+      active: false,
+  }, {
+      type: 'PHP',
+      active: false,
+  }, {
+      type: 'Design',
+      active: false,
+  }, {
+      type: 'JAVA',
+      active: false,
+  }, {
+      type: 'C#',
+      active: false,
+  }, {
+      type: 'UI/UX',
+      active: false,
+  }, {
+      type: 'Ruby',
+      active: false,
+  }, {
+      type: 'Responsive',
+      active: false,
+  }, {
+      type: 'Node',
+      active: false,
+  }, {
+      type: 'Meteor',
+      active: false,
+  }, {
+      type: 'Git',
+      active: false,
+  }, ];
+
+
+  this.contrats = [{
+      type: 'CDD',
+      active: false,
+  }, {
+      type: 'CDI',
+      active: false,
+  }, {
+      type: 'Contrat Pro',
+      active: false,
+  }, {
+      type: 'Stage',
+      active: false,
+  }, {
+      type: 'Freelance',
+      active: false,
+  }, ];
 });

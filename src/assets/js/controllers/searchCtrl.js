@@ -1,5 +1,8 @@
 app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, $http, serviceApi) {
     $scope.schools = serviceApi.schools;
+    $scope.contrats = serviceApi.contrats;
+    $scope.langages = serviceApi.langages;
+    $scope.themes = serviceApi.themes;
     $scope.togglePromo = false;
     $scope.toggleLangage = false;
     $scope.toggleContrat = false;
@@ -9,7 +12,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         Contrat: [],
     };
 
-
+    // Récupération de l'api contenant les cards et toutes leurs infos.
     $http.get(serviceApi.api)
         .then(
             function(response) {
@@ -17,12 +20,15 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
                 $scope.cardFull = response.data;
             },
             function(err) {
-                console.log("C'est la merde!");
+                console.log("Error");
             });
 
+
+    // Comparaison entre les cards et les filtres sélectionné par l'utilisateur et restitution des cards filtrés.
     var searchFilter = function() {
         $scope.data = [];
 
+        // Stockage des infos de searchResult (l'objet où sont stocké les filtres sélectionnés) dans des variables indépendantes.
         var lang1 = typeof $scope.searchResult.Langage[0] !== 'undefined' ? $scope.searchResult.Langage[0] : '';
         var lang2 = typeof $scope.searchResult.Langage[1] !== 'undefined' ? $scope.searchResult.Langage[1] : '';
         var lang3 = typeof $scope.searchResult.Langage[2] !== 'undefined' ? $scope.searchResult.Langage[2] : '';
@@ -33,6 +39,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         var contrat4 = typeof $scope.searchResult.Contrat[3] !== 'undefined' ? $scope.searchResult.Contrat[3] : '';
         var contrat5 = typeof $scope.searchResult.Contrat[4] !== 'undefined' ? $scope.searchResult.Contrat[4] : '';
 
+        // On parcourt chaque card contenu dans la variable cardFull, on mets en place d'une STRING dans la variable 'recherche' contenant toutes les infos de la card afin de comparer celle ci avec les tags des variables ci dessus. Si la comparaison match, on push la card dans $scope.data et elle sera affichée dans le front.
         angular.forEach($scope.cardFull, function(value, key) {
             var recherche = value.contrat + ' ' + value.specialite1 + ' ' + value.specialite2 + ' ' + value.specialite3 + ' ' + value.ville;
             if (recherche.match("^(?=.*" + lang1 + ")(?=.*" + lang2 + ")(?=.*" + lang3 + ")(?=.*" + ville + ")(?=.*" + contrat1 + ")(?=.*" + contrat2 + ")(?=.*" + contrat3 + ")(?=.*" + contrat4 + ")(?=.*" + contrat5 + ")", "i")) {
@@ -43,121 +50,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
 
     searchFilter();
 
-
-    $scope.themes = [{
-        name: 'Promo',
-        active: true,
-    }, {
-        name: 'Langage',
-        active: false,
-    }, {
-        name: 'Contrat',
-        active: false,
-    }];
-
-
-    $scope.langages = [{
-        type: 'Javascript',
-        active: false,
-    }, {
-        type: 'HTML/CSS',
-        active: false,
-    }, {
-        type: 'PHP',
-        active: false,
-    }, {
-        type: 'Angular',
-        active: false,
-    }, {
-        type: 'React',
-        active: false,
-    }, {
-        type: 'Typescript',
-        active: false,
-    }, {
-        type: 'Jquery',
-        active: false,
-    }, {
-        type: 'PHP',
-        active: false,
-    }, {
-        type: 'Design',
-        active: false,
-    }, {
-        type: 'JAVA',
-        active: false,
-    }, {
-        type: 'C#',
-        active: false,
-    }, {
-        type: 'UI/UX',
-        active: false,
-    }, {
-        type: 'Ruby',
-        active: false,
-    }, {
-        type: 'Responsive',
-        active: false,
-    }, {
-        type: 'Node',
-        active: false,
-    }, {
-        type: 'Meteor',
-        active: false,
-    }, {
-        type: 'Git',
-        active: false,
-    }, ];
-
-
-    $scope.contrats = [{
-        type: 'CDD',
-        active: false,
-    }, {
-        type: 'CDI',
-        active: false,
-    }, {
-        type: 'Contrat Pro',
-        active: false,
-    }, {
-        type: 'Stage',
-        active: false,
-    }, {
-        type: 'Freelance',
-        active: false,
-    }, ];
-
-
-
-    if ($(window).width() > 640) {
-        $('.filterRight').css('display', 'block');
-    }
-    $(window).resize(function() {
-        if ($(window).width() > 640) {
-            $('.filterRight').css('display', 'block');
-        };
-    });
-
-    $(document).ready(function() {
-        $(function() {
-            var nav = $('.filterMain');
-            if (nav.length) {
-                var stickyNavTop = nav.offset().top + 4;
-                $(window).scroll(function() {
-                    if ($(window).scrollTop() > stickyNavTop && screen.width > 640) {
-                        $('.filterMain').addClass('sticktotop');
-                        $('.cardPage').addClass('marginToFix');
-                    } else {
-                        $('.filterMain').removeClass('sticktotop');
-                        $('.cardPage').removeClass('marginToFix');
-                    }
-                });
-            }
-        });
-    });
-
-
-
+    // Changer la view des onglets. Ville/Langage/Contrat.
     $scope.changeState = function() {
         if (this.theme.name === 'Promo') {
             this.theme.active = true;
@@ -201,7 +94,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         }
     };
 
-
+    // Selectionner les tags correspondant aux villes.
     $scope.changeFilterSchool = function() {
         if (this.school.active === true) {
             this.school.active = false;
@@ -216,12 +109,14 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
                 for (var i = 0; i < $scope.schools.length; i++) {
                     $scope.schools[i].active = false;
                     this.school.active = true;
+                    $scope.searchResult.Ville = this.school.ville;
                 }
+                searchFilter();
             }
         }
     }
 
-
+    // Selectionner les tags correspondant aux langages.
     $scope.changeFilterLangage = function() {
         if ($scope.searchResult.Langage.length < 3) {
             if (this.langage.active === false) {
@@ -246,7 +141,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         }
     };
 
-
+    // Selectionner les tags correspondant aux contrats
     $scope.changeFilterContrat = function() {
         if ($scope.searchResult.Contrat.length < 5) {
             if (this.contrat.active === false) {
@@ -271,6 +166,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         }
     };
 
+    // Pouvoir supprimmer un tag en cliquant sur la croix de l'icone dans le tableau de bord.
     $scope.deleteSchoolTag = function() {
         for (var i = 0; i < $scope.schools.length; i++) {
             if ($scope.schools[i].ville === $scope.searchResult.Ville) {
@@ -281,6 +177,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         searchFilter();
     };
 
+    // Pouvoir supprimmer un tag en cliquant sur la croix de l'icone dans le tableau de bord.
     $scope.deleteLangTag = function() {
         for (var i = 0; i < $scope.langages.length; i++) {
             if ($scope.langages[i].type === this.lang) {
@@ -294,6 +191,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         searchFilter();
     };
 
+    // Pouvoir supprimmer un tag en cliquant sur la croix de l'icone dans le tableau de bord.
     $scope.deleteContTag = function() {
         for (var i = 0; i < $scope.contrats.length; i++) {
             if ($scope.contrats[i].type === this.cont) {
