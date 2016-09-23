@@ -25,11 +25,12 @@
 	        		<input class="input-style" value="Créer un utilisateur" type="submit">
 
 		</form>
+
 		<div class="container-delete-user" ng-show="show==2">
 			<h2>Suppression d'un utilisateur</h2>
 			<div class="container-users">
 				<div class="cont-info" ng-repeat="user in users">
-					<p class="cont-pseudo">{{user.pseudo}}</p>
+					<p ng-if="user.pseudo !== 'admin'" class="cont-pseudo">{{user.pseudo}}</p>
 					<p class="cont-perm">{{user.permission}}</p>
 					<div class="delete-user" ng-click="deleteItem(user.id)" confirm="Are you sure ?"></div>
 				</div>
