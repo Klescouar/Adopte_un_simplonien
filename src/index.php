@@ -6,51 +6,59 @@ session_start();
 <html lang="fr">
 
 <head>
-	<meta charset="UTF-8">
+	<!-- TITLE -->
 	<title>Adopte un Simplonien</title>
+	<!-- META -->
 	<meta name="description" content="Le site AdopteUnSimplonien.fr permet aux entreprises d'avoir un lien direct avec les élèves de l'école Simplon en recherchent de contrat (CDD/CDI/Contrat Pro/Stage)" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<!-- LIB -->
 	<link rel="stylesheet" href="lib/css/normalize.css">
 	<link rel="stylesheet" href="lib/css/animate.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" href="lib/css/bootstrap.css">
+	<!-- LOGO -->
 	<link rel="icon" type="image/png" href="assets/images/logoSimplon.png" />
-	<meta name="viewport" content="width=device-width, user-scalable=no">
-	<script src="https://use.fontawesome.com/2add07b476.js"></script>
+	<!-- LIB -->
+	<script src='lib/js/ui-bootstrap.js'></script>
 	<script src="lib/js/angular.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.15.0/lodash.js"></script>
 	<script src="lib/js/angular-animate.min.js"></script>
 	<script src="lib/js/jquery.min.js"></script>
 	<script type="text/javascript" src="lib/js/angular-route.js"></script>
-	<!-- <script src='lib/js/angular-modal-service.min.js'></script> -->
 	<script src='lib/js/bootstrap.min.js'></script>
-
-	<script src="assets/js/min/app.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2HIhxJzwOMeqTQyzgzRQP3RAMlAD0By0&callback=initMap" async defer></script>
+	<script src="https://use.fontawesome.com/2add07b476.js"></script>
+	<!-- app.js -->
+	<script src="assets/js/min/app.min.js"></script>
+	<!-- Controllers -->
 	<script src="assets/js/min/homeCtrl.min.js"></script>
 	<script src="assets/js/min/searchCtrl.min.js"></script>
-	<script src="assets/js/min/scrollSticky.min.js"></script>
 	<script src="assets/js/min/BoCtrl.min.js"></script>
 	<script src="assets/js/min/contactCtrl.min.js"></script>
 	<script src="assets/js/min/profilCtrl.min.js"></script>
-	<script src="assets/js/min/scrollDirective.min.js"></script>
 	<script src="assets/js/min/projectCtrl.min.js"></script>
+	<script src="assets/js/min/signInUpCtrl.min.js"></script>
+	<!-- Directives -->
 	<script src="assets/js/min/confirmPassword.min.js"></script>
 	<script src="assets/js/min/BackgroundImageDirective.min.js"></script>
 	<script src="assets/js/min/adminCreate.min.js"></script>
-	<script src="assets/js/min/signInUpCtrl.min.js"></script>
-	<!-- <script src='assets/js/min/indexCtrl.min.js'></script> -->
-
-	<script src="assets/js/min/serviceApi.min.js"></script>
-	<!-- <script src="assets/js/min/serviceAdmin.min.js"></script> -->
+	<script src="assets/js/min/scrollDirective.min.js"></script>
 	<script src="assets/js/min/searchFilter.min.js"></script>
-	<script src='lib/js/ui-bootstrap.js'></script>
+	<!-- Services -->
+	<script src="assets/js/min/serviceApi.min.js"></script>
+	<!-- Jquery -->
+	<script src="assets/js/min/jqueryStuff.min.js"></script>
+
+
 </head>
 
 <body ng-app="AdopteUnSimplonien" ng-controller="signInUpCtrl">
 
 	<!-- Desktop navbar -->
 	<div class="nav-container">
-		<!-- <img src="assets/images/bars.svg" alt="" class="burger-menu-icon" id="burger-open"> -->
+
+		<!-- Menu Burger -->
 		<div class="burgerMenu">
 			<div id="menu-button" role="button" title="sweet hamburger">
 				<div class="hamburger">
@@ -67,6 +75,7 @@ session_start();
 			</nav>
 		</div>
 
+		<!-- NavBar classique -->
 		<div class="page-container-left containerNav borderXwidth">
 			<a href="#/">Home</a>
 			<a href="#/search">Nos simploniens</a>
@@ -106,7 +115,7 @@ session_start();
 						<form class="signup" method="post"  name="form">
 							<p ng-if="verifPass === false">Vos mots de passe ne sont pas identique</p>
 							<input id="pseudo" type="text" placeholder="Pseudo" autofocus="autofocus" required class="inputSign" />
--             <input id="mdp" data-ng-model='user.password' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign':!form.confirm_password.$error.passwordVerify}" name='password' placeholder="Mot de passe" required>
+-             <input id="mdp" data-ng-model='user.password' type="password" ng-class="{'inputSignError' : 			  form.confirm_password.$error.passwordVerify, 'inputSign':!form.confirm_password.$error.passwordVerify}" name='password' placeholder="Mot de passe" required>
 -              <input id="mdp-verif" ng-model='user.password_verify' type="password" ng-class="{'inputSignError' : form.confirm_password.$error.passwordVerify, 'inputSign' : !form.confirm_password.$error.passwordVerify}" name='confirm_password' placeholder="Confirmer mot de passe" required data-password-verify="user.password">
 							<input type="submit" value="Inscription!" class="inputButton" ng-click="createAccount()" />
 							<a ng-click="logBox()">Déjà inscrit?</a>
@@ -114,7 +123,7 @@ session_start();
 					</div>
 					<div class="logbox" ng-if="signToggle === 1">
 						<h1>Connexion</h1>
-						<form class="signup" action='server/connection.php' method="post">
+						<form class="signup" action='../server/connection.php' method="post">
 							<?php if($_SESSION['permission'] !== 'user' || $_SESSION['permission'] !== 'admin') { ?>
 							<p>
 								Vous devez vous connecter pour voir les profils complets des simploniens!

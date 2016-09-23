@@ -2,24 +2,25 @@ app.controller('signInUpCtrl', ['$scope', '$http', 'serviceApi', function($scope
     $scope.signToggle = 1;
     $scope.verifPass = true;
 
+    // Fonction LOGIN
+    $scope.loginPost = function() {
+        // Stockage du pseudo et du password dans l'objet login.
+        var login = {
+            pseudo: $('#connectPseudo').val(),
+            password: $('#connectMdp').val()
+        };
 
-$scope.loginPost = function(){
-  var login = {
-      pseudo: $('#connectPseudo').val(),
-      password: $('#connectMdp').val()
-  };
-  console.log(login);
-  $http.get(serviceApi.connect, login)
-      .then(
-          function(response) {
-              $scope.users = response.data;
-          },
-          function(err) {
-              console.log("C'est la merde!");
-          });
-};
+        $http.get(serviceApi.connect, login)
+            .then(
+                function(response) {
+                    $scope.users = response.data;
+                },
+                function(err) {
+                    console.log("Error");
+                });
+    };
 
-
+    // Gestion des différentes views de la modal.
     $scope.logBox = function() {
         $scope.signToggle = 1;
     };
@@ -33,25 +34,27 @@ $scope.loginPost = function(){
         $scope.signToggle = 1;
     });
 
-
+    // Créer un compte.
     $scope.createAccount = function() {
+        // Vérification des MDP
         if ($('#mdp').val() !== $('#mdp-verif').val()) {
             $scope.verifPass = false;
         };
-
+        // S'ils sont semblable on les stock dans l'objet DataUser.
         if ($('#mdp').val() === $('#mdp-verif').val()) {
             var dataUser = {
                 pseudo: $('#pseudo').val(),
                 password: $('#mdp').val()
 
             };
+            // Envoie du pseudo et du password au server.
             $http.post(serviceApi.createUser, dataUser)
                 .then(
                     function(response) {
-                      $scope.signToggle = 3;
+                        $scope.signToggle = 3;
                     },
                     function(err) {
-                        console.log("C'est la merde!");
+                        console.log("Error");
                     }
                 );
         }
