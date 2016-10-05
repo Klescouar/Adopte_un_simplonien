@@ -123,11 +123,7 @@ session_start();
 					</div>
 					<div class="logbox" ng-if="signToggle === 1">
 						<h1>Connexion</h1>
-<<<<<<< HEAD
 						<form class="signup" action='../server/connection.php' method="post">
-=======
-						<form class="signup" action='server/connection.php' method="post">
->>>>>>> da4e87876c643bb53c950a09769e383cec0e4c40
 							<?php if($_SESSION['permission'] !== 'user' || $_SESSION['permission'] !== 'admin') { ?>
 							<p>
 								Vous devez vous connecter pour voir les profils complets des simploniens!

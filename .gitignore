@@ -1,4 +1,4 @@
-node_modules
+  node_modules
 phpmyadmin/
 /src/assets/scss/.DS_Store
 /src/assets/.DS_Store
