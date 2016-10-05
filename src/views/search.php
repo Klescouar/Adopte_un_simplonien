@@ -14,23 +14,32 @@
             <div class="flex">
                 <div class="filterChoice">
                     <div class="filterTheme">
-                        <div ng-click="changeState(); toggle()" ng-repeat="theme in themes track by $index" ng-class="{'promo': ($index === 0), 'langage': ($index === 1), 'contrat': ($index === 2)}">
+                        <div  ng-repeat="theme in themes track by $index" ng-click="changeState(theme)" ng-class="{'promo': ($index === 0), 'langage': ($index === 1), 'contrat': ($index === 2)}">
                             <div ng-show="theme.active" class="triangle"></div>
                         </div>
                         <div class="gradient"></div>
                     </div>
                 </div>
-                <div class="filterRight">
-                    <div class="filter" ng-if="themes[0].active === true">
-                        <input ng-click="changeFilterSchool()" ng-model="schoolData" type="button" value="{{school.ville}}" name="button" ng-repeat="school in schools" ng-class="{'buttonFilterOff': !school.active, 'buttonFilterOn' : school.active}">
-                    </div>
-                    <div class="filter" ng-if="themes[1].active === true">
-                        <input ng-click="changeFilterLangage()" type="button" value="{{langage.type}}" name="button" ng-repeat="langage in langages" ng-class="{'buttonFilterOff': !langage.active, 'buttonFilterOn' : langage.active}">
-                    </div>
-                    <div class="filter" ng-if="themes[2].active === true">
-                        <input ng-click="changeFilterContrat()" type="button" value="{{contrat.type}}" name="button" ng-repeat="contrat in contrats" ng-class="{'buttonFilterOff': !contrat.active, 'buttonFilterOn' : contrat.active}">
-                    </div>
-                </div>
+								<div class="filterRight">
+							                     <div class="filter" ng-if="themes[0].active === true">
+
+							                         <input ng-click="changeFilterSchool()" ng-model="schoolData" type="button" value="{{school.ville}}" name="button" ng-repeat="school in schools" ng-class="{'buttonFilterOff': !school.active, 'buttonFilterOn' : school.active}">
+
+							                     </div>
+
+							                     <div class="filter" ng-if="themes[1].active === true">
+
+							                         <input type="button" value="{{langage.type}}" name="button" ng-repeat="langage in langages" ng-click="changeFilter(searchResult.Langage, searchResult.maxLangage, langage)" ng-class="{'buttonFilterOff': !langage.active, 'buttonFilterOn' : langage.active}">
+
+							                     </div>
+
+							                     <div class="filter" ng-if="themes[2].active === true">
+
+							                         <input type="button" value="{{contrat.type}}" name="button" ng-repeat="contrat in contrats" ng-click="changeFilter(searchResult.Contrat, searchResult.maxContrat, contrat)" ng-class="{'buttonFilterOff': !contrat.active, 'buttonFilterOn' : contrat.active}">
+
+							                     </div>
+
+							                 </div>
             </div>
         </div>
 
@@ -48,11 +57,11 @@
 						</div>
 						<div class="tagViewLang" ng-repeat="lang in searchResult.Langage">
 									{{lang}}
-									<div class="closeButton" ng-click="deleteLangTag()"></div>
+									<div class="closeButton" ng-click="deleteTag(searchResult.Langage, lang, langages)"></div>
 						</div>
 						<div class="tagViewCont" ng-repeat="cont in searchResult.Contrat">
 									{{cont}}
-									<div class="closeButton" ng-click="deleteContTag()"></div>
+									<div class="closeButton" ng-click="deleteTag(searchResult.Contrat, cont, contrats)"></div>
 						</div>
 					</div>
 					<div class="position" ng-if="data.length === 0">

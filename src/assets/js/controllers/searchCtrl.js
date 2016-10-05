@@ -3,11 +3,10 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
     $scope.contrats = serviceApi.contrats;
     $scope.langages = serviceApi.langages;
     $scope.themes = serviceApi.themes;
-    $scope.togglePromo = false;
-    $scope.toggleLangage = false;
-    $scope.toggleContrat = false;
     $scope.searchResult = {
         Langage: [],
+        maxLangage: 3,
+        maxContrat: 5,
         Ville: "",
         Contrat: [],
     };
@@ -51,47 +50,11 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
     searchFilter();
 
     // Changer la view des onglets. Ville/Langage/Contrat.
-    $scope.changeState = function() {
-        if (this.theme.name === 'Promo') {
-            this.theme.active = true;
-            $scope.themes[1].active = false;
-            $scope.themes[2].active = false;
-            if ($(window).width() < 640 && $scope.togglePromo === false) {
-                $('.filterRight').css('display', 'block');
-                $scope.togglePromo = true;
-                $scope.toggleLangage = false;
-                $scope.toggleContrat = false;
-            } else if ($(window).width() < 640 && $scope.togglePromo === true) {
-                $('.filterRight').css('display', 'none');
-                $scope.togglePromo = false;
-            }
-        } else if (this.theme.name === 'Langage') {
-            this.theme.active = true;
-            $scope.themes[0].active = false;
-            $scope.themes[2].active = false;
-            if ($(window).width() < 640 && $scope.toggleLangage === false) {
-                $('.filterRight').css('display', 'block');
-                $scope.togglePromo = false;
-                $scope.toggleLangage = true;
-                $scope.toggleContrat = false;
-            } else if ($(window).width() < 640 && $scope.toggleLangage === true) {
-                $('.filterRight').css('display', 'none');
-                $scope.toggleLangage = false;
-            }
-        } else if (this.theme.name === 'Contrat') {
-            this.theme.active = true;
-            $scope.themes[0].active = false;
-            $scope.themes[1].active = false;
-            if ($(window).width() < 640 && $scope.toggleContrat === false) {
-                $('.filterRight').css('display', 'block');
-                $scope.togglePromo = false;
-                $scope.toggleLangage = false;
-                $scope.toggleContrat = true;
-            } else if ($(window).width() < 640 && $scope.toggleContrat === true) {
-                $('.filterRight').css('display', 'none');
-                $scope.toggleContrat = false;
-            }
-        }
+    $scope.changeState = function(item) {
+        $scope.themes.forEach(function(theme) {
+            theme.active = false;
+        });
+        item.active = true;
     };
 
     // Selectionner les tags correspondant aux villes.
@@ -116,55 +79,20 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         }
     }
 
-    // Selectionner les tags correspondant aux langages.
-    $scope.changeFilterLangage = function() {
-        if ($scope.searchResult.Langage.length < 3) {
-            if (this.langage.active === false) {
-                this.langage.active = true;
-                $scope.searchResult.Langage.push(this.langage.type);
-                searchFilter();
-            } else if (this.langage.active === true) {
-                this.langage.active = false;
-                var index = $scope.searchResult.Langage.indexOf(this.langage.type);
-                if (index > -1) {
-                    $scope.searchResult.Langage.splice(index, 1);
-                }
-                searchFilter();
-            }
-        } else if ($scope.searchResult.Langage.length >= 3) {
-            this.langage.active = false;
-            var index = $scope.searchResult.Langage.indexOf(this.langage.type);
+    $scope.changeFilter = function(array, limit, item) {
+        if (item.active) {
+            item.active = false;
+            var index = array.indexOf(item.type);
             if (index > -1) {
-                $scope.searchResult.Langage.splice(index, 1);
+                array.splice(index, 1);
             }
             searchFilter();
-        }
-    };
-
-    // Selectionner les tags correspondant aux contrats
-    $scope.changeFilterContrat = function() {
-        if ($scope.searchResult.Contrat.length < 5) {
-            if (this.contrat.active === false) {
-                this.contrat.active = true;
-                $scope.searchResult.Contrat.push(this.contrat.type);
-                searchFilter();
-            } else if (this.contrat.active === true) {
-                this.contrat.active = false;
-                var index = $scope.searchResult.Contrat.indexOf(this.contrat.type);
-                if (index > -1) {
-                    $scope.searchResult.Contrat.splice(index, 1);
-                }
-                searchFilter();
-            }
-        } else if ($scope.searchResult.Contrat.length >= 5) {
-            this.contrat.active = false;
-            var index = $scope.searchResult.Contrat.indexOf(this.contrat.type);
-            if (index > -1) {
-                $scope.searchResult.Contrat.splice(index, 1);
-            }
+        } else if (!item.active && array.length < limit) {
+            item.active = true;
+            array.push(item.type);
             searchFilter();
         }
-    };
+    }
 
     // Pouvoir supprimmer un tag en cliquant sur la croix de l'icone dans le tableau de bord.
     $scope.deleteSchoolTag = function() {
@@ -178,27 +106,13 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
     };
 
     // Pouvoir supprimmer un tag en cliquant sur la croix de l'icone dans le tableau de bord.
-    $scope.deleteLangTag = function() {
-        for (var i = 0; i < $scope.langages.length; i++) {
-            if ($scope.langages[i].type === this.lang) {
-                $scope.langages[i].active = false;
-                var index = $scope.searchResult.Langage.indexOf(this.lang);
+    $scope.deleteTag = function(array, item, list) {
+        for (var i = 0; i < list.length; i++) {
+            if (list[i].type === item) {
+                list[i].active = false;
+                var index = array.indexOf(item);
                 if (index > -1) {
-                    $scope.searchResult.Langage.splice(index, 1);
-                }
-            }
-        }
-        searchFilter();
-    };
-
-    // Pouvoir supprimmer un tag en cliquant sur la croix de l'icone dans le tableau de bord.
-    $scope.deleteContTag = function() {
-        for (var i = 0; i < $scope.contrats.length; i++) {
-            if ($scope.contrats[i].type === this.cont) {
-                $scope.contrats[i].active = false;
-                var index = $scope.searchResult.Contrat.indexOf(this.cont);
-                if (index > -1) {
-                    $scope.searchResult.Contrat.splice(index, 1);
+                    array.splice(index, 1);
                 }
             }
         }
