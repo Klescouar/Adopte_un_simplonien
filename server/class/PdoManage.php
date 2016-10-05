@@ -4,9 +4,7 @@
  *
 */
 class PdoManage {
-
     protected $db;
-
     /**
      *  Constructeur charge l'objet PDO dans db
      *  @param $dp = objet pdo
@@ -14,7 +12,6 @@ class PdoManage {
     public function __construct(PDO $bdd){
         $this->db = $bdd;
     }
-
     /**
      *  Function verification de connection et envois du niveau de permission
      *  @param $pseudo = STRING pseudo de tentative de connection
@@ -24,45 +21,40 @@ class PdoManage {
         $verif = $this->db->prepare('SELECT id, password, permission FROM user WHERE pseudo = :pseudo');
         $verif->bindParam('pseudo', $pseudo, PDO::PARAM_STR);
         $verif->execute();
-
         $infoUser = $verif->fetch();
         $infoPermision = [];
-
         if (password_verify($password, $infoUser['password'])){
             $infoPermision['pseudo'] = $pseudo;
             $infoPermision['permission'] = $infoUser['permission'];
         } else {
             $infoPermision['permission'] = false;
         }
-
         return $infoPermision;
     }
-
-
     /**
      *  Function affiche info card
     */
     public function getCard(){
         $card = $this->db->query('SELECT id, Photo, SpecialiteUn, SpecialiteDeux, SpecialiteTrois, Nom, Prenom, Ville, Contrat FROM Students ORDER BY id');
         $data = [];
-
         while ($donnees = $card->fetch()) {
-            array_push($data, [
-                "id" => $donnees['id'],
-                "nom" => $donnees['Nom'],
-                "prenom" => $donnees['Prenom'],
-                "nomPrenom" => $donnees['Nom'].' '.$donnees['Prenom'],
-                "ville" => $donnees['Ville'],
-                "photo" => $donnees['Photo'],
-                "specialite1" => $donnees['SpecialiteUn'],
-                "specialite2" => $donnees['SpecialiteDeux'],
-                "specialite3" => $donnees['SpecialiteTrois'],
-                "contrat" => $donnees['Contrat']
-            ]);
+            if ($donnees['Nom'] !== '' ) {
+                array_push($data, [
+                    "id" => $donnees['id'],
+                    "nom" => $donnees['Nom'],
+                    "prenom" => $donnees['Prenom'],
+                    "nomPrenom" => $donnees['Nom'].' '.$donnees['Prenom'],
+                    "ville" => $donnees['Ville'],
+                    "photo" => $donnees['Photo'],
+                    "specialite1" => $donnees['SpecialiteUn'],
+                    "specialite2" => $donnees['SpecialiteDeux'],
+                    "specialite3" => $donnees['SpecialiteTrois'],
+                    "contrat" => $donnees['Contrat']
+                ]);
+            }
         }
         return $data;
     }
-
     /**
      *  Function affiche les card après filtrage
      *  @param $filtre = array contient les filtre
@@ -79,7 +71,6 @@ class PdoManage {
         $contrat3 = $filtre['Contrat'][2];
         $contrat4 = $filtre['Contrat'][3];
         $contrat5 = $filtre['Contrat'][4];
-
         $cardFilterDone = [];
         while ($donnees = $card->fetch()) {
             $recherche = $donnees['SpecialiteUn'].' '.$donnees['SpecialiteDeux'].' '.$donnees['SpecialiteTrois'].' '.$donnees['Ville'].' '.$donnees['Contrat'];
@@ -98,17 +89,14 @@ class PdoManage {
                 ]);
             }
         }
-
         return $cardFilterDone;
     }
-
     /**
      *  Function affiche user
     */
     public function getUser(){
         $user = $this->db->query('SELECT id, pseudo, permission FROM user ORDER BY id');
         $data = [];
-
         while ($donnees = $user->fetch()) {
             array_push($data, [
                 "id" => $donnees['id'],
@@ -118,14 +106,12 @@ class PdoManage {
         }
         return $data;
     }
-
     /**
      *  Function liste les articles simplonien
     */
     public function getListeArticle(){
         $listeArticle = $this->db->query('SELECT id, prenom, nom, age, ville FROM Students ORDER BY id');
         $data = [];
-
         while ($donnees = $listeArticle->fetch()) {
             array_push($data, [
                 "id" => $donnees['id'],
@@ -135,10 +121,8 @@ class PdoManage {
                 "ville" => $donnees['ville']
             ]);
         }
-
         return $data;
     }
-
     /**
      *  Function affiche article simplonien
      *  @param $id = INT id de l'article
@@ -147,7 +131,6 @@ class PdoManage {
         $simplonien = $this->db->prepare('SELECT Prenom, Nom, Age, Ville, Photo, Tags, Description, Sexe, Domaine, SpecialiteUn, SpecialiteDeux, SpecialiteTrois, Github, Linkedin, Portfolio, CV, Twitter, StackOverFlow, Mail, Contrat, DatePromo FROM Students WHERE id = :id');
         $simplonien->bindParam('id', $id, PDO::PARAM_INT);
         $simplonien->execute();
-
         $data = [];
         $donnees = $simplonien->fetch();
         if (!empty($donnees['Prenom'])) {
@@ -177,17 +160,14 @@ class PdoManage {
         } else {
             $data = 'Article Simplonien innexistant';
         }
-
         return $data;
     }
-
     /**
      *  Function liste les simplon disponible
     */
     public function getVilleSimplon(){
         $listeSimplon = $this->db->query('SELECT id, Ville, Rue, Code, Mail, Phone FROM Ville ORDER BY id');
         $data = [];
-
         while ($donnees = $listeSimplon->fetch()) {
             array_push($data, [
                 "id" => $donnees['id'],
@@ -198,10 +178,8 @@ class PdoManage {
                 "phone" => $donnees['Phone']
             ]);
         }
-
         return $data;
     }
-
     /**
      *  Function  créer utilisateur
      *  @param $data = Array contient pseudo et password du nouvel utilisateur
@@ -212,24 +190,19 @@ class PdoManage {
         $verifPseudo->bindParam('pseudo', $data['pseudo'], PDO::PARAM_STR);
         $verifPseudo->execute();
         $testPseudo = $verifPseudo->fetch();
-
         if (isset($testPseudo['id'])) {
             return 'pseudo déjà existant';
         } else {
-
             $password = password_hash($data['password'], PASSWORD_DEFAULT);
-
             $addUser = $this->db->prepare("INSERT INTO user(pseudo, password, permission) VALUES (:pseudo, :password, :permission) ");
             $addUser->execute(array(
                 'pseudo' => $data['pseudo'],
                 'password' => $password,
                 'permission' => 'user'
             ));
-
             return 'Ça roule ma poule';
         }
     }
-
     /**
      *  Function créer fiche simplonien
      *  @param $data = Array contient les info de l'article simplonien
@@ -242,7 +215,6 @@ class PdoManage {
        $verifSimplonien->bindParam('age', $info['age'], PDO::PARAM_INT);
        $verifSimplonien->execute();
        $testSimplonien = $verifSimplonien->fetch();
-
        if ($testSimplonien['id']) {
            return 'Simplonien déjà existant';
        } else {
@@ -270,11 +242,9 @@ class PdoManage {
                'Contrat' => $info['contrat'],
                'DatePromo' => $info['datePromo']
            ));
-
            return $info['prenom'].' Créé';
        }
    }
-
    /**
     *  Function créer simplon
     *  @param $data = Array contient les info de l'article simplonien
@@ -286,7 +256,6 @@ class PdoManage {
       $verifSimplon->bindParam('rue', $info['rue'], PDO::PARAM_STR);
       $verifSimplon->execute();
       $testSimplon = $verifSimplon->fetch();
-
       if ($testSimplon['id']) {
           return 'Simplon d"jà existant';
       } else {
@@ -298,11 +267,9 @@ class PdoManage {
               'mail' => $info['mail'],
               'phone' => $info['phone']
           ));
-
           return $info['Ville'].' Créé';
       }
   }
-
     /**
      *  Function supprime utilisateur
      *  @param $id = INT id de l'utilisateur à supprimer
@@ -310,10 +277,8 @@ class PdoManage {
     public function deleteUser($id){
         $delete = $this->db->prepare('DELETE FROM user WHERE id = :id');
         $delete->execute(array('id' => $id));
-
         return 'utilisateur '.$id.' supprimé';
     }
-
     /**
      *  Function supprime simplonien
      *  @param $id = INT id du simplonien à supprimer
@@ -321,10 +286,8 @@ class PdoManage {
     public function deleteSimplonien($id){
         $delete = $this->db->prepare('DELETE FROM Students WHERE id = :id');
         $delete->execute(array('id' => $id));
-
         return 'simplonien '.$id.' supprimé';
     }
-
     /**
      *  Function supprime simplon
      *  @param $id = INT id du simplon à supprimer
@@ -332,10 +295,8 @@ class PdoManage {
     public function deleteSimplon($id){
         $delete = $this->db->prepare('DELETE FROM Ville WHERE id = :id');
         $delete->execute(array('id' => $id));
-
         return 'simplon '.$id.' supprimé';
     }
-
     /**
      *  Function modifie article simplonien
      *  @param $id = INT id de l'article simplonien à modifer
@@ -345,7 +306,6 @@ class PdoManage {
         $simplonien = $this->db->prepare('SELECT Prenom, Nom, Age, Ville, Photo, Tags, Description, Sexe, Domaine, SpecialiteUn, SpecialiteDeux, SpecialiteTrois, Github, Linkedin, Portfolio, CV, Twitter, StackOverFlow, Mail, Contrat, DatePromo FROM Students WHERE id = :id');
         $simplonien->bindParam('id', $id, PDO::PARAM_INT);
         $simplonien->execute();
-
         $donnees = $simplonien->fetch();
         if (!empty($donnees['Prenom'])) {
             $modifySimplonien = $this->db->prepare("UPDATE Students SET Prenom = :Prenom, Nom = :Nom, Age = :Age, Ville = :Ville, Photo = :Photo, Tags = :Tags, Description = :Description, Sexe = :Sexe, Domaine = :Domaine, SpecialiteUn = :SpecialiteUn, SpecialiteDeux = :SpecialiteDeux, SpecialiteTrois = :SpecialiteTrois, Github = :Github, Linkedin = :Linkedin, Portfolio = :Portfolio, CV = :CV, Twitter = :Twitter, StackOverFlow = :StackOverFlow, Mail = :Mail, Contrat = :Contrat, datePromo = :DatePromo WHERE id = :id ");
@@ -373,12 +333,10 @@ class PdoManage {
                 'Contrat' => $info['contrat'],
                 'DatePromo' => $info['datePromo']
             ));
-
             $response = 'Article Simplonien modifié';
         } else {
             $response =' Article Simplonien non trouvé';
         }
-
         return $info['prenom'];
     }
 }
