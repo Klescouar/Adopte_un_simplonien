@@ -2,7 +2,7 @@ app.controller('projectCtrl', ['$scope', '$http', 'serviceApi', '$timeout', '$wi
     $scope.showDescription = false;
     $scope.showDescription2 = false;
 
-// Apparition des descriptions en dessous de 640px avec un léger délai.
+    // Apparition des descriptions en dessous de 640px avec un léger délai.
     $timeout(function() {
         if (window.innerWidth < 640) {
             $scope.showDescription = true;
@@ -10,12 +10,19 @@ app.controller('projectCtrl', ['$scope', '$http', 'serviceApi', '$timeout', '$wi
         }
     }, 70);
 
-// Apparition de la première description au premier scroll et de la deuxième a partir de 600px de hauteur.
+    // Apparition de la première description au premier scroll et de la deuxième a partir de 600px de hauteur.
     angular.element($window).bind("scroll", function(e) {
-        $scope.showDescription = true;
-        console.log(window.pageYOffset);
+        if (window.pageYOffset > 40) {
+            $scope.showDescription = true;
+        }
+        else if (window.pageYOffset < 40) {
+          $scope.showDescription = false ;
+        }
         if (window.pageYOffset > 600) {
             $scope.showDescription2 = true;
+        }
+        else if (window.pageYOffset < 500) {
+          $scope.showDescription2 = false;
         }
         $scope.$apply(function() {});
     });

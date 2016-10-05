@@ -1,5 +1,5 @@
 node_modules
-/src/assets/js/services/serviceApi.js
+src/assets/js/services/serviceApi.js
 phpmyadmin/
 /src/assets/scss/.DS_Store
 /src/assets/.DS_Store
