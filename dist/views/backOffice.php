@@ -15,7 +15,7 @@
 
 	</div>
 	<div class="container-interface">
-		<h1 ng-if="show === 0"> Welcome in your BackOffice Norbert!</h1>
+		<h1 ng-if="show === 0"> Welcome to your BackOffice Norbert!</h1>
 		<form class="container-create-user" ng-submit="createAccount()" ng-show="show==1">
 			<h2>Créer un utilisateur</h2>
 	        		<input class="input-style" type="text" ng-model="boCreatePseudo" placeholder="Pseudo utilisateur (minimum 3 caractères)" required>
@@ -32,7 +32,7 @@
 				<div class="cont-info" ng-repeat="user in users">
 					<p ng-if="user.permission !== 'admin'" class="cont-pseudo">{{user.pseudo}}</p>
 					<p ng-if="user.permission !== 'admin'" class="cont-perm">{{user.permission}}</p>
-					<div ng-if="user.permission !== 'admin'" class="delete-user" ng-click="deleteItem(user.id)" confirm="Are you sure ?"></div>
+					<div ng-if="user.permission !== 'admin'" class="delete-user" ng-click="deleteItem(user.id)"></div>
 				</div>
 
 

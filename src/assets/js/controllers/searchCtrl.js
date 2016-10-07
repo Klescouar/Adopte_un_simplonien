@@ -4,9 +4,9 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
     $scope.langages = serviceApi.langages;
     $scope.themes = serviceApi.themes;
     $scope.searchResult = {
-        Langage: [],
         maxLangage: 3,
         maxContrat: 5,
+        Langage: [],
         Ville: "",
         Contrat: [],
     };
@@ -49,12 +49,23 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
 
     searchFilter();
 
+
     // Changer la view des onglets. Ville/Langage/Contrat.
     $scope.changeState = function(item) {
-        $scope.themes.forEach(function(theme) {
-            theme.active = false;
-        });
-        item.active = true;
+        if (window.innerWidth > 640) {
+            $scope.themes.forEach(function(theme) {
+                theme.active = false;
+            });
+            item.active = true;
+        }
+        if (window.innerWidth < 640 && item.active === true) {
+            item.active = false;
+        } else if (window.innerWidth < 640 && item.active === false) {
+            $scope.themes.forEach(function(theme) {
+                theme.active = false;
+            });
+            item.active = true;
+        }
     };
 
     // Selectionner les tags correspondant aux villes.
@@ -62,21 +73,19 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         if (this.school.active === true) {
             this.school.active = false;
             $scope.searchResult.Ville = "";
-            searchFilter();
         } else {
             if ($scope.searchResult.Ville.length === 0) {
                 this.school.active = true;
                 $scope.searchResult.Ville = this.school.ville;
-                searchFilter();
             } else if ($scope.searchResult.Ville.length > 0) {
                 for (var i = 0; i < $scope.schools.length; i++) {
                     $scope.schools[i].active = false;
                     this.school.active = true;
                     $scope.searchResult.Ville = this.school.ville;
                 }
-                searchFilter();
             }
         }
+        searchFilter();
     }
 
     $scope.changeFilter = function(array, limit, item) {
@@ -86,12 +95,11 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
             if (index > -1) {
                 array.splice(index, 1);
             }
-            searchFilter();
         } else if (!item.active && array.length < limit) {
             item.active = true;
             array.push(item.type);
-            searchFilter();
         }
+        searchFilter();
     }
 
     // Pouvoir supprimmer un tag en cliquant sur la croix de l'icone dans le tableau de bord.

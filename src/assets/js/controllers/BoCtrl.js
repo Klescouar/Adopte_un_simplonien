@@ -44,17 +44,18 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
     // to delete an acount user in the list
 
     $scope.deleteItem = function(index) {
-
-        $http.delete(serviceApi.deleteUser + index)
-            .then(
-                function(response) {
-                    alert('Utilisateur supprimé!');
-                    $scope.showUser();
-                },
-                function(err) {
-                    console.log("Error");
-                }
-            );
+        var response = confirm("Vouslez vous vraiment supprimer cet utilisateur?");
+        if (response === true) {
+            $http.delete(serviceApi.deleteUser + index)
+                .then(
+                    function(response) {
+                        $scope.showUser();
+                    },
+                    function(err) {
+                        console.log("Error");
+                    }
+                );
+        }
     };
 
     $scope.showUser();
@@ -121,17 +122,19 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
     // to delete a Simplonien card
 
     $scope.deleteSimplonien = function(index) {
-
-        $http.delete(serviceApi.deleteSimplonien + index)
-            .then(
-                function(response) {
-                    alert('Simplonien supprimé!');
-                    $scope.showSimplonien();
-                },
-                function(err) {
-                    console.log("Error");
-                }
-            );
+        var response = confirm("Vouslez vous vraiment supprimer ce simplonien?");
+        if (response === true) {
+            $http.delete(serviceApi.deleteSimplonien + index)
+                .then(
+                    function(response) {
+                        alert('Simplonien supprimé!');
+                        $scope.showSimplonien();
+                    },
+                    function(err) {
+                        console.log("Error");
+                    }
+                );
+        }
     };
     $scope.showSimplonien();
 

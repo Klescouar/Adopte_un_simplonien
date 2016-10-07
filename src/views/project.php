@@ -2,7 +2,7 @@
 	<div class="position">
 		<p class="title-simplon" ng-click="showTop()" ng-class="{'title-simplon-closed': showDescription}">Qu'est ce que simplon.co ?</p>
 	</div>
-	<div class="cont-img-description cont-img" ng-click="showTop()" ng-class="{'cont-img-description-simple':showDescription}">
+	<div class="cont-img-description cont-img" ng-class="{'cont-img-description-simple':showDescription}">
 		<div class="mask" ng-class="{'mask-is-open': showDescription}">
 		</div>
 		<div class="generic-cont-description description-simlpon"  ng-class="{'description-simlpon-is-open': showDescription}">
@@ -14,7 +14,7 @@
 		<div class="mask2" ng-class="{'mask2-is-open': showDescription}"></div>
 	</div>
 	<div class="position">
-		<p class="title-recrutement" ng-click="showDown()" ng-class="{'title-recrutement-closed': showDescription2}">Adopter un simplonien ?</p>
+		<p class="title-recrutement" ng-class="{'title-recrutement-closed': showDescription2}">Adopter un simplonien ?</p>
 	</div>
 	<div class="cont-img-description-down cont-img" ng-click="showDown()">
 		<div class="mask" ng-class="{'mask-is-open': showDescription2}">
