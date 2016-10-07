@@ -1,4 +1,4 @@
-app.service("serviceApi", function(){
+app.service("serviceApi", () => {
 
   this.api =  'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/card';
   this.filter = 'http://localhost/LAMP/Adopte_un_simplonien/server/index.php/api/cardFiltre';

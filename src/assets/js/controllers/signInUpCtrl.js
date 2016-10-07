@@ -1,9 +1,9 @@
-app.controller('signInUpCtrl', ['$scope', '$http', 'serviceApi', function($scope, $http, serviceApi) {
+app.controller('signInUpCtrl', ['$scope', '$http', 'serviceApi', ($scope, $http, serviceApi) => {
     $scope.signToggle = 1;
     $scope.verifPass = true;
 
     // Fonction LOGIN
-    $scope.loginPost = function() {
+    $scope.loginPost = () => {
         // Stockage du pseudo et du password dans l'objet login.
         var login = {
             pseudo: $('#connectPseudo').val(),
@@ -21,21 +21,21 @@ app.controller('signInUpCtrl', ['$scope', '$http', 'serviceApi', function($scope
     };
 
     // Gestion des différentes views de la modal.
-    $scope.logBox = function() {
+    $scope.logBox = () => {
         $scope.signToggle = 1;
     };
 
 
-    $scope.signBox = function() {
+    $scope.signBox = () => {
         $scope.signToggle = 2;
     };
 
-    $('#signInUp').on('hidden.bs.modal', function() {
+    $('#signInUp').on('hidden.bs.modal', () => {
         $scope.signToggle = 1;
     });
 
     // Créer un compte.
-    $scope.createAccount = function() {
+    $scope.createAccount = () => {
         // Vérification des MDP
         if ($('#mdp').val() !== $('#mdp-verif').val()) {
             $scope.verifPass = false;

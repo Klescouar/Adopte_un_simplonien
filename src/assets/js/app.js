@@ -1,6 +1,6 @@
 var app = angular.module('AdopteUnSimplonien', ['ngRoute','ngAnimate']);
 
-app.config(['$routeProvider', function($routeProvider) {
+app.config(['$routeProvider', ($routeProvider) => {
     $routeProvider
         .when('/', {
             templateUrl: 'views/home.php'

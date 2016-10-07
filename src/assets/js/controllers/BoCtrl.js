@@ -1,9 +1,9 @@
-app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout', function($scope, $http, serviceApi, $route, $timeout) {
+app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout', ($scope, $http, serviceApi, $route, $timeout) => {
 
     $scope.show = 0;
 
     // to creat an acout user
-    $scope.createAccount = function() {
+    $scope.createAccount = () => {
 
         if ($scope.boCreateMdpVerif === $scope.boCreateMdp && $scope.boCreatePseudo.length > 2 && $scope.boCreateMdpVerif.length > 5) {
 
@@ -28,7 +28,7 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
 
     // to show user list
 
-    $scope.showUser = function() {
+    $scope.showUser = () => {
 
         $http.get(serviceApi.getUser)
             .then(
@@ -43,8 +43,8 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
 
     // to delete an acount user in the list
 
-    $scope.deleteItem = function(index) {
-        var response = confirm("Vouslez vous vraiment supprimer cet utilisateur?");
+    $scope.deleteItem = (index) => {
+        var response = confirm("Voulez vous vraiment supprimer cet utilisateur?");
         if (response === true) {
             $http.delete(serviceApi.deleteUser + index)
                 .then(
@@ -62,7 +62,7 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
 
     // to create a simplonien card
 
-    $scope.createSimplonien = function() {
+    $scope.createSimplonien = () => {
         var dataStudent = {
             nom: $scope.boCreateLastName,
             prenom: $scope.boCreateName,
@@ -91,12 +91,12 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
 
         $http.post(serviceApi.createStudent, dataStudent)
             .then(
-                function(response) {
+                (response) => {
                     console.log(response.data);
                     alert('Simplonien créé!');
                     $scope.showSimplonien();
                 },
-                function(err) {
+                (err) => {
                     console.log("Error");
                 }
             );
@@ -105,7 +105,7 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
 
     // to show Simplonien list
 
-    $scope.showSimplonien = function() {
+    $scope.showSimplonien = () => {
         $http.get(serviceApi.getSimplonien)
             .then(
                 function(response) {
@@ -121,8 +121,8 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
 
     // to delete a Simplonien card
 
-    $scope.deleteSimplonien = function(index) {
-        var response = confirm("Vouslez vous vraiment supprimer ce simplonien?");
+    $scope.deleteSimplonien = (index) => {
+        var response = confirm("Voulez vous vraiment supprimer ce simplonien?");
         if (response === true) {
             $http.delete(serviceApi.deleteSimplonien + index)
                 .then(
@@ -140,15 +140,15 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
 
     // to modify a Simplonien's card
 
-    $scope.modify = function(index) {
+    $scope.modify = (index) => {
         $scope.show = 5;
         $scope.id = index;
         $http.get(serviceApi.modifySimplonien + index)
             .then(
-                function(response) {
+                (response) => {
                     $scope.infoSimploniens = response.data;
                 },
-                function(err) {
+                (err) => {
                     console.log("Error");
                 }
             );
@@ -156,7 +156,7 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
 
 
 
-    $scope.sendModif = function() {
+    $scope.sendModif = () => {
 
         var dataInfoSimploniens = {
             nom: document.getElementById("boCreateLastNameSimploniens").value,
@@ -185,12 +185,12 @@ app.controller('boCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout',
 
         $http.put(serviceApi.modifySendSimplonien + $scope.id, dataInfoSimploniens)
             .then(
-                function(response) {
+                (response) => {
                     alert('Simplonien modifié!')
                     $scope.showSimplonien();
 
                 },
-                function(err) {
+                (err) => {
                     console.log("Error");
                 }
             );

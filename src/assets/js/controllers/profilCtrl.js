@@ -1,10 +1,10 @@
-app.controller('profilCtrl', ['$scope', '$http', 'serviceApi', '$routeParams', function($scope, $http, serviceApi, $routeParams) {
+app.controller('profilCtrl', ['$scope', '$http', 'serviceApi', '$routeParams', ($scope, $http, serviceApi, $routeParams) => {
 $scope.contactStud = 1;
 $scope.verifChamps = false;
 
 
 // Vérification des inputs pour l'envoie de mail au simplonien.
-$scope.contactStudent = function(){
+$scope.contactStudent = () => {
     if ($('.inputMail').val().length > 0 && $('.textAreaMail').val().length > 0) {
         $scope.contactStud = 2;
     }

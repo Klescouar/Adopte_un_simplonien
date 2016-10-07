@@ -1,47 +1,53 @@
 .cont-simplon-description {
 	overflow: hidden;
+
 	.title-simplon {
 		position: relative;
-		left: -50%;
 		color: white;
 		font-weight: bold;
 		font-size: 2.6em;
 		width: 510px;
 		text-decoration: none;
 		z-index: 1;
+		left: 0;
 		transition: all 0.3s;
 	}
+
 	.title-recrutement {
 		position: relative;
-		margin-top: 120%;
-		left: -50%;
 		color: white;
 		width: 510px;
 		font-weight: bold;
 		font-size: 2.6em;
 		text-decoration: none;
 		z-index: 1;
+		left: 0;
 		transition: all 0.3s;
 	}
+
 	.title-simplon-closed {
 		transition: all 0.3s;
 		left: 16%;
 		font-size: 0;
 	}
+
 	.title-recrutement-closed {
 		transition: all 0.3s;
 		left: 16%;
 		font-size: 0;
 	}
+
 	.cont-img-description {
 		background: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url("../images/simplonContact2.jpg") no-repeat center;
 		background-size: cover;
 		min-height: calc(100vh - 60px);
+
 		.description-simlpon {
 			bottom: -1565px;
 			background-color: #DE5B49;
 			right: 4%;
 			visibility: hidden;
+
 			.corpus-description {
 				color: white;
 				margin-right: 50px;
@@ -54,6 +60,7 @@
 				font-stretch: normal;
 				line-height: 35px;
 			}
+
 			.end-description {
 				color: white;
 				margin-right: 40px;
@@ -67,6 +74,7 @@
 				line-height: 35px;
 			}
 		}
+
 		.description-simlpon-is-open {
 			transition: all 1s;
 			visibility: visible;
@@ -79,6 +87,7 @@
 			width: 30%;
 			font-size: 0.8em;
 			z-index: 1;
+
 			.corpus-description {
 				color: white;
 				margin: 30px;
@@ -89,6 +98,7 @@
 				font-stretch: normal;
 				line-height: 30px;
 			}
+
 			.end-description {
 				color: white;
 				margin: 40px;
@@ -112,6 +122,7 @@
 		height: 0;
 		width: 100%;
 	}
+
 	.mask-is-open {
 		transition: all 1s;
 		display: flex;
@@ -122,6 +133,7 @@
 		height: 14vh;
 		background: #fff;
 	}
+
 	.mask2 {
 		transition: all 1s;
 		visibility: hidden;
@@ -129,6 +141,7 @@
 		width: 100%;
 		background: #fff;
 	}
+
 	.mask2-is-open {
 		transition: all 1s;
 		visibility: visible;
@@ -141,11 +154,13 @@
 		background: linear-gradient(rgba(115,159,190,0.30), rgba(115,159,190,0.30)), url("../images/codecamp_2015_-9.jpg") no-repeat center;
 		background-size: cover;
 		min-height: calc(100vh - 50px);
+
 		.description-simlpon {
 			bottom: -1565px;
 			background-color: #DE5B49;
 			left: 4%;
 			visibility: hidden;
+
 			.corpus-description {
 				color: white;
 				margin-right: 50px;
@@ -158,6 +173,7 @@
 				font-stretch: normal;
 				line-height: 35px;
 			}
+
 			.end-description {
 				color: white;
 				margin-right: 40px;
@@ -171,6 +187,7 @@
 				line-height: 35px;
 			}
 		}
+
 		.description-simlpon-is-open {
 			transition: all 1s;
 			visibility: visible;
@@ -184,6 +201,7 @@
 			width: 30%;
 			left: 4%;
 			z-index: 1;
+
 			.corpus-description {
 				color: white;
 				margin-right: 40px;
@@ -196,6 +214,7 @@
 				font-stretch: normal;
 				line-height: 35px;
 			}
+
 			.end-description {
 				color: white;
 				margin: 40px;
@@ -209,6 +228,7 @@
 		}
 	}
 }
+
 .cont-img {
 	display: flex;
 	justify-content: space-between;
@@ -216,6 +236,11 @@
 	position: relative;
 	width: 100%;
 }
+.position {
+	position: absolute;
+	margin: 40vh auto 0 30vw;
+}
+
 .generic-cont-description {
 	transition: all 1s;
 	bottom: -1565px;
@@ -227,30 +252,33 @@
 	position: absolute;
 	z-index: 200;
 }
+
 .arrow {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  margin-left: -20px;
-  width: 40px;
-  height: 40px;
-  background-image: url('../images/down-arrow.png');
-  background-size: contain;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	margin-left: -20px;
+	width: 40px;
+	height: 40px;
+	background-image: url('../images/down-arrow.png');
+	background-size: contain;
 }
 
 .bounce {
-  -moz-animation: bounce 2s infinite;
-  -webkit-animation: bounce 2s infinite;
-  animation: bounce 2s infinite;
+	-moz-animation: bounce 2s infinite;
+	-webkit-animation: bounce 2s infinite;
+	animation: bounce 2s infinite;
 }
 @media screen and (max-width: 640px) {
 	.cont-simplon-description {
 		.mask-is-open {
 			display: none;
 		}
+
 		.mask2-is-open {
 			display: none;
 		}
+
 		.cont-img-description {
 			.description-simlpon-is-open {
 				width: 100%;
@@ -262,11 +290,13 @@
 				bottom: 0;
 				right: 0;
 				left: 0;
+
 				.corpus-description {
 					margin-right: 20px;
 					margin-left: 20px;
 					margin-top: 20px;
 				}
+
 				.end-description {
 					color: white;
 					margin: 40px;
@@ -276,6 +306,7 @@
 			}
 		}
 	}
+
 	.cont-simplon-description .cont-img-description-down .description-simlpon-is-open {
 		width: 100%;
 		height: 100%;
@@ -286,11 +317,13 @@
 		bottom: 0;
 		right: 0;
 		left: 0;
+
 		.corpus-description {
 			margin-right: 20px;
 			margin-left: 20px;
 			margin-top: 20px;
 		}
+
 		.end-description {
 			color: white;
 			margin: 40px;
@@ -298,40 +331,44 @@
 			text-align: right;
 		}
 	}
+
 	.cont-simplon-description .title-simplon {
 		display: none;
 	}
+
 	.cont-simplon-description .title-recrutement {
 		display: none;
 	}
-	.arrow {
-
+}
+@media screen and (max-width: 1200px) {
+	.position {
+		position: absolute;
+		margin: 40vh auto 0 20vw;
 	}
 }
-
-.position{
-	position: absolute;
-	left: 50%;
-	top: 50%;
-}
-
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-  40% {
-    -moz-transform: translateY(-30px);
-    -ms-transform: translateY(-30px);
-    -webkit-transform: translateY(-30px);
-    transform: translateY(-30px);
-  }
-  60% {
-    -moz-transform: translateY(-15px);
-    -ms-transform: translateY(-15px);
-    -webkit-transform: translateY(-15px);
-    transform: translateY(-15px);
-  }
+	0%,
+	100%,
+	20%,
+	50%,
+	80% {
+		-moz-transform: translateY(0);
+		-ms-transform: translateY(0);
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	40% {
+		-moz-transform: translateY(-30px);
+		-ms-transform: translateY(-30px);
+		-webkit-transform: translateY(-30px);
+		transform: translateY(-30px);
+	}
+
+	60% {
+		-moz-transform: translateY(-15px);
+		-ms-transform: translateY(-15px);
+		-webkit-transform: translateY(-15px);
+		transform: translateY(-15px);
+	}
 }

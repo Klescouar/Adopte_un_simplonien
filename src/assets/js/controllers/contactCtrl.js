@@ -1,4 +1,4 @@
-app.controller('contactCtrl', ['$scope', '$http', 'serviceApi', '$window', function($scope, $http, serviceApi, $window) {
+app.controller('contactCtrl', ['$scope', '$http', 'serviceApi', '$window', ($scope, $http, serviceApi, $window) => {
     $scope.schools = serviceApi.schools;
     $scope.showForm = false;
 

@@ -13,7 +13,7 @@ var sass = require('gulp-sass');
 var browserSync = require('browser-sync');
 var prefix = require('gulp-autoprefixer');
 var plumber = require('gulp-plumber');
-var jshint = require('gulp-jshint');
+// var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var uglify = require('gulp-uglify');
 var rename = require("gulp-rename");
@@ -76,26 +76,26 @@ gulp.task('browser-sync', function() {
  * - JsLint
  *
  **/
-gulp.task('scripts', function() {
-
-    //source
-    gulp.src('src/assets/js/**/*.js')
-
-    //lint
-    .pipe(jshint())
-        .pipe(jshint.reporter(stylish))
-
-    //uglify
-    .pipe(uglify())
-
-    //rename
-    .pipe(rename({
-        dirname: "min",
-        suffix: ".min",
-    }))
-
-    .pipe(gulp.dest('dist/assets/js'))
-});
+// gulp.task('scripts', function() {
+//
+//     //source
+//     gulp.src('src/assets/js/**/*.js')
+//
+//     //lint
+//     .pipe(jshint())
+//         .pipe(jshint.reporter(stylish))
+//
+//     //uglify
+//     .pipe(uglify())
+//
+//     //rename
+//     .pipe(rename({
+//         dirname: "min",
+//         suffix: ".min",
+//     }))
+//
+//     .pipe(gulp.dest('dist/assets/js'))
+// });
 
 
 
@@ -150,9 +150,8 @@ gulp.task('copy', function() {
  * - Watchs for file changes for images, scripts and sass/css
  *
  **/
-gulp.task('default', ['sass', 'scripts', 'images', 'copy', 'browser-sync'], function() {
+gulp.task('default', ['sass', 'images', 'copy', 'browser-sync'], function() {
     gulp.watch('src/assets/scss/**/*.scss', ['sass']);
-    gulp.watch('src/**/*.js', ['scripts']);
     gulp.watch('src/assets/images/*', ['images']);
     gulp.watch('src/index.php', ['copy']);
     gulp.watch('src/views/*.php', ['copy']);

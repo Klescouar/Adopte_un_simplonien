@@ -1,4 +1,4 @@
-app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, $http, serviceApi) {
+app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', ($scope, $http, serviceApi) => {
     $scope.schools = serviceApi.schools;
     $scope.contrats = serviceApi.contrats;
     $scope.langages = serviceApi.langages;
@@ -14,17 +14,17 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
     // Récupération de l'api contenant les cards et toutes leurs infos.
     $http.get(serviceApi.api)
         .then(
-            function(response) {
+            (response) => {
                 $scope.data = response.data;
                 $scope.cardFull = response.data;
             },
-            function(err) {
+            (err) => {
                 console.log("Error");
             });
 
 
     // Comparaison entre les cards et les filtres sélectionné par l'utilisateur et restitution des cards filtrés.
-    var searchFilter = function() {
+    var searchFilter = () => {
         $scope.data = [];
 
         // Stockage des infos de searchResult (l'objet où sont stocké les filtres sélectionnés) dans des variables indépendantes.
@@ -39,7 +39,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         var contrat5 = typeof $scope.searchResult.Contrat[4] !== 'undefined' ? $scope.searchResult.Contrat[4] : '';
 
         // On parcourt chaque card contenu dans la variable cardFull, on mets en place d'une STRING dans la variable 'recherche' contenant toutes les infos de la card afin de comparer celle ci avec les tags des variables ci dessus. Si la comparaison match, on push la card dans $scope.data et elle sera affichée dans le front.
-        angular.forEach($scope.cardFull, function(value, key) {
+        angular.forEach($scope.cardFull, (value, key) => {
             var recherche = value.contrat + ' ' + value.specialite1 + ' ' + value.specialite2 + ' ' + value.specialite3 + ' ' + value.ville;
             if (recherche.match("^(?=.*" + lang1 + ")(?=.*" + lang2 + ")(?=.*" + lang3 + ")(?=.*" + ville + ")(?=.*" + contrat1 + ")(?=.*" + contrat2 + ")(?=.*" + contrat3 + ")(?=.*" + contrat4 + ")(?=.*" + contrat5 + ")", "i")) {
                 $scope.data.push(value);
@@ -51,7 +51,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
 
 
     // Changer la view des onglets. Ville/Langage/Contrat.
-    $scope.changeState = function(item) {
+    $scope.changeState = (item) => {
         if (window.innerWidth > 640) {
             $scope.themes.forEach(function(theme) {
                 theme.active = false;
@@ -69,7 +69,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
     };
 
     // Selectionner les tags correspondant aux villes.
-    $scope.changeFilterSchool = function() {
+    $scope.changeFilterSchool = () => {
         if (this.school.active === true) {
             this.school.active = false;
             $scope.searchResult.Ville = "";
@@ -88,7 +88,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
         searchFilter();
     }
 
-    $scope.changeFilter = function(array, limit, item) {
+    $scope.changeFilter = (array, limit, item) => {
         if (item.active) {
             item.active = false;
             var index = array.indexOf(item.type);
@@ -103,7 +103,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
     }
 
     // Pouvoir supprimmer un tag en cliquant sur la croix de l'icone dans le tableau de bord.
-    $scope.deleteSchoolTag = function() {
+    $scope.deleteSchoolTag = () => {
         for (var i = 0; i < $scope.schools.length; i++) {
             if ($scope.schools[i].ville === $scope.searchResult.Ville) {
                 $scope.schools[i].active = false;
@@ -114,7 +114,7 @@ app.controller('searchCtrl', ['$scope', '$http', 'serviceApi', function($scope, 
     };
 
     // Pouvoir supprimmer un tag en cliquant sur la croix de l'icone dans le tableau de bord.
-    $scope.deleteTag = function(array, item, list) {
+    $scope.deleteTag = (array, item, list) => {
         for (var i = 0; i < list.length; i++) {
             if (list[i].type === item) {
                 list[i].active = false;

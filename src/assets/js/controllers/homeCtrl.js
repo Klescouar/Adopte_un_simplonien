@@ -1,7 +1,7 @@
-app.controller('homeCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout', function($scope, $http, serviceApi, $route, $timeout) {
+app.controller('homeCtrl', ['$scope', '$http', 'serviceApi', '$route', '$timeout', ($scope, $http, serviceApi, $route, $timeout) => {
     $scope.button = true;
 
-    $scope.changeButton = function() {
+    $scope.changeButton = () => {
         $scope.button = false;
     }
 }]);
